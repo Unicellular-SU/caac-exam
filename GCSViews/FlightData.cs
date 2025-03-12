@@ -265,57 +265,7 @@ namespace MissionPlanner.GCSViews
 
             log.Info("Tunning Graph Settings");
             // setup default tuning graph
-            if (Settings.Instance["Tuning_Graph_Selected"] != null)
-            {
-                string line = Settings.Instance["Tuning_Graph_Selected"].ToString();
-                string[] lines = line.Split(new[] {'|'}, StringSplitOptions.RemoveEmptyEntries);
-                foreach (string option in lines)
-                {
-                    string name = option;
-                    if (option.StartsWith("customfield"))
-                    {
-                        // add empty custom felids so the are un-tickable
-                        if (option.Length <= 12)
-                        {
-                            // string only contains key
-                            CurrentState.custom_field_names.Add(option, "Unknown");
-                        }
-                        else
-                        {
-                            // both key and name
-                            name = option.Substring(0,12);
-                            CurrentState.custom_field_names.Add(name, option.Substring(12));
-                        }
-                    }
-                    string desc = MainV2.comPort.MAV.cs.GetNameandUnit(name);
-                    using (var cb = new CheckBox {Name = name, Checked = true, Text = desc})
-                    {
-                        chk_box_tunningCheckedChanged(cb, EventArgs.Empty);
-                    }
-                }
-            }
-            else
-            {
-                using (var cb = new CheckBox {Name = "roll", Checked = true})
-                {
-                    chk_box_tunningCheckedChanged(cb, EventArgs.Empty);
-                }
 
-                using (var cb = new CheckBox {Name = "pitch", Checked = true})
-                {
-                    chk_box_tunningCheckedChanged(cb, EventArgs.Empty);
-                }
-
-                using (var cb = new CheckBox {Name = "nav_roll", Checked = true})
-                {
-                    chk_box_tunningCheckedChanged(cb, EventArgs.Empty);
-                }
-
-                using (var cb = new CheckBox {Name = "nav_pitch", Checked = true})
-                {
-                    chk_box_tunningCheckedChanged(cb, EventArgs.Empty);
-                }
-            }
 
             /* It comes from the Theme not from the settings
             if (!string.IsNullOrEmpty(Settings.Instance["hudcolor"]))
@@ -352,7 +302,6 @@ namespace MissionPlanner.GCSViews
             CMB_setwp.SelectedIndex = 0;
 
             log.Info("Graph Setup");
-            CreateChart(zg1);
 
             // config map
             log.Info("Map Setup");
@@ -427,9 +376,6 @@ namespace MissionPlanner.GCSViews
             log.Info("Activate Called");
 
             OnResize(EventArgs.Empty);
-
-            if (CB_tuning.Checked)
-                ZedGraphTimer.Start();
 
             hud1.altunit = CurrentState.AltUnit;
             hud1.speedunit = CurrentState.SpeedUnit;
@@ -550,7 +496,6 @@ namespace MissionPlanner.GCSViews
             if (MainV2.comPort.logreadmode)
             {
                 MainV2.comPort.logreadmode = false;
-                ZedGraphTimer.Stop();
                 playingLog = false;
             }
             else
@@ -579,9 +524,6 @@ namespace MissionPlanner.GCSViews
                 list20.Clear();
                 tickStart = Environment.TickCount;
 
-                zg1.GraphPane.XAxis.Scale.Min = 0;
-                zg1.GraphPane.XAxis.Scale.Max = 1;
-                ZedGraphTimer.Start();
                 playingLog = true;
             }
         }
@@ -629,7 +571,6 @@ namespace MissionPlanner.GCSViews
             //myPane.Chart.Fill = new Fill(Color.White, Color.LightGray, 45.0f);
 
             // Sample at 50ms intervals
-            ZedGraphTimer.Interval = 200;
             //timer1.Enabled = true;
             //timer1.Start();
 
@@ -654,8 +595,6 @@ namespace MissionPlanner.GCSViews
             Settings.Instance["maplast_lat"] = gMapControl1.Position.Lat.ToString();
             Settings.Instance["maplast_lng"] = gMapControl1.Position.Lng.ToString();
             Settings.Instance["maplast_zoom"] = gMapControl1.Zoom.ToString();
-
-            ZedGraphTimer.Stop();
         }
 
         public void LoadLogFile(string file)
@@ -1843,28 +1782,6 @@ namespace MissionPlanner.GCSViews
             hud1.bgimage = camimage;
         }
 
-        private void CB_tuning_CheckedChanged(object sender, EventArgs e)
-        {
-            if (CB_tuning.Checked)
-            {
-                splitContainer1.Panel1Collapsed = false;
-                ZedGraphTimer.Enabled = true;
-                ZedGraphTimer.Start();
-                zg1.Visible = true;
-                zg1.Refresh();
-            }
-            else
-            {
-                splitContainer1.Panel1Collapsed = true;
-                ZedGraphTimer.Enabled = false;
-                ZedGraphTimer.Stop();
-                zg1.Visible = false;
-            }
-
-            // Fire the splitContainer1_Panel2_Resize event
-            splitContainer1_Panel2_Resize(null, null);
-        }
-
         private void CheckAndBindPreFlightData()
         {
             //this.Invoke((Action) delegate { preFlightChecklist1.BindData(); });
@@ -1877,505 +1794,6 @@ namespace MissionPlanner.GCSViews
             //GCSViews.FlightPlanner.instance.autopan = CHK_autopan.Checked;
         }
 
-        void chk_box_tunningCheckedChanged(object sender, EventArgs e)
-        {
-            ThemeManager.ApplyThemeTo((Control) sender);
-
-            if (((CheckBox) sender).Checked)
-            {
-                ((CheckBox) sender).BackColor = Color.Green;
-
-                if (list1item == null)
-                {
-                    if (setupPropertyInfo(ref list1item, ((CheckBox) sender).Name, MainV2.comPort.MAV.cs))
-                    {
-                        list1.Clear();
-                        list1curve = zg1.GraphPane.AddCurve(((CheckBox) sender).Text, list1, Color.Red,
-                            SymbolType.None);
-                        list1curve.Tag = ((CheckBox) sender).Name;
-                        if (tuningwasrightclick)
-                        {
-                            list1curve.Label.Text += " R";
-                            list1curve.IsY2Axis = true;
-                            list1curve.YAxisIndex = 0;
-                            zg1.GraphPane.Y2Axis.IsVisible = true;
-                        }
-                    }
-                }
-                else if (list2item == null)
-                {
-                    if (setupPropertyInfo(ref list2item, ((CheckBox) sender).Name, MainV2.comPort.MAV.cs))
-                    {
-                        list2.Clear();
-                        list2curve = zg1.GraphPane.AddCurve(((CheckBox) sender).Text, list2, Color.Blue,
-                            SymbolType.None);
-                        list2curve.Tag = ((CheckBox) sender).Name;
-                        if (tuningwasrightclick)
-                        {
-                            list2curve.Label.Text += " R";
-                            list2curve.IsY2Axis = true;
-                            list2curve.YAxisIndex = 0;
-                            zg1.GraphPane.Y2Axis.IsVisible = true;
-                        }
-                    }
-                }
-                else if (list3item == null)
-                {
-                    if (setupPropertyInfo(ref list3item, ((CheckBox) sender).Name, MainV2.comPort.MAV.cs))
-                    {
-                        list3.Clear();
-                        list3curve = zg1.GraphPane.AddCurve(((CheckBox) sender).Text, list3, Color.Green,
-                            SymbolType.None);
-                        list3curve.Tag = ((CheckBox) sender).Name;
-                        if (tuningwasrightclick)
-                        {
-                            list3curve.Label.Text += " R";
-                            list3curve.IsY2Axis = true;
-                            list3curve.YAxisIndex = 0;
-                            zg1.GraphPane.Y2Axis.IsVisible = true;
-                        }
-                    }
-                }
-                else if (list4item == null)
-                {
-                    if (setupPropertyInfo(ref list4item, ((CheckBox) sender).Name, MainV2.comPort.MAV.cs))
-                    {
-                        list4.Clear();
-                        list4curve = zg1.GraphPane.AddCurve(((CheckBox) sender).Text, list4, Color.Orange,
-                            SymbolType.None);
-                        list4curve.Tag = ((CheckBox) sender).Name;
-                        if (tuningwasrightclick)
-                        {
-                            list4curve.Label.Text += " R";
-                            list4curve.IsY2Axis = true;
-                            list4curve.YAxisIndex = 0;
-                            zg1.GraphPane.Y2Axis.IsVisible = true;
-                        }
-                    }
-                }
-                else if (list5item == null)
-                {
-                    if (setupPropertyInfo(ref list5item, ((CheckBox) sender).Name, MainV2.comPort.MAV.cs))
-                    {
-                        list5.Clear();
-                        list5curve = zg1.GraphPane.AddCurve(((CheckBox) sender).Text, list5, Color.Yellow,
-                            SymbolType.None);
-                        list5curve.Tag = ((CheckBox) sender).Name;
-                        if (tuningwasrightclick)
-                        {
-                            list5curve.Label.Text += " R";
-                            list5curve.IsY2Axis = true;
-                            list5curve.YAxisIndex = 0;
-                            zg1.GraphPane.Y2Axis.IsVisible = true;
-                        }
-                    }
-                }
-                else if (list6item == null)
-                {
-                    if (setupPropertyInfo(ref list6item, ((CheckBox) sender).Name, MainV2.comPort.MAV.cs))
-                    {
-                        list6.Clear();
-                        list6curve = zg1.GraphPane.AddCurve(((CheckBox) sender).Text, list6, Color.Magenta,
-                            SymbolType.None);
-                        list6curve.Tag = ((CheckBox) sender).Name;
-                        if (tuningwasrightclick)
-                        {
-                            list6curve.Label.Text += " R";
-                            list6curve.IsY2Axis = true;
-                            list6curve.YAxisIndex = 0;
-                            zg1.GraphPane.Y2Axis.IsVisible = true;
-                        }
-                    }
-                }
-                else if (list7item == null)
-                {
-                    if (setupPropertyInfo(ref list7item, ((CheckBox) sender).Name, MainV2.comPort.MAV.cs))
-                    {
-                        list7.Clear();
-                        list7curve = zg1.GraphPane.AddCurve(((CheckBox) sender).Text, list7, Color.Purple,
-                            SymbolType.None);
-                        list7curve.Tag = ((CheckBox) sender).Name;
-                        if (tuningwasrightclick)
-                        {
-                            list7curve.Label.Text += " R";
-                            list7curve.IsY2Axis = true;
-                            list7curve.YAxisIndex = 0;
-                            zg1.GraphPane.Y2Axis.IsVisible = true;
-                        }
-                    }
-                }
-                else if (list8item == null)
-                {
-                    if (setupPropertyInfo(ref list8item, ((CheckBox) sender).Name, MainV2.comPort.MAV.cs))
-                    {
-                        list8.Clear();
-                        list8curve = zg1.GraphPane.AddCurve(((CheckBox) sender).Text, list8, Color.LimeGreen,
-                            SymbolType.None);
-                        list8curve.Tag = ((CheckBox) sender).Name;
-                        if (tuningwasrightclick)
-                        {
-                            list8curve.Label.Text += " R";
-                            list8curve.IsY2Axis = true;
-                            list8curve.YAxisIndex = 0;
-                            zg1.GraphPane.Y2Axis.IsVisible = true;
-                        }
-                    }
-                }
-                else if (list9item == null)
-                {
-                    if (setupPropertyInfo(ref list9item, ((CheckBox) sender).Name, MainV2.comPort.MAV.cs))
-                    {
-                        list9.Clear();
-                        list9curve = zg1.GraphPane.AddCurve(((CheckBox) sender).Text, list9, Color.Cyan,
-                            SymbolType.None);
-                        list9curve.Tag = ((CheckBox) sender).Name;
-                        if (tuningwasrightclick)
-                        {
-                            list9curve.Label.Text += " R";
-                            list9curve.IsY2Axis = true;
-                            list9curve.YAxisIndex = 0;
-                            zg1.GraphPane.Y2Axis.IsVisible = true;
-                        }
-                    }
-                }
-                else if (list10item == null)
-                {
-                    if (setupPropertyInfo(ref list10item, ((CheckBox) sender).Name, MainV2.comPort.MAV.cs))
-                    {
-                        list10.Clear();
-                        list10curve = zg1.GraphPane.AddCurve(((CheckBox) sender).Text, list10, Color.Violet,
-                            SymbolType.None);
-                        list10curve.Tag = ((CheckBox) sender).Name;
-                        if (tuningwasrightclick)
-                        {
-                            list10curve.Label.Text += " R";
-                            list10curve.IsY2Axis = true;
-                            list10curve.YAxisIndex = 0;
-                            zg1.GraphPane.Y2Axis.IsVisible = true;
-                        }
-                    }
-                }
-                else if (list11item == null)
-                {
-                    if (setupPropertyInfo(ref list11item, ((CheckBox) sender).Name, MainV2.comPort.MAV.cs))
-                    {
-                        list11.Clear();
-                        list11curve = zg1.GraphPane.AddCurve(((CheckBox) sender).Text, list11, Color.Violet,
-                            SymbolType.None);
-                        list11curve.Tag = ((CheckBox) sender).Name;
-                        if (tuningwasrightclick)
-                        {
-                            list11curve.Label.Text += " R";
-                            list11curve.IsY2Axis = true;
-                            list11curve.YAxisIndex = 0;
-                            zg1.GraphPane.Y2Axis.IsVisible = true;
-                        }
-                    }
-                }
-                else if (list12item == null)
-                {
-                    if (setupPropertyInfo(ref list12item, ((CheckBox) sender).Name, MainV2.comPort.MAV.cs))
-                    {
-                        list12.Clear();
-                        list12curve = zg1.GraphPane.AddCurve(((CheckBox) sender).Text, list12, Color.Violet,
-                            SymbolType.None);
-                        list12curve.Tag = ((CheckBox) sender).Name;
-                        if (tuningwasrightclick)
-                        {
-                            list12curve.Label.Text += " R";
-                            list12curve.IsY2Axis = true;
-                            list12curve.YAxisIndex = 0;
-                            zg1.GraphPane.Y2Axis.IsVisible = true;
-                        }
-                    }
-                }
-                else if (list13item == null)
-                {
-                    if (setupPropertyInfo(ref list13item, ((CheckBox) sender).Name, MainV2.comPort.MAV.cs))
-                    {
-                        list13.Clear();
-                        list13curve = zg1.GraphPane.AddCurve(((CheckBox) sender).Text, list13, Color.Violet,
-                            SymbolType.None);
-                        list13curve.Tag = ((CheckBox) sender).Name;
-                        if (tuningwasrightclick)
-                        {
-                            list13curve.Label.Text += " R";
-                            list13curve.IsY2Axis = true;
-                            list13curve.YAxisIndex = 0;
-                            zg1.GraphPane.Y2Axis.IsVisible = true;
-                        }
-                    }
-                }
-                else if (list14item == null)
-                {
-                    if (setupPropertyInfo(ref list14item, ((CheckBox) sender).Name, MainV2.comPort.MAV.cs))
-                    {
-                        list14.Clear();
-                        list14curve = zg1.GraphPane.AddCurve(((CheckBox) sender).Text, list14, Color.Violet,
-                            SymbolType.None);
-                        list14curve.Tag = ((CheckBox) sender).Name;
-                        if (tuningwasrightclick)
-                        {
-                            list14curve.Label.Text += " R";
-                            list14curve.IsY2Axis = true;
-                            list14curve.YAxisIndex = 0;
-                            zg1.GraphPane.Y2Axis.IsVisible = true;
-                        }
-                    }
-                }
-                else if (list15item == null)
-                {
-                    if (setupPropertyInfo(ref list15item, ((CheckBox) sender).Name, MainV2.comPort.MAV.cs))
-                    {
-                        list15.Clear();
-                        list15curve = zg1.GraphPane.AddCurve(((CheckBox) sender).Text, list15, Color.Violet,
-                            SymbolType.None);
-                        list15curve.Tag = ((CheckBox) sender).Name;
-                        if (tuningwasrightclick)
-                        {
-                            list15curve.Label.Text += " R";
-                            list15curve.IsY2Axis = true;
-                            list15curve.YAxisIndex = 0;
-                            zg1.GraphPane.Y2Axis.IsVisible = true;
-                        }
-                    }
-                }
-                else if (list16item == null)
-                {
-                    if (setupPropertyInfo(ref list16item, ((CheckBox) sender).Name, MainV2.comPort.MAV.cs))
-                    {
-                        list16.Clear();
-                        list16curve = zg1.GraphPane.AddCurve(((CheckBox) sender).Text, list16, Color.Violet,
-                            SymbolType.None);
-                        list16curve.Tag = ((CheckBox) sender).Name;
-                        if (tuningwasrightclick)
-                        {
-                            list16curve.Label.Text += " R";
-                            list16curve.IsY2Axis = true;
-                            list16curve.YAxisIndex = 0;
-                            zg1.GraphPane.Y2Axis.IsVisible = true;
-                        }
-                    }
-                }
-                else if (list17item == null)
-                {
-                    if (setupPropertyInfo(ref list17item, ((CheckBox) sender).Name, MainV2.comPort.MAV.cs))
-                    {
-                        list17.Clear();
-                        list17curve = zg1.GraphPane.AddCurve(((CheckBox) sender).Text, list17, Color.Violet,
-                            SymbolType.None);
-                        list17curve.Tag = ((CheckBox) sender).Name;
-                        if (tuningwasrightclick)
-                        {
-                            list17curve.Label.Text += " R";
-                            list17curve.IsY2Axis = true;
-                            list17curve.YAxisIndex = 0;
-                            zg1.GraphPane.Y2Axis.IsVisible = true;
-                        }
-                    }
-                }
-                else if (list18item == null)
-                {
-                    if (setupPropertyInfo(ref list18item, ((CheckBox) sender).Name, MainV2.comPort.MAV.cs))
-                    {
-                        list18.Clear();
-                        list18curve = zg1.GraphPane.AddCurve(((CheckBox) sender).Text, list18, Color.Violet,
-                            SymbolType.None);
-                        list18curve.Tag = ((CheckBox) sender).Name;
-                        if (tuningwasrightclick)
-                        {
-                            list18curve.Label.Text += " R";
-                            list18curve.IsY2Axis = true;
-                            list18curve.YAxisIndex = 0;
-                            zg1.GraphPane.Y2Axis.IsVisible = true;
-                        }
-                    }
-                }
-                else if (list19item == null)
-                {
-                    if (setupPropertyInfo(ref list19item, ((CheckBox) sender).Name, MainV2.comPort.MAV.cs))
-                    {
-                        list19.Clear();
-                        list19curve = zg1.GraphPane.AddCurve(((CheckBox) sender).Text, list19, Color.Violet,
-                            SymbolType.None);
-                        list19curve.Tag = ((CheckBox) sender).Name;
-                        if (tuningwasrightclick)
-                        {
-                            list19curve.Label.Text += " R";
-                            list19curve.IsY2Axis = true;
-                            list19curve.YAxisIndex = 0;
-                            zg1.GraphPane.Y2Axis.IsVisible = true;
-                        }
-                    }
-                }
-                else if (list20item == null)
-                {
-                    if (setupPropertyInfo(ref list20item, ((CheckBox) sender).Name, MainV2.comPort.MAV.cs))
-                    {
-                        list20.Clear();
-                        list20curve = zg1.GraphPane.AddCurve(((CheckBox) sender).Text, list20, Color.Violet,
-                            SymbolType.None);
-                        list20curve.Tag = ((CheckBox) sender).Name;
-                        if (tuningwasrightclick)
-                        {
-                            list20curve.Label.Text += " R";
-                            list20curve.IsY2Axis = true;
-                            list20curve.YAxisIndex = 0;
-                            zg1.GraphPane.Y2Axis.IsVisible = true;
-                        }
-                    }
-                }
-                else
-                {
-                    CustomMessageBox.Show("Max 20 at a time.");
-                    ((CheckBox) sender).Checked = false;
-                }
-
-                string selected = "";
-                try
-                {
-                    foreach (var curve in zg1.GraphPane.CurveList)
-                    {
-                        string curve_name = curve.Tag.ToString();
-                        if (curve_name.Contains("customfield"))
-                        {
-                            curve_name += ((CheckBox)sender).Text;
-                        }
-                        selected = selected + curve_name + "|";
-                    }
-                }
-                catch
-                {
-                }
-
-                Settings.Instance["Tuning_Graph_Selected"] = selected;
-            }
-            else
-            {
-                ((CheckBox) sender).BackColor = Color.Transparent;
-
-                // reset old stuff
-                if (list1item != null && list1item.Name == ((CheckBox) sender).Name)
-                {
-                    list1item = null;
-                    zg1.GraphPane.CurveList.Remove(list1curve);
-                }
-
-                if (list2item != null && list2item.Name == ((CheckBox) sender).Name)
-                {
-                    list2item = null;
-                    zg1.GraphPane.CurveList.Remove(list2curve);
-                }
-
-                if (list3item != null && list3item.Name == ((CheckBox) sender).Name)
-                {
-                    list3item = null;
-                    zg1.GraphPane.CurveList.Remove(list3curve);
-                }
-
-                if (list4item != null && list4item.Name == ((CheckBox) sender).Name)
-                {
-                    list4item = null;
-                    zg1.GraphPane.CurveList.Remove(list4curve);
-                }
-
-                if (list5item != null && list5item.Name == ((CheckBox) sender).Name)
-                {
-                    list5item = null;
-                    zg1.GraphPane.CurveList.Remove(list5curve);
-                }
-
-                if (list6item != null && list6item.Name == ((CheckBox) sender).Name)
-                {
-                    list6item = null;
-                    zg1.GraphPane.CurveList.Remove(list6curve);
-                }
-
-                if (list7item != null && list7item.Name == ((CheckBox) sender).Name)
-                {
-                    list7item = null;
-                    zg1.GraphPane.CurveList.Remove(list7curve);
-                }
-
-                if (list8item != null && list8item.Name == ((CheckBox) sender).Name)
-                {
-                    list8item = null;
-                    zg1.GraphPane.CurveList.Remove(list8curve);
-                }
-
-                if (list9item != null && list9item.Name == ((CheckBox) sender).Name)
-                {
-                    list9item = null;
-                    zg1.GraphPane.CurveList.Remove(list9curve);
-                }
-
-                if (list10item != null && list10item.Name == ((CheckBox) sender).Name)
-                {
-                    list10item = null;
-                    zg1.GraphPane.CurveList.Remove(list10curve);
-                }
-
-                if (list11item != null && list11item.Name == ((CheckBox) sender).Name)
-                {
-                    list11item = null;
-                    zg1.GraphPane.CurveList.Remove(list11curve);
-                }
-
-                if (list12item != null && list12item.Name == ((CheckBox) sender).Name)
-                {
-                    list12item = null;
-                    zg1.GraphPane.CurveList.Remove(list12curve);
-                }
-
-                if (list13item != null && list13item.Name == ((CheckBox) sender).Name)
-                {
-                    list13item = null;
-                    zg1.GraphPane.CurveList.Remove(list13curve);
-                }
-
-                if (list14item != null && list14item.Name == ((CheckBox) sender).Name)
-                {
-                    list14item = null;
-                    zg1.GraphPane.CurveList.Remove(list14curve);
-                }
-
-                if (list15item != null && list15item.Name == ((CheckBox) sender).Name)
-                {
-                    list15item = null;
-                    zg1.GraphPane.CurveList.Remove(list15curve);
-                }
-
-                if (list16item != null && list16item.Name == ((CheckBox) sender).Name)
-                {
-                    list16item = null;
-                    zg1.GraphPane.CurveList.Remove(list16curve);
-                }
-
-                if (list17item != null && list17item.Name == ((CheckBox) sender).Name)
-                {
-                    list17item = null;
-                    zg1.GraphPane.CurveList.Remove(list17curve);
-                }
-
-                if (list18item != null && list18item.Name == ((CheckBox) sender).Name)
-                {
-                    list18item = null;
-                    zg1.GraphPane.CurveList.Remove(list18curve);
-                }
-
-                if (list19item != null && list19item.Name == ((CheckBox) sender).Name)
-                {
-                    list19item = null;
-                    zg1.GraphPane.CurveList.Remove(list19curve);
-                }
-
-                if (list20item != null && list20item.Name == ((CheckBox) sender).Name)
-                {
-                    list20item = null;
-                    zg1.GraphPane.CurveList.Remove(list20curve);
-                }
-            }
-        }
 
         void chk_box_hud_UserItem_CheckedChanged(object sender, EventArgs e)
         {
@@ -2459,18 +1877,6 @@ namespace MissionPlanner.GCSViews
             {
                 var ans = (bool)e.Value;
                 e.Value = ans ? 1 : 0;
-            }
-        }
-
-        void chk_log_CheckedChanged(object sender, EventArgs e)
-        {
-            if (((CheckBox) sender).Checked)
-            {
-                zg1.GraphPane.YAxis.Type = AxisType.Log;
-            }
-            else
-            {
-                zg1.GraphPane.YAxis.Type = AxisType.Linear;
             }
         }
 
@@ -3624,52 +3030,6 @@ namespace MissionPlanner.GCSViews
 
                     // update vario info
                     Vario.SetValue(MainV2.comPort.MAV.cs.climbrate);
-
-                    // udpate tunning tab
-                    if (tunning.AddMilliseconds(75) < DateTime.Now && CB_tuning.Checked)
-                    {
-                        double time = (Environment.TickCount - tickStart) / 1000.0;
-                        if (list1item != null)
-                            list1.Add(time, (list1item.GetValue(MainV2.comPort.MAV.cs, null).ConvertToDouble()));
-                        if (list2item != null)
-                            list2.Add(time, (list2item.GetValue(MainV2.comPort.MAV.cs, null).ConvertToDouble()));
-                        if (list3item != null)
-                            list3.Add(time, (list3item.GetValue(MainV2.comPort.MAV.cs, null).ConvertToDouble()));
-                        if (list4item != null)
-                            list4.Add(time, (list4item.GetValue(MainV2.comPort.MAV.cs, null).ConvertToDouble()));
-                        if (list5item != null)
-                            list5.Add(time, (list5item.GetValue(MainV2.comPort.MAV.cs, null).ConvertToDouble()));
-                        if (list6item != null)
-                            list6.Add(time, (list6item.GetValue(MainV2.comPort.MAV.cs, null).ConvertToDouble()));
-                        if (list7item != null)
-                            list7.Add(time, (list7item.GetValue(MainV2.comPort.MAV.cs, null).ConvertToDouble()));
-                        if (list8item != null)
-                            list8.Add(time, (list8item.GetValue(MainV2.comPort.MAV.cs, null).ConvertToDouble()));
-                        if (list9item != null)
-                            list9.Add(time, (list9item.GetValue(MainV2.comPort.MAV.cs, null).ConvertToDouble()));
-                        if (list10item != null)
-                            list10.Add(time, (list10item.GetValue(MainV2.comPort.MAV.cs, null).ConvertToDouble()));
-                        if (list11item != null)
-                            list11.Add(time, (list11item.GetValue(MainV2.comPort.MAV.cs, null).ConvertToDouble()));
-                        if (list12item != null)
-                            list12.Add(time, (list12item.GetValue(MainV2.comPort.MAV.cs, null).ConvertToDouble()));
-                        if (list13item != null)
-                            list13.Add(time, (list13item.GetValue(MainV2.comPort.MAV.cs, null).ConvertToDouble()));
-                        if (list14item != null)
-                            list14.Add(time, (list14item.GetValue(MainV2.comPort.MAV.cs, null).ConvertToDouble()));
-                        if (list15item != null)
-                            list15.Add(time, (list15item.GetValue(MainV2.comPort.MAV.cs, null).ConvertToDouble()));
-                        if (list16item != null)
-                            list16.Add(time, (list16item.GetValue(MainV2.comPort.MAV.cs, null).ConvertToDouble()));
-                        if (list17item != null)
-                            list17.Add(time, (list17item.GetValue(MainV2.comPort.MAV.cs, null).ConvertToDouble()));
-                        if (list18item != null)
-                            list18.Add(time, (list18item.GetValue(MainV2.comPort.MAV.cs, null).ConvertToDouble()));
-                        if (list19item != null)
-                            list19.Add(time, (list19item.GetValue(MainV2.comPort.MAV.cs, null).ConvertToDouble()));
-                        if (list20item != null)
-                            list20.Add(time, (list20item.GetValue(MainV2.comPort.MAV.cs, null).ConvertToDouble()));
-                    }
 
                     // update map - 0.3sec if connected , 2 sec if not connected
                     if (((MainV2.comPort.BaseStream.IsOpen || MainV2.comPort.logreadmode) &&
@@ -5253,50 +4613,6 @@ namespace MissionPlanner.GCSViews
             }
         }
 
-        private void ZedGraphTimer_Tick(object sender, EventArgs e)
-        {
-            try
-            {
-                // Make sure that the curvelist has at least one curve
-                if (zg1.GraphPane.CurveList.Count <= 0)
-                    return;
-
-                // Get the first CurveItem in the graph
-                LineItem curve = zg1.GraphPane.CurveList[0] as LineItem;
-                if (curve == null)
-                    return;
-
-                // Get the PointPairList
-                IPointListEdit list = curve.Points as IPointListEdit;
-                // If this is null, it means the reference at curve.Points does not
-                // support IPointListEdit, so we won't be able to modify it
-                if (list == null)
-                    return;
-
-                // Time is measured in seconds
-                double time = (Environment.TickCount - tickStart) / 1000.0;
-
-                // Keep the X scale at a rolling 30 second interval, with one
-                // major step between the max X value and the end of the axis
-                Scale xScale = zg1.GraphPane.XAxis.Scale;
-                if (time > xScale.Max - xScale.MajorStep)
-                {
-                    xScale.Max = time + xScale.MajorStep;
-                    xScale.Min = xScale.Max - 10.0;
-                }
-
-                // Make sure the Y axis is rescaled to accommodate actual data
-                zg1.AxisChange();
-
-                // Force a redraw
-
-                zg1.Invalidate();
-            }
-            catch
-            {
-            }
-        }
-
         private void tracklog_Scroll(object sender, EventArgs e)
         {
             try
@@ -5814,7 +5130,6 @@ namespace MissionPlanner.GCSViews
                 chk_box.Tag = "custom";
                 chk_box.Location = new Point(5 + (i / row_count) * (max_length + 5), 2 + (i % row_count) * row_height);
                 chk_box.Size = new Size(120, 20);
-                chk_box.CheckedChanged += chk_box_tunningCheckedChanged;
                 chk_box.MouseDown += Chk_box_tunningMouseDown;
                 chk_box.AutoSize = true;
 
