@@ -72,7 +72,8 @@ namespace MissionPlanner.NoFly
             {
                 Utilities.nfz.HK.ConfirmNoFly += () =>
                 {
-                    return CustomMessageBox.Show("Show Hong Kong No fly zones?", "NoFly Zones", CustomMessageBox.MessageBoxButtons.YesNo) == CustomMessageBox.DialogResult.Yes;
+                    // 删除功能：是否显示香港禁飞区
+                    return false;
                 };
 
                 var nfzinfo = Utilities.nfz.HK.LoadNFZ().Result;

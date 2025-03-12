@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.IO;
 
 namespace MissionPlanner
@@ -63,6 +64,7 @@ namespace MissionPlanner
             // MainMenu
             // 
             resources.ApplyResources(this.MainMenu, "MainMenu");
+            this.MainMenu.BackColor = Color.FromArgb(255,181, 214, 234 );
             this.MainMenu.ContextMenuStrip = this.CTX_mainmenu;
             this.MainMenu.GripMargin = new System.Windows.Forms.Padding(0);
             this.MainMenu.ImageScalingSize = new System.Drawing.Size(45, 39);
@@ -127,6 +129,7 @@ namespace MissionPlanner
             // 
             // MenuFlightData
             // 
+            this.MenuFlightData.BackColor = System.Drawing.Color.White;
             this.MenuFlightData.ForeColor = System.Drawing.SystemColors.ControlLight;
             resources.ApplyResources(this.MenuFlightData, "MenuFlightData");
             this.MenuFlightData.Margin = new System.Windows.Forms.Padding(0);
@@ -185,10 +188,10 @@ namespace MissionPlanner
             // toolStripConnectionControl
             // 
             this.toolStripConnectionControl.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            resources.ApplyResources(this.toolStripConnectionControl, "toolStripConnectionControl");
             this.toolStripConnectionControl.ForeColor = System.Drawing.Color.Black;
             this.toolStripConnectionControl.Margin = new System.Windows.Forms.Padding(0);
             this.toolStripConnectionControl.Name = "toolStripConnectionControl";
+            resources.ApplyResources(this.toolStripConnectionControl, "toolStripConnectionControl");
             this.toolStripConnectionControl.MouseLeave += new System.EventHandler(this.MainMenu_MouseLeave);
             // 
             // MenuArduPilot
@@ -205,9 +208,11 @@ namespace MissionPlanner
             // 
             // menu
             // 
+            this.menu.BackColor = System.Drawing.SystemColors.HotTrack;
             resources.ApplyResources(this.menu, "menu");
             this.menu.Name = "menu";
-            this.menu.UseVisualStyleBackColor = true;
+            this.menu.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
+            this.menu.UseVisualStyleBackColor = false;
             this.menu.MouseEnter += new System.EventHandler(this.menu_MouseEnter);
             // 
             // panel1

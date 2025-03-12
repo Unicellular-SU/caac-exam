@@ -37,32 +37,17 @@
             // 
             // cmb_Baud
             // 
-            this.cmb_Baud.BackColor = System.Drawing.Color.Black;
+            this.cmb_Baud.BackColor = System.Drawing.Color.White;
             this.cmb_Baud.DropDownWidth = 110;
             this.cmb_Baud.ForeColor = System.Drawing.Color.White;
             resources.ApplyResources(this.cmb_Baud, "cmb_Baud");
             this.cmb_Baud.Items.AddRange(new object[] {
-            resources.GetString("cmb_Baud.Items"),
-            resources.GetString("cmb_Baud.Items1"),
-            resources.GetString("cmb_Baud.Items2"),
-            resources.GetString("cmb_Baud.Items3"),
-            resources.GetString("cmb_Baud.Items4"),
-            resources.GetString("cmb_Baud.Items5"),
-            resources.GetString("cmb_Baud.Items6"),
-            resources.GetString("cmb_Baud.Items7"),
-            resources.GetString("cmb_Baud.Items8"),
-            resources.GetString("cmb_Baud.Items9"),
-            resources.GetString("cmb_Baud.Items10"),
-            resources.GetString("cmb_Baud.Items11"),
-            resources.GetString("cmb_Baud.Items12"),
-            resources.GetString("cmb_Baud.Items13"),
-            resources.GetString("cmb_Baud.Items14"),
-            resources.GetString("cmb_Baud.Items15")});
+            resources.GetString("cmb_Baud.Items")});
             this.cmb_Baud.Name = "cmb_Baud";
             // 
             // cmb_Connection
             // 
-            this.cmb_Connection.BackColor = System.Drawing.Color.Black;
+            this.cmb_Connection.BackColor = System.Drawing.Color.White;
             this.cmb_Connection.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cmb_Connection.DropDownWidth = 230;
             this.cmb_Connection.ForeColor = System.Drawing.Color.White;
@@ -92,11 +77,10 @@
             // 
             // ConnectionControl
             // 
-            this.BackgroundImage = global::MissionPlanner.Properties.Resources.bgdark;
-            this.Controls.Add(this.cmb_sysid);
-            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.cmb_Connection);
             this.Controls.Add(this.cmb_Baud);
+            this.Controls.Add(this.cmb_sysid);
+            this.Controls.Add(this.linkLabel1);
             resources.ApplyResources(this, "$this");
             this.Name = "ConnectionControl";
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ConnectionControl_MouseClick);

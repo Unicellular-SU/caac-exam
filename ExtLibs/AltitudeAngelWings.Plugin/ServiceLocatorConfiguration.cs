@@ -60,12 +60,13 @@ namespace AltitudeAngelWings.Plugin
                 () => l.Resolve<PluginHost>().comPort.MAV.cs,
                 () => GetCurrentWaypoints(l.Resolve<PluginHost>().MainForm.FlightPlanner),
                 () => l.Resolve<PluginHost>().comPort.MAV.ToFlightCapability()));
-            ServiceLocator.Register<IAuthorizeCodeProvider>(l => new ExternalWebBrowserAuthorizeCodeProvider(
-                l.Resolve<ISettings>(),
-                l.Resolve<IAuthClient>(),
-                l.Resolve<IMessagesService>(),
-                l.Resolve<PluginHost>(),
-                l.Resolve<IUiThreadInvoke>()));
+            // 删除功能：登录验证
+            //ServiceLocator.Register<IAuthorizeCodeProvider>(l => new ExternalWebBrowserAuthorizeCodeProvider(
+            //    l.Resolve<ISettings>(),
+            //    l.Resolve<IAuthClient>(),
+            //    l.Resolve<IMessagesService>(),
+            //    l.Resolve<PluginHost>(),
+            //    l.Resolve<IUiThreadInvoke>()));
             ServiceLocator.Register<IMessageDisplay>(l => new MultipleMessageDisplay(
                 new TextWriterMessageDisplay(Console.Out),
                 new ControlOverlayMessageDisplay(

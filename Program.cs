@@ -31,6 +31,8 @@ using Newtonsoft.Json.Serialization;
 using Architecture = System.Runtime.InteropServices.Architecture;
 using Trace = System.Diagnostics.Trace;
 using System.Threading.Tasks;
+using System.Security.Cryptography.X509Certificates;
+using System.Net.Security;
 
 namespace MissionPlanner
 {
@@ -91,6 +93,7 @@ namespace MissionPlanner
         [STAThread]
         public static void Main(string[] args)
         {
+            //StartTest(args);
             Start(args);
         }
 
@@ -121,6 +124,163 @@ namespace MissionPlanner
         }
 
         [MethodImpl(MethodImplOptions.NoInlining)]
+        public static void StartTest(string[] args)
+        {
+            Program.args = args;
+            Console.WriteLine("If your error is about Microsoft.DirectX.DirectInput, please install the latest directx redist from here http://www.microsoft.com/en-us/download/details.aspx?id=35 \n\n");
+            Console.WriteLine("Debug under mono    MONO_LOG_LEVEL=debug mono MissionPlanner.exe");
+            Type t = Type.GetType("Mono.Runtime");
+            MONO = t != null;
+            Thread = Thread.CurrentThread;
+            Application.EnableVisualStyles();
+            XmlConfigurator.Configure();
+            log.Info("******************* Logging Configured *******************");
+            Application.SetCompatibleTextRenderingDefault(defaultValue: false);
+            ServicePointManager.DefaultConnectionLimit = 10;
+            Application.ThreadException += Application_ThreadException;
+            AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
+            ServicePointManager.ServerCertificateValidationCallback = (object sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors policyErrors) => true;
+            if (args.Length != 0 && args[0] == "/update")
+            {
+                Update.DoUpdate();
+                return;
+            }
+            name = "Electronic Evaluation System";
+            try
+            {
+                if (File.Exists(Settings.GetRunningDirectory() + "logo.txt"))
+                {
+                    name = File.ReadAllLines(Settings.GetRunningDirectory() + "logo.txt", Encoding.UTF8)[0];
+                }
+            }
+            catch
+            {
+            }
+            if (File.Exists(Settings.GetRunningDirectory() + "logo.png"))
+            {
+                Logo = new Bitmap(Settings.GetRunningDirectory() + "logo.png");
+            }
+            if (File.Exists(Settings.GetRunningDirectory() + "icon.png"))
+            {
+                IconFile = new Bitmap(Settings.GetRunningDirectory() + "icon.png");
+            }
+            else
+            {
+                IconFile = MissionPlanner.Properties.Resources.mpdesktop.ToBitmap();
+            }
+            if (File.Exists(Settings.GetRunningDirectory() + "splashbg.png"))
+            {
+                SplashBG = new Bitmap(Settings.GetRunningDirectory() + "splashbg.png");
+            }
+            Splash = new Splash();
+            if (SplashBG != null)
+            {
+                Splash.BackgroundImage = SplashBG;
+            }
+            if (IconFile != null)
+            {
+                Splash.Icon = Icon.FromHandle(((Bitmap)IconFile).GetHicon());
+            }
+            string strVersion = Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            Splash.Text = name + " " + Application.ProductVersion + " build " + strVersion;
+            Application.DoEvents();
+            Application.DoEvents();
+            MsgBox.CustomMessageBox.ApplyTheme += ThemeManager.ApplyThemeTo;
+            Controls.MainSwitcher.ApplyTheme += ThemeManager.ApplyThemeTo;
+            MissionPlanner.Controls.InputBox.ApplyTheme += ThemeManager.ApplyThemeTo;
+            Controls.BackstageView.BackstageViewPage.ApplyTheme += ThemeManager.ApplyThemeTo;
+            Controls.MainSwitcher.Tracking += Tracking.AddPage;
+            Controls.BackstageView.BackstageView.Tracking += Tracking.AddPage;
+            CommsBase.Settings += CommsBase_Settings;
+            CommsBase.InputBoxShow += CommsBaseOnInputBoxShow;
+            CommsBase.ApplyTheme += ThemeManager.ApplyThemeTo;
+            GMap.NET.GMaps.Instance.PrimaryCache = new Maps.MyImageCache();
+            GMapProviders.List.Add(Maps.WMSProvider.Instance);
+            GMapProviders.List.Add(Maps.Custom.Instance);
+            GMapProviders.List.Add(Maps.Earthbuilder.Instance);
+            GMapProviders.List.Add(Maps.Statkart_Topo2.Instance);
+            GMapProviders.List.Add(Maps.MapBox.Instance);
+            GMapProviders.List.Add(Maps.MapboxNoFly.Instance);
+            if (Directory.Exists(Application.StartupPath + Path.DirectorySeparatorChar + "gdal"))
+            {
+#if !LIB
+                // net461
+                MissionPlanner.Utilities.GDAL.GDALBase = new GDAL.GDAL();
+#endif
+                GMap.NET.MapProviders.GMapProviders.List.Add(MissionPlanner.Utilities.GDAL.GetProvider());
+            }
+            GMapProvider.WebProxy = WebRequest.GetSystemWebProxy();
+            GMapProvider.WebProxy.Credentials = CredentialCache.DefaultCredentials;
+            WebRequest.DefaultWebProxy = WebRequest.GetSystemWebProxy();
+            WebRequest.DefaultWebProxy.Credentials = CredentialCache.DefaultNetworkCredentials;
+            if (name == "VVVVZ")
+            {
+                Settings.Instance["password"] = "viDQSk/lmA2qEE8GA7SIHqu0RG2hpkH973MPpYO87CI=";
+                Settings.Instance["password_protect"] = "True";
+                Settings.Instance["newuser"] = "11/02/2014";
+                System.Configuration.ConfigurationManager.AppSettings["UpdateLocationVersion"] = "";
+            }
+            CleanupFiles();
+            log.InfoFormat("64bit os {0}, 64bit process {1}", Environment.Is64BitOperatingSystem, Environment.Is64BitProcess);
+            Device.DeviceStructure test1 = new Device.DeviceStructure(73225u);
+            Device.DeviceStructure test2 = new Device.DeviceStructure(262434u);
+            Device.DeviceStructure test3 = new Device.DeviceStructure(131874u);
+            Device.DeviceStructure test5 = new Device.DeviceStructure(131874u);
+            Device.DeviceStructure test6 = new Device.DeviceStructure(263178u);
+            Device.DeviceStructure test7 = new Device.DeviceStructure(263178u);
+            Device.DeviceStructure test8 = new Device.DeviceStructure(1442082u);
+            Device.DeviceStructure test9 = new Device.DeviceStructure(1114914u);
+            Device.DeviceStructure test10 = new Device.DeviceStructure(1442826u);
+            Device.DeviceStructure test11 = new Device.DeviceStructure(2359586u);
+            Device.DeviceStructure test12 = new Device.DeviceStructure(2229282u);
+            Device.DeviceStructure test13 = new Device.DeviceStructure(2360330u);
+            MAVLink.MavlinkParse tmp = new MAVLink.MavlinkParse();
+            MAVLink.mavlink_heartbeat_t mavlink_heartbeat_t = default(MAVLink.mavlink_heartbeat_t);
+            mavlink_heartbeat_t.autopilot = 1;
+            mavlink_heartbeat_t.base_mode = 2;
+            mavlink_heartbeat_t.custom_mode = 3u;
+            mavlink_heartbeat_t.mavlink_version = 2;
+            mavlink_heartbeat_t.system_status = 6;
+            mavlink_heartbeat_t.type = 7;
+            MAVLink.mavlink_heartbeat_t hb = mavlink_heartbeat_t;
+            byte[] t2 = tmp.GenerateMAVLinkPacket10(MAVLink.MAVLINK_MSG_ID.HEARTBEAT, hb);
+            byte[] t3 = tmp.GenerateMAVLinkPacket20(MAVLink.MAVLINK_MSG_ID.HEARTBEAT, hb);
+            tmp.GenerateMAVLinkPacket10(MAVLink.MAVLINK_MSG_ID.HEARTBEAT, hb);
+            tmp.GenerateMAVLinkPacket20(MAVLink.MAVLINK_MSG_ID.HEARTBEAT, hb);
+            tmp.GenerateMAVLinkPacket20(MAVLink.MAVLINK_MSG_ID.HEARTBEAT, hb, sign: true);
+            tmp.GenerateMAVLinkPacket20(MAVLink.MAVLINK_MSG_ID.HEARTBEAT, hb, sign: true);
+            try
+            {
+                Thread.CurrentThread.Name = "Base Thread";
+                Application.Run(new MainV2());
+            }
+            catch (Exception ex)
+            {
+                log.Fatal("Fatal app exception", ex);
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine("\nPress any key to exit!");
+                Console.ReadLine();
+            }
+            try
+            {
+                // kill sim background process if its still running
+                GCSViews.SITL.simulator.ForEach(a =>
+                {
+                    try
+                    {
+                        a.Kill();
+                    }
+                    catch
+                    {
+                    }
+                });
+            }
+            catch
+            {
+            }
+        }
+
+            [MethodImpl(MethodImplOptions.NoInlining)]
         public static void Start(string[] args)
         {
             Program.args = args;
@@ -200,7 +360,7 @@ namespace MissionPlanner
                 return;
             }
 
-            name = "Mission Planner";
+            name = "金英圣杰CAAC考试系统";
 
             try
             {
@@ -267,7 +427,6 @@ namespace MissionPlanner
             if (SplashBG != null)
             {
                 Splash.BackgroundImage = SplashBG;
-                Splash.pictureBox1.Visible = false;
             }
 
             Console.WriteLine("IconFile");
@@ -332,15 +491,16 @@ namespace MissionPlanner
             GMap.NET.MapProviders.GMapProviders.List.Add(Maps.MapBox.Instance);
             GMap.NET.MapProviders.GMapProviders.List.Add(Maps.MapboxNoFly.Instance);
             GMap.NET.MapProviders.GMapProviders.List.Add(Maps.MapboxUser.Instance);
-            GMap.NET.MapProviders.GMapProviders.List.Add(Maps.Japan.Instance);
-            GMap.NET.MapProviders.GMapProviders.List.Add(Maps.Japan_Lake.Instance);
-            GMap.NET.MapProviders.GMapProviders.List.Add(Maps.Japan_1974.Instance);
-            GMap.NET.MapProviders.GMapProviders.List.Add(Maps.Japan_1979.Instance);
-            GMap.NET.MapProviders.GMapProviders.List.Add(Maps.Japan_1984.Instance);
-            GMap.NET.MapProviders.GMapProviders.List.Add(Maps.Japan_1988.Instance);
-            GMap.NET.MapProviders.GMapProviders.List.Add(Maps.Japan_Relief.Instance);
-            GMap.NET.MapProviders.GMapProviders.List.Add(Maps.Japan_Slopezone.Instance);
-            GMap.NET.MapProviders.GMapProviders.List.Add(Maps.Japan_Sea.Instance);
+            // 删除功能：删除日本相关地图
+            //GMap.NET.MapProviders.GMapProviders.List.Add(Maps.Japan.Instance);
+            //GMap.NET.MapProviders.GMapProviders.List.Add(Maps.Japan_Lake.Instance);
+            //GMap.NET.MapProviders.GMapProviders.List.Add(Maps.Japan_1974.Instance);
+            //GMap.NET.MapProviders.GMapProviders.List.Add(Maps.Japan_1979.Instance);
+            //GMap.NET.MapProviders.GMapProviders.List.Add(Maps.Japan_1984.Instance);
+            //GMap.NET.MapProviders.GMapProviders.List.Add(Maps.Japan_1988.Instance);
+            //GMap.NET.MapProviders.GMapProviders.List.Add(Maps.Japan_Relief.Instance);
+            //GMap.NET.MapProviders.GMapProviders.List.Add(Maps.Japan_Slopezone.Instance);
+            //GMap.NET.MapProviders.GMapProviders.List.Add(Maps.Japan_Sea.Instance);
 
             if(Xamarin.Essentials.DeviceInfo.Idiom == Xamarin.Essentials.DeviceIdiom.Desktop || Xamarin.Essentials.DeviceInfo.Idiom == Xamarin.Essentials.DeviceIdiom.Unknown)
                 ZedGraph.PaneBase.Default.IsFontsScaled = false;

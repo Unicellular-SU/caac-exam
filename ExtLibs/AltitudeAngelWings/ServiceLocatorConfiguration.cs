@@ -57,12 +57,13 @@ namespace AltitudeAngelWings
             ServiceLocator.Register<IFlightDataService>(l => new FlightDataService(
                 l.Resolve<ISettings>().MinimumPollInterval,
                 l.Resolve<IFlightDataProvider>()));
-            ServiceLocator.Register<ITokenProvider>(l => new UserAuthenticationTokenProvider(
-                l.Resolve<ISettings>(), 
-                l.Resolve<IAuthClient>(),
-                new Lazy<IAltitudeAngelService>(() => l.Resolve<IAltitudeAngelService>()),
-                l.Resolve<IAuthorizeCodeProvider>(),
-                l.Resolve<IMessagesService>()));
+            // 删除功能：登录验证
+            //ServiceLocator.Register<ITokenProvider>(l => new UserAuthenticationTokenProvider(
+            //    l.Resolve<ISettings>(), 
+            //    l.Resolve<IAuthClient>(),
+            //    new Lazy<IAltitudeAngelService>(() => l.Resolve<IAltitudeAngelService>()),
+            //    l.Resolve<IAuthorizeCodeProvider>(),
+            //    l.Resolve<IMessagesService>()));
             ServiceLocator.Register<IHttpClientFactory>("Auth",
                 l => new DelegatingHttpHandlerFactory(() => new PolicyHandler(l.Resolve<IAsyncPolicy>())
                 {

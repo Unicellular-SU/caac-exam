@@ -64,7 +64,7 @@ namespace AltitudeAngelWings.Plugin
 
                     return code;
                 },
-                "Opening a browser to sign in to Altitude Angel. Please sign in using the browser."));
+                "打开浏览器登录"));
         }
     }
 }

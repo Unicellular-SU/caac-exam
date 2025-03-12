@@ -596,8 +596,9 @@ namespace MissionPlanner
 
         public void updateLayout(object sender, EventArgs e)
         {
-            MenuSimulation.Visible = DisplayConfiguration.displaySimulation;
-            MenuHelp.Visible = DisplayConfiguration.displayHelp;
+            // 删除功能：隐藏模拟器和帮助
+            //MenuSimulation.Visible = DisplayConfiguration.displaySimulation;
+            //MenuHelp.Visible = DisplayConfiguration.displayHelp;
             MissionPlanner.Controls.BackstageView.BackstageView.Advanced = DisplayConfiguration.isAdvancedMode;
 
             // force autohide on
@@ -692,10 +693,12 @@ namespace MissionPlanner
 
             View = MyView;
 
-            if (Settings.Instance.ContainsKey("language") && !string.IsNullOrEmpty(Settings.Instance["language"]))
-            {
-                changelanguage(CultureInfoEx.GetCultureInfo(Settings.Instance["language"]));
-            }
+            // 删除功能：不根据配置文件设置语言，改为默认中文
+            //if (Settings.Instance.ContainsKey("language") && !string.IsNullOrEmpty(Settings.Instance["language"]))
+            //{
+            //    changelanguage(CultureInfoEx.GetCultureInfo(Settings.Instance["language"]));
+            //}
+            changelanguage(CultureInfoEx.GetCultureInfo("zh-Hans"));
 
             InitializeComponent();
 
@@ -706,16 +709,16 @@ namespace MissionPlanner
                 .SetTheme(); //Set the colors, this need to handle the case when not all colors are defined in the theme file
 
 
+            // 删除功能：主题
+            //if (Settings.Instance["theme"] == null)
+            //{
+            //    if (File.Exists($"{running_directory}custom.mpsystheme"))
+            //        Settings.Instance["theme"] = "custom.mpsystheme";
+            //    else
+            //        Settings.Instance["theme"] = "BurntKermit.mpsystheme";
+            //}
 
-            if (Settings.Instance["theme"] == null)
-            {
-                if (File.Exists($"{running_directory}custom.mpsystheme"))
-                    Settings.Instance["theme"] = "custom.mpsystheme";
-                else
-                    Settings.Instance["theme"] = "BurntKermit.mpsystheme";
-            }
-
-            ThemeManager.LoadTheme(Settings.Instance["theme"]);
+            ThemeManager.LoadTheme("HighContrast.mpsystheme");
 
             Utilities.ThemeManager.ApplyThemeTo(this);
 
@@ -754,7 +757,7 @@ namespace MissionPlanner
             PopulateSerialportList();
             if (_connectionControl.CMB_serialport.Items.Count > 0)
             {
-                _connectionControl.CMB_baudrate.SelectedIndex = 8;
+                _connectionControl.CMB_baudrate.SelectedIndex = 0;
                 _connectionControl.CMB_serialport.SelectedIndex = 0;
             }
             // ** Done
@@ -796,7 +799,6 @@ namespace MissionPlanner
 
             if (splash != null)
             {
-                this.Text = splash?.Text;
                 titlebar = splash?.Text;
             }
 
@@ -1159,9 +1161,9 @@ namespace MissionPlanner
 
             displayicons = icons;
 
-            MainMenu.BackColor = SystemColors.MenuBar;
+            //MainMenu.BackColor = SystemColors.MenuBar;
 
-            MainMenu.BackgroundImage = displayicons.bg;
+            //MainMenu.BackgroundImage = displayicons.bg;
 
             MenuFlightData.Image = displayicons.fd;
             MenuFlightPlanner.Image = displayicons.fp;
@@ -1719,8 +1721,6 @@ namespace MissionPlanner
                     // save the baudrate for this port
                     Settings.Instance[_connectionControl.CMB_serialport.Text.Replace(" ","_") + "_BAUD"] =
                         _connectionControl.CMB_baudrate.Text;
-
-                    this.Text = titlebar + " " + comPort.MAV.VersionString;
 
                     // refresh config window if needed
                     if (MyView.current != null && showui)
@@ -3629,24 +3629,25 @@ namespace MissionPlanner
                 System.Configuration.ConfigurationManager.AppSettings["BetaUpdateLocationVersion"] = "";
             }
 
-            try
-            {
-                // single update check per day - in a seperate thread
-                if (Settings.Instance["update_check"] != DateTime.Now.ToShortDateString())
-                {
-                    System.Threading.ThreadPool.QueueUserWorkItem(checkupdate);
-                    Settings.Instance["update_check"] = DateTime.Now.ToShortDateString();
-                }
-                else if (Settings.Instance.GetBoolean("beta_updates") == true)
-                {
-                    MissionPlanner.Utilities.Update.dobeta = true;
-                    System.Threading.ThreadPool.QueueUserWorkItem(checkupdate);
-                }
-            }
-            catch (Exception ex)
-            {
-                log.Error("Update check failed", ex);
-            }
+            // 删除功能：检查更新
+            //try
+            //{
+            //    // single update check per day - in a seperate thread
+            //    if (Settings.Instance["update_check"] != DateTime.Now.ToShortDateString())
+            //    {
+            //        System.Threading.ThreadPool.QueueUserWorkItem(checkupdate);
+            //        Settings.Instance["update_check"] = DateTime.Now.ToShortDateString();
+            //    }
+            //    else if (Settings.Instance.GetBoolean("beta_updates") == true)
+            //    {
+            //        MissionPlanner.Utilities.Update.dobeta = true;
+            //        System.Threading.ThreadPool.QueueUserWorkItem(checkupdate);
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    log.Error("Update check failed", ex);
+            //}
 
             // play a tlog that was passed to the program/ load a bin log passed
             if (Program.args.Length > 0)
