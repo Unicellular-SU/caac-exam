@@ -1076,13 +1076,6 @@ namespace MissionPlanner
                 this.Icon = Icon.FromHandle(((Bitmap) Program.IconFile).GetHicon());
             }
 
-            MenuArduPilot.Image = new Bitmap(Properties.Resources._0d92fed790a3a70170e61a86db103f399a595c70,
-                (int) (200), 31);
-            MenuArduPilot.Width = MenuArduPilot.Image.Width;
-
-            if (Program.Logo2 != null)
-                MenuArduPilot.Image = Program.Logo2;
-
             Application.DoEvents();
 
             Comports.Add(comPort);
@@ -1824,6 +1817,8 @@ namespace MissionPlanner
 
         private void MenuConnect_Click(object sender, EventArgs e)
         {
+
+            this.MenuConnect.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(214)))), ((int)(((byte)(234)))));
             Connect();
 
             // save config
@@ -2453,7 +2448,7 @@ namespace MissionPlanner
                         {
                             this.MenuConnect.Image = displayicons.disconnect;
                             this.MenuConnect.Image.Tag = "Disconnect";
-                            this.MenuConnect.Text = Strings.DISCONNECTc;
+                            this.MenuConnect.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(214)))), ((int)(((byte)(234)))));
                             _connectionControl.IsConnected(true);
                         });
                     }
@@ -2466,7 +2461,7 @@ namespace MissionPlanner
                         {
                             this.MenuConnect.Image = displayicons.connect;
                             this.MenuConnect.Image.Tag = "Connect";
-                            this.MenuConnect.Text = Strings.CONNECTc;
+                            this.MenuConnect.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(214)))), ((int)(((byte)(234)))));
                             _connectionControl.IsConnected(false);
                             if (_connectionStats != null)
                             {
@@ -4651,17 +4646,6 @@ namespace MissionPlanner
             new ConnectionOptions().Show(this);
         }
 
-        private void MenuArduPilot_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                System.Diagnostics.Process.Start("https://ardupilot.org/?utm_source=Menu&utm_campaign=MP");
-            }
-            catch
-            {
-                CustomMessageBox.Show("Failed to open url https://ardupilot.org");
-            }
-        }
 
         private void connectionListToolStripMenuItem_Click(object sender, EventArgs e)
         {
