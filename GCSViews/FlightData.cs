@@ -350,11 +350,6 @@ namespace MissionPlanner.GCSViews
 
             gMapControl1.Overlays.Add(poioverlay);
 
-            float gspeedMax = Settings.Instance.GetFloat("GspeedMAX");
-            if (gspeedMax != 0)
-            {
-                Gspeed.MaxValue = gspeedMax;
-            }
 
             MainV2.comPort.ParamListChanged += FlightData_ParentChanged;
 
@@ -380,7 +375,6 @@ namespace MissionPlanner.GCSViews
             hud1.altunit = CurrentState.AltUnit;
             hud1.speedunit = CurrentState.SpeedUnit;
             hud1.distunit = CurrentState.DistanceUnit;
-            coords1.AltUnit = CurrentState.AltUnit;
 
             if (MainV2.MONO)
             {
@@ -611,15 +605,10 @@ namespace MissionPlanner.GCSViews
                     MainV2.comPort.logplaybackfile = new BinaryReader(File.OpenRead(file));
                     MainV2.comPort.lastlogread = DateTime.MinValue;
 
-                    LBL_logfn.Text = Path.GetFileName(file);
 
                     log.Info("Open logfile " + file);
 
                     MainV2.comPort.getHeartBeat();
-
-                    tracklog.Value = 0;
-                    tracklog.Minimum = 0;
-                    tracklog.Maximum = 100;
                 }
                 catch
                 {
@@ -635,30 +624,7 @@ namespace MissionPlanner.GCSViews
             TabListDisplay.Add(tabQuick.Name, MainV2.DisplayConfiguration.displayQuickTab);
 
             TabListDisplay.Add(tabPagePreFlight.Name, MainV2.DisplayConfiguration.displayPreFlightTab);
-
-            TabListDisplay.Add(tabActions.Name, MainV2.DisplayConfiguration.displayAdvActionsTab);
-
-            TabListDisplay.Add(tabActionsSimple.Name, MainV2.DisplayConfiguration.displaySimpleActionsTab);
-
-            TabListDisplay.Add(tabGauges.Name, MainV2.DisplayConfiguration.displayGaugesTab);
-
-            TabListDisplay.Add(tabStatus.Name, MainV2.DisplayConfiguration.displayStatusTab);
-
-            TabListDisplay.Add(tabServo.Name, MainV2.DisplayConfiguration.displayServoTab);
-
-            TabListDisplay.Add(tabScripts.Name, MainV2.DisplayConfiguration.displayScriptsTab);
-
-            TabListDisplay.Add(tabTLogs.Name, MainV2.DisplayConfiguration.displayTelemetryTab);
-
-            TabListDisplay.Add(tablogbrowse.Name, MainV2.DisplayConfiguration.displayDataflashTab);
-
             TabListDisplay.Add(tabPagemessages.Name, MainV2.DisplayConfiguration.displayMessagesTab);
-
-            TabListDisplay.Add(tabTransponder.Name, MainV2.DisplayConfiguration.displayTransponderTab);
-
-            TabListDisplay.Add(tabAuxFunction.Name, MainV2.DisplayConfiguration.displayAuxFunctionTab);
-
-            TabListDisplay.Add(tabPayload.Name, MainV2.DisplayConfiguration.displayPayloadTab);
         }
 
         private void loadTabControlActions()
@@ -704,44 +670,6 @@ namespace MissionPlanner.GCSViews
             ThemeManager.ApplyThemeTo(tabControlactions);
         }
 
-        internal void BUT_run_script_Click(object sender, EventArgs e)
-        {
-            if (File.Exists(selectedscript))
-            {
-                scriptthread = new Thread(run_selected_script)
-                {
-                    IsBackground = true,
-                    Name = "Script Thread (new)"
-                };
-                labelScriptStatus.Text = "Script Status: Running";
-
-                script = null;
-                outputwindowstarted = false;
-                scriptstarted.WaitOne();
-
-                scriptthread.Start();
-                scriptrunning = true;
-                BUT_run_script.Enabled = false;
-                BUT_select_script.Enabled = false;
-                BUT_abort_script.Visible = true;
-                BUT_edit_selected.Enabled = false;
-                scriptChecker.Enabled = true;
-                checkBoxRedirectOutput.Enabled = false;
-
-                scriptstarted.WaitOne();
-                scriptstarted.Release();
-
-                scriptChecker_Tick(null, null);
-
-                MissionPlanner.Utilities.Tracking.AddPage(
-                    System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.ToString(),
-                    System.Reflection.MethodBase.GetCurrentMethod().Name);
-            }
-            else
-            {
-                CustomMessageBox.Show("Please select a valid script", "Bad Script");
-            }
-        }
 
         protected override void Dispose(bool disposing)
         {
@@ -930,12 +858,6 @@ namespace MissionPlanner.GCSViews
             POI.POIAdd(MouseDownStart);
         }
 
-        private void BUT_abort_script_Click(object sender, EventArgs e)
-        {
-            scriptthread.Abort();
-            scriptrunning = false;
-            BUT_abort_script.Visible = false;
-        }
 
         private void BUT_abortland_Click(object sender, EventArgs e)
         {
@@ -1194,33 +1116,6 @@ namespace MissionPlanner.GCSViews
 
         private string tlogdir = Settings.Instance.LogDir;
 
-        private void BUT_loadtelem_Click(object sender, EventArgs e)
-        {
-            LBL_logfn.Text = "";
-
-            if (MainV2.comPort.logplaybackfile != null)
-            {
-                try
-                {
-                    MainV2.comPort.logplaybackfile.Close();
-                    MainV2.comPort.logplaybackfile = null;
-                }
-                catch
-                {
-                }
-            }
-
-            using (OpenFileDialog fd = new OpenFileDialog())
-            {
-                fd.AddExtension = true;
-                fd.Filter = "Telemetry log (*.tlog)|*.tlog;*.tlog.*|Mavlink Log (*.mavlog)|*.mavlog";
-                fd.InitialDirectory = tlogdir;
-                fd.DefaultExt = ".tlog";
-                DialogResult result = fd.ShowDialog();
-                string file = fd.FileName;
-                LoadLogFile(file);
-            }
-        }
 
         private void BUT_log2kml_Click(object sender, EventArgs e)
         {
@@ -1389,15 +1284,6 @@ namespace MissionPlanner.GCSViews
             temp.Show();
         }
 
-        private void BUT_resetGimbalPos_Click(object sender, EventArgs e)
-        {
-            trackBarPitch.Value = 0;
-            trackBarRoll.Value = 0;
-            trackBarYaw.Value = 0;
-            MainV2.comPort.setMountConfigure(MAVLink.MAV_MOUNT_MODE.MAVLINK_TARGETING, false, false, false);
-            MainV2.comPort.setMountControl((float) trackBarPitch.Value * 100.0f, (float) trackBarRoll.Value * 100.0f,
-                (float) trackBarYaw.Value * 100.0f, false);
-        }
 
         private void BUT_resumemis_Click(object sender, EventArgs e)
         {
@@ -1548,19 +1434,6 @@ namespace MissionPlanner.GCSViews
             }
         }
 
-        private void BUT_select_script_Click(object sender, EventArgs e)
-        {
-            if (openScriptDialog.ShowDialog() == DialogResult.OK)
-            {
-                selectedscript = openScriptDialog.FileName;
-                BUT_run_script.Visible = BUT_edit_selected.Visible = true;
-                labelSelectedScript.Text = "Selected Script: " + selectedscript;
-            }
-            else
-            {
-                selectedscript = "";
-            }
-        }
 
         private void BUT_setmode_Click(object sender, EventArgs e)
         {
@@ -1595,7 +1468,7 @@ namespace MissionPlanner.GCSViews
         private void BUT_speed1_Click(object sender, EventArgs e)
         {
             LogPlayBackSpeed = double.Parse(((MyButton) sender).Tag.ToString(), CultureInfo.InvariantCulture);
-            lbl_playbackspeed.Text = "x " + LogPlayBackSpeed;
+        
         }
 
         private void BUTactiondo_Click(object sender, EventArgs e)
@@ -1787,12 +1660,6 @@ namespace MissionPlanner.GCSViews
             //this.Invoke((Action) delegate { preFlightChecklist1.BindData(); });
         }
 
-        private void CHK_autopan_CheckedChanged(object sender, EventArgs e)
-        {
-            Settings.Instance["CHK_autopan"] = CHK_autopan.Checked.ToString();
-
-            //GCSViews.FlightPlanner.instance.autopan = CHK_autopan.Checked;
-        }
 
 
         void chk_box_hud_UserItem_CheckedChanged(object sender, EventArgs e)
@@ -2002,8 +1869,9 @@ namespace MissionPlanner.GCSViews
             //GetFormFromGuid(GetOrCreateGuid("fd_hud_guid")).Controls.Add(hud1);
             ((sender as Form).Tag as Control).Controls.Add(hud1);
             //SubMainLeft.Panel1.Controls.Add(hud1);
-            if (hud1.Parent == SubMainLeft.Panel1)
-                SubMainLeft.Panel1Collapsed = false;
+            // 删除功能：永久隐藏HUD
+            //if (hud1.Parent == SubMainLeft.Panel1)
+            //    SubMainLeft.Panel1Collapsed = false;
             huddropout = false;
         }
 
@@ -2087,9 +1955,6 @@ namespace MissionPlanner.GCSViews
                     break;
                 }
             }
-
-            if (Settings.Instance["CHK_autopan"] != null)
-                CHK_autopan.Checked = Settings.Instance.GetBoolean("CHK_autopan");
 
             if (Settings.Instance.ContainsKey("HudSwap") && Settings.Instance["HudSwap"] == "true")
                 SwapHud1AndMap();
@@ -2302,11 +2167,7 @@ namespace MissionPlanner.GCSViews
             }
         }
 
-        private void gimbalTrackbar_Scroll(object sender, EventArgs e)
-        {
-            MainV2.comPort.setMountControl((float) trackBarPitch.Value * 100.0f, (float) trackBarRoll.Value * 100.0f,
-                (float) trackBarYaw.Value * 100.0f, false);
-        }
+ 
 
         private void gMapControl1_Click(object sender, EventArgs e)
         {
@@ -2482,15 +2343,6 @@ namespace MissionPlanner.GCSViews
             Settings.config["groundColorToolStripMenuItem"] = groundColorToolStripMenuItem.Checked.ToString();
         }
 
-        private void Gspeed_DoubleClick(object sender, EventArgs e)
-        {
-            string max = "60";
-            if (DialogResult.OK == InputBox.Show("Enter Max Speed", "Enter Max Speed", ref max))
-            {
-                Gspeed.MaxValue = float.Parse(max);
-                Settings.Instance["GspeedMAX"] = Gspeed.MaxValue.ToString();
-            }
-        }
 
         private void GStreamerStopToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -3539,7 +3391,7 @@ namespace MissionPlanner.GCSViews
                             addMAVMarker(MainV2.comPort.MAV);
 
                             if (route.Points.Count == 0 || route.Points[route.Points.Count - 1].Lat != 0 &&
-                                (mapupdate.AddSeconds(3) < DateTime.Now) && CHK_autopan.Checked)
+                                (mapupdate.AddSeconds(3) < DateTime.Now))
                             {
                                 updateMapPosition(currentloc);
                                 mapupdate = DateTime.Now;
@@ -3692,7 +3544,6 @@ namespace MissionPlanner.GCSViews
                 }
             }
 
-            coords1.AltUnit = CurrentState.AltUnit;
         }
 
         private void modifyandSetAlt_Click(object sender, EventArgs e)
@@ -4018,18 +3869,9 @@ namespace MissionPlanner.GCSViews
             });
         }
 
-        private void resetToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Refresh();
-        }
 
-        void run_selected_script()
-        {
-            script = new Script(checkBoxRedirectOutput.Checked);
-            scriptstarted.Release();
-            script.runScript(selectedscript);
-            scriptrunning = false;
-        }
+
+
 
         private void russianHudToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -4058,15 +3900,11 @@ namespace MissionPlanner.GCSViews
         {
             if (!scriptrunning)
             {
-                labelScriptStatus.Text = "Script Status: Finished (or aborted)";
+
                 scriptChecker.Enabled = false;
-                BUT_select_script.Enabled = true;
-                BUT_run_script.Enabled = true;
-                BUT_abort_script.Visible = false;
-                BUT_edit_selected.Enabled = true;
-                checkBoxRedirectOutput.Enabled = true;
+
             }
-            else if ((script != null) && (checkBoxRedirectOutput.Checked) && (!outputwindowstarted))
+            else if ((script != null)  && (!outputwindowstarted))
             {
                 outputwindowstarted = true;
 
@@ -4486,15 +4324,7 @@ namespace MissionPlanner.GCSViews
         {
             Messagetabtimer.Stop();
 
-            if (tabControlactions.SelectedTab == tabStatus)
-            {
-                tabControlactions.Visible = false;
-                tabStatus.Visible = false;
-                tabStatus_Resize(sender, e);
-                tabStatus.Visible = true;
-                tabControlactions.Visible = true;
-            }
-            else if (tabControlactions.SelectedTab == tabPagemessages)
+            if (tabControlactions.SelectedTab == tabPagemessages)
             {
                 Messagetabtimer.Start();
             }
@@ -4513,68 +4343,6 @@ namespace MissionPlanner.GCSViews
             }
         }
 
-        private void tabPage1_Resize(object sender, EventArgs e)
-        {
-            int mywidth, myheight;
-
-            // localize it
-            Control tabGauges = sender as Control;
-
-            float scale = tabGauges.Width / (float) tabGauges.Height;
-
-            if (scale > 0.5 && scale < 1.9)
-            {
-                // square
-                Gvspeed.Visible = true;
-
-                if (tabGauges.Height < tabGauges.Width)
-                    myheight = tabGauges.Height / 2;
-                else
-                    myheight = tabGauges.Width / 2;
-
-                Gvspeed.Height = myheight;
-                Gspeed.Height = myheight;
-                Galt.Height = myheight;
-                Gheading.Height = myheight;
-
-                Gvspeed.Location = new Point(0, 0);
-                Gspeed.Location = new Point(Gvspeed.Right, 0);
-
-
-                Galt.Location = new Point(0, Gspeed.Bottom);
-                Gheading.Location = new Point(Galt.Right, Gspeed.Bottom);
-
-                return;
-            }
-
-            if (tabGauges.Width < 500)
-            {
-                Gvspeed.Visible = false;
-                mywidth = tabGauges.Width / 3;
-
-                Gspeed.Height = mywidth;
-                Galt.Height = mywidth;
-                Gheading.Height = mywidth;
-
-                Gspeed.Location = new Point(0, 0);
-            }
-            else
-            {
-                Gvspeed.Visible = true;
-                mywidth = tabGauges.Width / 4;
-
-                Gvspeed.Height = mywidth;
-                Gspeed.Height = mywidth;
-                Galt.Height = mywidth;
-                Gheading.Height = mywidth;
-
-                Gvspeed.Location = new Point(0, 0);
-                Gspeed.Location = new Point(Gvspeed.Right, 0);
-            }
-
-            Galt.Location = new Point(Gspeed.Right, 0);
-            Gheading.Location = new Point(Galt.Right, 0);
-        }
 
         private void tabQuick_Resize(object sender, EventArgs e)
         {
@@ -4621,10 +4389,6 @@ namespace MissionPlanner.GCSViews
 
                 MainV2.comPort.lastlogread = DateTime.MinValue;
                 MainV2.comPort.MAV.cs.ResetInternals();
-
-                if (MainV2.comPort.logplaybackfile != null)
-                    MainV2.comPort.logplaybackfile.BaseStream.Position =
-                        (long) (MainV2.comPort.logplaybackfile.BaseStream.Length * (tracklog.Value / 100.0));
 
                 updateLogPlayPosition(false);
             }
@@ -4723,31 +4487,16 @@ namespace MissionPlanner.GCSViews
                         bindingSourceHud.UpdateDataSource(MainV2.comPort.MAV.cs));
                     //Console.WriteLine("DONE ");
 
-                    if (tabControlactions.SelectedTab == tabStatus)
-                    {
-                        MainV2.comPort.MAV.cs.UpdateCurrentSettings(
-                            bindingSourceStatusTab.UpdateDataSource(MainV2.comPort.MAV.cs));
-                        this.tabStatus.Invalidate();
-                    }
-                    else if (tabControlactions.SelectedTab == tabQuick)
+                     if (tabControlactions.SelectedTab == tabQuick)
                     {
                         MainV2.comPort.MAV.cs.UpdateCurrentSettings(
                             bindingSourceQuickTab.UpdateDataSource(MainV2.comPort.MAV.cs));
                     }
-                    else if (tabControlactions.SelectedTab == tabGauges)
-                    {
-                        MainV2.comPort.MAV.cs.UpdateCurrentSettings(
-                            bindingSourceGaugesTab.UpdateDataSource(MainV2.comPort.MAV.cs));
-                    }
+                    
                     else if (tabControlactions.SelectedTab == tabPagePreFlight)
                     {
                         MainV2.comPort.MAV.cs.UpdateCurrentSettings(
                             bindingSourceGaugesTab.UpdateDataSource(MainV2.comPort.MAV.cs));
-                    }
-                    else if (tabControlactions.SelectedTab == tabPayload)
-                    {
-                        MainV2.comPort.MAV.cs.UpdateCurrentSettings(
-                            bindingSourcePayloadTab.UpdateDataSource(MainV2.comPort.MAV.cs));
                     }
                 }
                 else
@@ -4802,22 +4551,7 @@ namespace MissionPlanner.GCSViews
             {
                 try
                 {
-                    if (updatetracklog && tracklog.Visible)
-                    {
-                        // prevent event fire
-                        tracklog.ValueChanged -= tracklog_Scroll;
-                        tracklog.Value = (int) (MainV2.comPort.logplaybackfile.BaseStream.Position /
-                            (double) MainV2.comPort.logplaybackfile.BaseStream.Length * 100);
-                        tracklog.ValueChanged += tracklog_Scroll;
-                    }
-
-                    if (lbl_logpercent.Visible)
-                        lbl_logpercent.Text =
-                            (MainV2.comPort.logplaybackfile.BaseStream.Position /
-                             (double) MainV2.comPort.logplaybackfile.BaseStream.Length).ToString("0.00%");
-
-                    if (lbl_playbackspeed.Visible)
-                        lbl_playbackspeed.Text = "x " + LogPlayBackSpeed;
+                    
                 }
                 catch
                 {
@@ -4886,35 +4620,11 @@ namespace MissionPlanner.GCSViews
         {
             if (playing)
             {
-                if (BUT_playlog.Text == "Pause")
-                    return;
-
-                BeginInvoke((Action) delegate
-                {
-                    try
-                    {
-                        BUT_playlog.Text = "Pause";
-                    }
-                    catch
-                    {
-                    }
-                });
+                log.Info("updatePlayPauseButton:playing");
             }
             else
             {
-                if (BUT_playlog.Text == "Play")
-                    return;
-
-                BeginInvoke((Action) delegate
-                {
-                    try
-                    {
-                        BUT_playlog.Text = "Play";
-                    }
-                    catch
-                    {
-                    }
-                });
+                log.Info("updatePlayPauseButton:playing false");
             }
         }
 
@@ -5296,49 +5006,6 @@ namespace MissionPlanner.GCSViews
 
         }
 
-        private void tabStatus_Paint(object sender, PaintEventArgs e)
-        {
-            var bmp = new Bitmap(tabStatus.DisplayRectangle.Width, tabStatus.DisplayRectangle.Height);
-            var g = Graphics.FromImage(bmp);
-            g.Clear(Color.Transparent);
-
-            int x = 10;
-            int y = 10;
-
-            var list = MainV2.comPort.MAV.cs.GetItemList(true);
-            var cs = bindingSourceStatusTab.Current as CurrentState;
-            var br = new SolidBrush(tabStatus.ForeColor);
-
-            foreach (var field in list)
-            {
-                g.DrawString(field, this.Font, br, new RectangleF(x, y, 120, 15));
-
-                if (cs != null)
-                    g.DrawString(typeof(CurrentState).GetProperty(field).GetValue(cs)?.ToString(), this.Font,
-                        br, new RectangleF(x + 120, y, 50, 15));
-
-                x += 0;
-                y += 15;
-
-                if (y > tabStatus.Height - 30)
-                {
-                    x += 190;
-                    y = 10;
-                }
-            }
-
-            if (tabStatus.AutoScrollMinSize.Width < x)
-            {
-                typeof(Panel).InvokeMember("DoubleBuffered", BindingFlags.SetProperty
-                                                             | BindingFlags.Instance | BindingFlags.NonPublic, null,
-                    tabStatus, new object[] { true });
-
-                tabStatus.AutoScrollMinSize = new Size(x + 164, 0);
-            }
-            e.Graphics.TranslateTransform(tabStatus.AutoScrollPosition.X,
-                tabStatus.AutoScrollPosition.Y);
-            e.Graphics.DrawImageUnscaled(bmp, 0, 0);
-        }
 
         private void gMapControl1_MouseUp(object sender, MouseEventArgs e)
         {
@@ -5433,302 +5100,9 @@ namespace MissionPlanner.GCSViews
             contextMenuStripQuickView.Items["undockToolStripMenuItem"].Visible = true;
         }
 
-        private void IDENT_btn_Click(object sender, EventArgs e)
-        {
-
-            MainV2.comPort.uAvionixADSBControl(int.MaxValue,
-                                               (ushort)Squawk_nud.Value,
-                                               /*UAVIONIX_ADSB_OUT_CONTROL_STATE*/(byte)(
-                                                   8 |
-                                                   (Mode_clb.GetItemChecked(0) ? 16 : 0) |
-                                                   (Mode_clb.GetItemChecked(1) ? 32 : 0) |
-                                                   (Mode_clb.GetItemChecked(2) ? 64 : 0) |
-                                                   (Mode_clb.GetItemChecked(3) ? 128 : 0)
-                                                ),
-                                               0,/*UAVIONIX_ADSB_EMERGENCY_STATUS*/
-                                               Encoding.ASCII.GetBytes(FlightID_tb.Text),
-                                               0);
-        }
-
-        private void FlightID_tb_TextChanged(object sender, EventArgs e)
-        {
-            if (FlightID_tb.Text.Length > 8)
-            {
-                FlightID_tb.TextChanged -= new EventHandler(FlightID_tb_TextChanged);
-                FlightID_tb.Text = FlightID_tb.Text.Substring(0, 8);
-                FlightID_tb.TextChanged += new EventHandler(FlightID_tb_TextChanged);
-            }
-            MainV2.comPort.uAvionixADSBControl(int.MaxValue,
-                                               (ushort)Squawk_nud.Value,
-                                               /*UAVIONIX_ADSB_OUT_CONTROL_STATE*/(byte)(
-                                                   (Mode_clb.GetItemChecked(0) ? 16 : 0) |
-                                                   (Mode_clb.GetItemChecked(1) ? 32 : 0) |
-                                                   (Mode_clb.GetItemChecked(2) ? 64 : 0) |
-                                                   (Mode_clb.GetItemChecked(3) ? 128 : 0)
-                                               ),
-                                               0,/*UAVIONIX_ADSB_EMERGENCY_STATUS*/
-                                               Encoding.ASCII.GetBytes(FlightID_tb.Text),
-                                               0);
-        }
-
-        private void Squawk_nud_ValueChanged(object sender, EventArgs e)
-        {
-            UInt16 ones = (UInt16)(Squawk_nud.Value % 10);
-            UInt16 tens = (UInt16)((Squawk_nud.Value / 10) % 10);
-            UInt16 hundreds = (UInt16)((Squawk_nud.Value / 100) % 10);
-            UInt16 thousands = (UInt16)((Squawk_nud.Value / 1000) % 10);
-
-            if (ones == 9)
-                ones = 7;
-            if (tens == 9)
-                tens = 7;
-            if (hundreds == 9)
-                hundreds = 7;
-            if (thousands == 9)
-                thousands = 7;
-
-            if (ones > 7)
-            {
-                tens++;
-                ones = 0;
-            }
-            if (tens > 7)
-            {
-                hundreds++;
-                tens = 0;
-            }
-            if (hundreds > 7)
-            {
-                hundreds = 0;
-                thousands++;
-            }
-            if (thousands > 7)
-            {
-                thousands = 7;
-            }
-
-            Squawk_nud.ValueChanged -= new EventHandler(Squawk_nud_ValueChanged);
-            Squawk_nud.Value = ((thousands * 1000) + (hundreds * 100) + (tens * 10) + ones);
-            Squawk_nud.ValueChanged += new EventHandler(Squawk_nud_ValueChanged);
-
-            MainV2.comPort.uAvionixADSBControl(int.MaxValue,
-                                               (ushort)Squawk_nud.Value,
-                                               /*UAVIONIX_ADSB_OUT_CONTROL_STATE*/(byte)(
-                                                   (Mode_clb.GetItemChecked(0) ? 16 : 0) |
-                                                   (Mode_clb.GetItemChecked(1) ? 32 : 0) |
-                                                   (Mode_clb.GetItemChecked(2) ? 64 : 0) |
-                                                   (Mode_clb.GetItemChecked(3) ? 128 : 0)
-                                               ),
-                                               0,/*UAVIONIX_ADSB_EMERGENCY_STATUS*/
-                                               Encoding.ASCII.GetBytes(FlightID_tb.Text),
-                                               0);
-        }
-
-        private void STBY_btn_Click(object sender, EventArgs e)
-        {
-            Mode_clb.SetItemChecked(0, false);
-            Mode_clb.SetItemChecked(1, false);
-            Mode_clb.SetItemChecked(2, false);
-            Mode_clb.SetItemChecked(3, false);
-            MainV2.comPort.uAvionixADSBControl(int.MaxValue,
-                                               (ushort)Squawk_nud.Value,
-                                               /*UAVIONIX_ADSB_OUT_CONTROL_STATE*/(byte)(
-                                                   (Mode_clb.GetItemChecked(0) ? 16 : 0) |
-                                                   (Mode_clb.GetItemChecked(1) ? 32 : 0) |
-                                                   (Mode_clb.GetItemChecked(2) ? 64 : 0) |
-                                                   (Mode_clb.GetItemChecked(3) ? 128 : 0)
-                                               ),
-                                               0,/*UAVIONIX_ADSB_EMERGENCY_STATUS*/
-                                               Encoding.ASCII.GetBytes(FlightID_tb.Text),
-                                               0);
-            STBY_btn.Font = new Font(STBY_btn.Font, FontStyle.Bold);
-            ON_btn.Font = new Font(ON_btn.Font, FontStyle.Regular);
-            ALT_btn.Font = new Font(ALT_btn.Font, FontStyle.Regular);
-        }
-
-        private void ON_btn_Click(object sender, EventArgs e)
-        {
-            Mode_clb.SetItemChecked(0, true);
-            Mode_clb.SetItemChecked(1, false);
-            Mode_clb.SetItemChecked(2, true);
-            Mode_clb.SetItemChecked(3, true);
-            MainV2.comPort.uAvionixADSBControl(int.MaxValue,
-                                               (ushort)Squawk_nud.Value,
-                                               /*UAVIONIX_ADSB_OUT_CONTROL_STATE*/(byte)(
-                                                   (Mode_clb.GetItemChecked(0) ? 16 : 0) |
-                                                   (Mode_clb.GetItemChecked(1) ? 32 : 0) |
-                                                   (Mode_clb.GetItemChecked(2) ? 64 : 0) |
-                                                   (Mode_clb.GetItemChecked(3) ? 128 : 0)
-                                               ),
-                                               0,/*UAVIONIX_ADSB_EMERGENCY_STATUS*/
-                                               Encoding.ASCII.GetBytes(FlightID_tb.Text),
-                                               0);
-            STBY_btn.Font = new Font(STBY_btn.Font, FontStyle.Regular);
-            ON_btn.Font = new Font(ON_btn.Font, FontStyle.Bold);
-            ALT_btn.Font = new Font(ALT_btn.Font, FontStyle.Regular);
-        }
-
-        private void ALT_btn_Click(object sender, EventArgs e)
-        {
-            Mode_clb.SetItemChecked(0, true);
-            Mode_clb.SetItemChecked(1, true);
-            Mode_clb.SetItemChecked(2, true);
-            Mode_clb.SetItemChecked(3, true);
-            MainV2.comPort.uAvionixADSBControl(int.MaxValue,
-                                               (ushort)Squawk_nud.Value,
-                                               /*UAVIONIX_ADSB_OUT_CONTROL_STATE*/(byte)(
-                                                   (Mode_clb.GetItemChecked(0) ? 16 : 0) |
-                                                   (Mode_clb.GetItemChecked(1) ? 32 : 0) |
-                                                   (Mode_clb.GetItemChecked(2) ? 64 : 0) |
-                                                   (Mode_clb.GetItemChecked(3) ? 128 : 0)
-                                               ),
-                                               0,/*UAVIONIX_ADSB_EMERGENCY_STATUS*/
-                                               Encoding.ASCII.GetBytes(FlightID_tb.Text),
-                                               0);
-            STBY_btn.Font = new Font(STBY_btn.Font, FontStyle.Regular);
-            ON_btn.Font = new Font(ON_btn.Font, FontStyle.Regular);
-            ALT_btn.Font = new Font(ALT_btn.Font, FontStyle.Bold);
-        }
-
-
-        private void Squawk_nud_MouseWheel(object sender, MouseEventArgs e)
-        {
-            NumericUpDown control = (NumericUpDown)sender;
-            ((HandledMouseEventArgs)e).Handled = true;
-            decimal value = control.Value + ((e.Delta > 0) ? control.Increment : -control.Increment);
-            control.Value = Math.Max(control.Minimum, Math.Min(value, control.Maximum));
-        }
-
-        private void XPDRConnect_btn_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                MainV2.comPort.doCommand(MAVLink.MAV_CMD.SET_MESSAGE_INTERVAL, (float) MAVLink.MAVLINK_MSG_ID.UAVIONIX_ADSB_OUT_STATUS, (float) 1000000.0, 0, 0, 0, 0, 0);
-                var start = DateTime.Now;
-                while (!MainV2.comPort.MAV.cs.xpdr_status_pending && (DateTime.Now - start).TotalSeconds < 3); // wait until we receive a status message
-                if (MainV2.comPort.MAV.cs.xpdr_status_pending)
-                {
-                    updateTransponder();
-                }
-                else CustomMessageBox.Show("Timeout: Status message not received.");
-
-            }
-            catch (Exception ex)
-            {
-                CustomMessageBox.Show("Timeout.");
-            }
-        }
 
         private void updateTransponder()
         {
-            if (!MainV2.comPort.MAV.cs.xpdr_status_pending)
-            {
-                // timeout on status message
-                STBY_btn.Enabled = false;
-                ON_btn.Enabled = false;
-                ALT_btn.Enabled = false;
-                IDENT_btn.Enabled = false;
-                FlightID_tb.Enabled = false;
-                Squawk_nud.Enabled = false;
-
-                if (transponderNeverConnected)
-                {
-                    XPDRConnect_btn.Text = "Connect To Transponder";
-                    XPDRConnect_btn.Enabled = true;
-                }
-                else
-                {
-                    // if we have connected before, we should have subscribed to the status message.
-                    // something must have reset the message interval (AP power cycled, etc.)
-                    // so indicate that the connection reset
-                    XPDRConnect_btn.Text = "Transponder Status Lost";
-                    XPDRConnect_btn.Enabled = true;
-                    transponderNeverConnected = true;
-                }
-            }
-            else if (!MainV2.comPort.MAV.cs.xpdr_status_unavail)
-            {
-                if (transponderNeverConnected)
-                {
-                    // subscribe to status message on first connection
-                    MainV2.comPort.doCommand(MAVLink.MAV_CMD.SET_MESSAGE_INTERVAL, (float) MAVLink.MAVLINK_MSG_ID.UAVIONIX_ADSB_OUT_STATUS, (float) 1000000.0, 0, 0, 0, 0, 0);
-                    transponderNeverConnected = false;
-                }
-
-                STBY_btn.Enabled = true;
-                ON_btn.Enabled = true;
-                ALT_btn.Enabled = true;
-                IDENT_btn.Enabled = true;
-                FlightID_tb.Enabled = true;
-                Squawk_nud.Enabled = true;
-
-                if (!(STBY_btn.Focused || ON_btn.Focused || ALT_btn.Focused))
-                {
-                    Mode_clb.SetItemChecked(0, MainV2.comPort.MAV.cs.xpdr_mode_A_enabled);
-                    Mode_clb.SetItemChecked(1, MainV2.comPort.MAV.cs.xpdr_mode_C_enabled);
-                    Mode_clb.SetItemChecked(2, MainV2.comPort.MAV.cs.xpdr_mode_S_enabled);
-                    Mode_clb.SetItemChecked(3, MainV2.comPort.MAV.cs.xpdr_es1090_tx_enabled);
-                    STBY_btn.Font = new Font(STBY_btn.Font, (!Mode_clb.GetItemChecked(0) &&
-                                                             !Mode_clb.GetItemChecked(1) &&
-                                                             !Mode_clb.GetItemChecked(2) &&
-                                                             !Mode_clb.GetItemChecked(3)) ? FontStyle.Bold : FontStyle.Regular);
-                    ON_btn.Font   = new Font(ON_btn.Font,   ( Mode_clb.GetItemChecked(0) &&
-                                                             !Mode_clb.GetItemChecked(1) &&
-                                                              Mode_clb.GetItemChecked(2) &&
-                                                              Mode_clb.GetItemChecked(3)) ? FontStyle.Bold : FontStyle.Regular);
-                    ALT_btn.Font  = new Font(ALT_btn.Font,  ( Mode_clb.GetItemChecked(0) &&
-                                                              Mode_clb.GetItemChecked(1) &&
-                                                              Mode_clb.GetItemChecked(2) &&
-                                                              Mode_clb.GetItemChecked(3)) ? FontStyle.Bold : FontStyle.Regular);
-                }
-
-                fault_clb.SetItemChecked(0, MainV2.comPort.MAV.cs.xpdr_maint_req);
-                fault_clb.SetItemChecked(1, MainV2.comPort.MAV.cs.xpdr_gps_unavail);
-                fault_clb.SetItemChecked(2, MainV2.comPort.MAV.cs.xpdr_gps_no_fix);
-                fault_clb.SetItemChecked(3, MainV2.comPort.MAV.cs.xpdr_adsb_tx_sys_fail);
-                fault_clb.SetItemChecked(4, MainV2.comPort.MAV.cs.xpdr_airborne_status);
-
-                if (!FlightID_tb.Focused)
-                {
-                    FlightID_tb.TextChanged -= new EventHandler(FlightID_tb_TextChanged);
-                    FlightID_tb.Text = System.Text.Encoding.UTF8.GetString(MainV2.comPort.MAV.cs.xpdr_flight_id);
-                    FlightID_tb.TextChanged += new EventHandler(FlightID_tb_TextChanged);
-                }
-
-                if (!Squawk_nud.Focused)
-                {
-                    Squawk_nud.ValueChanged -= new EventHandler(Squawk_nud_ValueChanged);
-                    try
-                    {
-                        Squawk_nud.Value = (decimal)MainV2.comPort.MAV.cs.xpdr_mode_A_squawk_code;
-                        // if the value is bad, we need to be able to reset it, so silent fail
-                    }
-                    catch
-                    {
-                    }
-                    Squawk_nud.ValueChanged += new EventHandler(Squawk_nud_ValueChanged);
-                }
-
-                NIC_tb.Text = NIC_table[MainV2.comPort.MAV.cs.xpdr_nic];
-                NACp_tb.Text = NACp_table[MainV2.comPort.MAV.cs.xpdr_nacp];
-
-                IDENT_btn.Font = new Font(IDENT_btn.Font, MainV2.comPort.MAV.cs.xpdr_ident_active ? FontStyle.Bold : FontStyle.Regular);
-
-                XPDRConnect_btn.Text = "Transponder Connected!";
-                XPDRConnect_btn.Enabled = false;
-            }
-            else
-            {
-                STBY_btn.Enabled = false;
-                ON_btn.Enabled = false;
-                ALT_btn.Enabled = false;
-                IDENT_btn.Enabled = false;
-                FlightID_tb.Enabled = false;
-                Squawk_nud.Enabled = false;
-
-                XPDRConnect_btn.Text = "Transponder Offline";
-                XPDRConnect_btn.Enabled = false;
-            }
             MainV2.comPort.MAV.cs.xpdr_status_pending = false;
         }
 
@@ -5960,6 +5334,91 @@ namespace MissionPlanner.GCSViews
 
             // Pass `this` to keep the pop-out always on top
             form.Show(this);
+        }
+
+        private void BUT_loadtelem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gimbalTrackbar_Scroll(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BUT_resetGimbalPos_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BUT_select_script_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BUT_abort_script_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BUT_run_script_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabStatus_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void ON_btn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void STBY_btn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ALT_btn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void IDENT_btn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void XPDRConnect_btn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FlightID_tb_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Squawk_nud_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Squawk_nud_MouseWheel(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void Gspeed_DoubleClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage1_Resize(object sender, EventArgs e)
+        {
+
         }
     }
 }

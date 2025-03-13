@@ -258,98 +258,98 @@ namespace MissionPlanner.Controls.PreFlight
 
         public void Controls_Resize(object sender, EventArgs e)
         {
-            //initialize controls x and y
-            int gbsX = 0;
-            int gbsY = 0;
-            int lblsOneX = 0;
-            int lblsOneY = 0;
-            int lblsTwoX = 0;
-            int lblsTwoY = 0;
-            int cbxsX = 0;
-            int cbxsY = 0;
+            ////initialize controls x and y
+            //int gbsX = 0;
+            //int gbsY = 0;
+            //int lblsOneX = 0;
+            //int lblsOneY = 0;
+            //int lblsTwoX = 0;
+            //int lblsTwoY = 0;
+            //int cbxsX = 0;
+            //int cbxsY = 0;
 
-            //Width of the controls
-            //Panel1 variable width
-            var panelOneWidth = panel1.Width;
-            //Group boxes variable width
-            var gbsWidth = groupboxes[0].Width = (int)(panelOneWidth * 0.9);
-            //Desc label variable width
-            var descLabelWidth = descLabels[0].Width = (int)(gbsWidth * 0.6204);
-            //Second label variable width
-            var labeTwolWidth = labels[0].Width = (int)(gbsWidth * 0.2444);
-            //Checkbox variable width
-            var checkboxWidth = checkboxes[0].Width = (int)(gbsWidth * 0.0752);
+            ////Width of the controls
+            ////Panel1 variable width
+            //var panelOneWidth = panel1.Width;
+            ////Group boxes variable width
+            //var gbsWidth = groupboxes[0].Width = (int)(panelOneWidth * 0.9);
+            ////Desc label variable width
+            //var descLabelWidth = descLabels[0].Width = (int)(gbsWidth * 0.6204);
+            ////Second label variable width
+            //var labeTwolWidth = labels[0].Width = (int)(gbsWidth * 0.2444);
+            ////Checkbox variable width
+            //var checkboxWidth = checkboxes[0].Width = (int)(gbsWidth * 0.0752);
 
-            //Setting Locations
-            //Set the first groupboxes location
-            groupboxes[0].Location = new Point(groupboxes[0].Location.X, groupboxes[0].Location.Y);
-            gbsX = groupboxes[0].Location.X;
-            gbsY = groupboxes[0].Location.Y;
+            ////Setting Locations
+            ////Set the first groupboxes location
+            //groupboxes[0].Location = new Point(groupboxes[0].Location.X, groupboxes[0].Location.Y);
+            //gbsX = groupboxes[0].Location.X;
+            //gbsY = groupboxes[0].Location.Y;
 
-            //location of the desc Label
-            descLabels[0].Location = new Point(descLabels[0].Location.X, descLabels[0].Location.Y);
-            lblsOneX = descLabels[0].Location.X;
-            lblsOneY = descLabels[0].Location.Y;
-            //set the second labels location
-            var labelTwo = labels[0].Location = new Point(labels[0].Location.X, labels[0].Location.Y);
-            lblsTwoX = descLabels[0].Width + (int)(gbsWidth * 0.02);
-            lblsTwoY = labels[0].Location.Y;
-            //set the first checkboxes location
-            var checkboxOne = checkboxes[0].Location = new Point(checkboxes[0].Location.X, checkboxes[0].Location.Y);
-            cbxsX = labels[0].Location.X + labels[0].Width + (int)(gbsWidth * 0.02);
-            cbxsY = checkboxes[0].Location.Y;
+            ////location of the desc Label
+            //descLabels[0].Location = new Point(descLabels[0].Location.X, descLabels[0].Location.Y);
+            //lblsOneX = descLabels[0].Location.X;
+            //lblsOneY = descLabels[0].Location.Y;
+            ////set the second labels location
+            //var labelTwo = labels[0].Location = new Point(labels[0].Location.X, labels[0].Location.Y);
+            //lblsTwoX = descLabels[0].Width + (int)(gbsWidth * 0.02);
+            //lblsTwoY = labels[0].Location.Y;
+            ////set the first checkboxes location
+            //var checkboxOne = checkboxes[0].Location = new Point(checkboxes[0].Location.X, checkboxes[0].Location.Y);
+            //cbxsX = labels[0].Location.X + labels[0].Width + (int)(gbsWidth * 0.02);
+            //cbxsY = checkboxes[0].Location.Y;
 
-            for (int i = 0; i < groupboxes.Count; i++)
-            {
-                if (groupboxes.Count > 0 && labels.Count > 0 && checkboxes.Count > 0)
-                {
-                    //Set the group box Y Location
-                    gbsY = groupboxes[i].Bottom;
-                    //Set the width of the desc labels
-                    descLabelWidth = descLabels[i].Width;
+            //for (int i = 0; i < groupboxes.Count; i++)
+            //{
+            //    if (groupboxes.Count > 0 && labels.Count > 0 && checkboxes.Count > 0)
+            //    {
+            //        //Set the group box Y Location
+            //        gbsY = groupboxes[i].Bottom;
+            //        //Set the width of the desc labels
+            //        descLabelWidth = descLabels[i].Width;
 
-                    if (i == 0)
-                    {
-                        //check the height of the panel1 = not to do with the change
-                        var panelOneHeight = panel1.Height;
+            //        if (i == 0)
+            //        {
+            //            //check the height of the panel1 = not to do with the change
+            //            var panelOneHeight = panel1.Height;
 
-                        //ratio needs to be rechecked
-                        if (this.panel1.Width > 0)
-                        {
-                            //set the width of the group boxes
-                            groupboxes[i].Width = (int)(panelOneWidth * 0.9);
+            //            //ratio needs to be rechecked
+            //            if (this.panel1.Width > 0)
+            //            {
+            //                //set the width of the group boxes
+            //                groupboxes[i].Width = (int)(panelOneWidth * 0.9);
 
-                            //desc Label X Location
-                            lblsOneX = descLabels[i].Location.X;
+            //                //desc Label X Location
+            //                lblsOneX = descLabels[i].Location.X;
 
-                            //Second label X Location
-                            lblsTwoX = labelTwo.X = (int)(groupboxes[i].Width * 0.66);
+            //                //Second label X Location
+            //                lblsTwoX = labelTwo.X = (int)(groupboxes[i].Width * 0.66);
 
-                            labels[i].Width = (int)(groupboxes[i].Width * 0.3);
+            //                labels[i].Width = (int)(groupboxes[i].Width * 0.3);
 
-                            //checkbox location
-                            cbxsX = checkboxOne.X = (int)(groupboxes[i].Width * 0.9);
-                        }
-                    }
-                    else if (i > 0)
-                    {
-                        //setting the groupboxes width
-                        groupboxes[i].Width = (int)(panelOneWidth * 0.9);
-                    }
+            //                //checkbox location
+            //                cbxsX = checkboxOne.X = (int)(groupboxes[i].Width * 0.9);
+            //            }
+            //        }
+            //        else if (i > 0)
+            //        {
+            //            //setting the groupboxes width
+            //            groupboxes[i].Width = (int)(panelOneWidth * 0.9);
+            //        }
 
-                    //set the location in the group box for labels
-                    descLabels[i].Location = new Point(lblsOneX, lblsOneY);
-                    //set the location in the group box for the second labels
-                    labels[i].Location = new Point(lblsTwoX, lblsTwoY);
-                    //set the location in the group box for the checkboxes
-                    checkboxes[i].Location = new Point(cbxsX, cbxsY);
+            //        //set the location in the group box for labels
+            //        descLabels[i].Location = new Point(lblsOneX, lblsOneY);
+            //        //set the location in the group box for the second labels
+            //        labels[i].Location = new Point(lblsTwoX, lblsTwoY);
+            //        //set the location in the group box for the checkboxes
+            //        checkboxes[i].Location = new Point(cbxsX, cbxsY);
 
-                    //Bring controls to the front
-                    groupboxes[i].BringToFront();
-                    labels[i].BringToFront();
-                    checkboxes[i].BringToFront();
-                }
-            }
+            //        //Bring controls to the front
+            //        groupboxes[i].BringToFront();
+            //        labels[i].BringToFront();
+            //        checkboxes[i].BringToFront();
+            //    }
+            //}
         }
 
         private void CheckListControl_Load(object sender, EventArgs e)
