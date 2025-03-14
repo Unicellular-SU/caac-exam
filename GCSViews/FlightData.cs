@@ -178,6 +178,31 @@ namespace MissionPlanner.GCSViews
 
         string updateBindingSourceThreadName = "";
 
+        /// 下面是考试新增内容
+        public double[] _config_1 = new double[4];
+
+        public double[] _config_2 = new double[4];
+
+        public double[] _config_3 = new double[4];
+
+        public double[] _config_4 = new double[4];
+
+        public double[] _config_5 = new double[4];
+
+        public double[] _config_6 = new double[4];
+
+        public double[] _config_7 = new double[4];
+
+        public double[] _config_8 = new double[4];
+
+        public double[] _config_9 = new double[4];
+
+        public double[] _config_10 = new double[4];
+
+        public double[] _config_11 = new double[4];
+
+        public double[] _config_12 = new double[4];
+
         public enum actions
         {
             Loiter_Unlim,
@@ -363,6 +388,9 @@ namespace MissionPlanner.GCSViews
             hud1.displayicons = Settings.Instance.GetBoolean("HUD_showicons", false);
 
             tabControlactions.Multiline = Settings.Instance.GetBoolean("tabControlactions_Multiline", false);
+
+            // 初始化考试数据
+            initExamConfig();
 
         }
 
@@ -629,12 +657,13 @@ namespace MissionPlanner.GCSViews
 
         private void loadTabControlActions()
         {
-            string tabs = Settings.Instance["tabcontrolactions"];
+            string tabs = "tabExamConfig;tabExamOperation;tabQuick;tabPagePreFlight;tabPagemessages;";
 
             if (String.IsNullOrEmpty(tabs) || TabListOriginal == null || TabListOriginal.Count == 0)
                 return;
 
             string[] tabarray = tabs.Split(';');
+            tabarray.Append(tabQuick.Name);
 
             if (tabarray.Length == 0)
                 return;
@@ -1955,6 +1984,26 @@ namespace MissionPlanner.GCSViews
                     break;
                 }
             }
+            if (Settings.Instance["_config_1"] == null || Settings.Instance["_config_2"] == null || Settings.Instance["_config_3"] == null || Settings.Instance["_config_4"] == null || Settings.Instance["_config_5"] == null || Settings.Instance["_config_6"] == null || Settings.Instance["_config_7"] == null || Settings.Instance["_config_8"] == null || Settings.Instance["_config_9"] == null || Settings.Instance["_config_10"] == null || Settings.Instance["_config_11"] == null || Settings.Instance["_config_12"] == null)
+            {
+                restConfigList();
+            }
+            else
+            {
+                textBox360Shuiping.Text = Settings.Instance["_config_1"];
+                textBox360Gaodu.Text = Settings.Instance["_config_2"];
+                textBox360MinJiao.Text = Settings.Instance["_config_3"];
+                textBox360MaxJiao.Text = Settings.Instance["_config_4"];
+                textBox360MinTime.Text = Settings.Instance["_config_5"];
+                textBox360MaxTime.Text = Settings.Instance["_config_6"];
+                textBox8MaxShuiping.Text = Settings.Instance["_config_7"];
+                textBox8MaxJiao.Text = Settings.Instance["_config_8"];
+                textBox8MinFeixing.Text = Settings.Instance["_config_9"];
+                textBox8MaxFeixing.Text = Settings.Instance["_config_10"];
+                textBox8MaxGaodu.Text = Settings.Instance["_config_11"];
+                textBox8MaxTime.Text = Settings.Instance["_config_12"];
+                //setConfigList();
+            }
 
             if (Settings.Instance.ContainsKey("HudSwap") && Settings.Instance["HudSwap"] == "true")
                 SwapHud1AndMap();
@@ -1979,6 +2028,8 @@ namespace MissionPlanner.GCSViews
 
             splitContainer1.Panel1Collapsed = true;
 
+           
+
             try
             {
                 thisthread = new Thread(mainloop);
@@ -1990,6 +2041,55 @@ namespace MissionPlanner.GCSViews
             {
                 mainloop();
             }
+        }
+
+        /// <summary>
+        /// 初始化考试配置，通过下标确定是那种类型的考试
+        /// </summary>
+        private void initExamConfig()
+        {
+            for (int k = 0; k <= 3; k++)
+            {
+                _config_1[k] = 2.0;
+                _config_2[k] = 1.0;
+                _config_3[k] = 5.0;
+                _config_4[k] = 65.0;
+                _config_5[k] = 5.0;
+                _config_6[k] = 60.0;
+                _config_7[k] = 2.0;
+                if (k == 2)
+                {
+                    _config_8[k] = 25.0;
+                }
+                else
+                {
+                    _config_8[k] = 30.0;
+                }
+                _config_9[k] = 0.3;
+                _config_10[k] = 3.0;
+                _config_11[k] = 1.0;
+                _config_12[k] = 180.0;
+            }
+        }
+
+        /// <summary>
+        /// 重置考试配置
+        /// </summary>
+        private void restConfigList()
+        {
+            textBox360Shuiping.Text = _config_1[1].ToString("F1");
+            textBox360Gaodu.Text = _config_2[1].ToString("F1");
+            textBox360MinJiao.Text = _config_3[1].ToString("F1");
+            textBox360MaxJiao.Text = _config_4[1].ToString("F1");
+            textBox360MinTime.Text = _config_5[1].ToString("F1");
+            textBox360MaxTime.Text = _config_6[1].ToString("F1");
+            textBox8MaxShuiping.Text = _config_7[1].ToString("F1");
+            textBox8MaxJiao.Text = _config_8[1].ToString("F1");
+            textBox8MinFeixing.Text = _config_9[1].ToString("F1");
+            textBox8MaxFeixing.Text = _config_10[1].ToString("F1");
+            textBox8MaxGaodu.Text = _config_11[1].ToString("F1");
+            textBox8MaxTime.Text = _config_12[1].ToString("F1");
+            //setConfigList();
         }
 
         private void FlightData_ParentChanged(object sender, EventArgs e)
@@ -3524,26 +3624,33 @@ namespace MissionPlanner.GCSViews
 
         private void Messagetabtimer_Tick(object sender, EventArgs e)
         {
-            var messagetime = MainV2.comPort.MAV.cs.messages.LastOrDefault().time;
-            if (messagecount != messagetime.toUnixTime())
-            {
-                try
-                {
-                    StringBuilder message = new StringBuilder();
-                    MainV2.comPort.MAV.cs.messages.ForEach(x =>
-                    {
-                        message.Insert(0, x.Item1 + " : " + x.Item2 + "\r\n");
-                    });
-                    txt_messagebox.Text = message.ToString();
+            // 修改功能：删除原有消息日志
+            //var messagetime = MainV2.comPort.MAV.cs.messages.LastOrDefault().time;
+            //if (messagecount != messagetime.toUnixTime())
+            //{
+            //    try
+            //    {
+            //        StringBuilder message = new StringBuilder();
+            //        MainV2.comPort.MAV.cs.messages.ForEach(x =>
+            //        {
+            //            message.Insert(0, x.Item1 + " : " + x.Item2 + "\r\n");
+            //        });
+            //        txt_messagebox.Text = message.ToString();
 
-                    messagecount = messagetime.toUnixTime();
-                }
-                catch (Exception ex)
-                {
-                    log.Error(ex);
-                }
-            }
+            //        messagecount = messagetime.toUnixTime();
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        log.Error(ex);
+            //    }
+            //}
 
+        }
+
+        public void updateMessage(String msg)
+        {
+            if (msg == null) return;
+            txt_messagebox.Text = txt_messagebox.Text + "\r\n" + msg;
         }
 
         private void modifyandSetAlt_Click(object sender, EventArgs e)
@@ -5335,90 +5442,9 @@ namespace MissionPlanner.GCSViews
             // Pass `this` to keep the pop-out always on top
             form.Show(this);
         }
-
-        private void BUT_loadtelem_Click(object sender, EventArgs e)
+        private void buttonReset_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void gimbalTrackbar_Scroll(object sender, EventArgs e)
-        {
-
-        }
-
-        private void BUT_resetGimbalPos_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void BUT_select_script_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void BUT_abort_script_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void BUT_run_script_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabStatus_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void ON_btn_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void STBY_btn_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ALT_btn_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void IDENT_btn_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void XPDRConnect_btn_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void FlightID_tb_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Squawk_nud_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Squawk_nud_MouseWheel(object sender, MouseEventArgs e)
-        {
-
-        }
-
-        private void Gspeed_DoubleClick(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabPage1_Resize(object sender, EventArgs e)
-        {
-
+            restConfigList();
         }
     }
 }

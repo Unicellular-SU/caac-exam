@@ -203,7 +203,7 @@
     <value>350, 163</value>
   </data>
   <data name="tabQuick.Text" xml:space="preserve">
-    <value>快速</value>
+    <value>考试数据</value>
   </data>
   <data name="BUT_resumemis.Text" xml:space="preserve">
     <value>恢复任务</value>
@@ -317,7 +317,13 @@
     <value>350, 163</value>
   </data>
   <data name="tabPagePreFlight.Text" xml:space="preserve">
-    <value>起飞前检查</value>
+    <value>考试机信息</value>
+  </data>
+  <data name="tabExamConfig.Text" xml:space="preserve">
+    <value>考试配置</value>
+  </data>
+  <data name="tabExamOperation.Text" xml:space="preserve">
+    <value>考试</value>
   </data>
   <data name="Gspeed.ToolTip" xml:space="preserve">
     <value>双击我改变最大值</value>
@@ -363,12 +369,6 @@
   </data>
   <data name="BUT_playlog.Text" xml:space="preserve">
     <value>播放/暂停</value>
-  </data>
-  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>29, 12</value>
-  </data>
-  <data name="label2.Text" xml:space="preserve">
-    <value>速度</value>
   </data>
   <data name="panel2.Size" type="System.Drawing.Size, System.Drawing">
     <value>289, 97</value>
@@ -450,7 +450,7 @@
     <value>350, 163</value>
   </data>
   <data name="tabPagemessages.Text" xml:space="preserve">
-    <value>消息</value>
+    <value>考试日志</value>
   </data>
   <data name="tabControlactions.Size" type="System.Drawing.Size, System.Drawing">
     <value>358, 189</value>

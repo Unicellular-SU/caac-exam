@@ -1872,7 +1872,14 @@ namespace MissionPlanner
             _connectionControl.UpdateSysIDS();
 
             if (comPort.BaseStream.IsOpen)
+            {
                 loadph_serial();
+                // 更新日志
+                if(this.FlightData != null)
+                {
+                    this.FlightData.updateMessage("设备连接成功");
+                }
+            }
         }
 
         void loadph_serial()
