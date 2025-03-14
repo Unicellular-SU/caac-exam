@@ -203,6 +203,15 @@ namespace MissionPlanner.GCSViews
 
         public double[] _config_12 = new double[4];
 
+        // 标准
+        private int selectA;
+
+        // 科目
+        private int selectB;
+
+        // 模式
+        private int selectC;
+
         public enum actions
         {
             Loiter_Unlim,
@@ -491,7 +500,7 @@ namespace MissionPlanner.GCSViews
                     {
                         // no zoom in
                         Zoomlevel.Value = 3;
-                        TRK_zoom.Value = 3;
+                        buttonStart.Value = 3;
                     }
                     else
                     {
@@ -499,7 +508,7 @@ namespace MissionPlanner.GCSViews
                         if (Zoomlevel.Maximum < (decimal) zoom)
                             zoom = (float) Zoomlevel.Maximum;
                         Zoomlevel.Value = (decimal) zoom;
-                        TRK_zoom.Value = (float) Zoomlevel.Value;
+                        buttonStart.Value = (float) Zoomlevel.Value;
                     }
                 }
                 catch
@@ -657,7 +666,7 @@ namespace MissionPlanner.GCSViews
 
         private void loadTabControlActions()
         {
-            string tabs = "tabExamConfig;tabExamOperation;tabQuick;tabPagePreFlight;tabPagemessages;";
+            string tabs = "tabExamOperation;tabExamConfig;tabQuick;tabPagePreFlight;tabPagemessages;";
 
             if (String.IsNullOrEmpty(tabs) || TabListOriginal == null || TabListOriginal.Count == 0)
                 return;
@@ -1961,9 +1970,9 @@ namespace MissionPlanner.GCSViews
             if (!Settings.Instance.ContainsKey("ShowNoFly") || Settings.Instance.GetBoolean("ShowNoFly"))
                 NoFly.NoFly.NoFlyEvent += NoFly_NoFlyEvent;
 
-            TRK_zoom.Minimum = gMapControl1.MapProvider.MinZoom;
-            TRK_zoom.Maximum = 24;
-            TRK_zoom.Value = (float) gMapControl1.Zoom;
+            buttonStart.Minimum = gMapControl1.MapProvider.MinZoom;
+            buttonStart.Maximum = 24;
+            buttonStart.Value = (float) gMapControl1.Zoom;
 
             gMapControl1.EmptyTileColor = Color.Gray;
 
@@ -2353,7 +2362,7 @@ namespace MissionPlanner.GCSViews
             try
             {
                 // Exception System.Runtime.InteropServices.SEHException: External component has thrown an exception.
-                TRK_zoom.Value = (float) gMapControl1.Zoom;
+                buttonStart.Value = (float) gMapControl1.Zoom;
                 Zoomlevel.Value = Convert.ToDecimal(gMapControl1.Zoom);
             }
             catch
@@ -4520,15 +4529,15 @@ namespace MissionPlanner.GCSViews
         {
             try
             {
-                if (gMapControl1.MaxZoom + 1 == (double) TRK_zoom.Value)
+                if (gMapControl1.MaxZoom + 1 == (double) buttonStart.Value)
                 {
-                    gMapControl1.Zoom = TRK_zoom.Value - .1;
-                    Zoomlevel.Value = Convert.ToDecimal(TRK_zoom.Value - .1);
+                    gMapControl1.Zoom = buttonStart.Value - .1;
+                    Zoomlevel.Value = Convert.ToDecimal(buttonStart.Value - .1);
                 }
                 else
                 {
-                    gMapControl1.Zoom = TRK_zoom.Value;
-                    Zoomlevel.Value = Convert.ToDecimal(TRK_zoom.Value);
+                    gMapControl1.Zoom = buttonStart.Value;
+                    Zoomlevel.Value = Convert.ToDecimal(buttonStart.Value);
                 }
 
                 UpdateOverlayVisibility();
@@ -4988,12 +4997,12 @@ namespace MissionPlanner.GCSViews
                 if (gMapControl1.MaxZoom + 1 == (double) Zoomlevel.Value)
                 {
                     gMapControl1.Zoom = (double) Zoomlevel.Value - .1;
-                    TRK_zoom.Value = (float)Zoomlevel.Value - (float).1;
+                    buttonStart.Value = (float)Zoomlevel.Value - (float).1;
                 }
                 else
                 {
                     gMapControl1.Zoom = (double) Zoomlevel.Value;
-                    TRK_zoom.Value = (float)Zoomlevel.Value;
+                    buttonStart.Value = (float)Zoomlevel.Value;
                 }
             }
             catch
@@ -5335,7 +5344,7 @@ namespace MissionPlanner.GCSViews
                     Math.Min(width, (int)(height * aspectRatio)),
                     Math.Min(height, (int)(width / aspectRatio))
                 );
-                var x = splitContainer1.Panel2.Width - width - TRK_zoom.Width;
+                var x = splitContainer1.Panel2.Width - width - buttonStart.Width;
                 var y = splitContainer1.Panel2.Height - height;
                 _gimbalVideoControl.Location = new Point(x, y);
                 _gimbalVideoControl.Size = new Size(width, height);
@@ -5445,6 +5454,61 @@ namespace MissionPlanner.GCSViews
         private void buttonReset_Click(object sender, EventArgs e)
         {
             restConfigList();
+        }
+
+        private void radioStandard_CheckedChanged(object sender, EventArgs e)
+        {
+            RadioButton btn = sender as RadioButton;
+
+            switch(btn.Tag)
+            {
+                case "视距内":
+                    selectA = 0;
+                    break;
+                case "超视距":
+                    selectA = 1;
+                    break;
+                case "教员":
+                    selectA = 2;
+                    break;
+                case "自定义":
+                    selectA = 3;
+                    break;
+            }
+
+        }
+
+        private void radioModel_CheckedChanged(object sender, EventArgs e)
+        {
+            RadioButton btn = sender as RadioButton;
+
+            switch (btn.Tag)
+            {
+                case "单次":
+                    selectC = 0;
+                    break;
+                case "循环":
+                    selectC = 1;
+                    break;
+            }
+        }
+
+        private void radiSubject_CheckedChanged(object sender, EventArgs e)
+        {
+            RadioButton btn = sender as RadioButton;
+
+            switch (btn.Tag)
+            {
+                case "八字":
+                    selectB = 0;
+                    break;
+                case "自旋":
+                    selectB = 1;
+                    break;
+                case "模拟考试":
+                    selectB = 2;
+                    break;
+            }
         }
     }
 }

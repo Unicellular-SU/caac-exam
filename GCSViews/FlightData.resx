@@ -309,6 +309,549 @@
   <data name="&gt;&gt;contextMenuStripactionstab.Type" xml:space="preserve">
     <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="radioLoop.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="radioLoop.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="radioLoop.Location" type="System.Drawing.Point, System.Drawing">
+    <value>147, 20</value>
+  </data>
+  <data name="radioLoop.Size" type="System.Drawing.Size, System.Drawing">
+    <value>47, 16</value>
+  </data>
+  <data name="radioLoop.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="radioLoop.Text" xml:space="preserve">
+    <value>循环</value>
+  </data>
+  <data name="&gt;&gt;radioLoop.Name" xml:space="preserve">
+    <value>radioLoop</value>
+  </data>
+  <data name="&gt;&gt;radioLoop.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;radioLoop.Parent" xml:space="preserve">
+    <value>groupBox3</value>
+  </data>
+  <data name="&gt;&gt;radioLoop.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="radioSingle.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="radioSingle.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="radioSingle.Location" type="System.Drawing.Point, System.Drawing">
+    <value>25, 20</value>
+  </data>
+  <data name="radioSingle.Size" type="System.Drawing.Size, System.Drawing">
+    <value>47, 16</value>
+  </data>
+  <data name="radioSingle.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="radioSingle.Text" xml:space="preserve">
+    <value>单次</value>
+  </data>
+  <data name="&gt;&gt;radioSingle.Name" xml:space="preserve">
+    <value>radioSingle</value>
+  </data>
+  <data name="&gt;&gt;radioSingle.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;radioSingle.Parent" xml:space="preserve">
+    <value>groupBox3</value>
+  </data>
+  <data name="&gt;&gt;radioSingle.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="groupBox3.Font" type="System.Drawing.Font, System.Drawing">
+    <value>黑体, 9pt</value>
+  </data>
+  <data name="groupBox3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>26, 471</value>
+  </data>
+  <data name="groupBox3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>241, 50</value>
+  </data>
+  <data name="groupBox3.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="groupBox3.Text" xml:space="preserve">
+    <value>模式</value>
+  </data>
+  <data name="&gt;&gt;groupBox3.Name" xml:space="preserve">
+    <value>groupBox3</value>
+  </data>
+  <data name="&gt;&gt;groupBox3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox3.Parent" xml:space="preserve">
+    <value>tabExamOperation</value>
+  </data>
+  <data name="&gt;&gt;groupBox3.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="radioMock.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="radioMock.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="radioMock.Location" type="System.Drawing.Point, System.Drawing">
+    <value>147, 22</value>
+  </data>
+  <data name="radioMock.Size" type="System.Drawing.Size, System.Drawing">
+    <value>71, 16</value>
+  </data>
+  <data name="radioMock.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="radioMock.Text" xml:space="preserve">
+    <value>模拟考试</value>
+  </data>
+  <data name="&gt;&gt;radioMock.Name" xml:space="preserve">
+    <value>radioMock</value>
+  </data>
+  <data name="&gt;&gt;radioMock.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;radioMock.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;radioMock.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="radio360.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="radio360.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="radio360.Location" type="System.Drawing.Point, System.Drawing">
+    <value>86, 22</value>
+  </data>
+  <data name="radio360.Size" type="System.Drawing.Size, System.Drawing">
+    <value>47, 16</value>
+  </data>
+  <data name="radio360.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="radio360.Text" xml:space="preserve">
+    <value>自旋</value>
+  </data>
+  <data name="&gt;&gt;radio360.Name" xml:space="preserve">
+    <value>radio360</value>
+  </data>
+  <data name="&gt;&gt;radio360.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;radio360.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;radio360.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="radio8.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="radio8.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="radio8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>25, 22</value>
+  </data>
+  <data name="radio8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>47, 16</value>
+  </data>
+  <data name="radio8.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="radio8.Text" xml:space="preserve">
+    <value>八字</value>
+  </data>
+  <data name="&gt;&gt;radio8.Name" xml:space="preserve">
+    <value>radio8</value>
+  </data>
+  <data name="&gt;&gt;radio8.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;radio8.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;radio8.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="groupBox2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>黑体, 9pt</value>
+  </data>
+  <data name="groupBox2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>26, 404</value>
+  </data>
+  <data name="groupBox2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>241, 50</value>
+  </data>
+  <data name="groupBox2.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="groupBox2.Text" xml:space="preserve">
+    <value>科目</value>
+  </data>
+  <data name="&gt;&gt;groupBox2.Name" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;groupBox2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox2.Parent" xml:space="preserve">
+    <value>tabExamOperation</value>
+  </data>
+  <data name="&gt;&gt;groupBox2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="radioJY.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="radioJY.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="radioJY.Location" type="System.Drawing.Point, System.Drawing">
+    <value>25, 42</value>
+  </data>
+  <data name="radioJY.Size" type="System.Drawing.Size, System.Drawing">
+    <value>47, 16</value>
+  </data>
+  <data name="radioJY.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="radioJY.Text" xml:space="preserve">
+    <value>教员</value>
+  </data>
+  <data name="&gt;&gt;radioJY.Name" xml:space="preserve">
+    <value>radioJY</value>
+  </data>
+  <data name="&gt;&gt;radioJY.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;radioJY.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;radioJY.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="radioCustom.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="radioCustom.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="radioCustom.Location" type="System.Drawing.Point, System.Drawing">
+    <value>147, 42</value>
+  </data>
+  <data name="radioCustom.Size" type="System.Drawing.Size, System.Drawing">
+    <value>59, 16</value>
+  </data>
+  <data name="radioCustom.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="radioCustom.Text" xml:space="preserve">
+    <value>自定义</value>
+  </data>
+  <data name="&gt;&gt;radioCustom.Name" xml:space="preserve">
+    <value>radioCustom</value>
+  </data>
+  <data name="&gt;&gt;radioCustom.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;radioCustom.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;radioCustom.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="radioCSJ.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="radioCSJ.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="radioCSJ.Location" type="System.Drawing.Point, System.Drawing">
+    <value>147, 20</value>
+  </data>
+  <data name="radioCSJ.Size" type="System.Drawing.Size, System.Drawing">
+    <value>59, 16</value>
+  </data>
+  <data name="radioCSJ.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="radioCSJ.Text" xml:space="preserve">
+    <value>超视距</value>
+  </data>
+  <data name="&gt;&gt;radioCSJ.Name" xml:space="preserve">
+    <value>radioCSJ</value>
+  </data>
+  <data name="&gt;&gt;radioCSJ.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;radioCSJ.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;radioCSJ.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="radioSJN.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="radioSJN.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="radioSJN.Location" type="System.Drawing.Point, System.Drawing">
+    <value>25, 20</value>
+  </data>
+  <data name="radioSJN.Size" type="System.Drawing.Size, System.Drawing">
+    <value>59, 16</value>
+  </data>
+  <data name="radioSJN.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="radioSJN.Text" xml:space="preserve">
+    <value>视距内</value>
+  </data>
+  <data name="&gt;&gt;radioSJN.Name" xml:space="preserve">
+    <value>radioSJN</value>
+  </data>
+  <data name="&gt;&gt;radioSJN.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;radioSJN.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;radioSJN.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="groupBox1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>黑体, 9pt</value>
+  </data>
+  <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>26, 316</value>
+  </data>
+  <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>241, 71</value>
+  </data>
+  <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="groupBox1.Text" xml:space="preserve">
+    <value>标准</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Name" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Parent" xml:space="preserve">
+    <value>tabExamOperation</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="myButton6.Font" type="System.Drawing.Font, System.Drawing">
+    <value>黑体, 24pt</value>
+  </data>
+  <data name="myButton6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="myButton6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>26, 538</value>
+  </data>
+  <data name="myButton6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>241, 124</value>
+  </data>
+  <data name="myButton6.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="myButton6.Text" xml:space="preserve">
+    <value>开始考试</value>
+  </data>
+  <data name="&gt;&gt;myButton6.Name" xml:space="preserve">
+    <value>myButton6</value>
+  </data>
+  <data name="&gt;&gt;myButton6.Type" xml:space="preserve">
+    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;myButton6.Parent" xml:space="preserve">
+    <value>tabExamOperation</value>
+  </data>
+  <data name="&gt;&gt;myButton6.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="buttonShow.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="buttonShow.Location" type="System.Drawing.Point, System.Drawing">
+    <value>26, 243</value>
+  </data>
+  <data name="buttonShow.Size" type="System.Drawing.Size, System.Drawing">
+    <value>241, 56</value>
+  </data>
+  <data name="buttonShow.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="buttonShow.Text" xml:space="preserve">
+    <value>显示/隐藏锥桶</value>
+  </data>
+  <data name="&gt;&gt;buttonShow.Name" xml:space="preserve">
+    <value>buttonShow</value>
+  </data>
+  <data name="&gt;&gt;buttonShow.Type" xml:space="preserve">
+    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;buttonShow.Parent" xml:space="preserve">
+    <value>tabExamOperation</value>
+  </data>
+  <data name="&gt;&gt;buttonShow.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="buttonSetCenter.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="buttonSetCenter.Location" type="System.Drawing.Point, System.Drawing">
+    <value>26, 170</value>
+  </data>
+  <data name="buttonSetCenter.Size" type="System.Drawing.Size, System.Drawing">
+    <value>241, 56</value>
+  </data>
+  <data name="buttonSetCenter.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="buttonSetCenter.Text" xml:space="preserve">
+    <value>考场居中显示</value>
+  </data>
+  <data name="&gt;&gt;buttonSetCenter.Name" xml:space="preserve">
+    <value>buttonSetCenter</value>
+  </data>
+  <data name="&gt;&gt;buttonSetCenter.Type" xml:space="preserve">
+    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;buttonSetCenter.Parent" xml:space="preserve">
+    <value>tabExamOperation</value>
+  </data>
+  <data name="&gt;&gt;buttonSetCenter.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="buttonSetHight.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="buttonSetHight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>26, 24</value>
+  </data>
+  <data name="buttonSetHight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>241, 56</value>
+  </data>
+  <data name="buttonSetHight.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="buttonSetHight.Text" xml:space="preserve">
+    <value>设置地面高度</value>
+  </data>
+  <data name="&gt;&gt;buttonSetHight.Name" xml:space="preserve">
+    <value>buttonSetHight</value>
+  </data>
+  <data name="&gt;&gt;buttonSetHight.Type" xml:space="preserve">
+    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;buttonSetHight.Parent" xml:space="preserve">
+    <value>tabExamOperation</value>
+  </data>
+  <data name="&gt;&gt;buttonSetHight.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="buttonSetRight.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="buttonSetRight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>159, 97</value>
+  </data>
+  <data name="buttonSetRight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>108, 56</value>
+  </data>
+  <data name="buttonSetRight.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="buttonSetRight.Text" xml:space="preserve">
+    <value>设置右锥桶</value>
+  </data>
+  <data name="&gt;&gt;buttonSetRight.Name" xml:space="preserve">
+    <value>buttonSetRight</value>
+  </data>
+  <data name="&gt;&gt;buttonSetRight.Type" xml:space="preserve">
+    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;buttonSetRight.Parent" xml:space="preserve">
+    <value>tabExamOperation</value>
+  </data>
+  <data name="&gt;&gt;buttonSetRight.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="buttonSetLeft.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="buttonSetLeft.Location" type="System.Drawing.Point, System.Drawing">
+    <value>26, 97</value>
+  </data>
+  <data name="buttonSetLeft.Size" type="System.Drawing.Size, System.Drawing">
+    <value>108, 56</value>
+  </data>
+  <data name="buttonSetLeft.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="buttonSetLeft.Text" xml:space="preserve">
+    <value>设置左锥桶</value>
+  </data>
+  <data name="&gt;&gt;buttonSetLeft.Name" xml:space="preserve">
+    <value>buttonSetLeft</value>
+  </data>
+  <data name="&gt;&gt;buttonSetLeft.Type" xml:space="preserve">
+    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;buttonSetLeft.Parent" xml:space="preserve">
+    <value>tabExamOperation</value>
+  </data>
+  <data name="&gt;&gt;buttonSetLeft.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="tabExamOperation.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 44</value>
+  </data>
+  <data name="tabExamOperation.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="tabExamOperation.Size" type="System.Drawing.Size, System.Drawing">
+    <value>290, 668</value>
+  </data>
+  <data name="tabExamOperation.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="tabExamOperation.Text" xml:space="preserve">
+    <value>ExamOperation</value>
+  </data>
+  <data name="&gt;&gt;tabExamOperation.Name" xml:space="preserve">
+    <value>tabExamOperation</value>
+  </data>
+  <data name="&gt;&gt;tabExamOperation.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabExamOperation.Parent" xml:space="preserve">
+    <value>tabControlactions</value>
+  </data>
+  <data name="&gt;&gt;tabExamOperation.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="buttonReset.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -1123,7 +1666,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tabExamConfig.Size" type="System.Drawing.Size, System.Drawing">
-    <value>290, 608</value>
+    <value>290, 668</value>
   </data>
   <data name="tabExamConfig.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
@@ -1141,63 +1684,6 @@
     <value>tabControlactions</value>
   </data>
   <data name="&gt;&gt;tabExamConfig.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="label7.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label7.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>31, 19</value>
-  </data>
-  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>41, 12</value>
-  </data>
-  <data name="label7.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="label7.Text" xml:space="preserve">
-    <value>label7</value>
-  </data>
-  <data name="&gt;&gt;label7.Name" xml:space="preserve">
-    <value>label7</value>
-  </data>
-  <data name="&gt;&gt;label7.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label7.Parent" xml:space="preserve">
-    <value>tabExamOperation</value>
-  </data>
-  <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="tabExamOperation.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 44</value>
-  </data>
-  <data name="tabExamOperation.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="tabExamOperation.Size" type="System.Drawing.Size, System.Drawing">
-    <value>290, 608</value>
-  </data>
-  <data name="tabExamOperation.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
-  </data>
-  <data name="tabExamOperation.Text" xml:space="preserve">
-    <value>ExamOperation</value>
-  </data>
-  <data name="&gt;&gt;tabExamOperation.Name" xml:space="preserve">
-    <value>tabExamOperation</value>
-  </data>
-  <data name="&gt;&gt;tabExamOperation.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabExamOperation.Parent" xml:space="preserve">
-    <value>tabControlactions</value>
-  </data>
-  <data name="&gt;&gt;tabExamOperation.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
   <data name="tabQuick.AutoScroll" type="System.Boolean, mscorlib">
@@ -1246,13 +1732,13 @@
     <value>Microsoft Sans Serif, 9.75pt</value>
   </data>
   <data name="quickView6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>145, 403</value>
+    <value>145, 443</value>
   </data>
   <data name="quickView6.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>100, 27</value>
   </data>
   <data name="quickView6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>136, 196</value>
+    <value>136, 216</value>
   </data>
   <data name="quickView6.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -1276,13 +1762,13 @@
     <value>Microsoft Sans Serif, 9.75pt</value>
   </data>
   <data name="quickView5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 403</value>
+    <value>3, 443</value>
   </data>
   <data name="quickView5.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>100, 27</value>
   </data>
   <data name="quickView5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>136, 196</value>
+    <value>136, 216</value>
   </data>
   <data name="quickView5.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -1306,13 +1792,13 @@
     <value>Microsoft Sans Serif, 9.75pt</value>
   </data>
   <data name="quickView4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>145, 203</value>
+    <value>145, 223</value>
   </data>
   <data name="quickView4.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>100, 27</value>
   </data>
   <data name="quickView4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>136, 194</value>
+    <value>136, 214</value>
   </data>
   <data name="quickView4.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -1336,13 +1822,13 @@
     <value>Microsoft Sans Serif, 9.75pt</value>
   </data>
   <data name="quickView3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 203</value>
+    <value>3, 223</value>
   </data>
   <data name="quickView3.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>100, 27</value>
   </data>
   <data name="quickView3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>136, 194</value>
+    <value>136, 214</value>
   </data>
   <data name="quickView3.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -1372,7 +1858,7 @@
     <value>100, 27</value>
   </data>
   <data name="quickView2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>136, 194</value>
+    <value>136, 214</value>
   </data>
   <data name="quickView2.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -1402,7 +1888,7 @@
     <value>100, 27</value>
   </data>
   <data name="quickView1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>136, 194</value>
+    <value>136, 214</value>
   </data>
   <data name="quickView1.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -1435,7 +1921,7 @@
     <value>3</value>
   </data>
   <data name="tableLayoutPanelQuick.Size" type="System.Drawing.Size, System.Drawing">
-    <value>284, 602</value>
+    <value>284, 662</value>
   </data>
   <data name="tableLayoutPanelQuick.TabIndex" type="System.Int32, mscorlib">
     <value>73</value>
@@ -1462,7 +1948,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tabQuick.Size" type="System.Drawing.Size, System.Drawing">
-    <value>290, 608</value>
+    <value>290, 668</value>
   </data>
   <data name="tabQuick.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -1489,7 +1975,7 @@
     <value>3, 3</value>
   </data>
   <data name="checkListControl1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>284, 602</value>
+    <value>284, 662</value>
   </data>
   <data name="checkListControl1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1498,7 +1984,7 @@
     <value>checkListControl1</value>
   </data>
   <data name="&gt;&gt;checkListControl1.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.PreFlight.CheckListControl, MissionPlanner, Version=1.3.9204.23362, Culture=neutral, PublicKeyToken=null</value>
+    <value>MissionPlanner.Controls.PreFlight.CheckListControl, MissionPlanner, Version=1.3.9204.25283, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;checkListControl1.Parent" xml:space="preserve">
     <value>tabPagePreFlight</value>
@@ -1513,7 +1999,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tabPagePreFlight.Size" type="System.Drawing.Size, System.Drawing">
-    <value>290, 608</value>
+    <value>290, 668</value>
   </data>
   <data name="tabPagePreFlight.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -1546,7 +2032,7 @@
     <value>Vertical</value>
   </data>
   <data name="txt_messagebox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>284, 602</value>
+    <value>284, 662</value>
   </data>
   <data name="txt_messagebox.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1570,7 +2056,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tabPagemessages.Size" type="System.Drawing.Size, System.Drawing">
-    <value>290, 608</value>
+    <value>290, 668</value>
   </data>
   <data name="tabPagemessages.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -1606,7 +2092,7 @@
     <value>0, 0</value>
   </data>
   <data name="tabControlactions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>298, 656</value>
+    <value>298, 716</value>
   </data>
   <data name="tabControlactions.TabIndex" type="System.Int32, mscorlib">
     <value>84</value>
@@ -1663,7 +2149,7 @@
     <value>1</value>
   </data>
   <data name="SubMainLeft.Size" type="System.Drawing.Size, System.Drawing">
-    <value>300, 658</value>
+    <value>300, 718</value>
   </data>
   <data name="SubMainLeft.SplitterDistance" type="System.Int32, mscorlib">
     <value>252</value>
@@ -1879,7 +2365,7 @@
     <value>NoControl</value>
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>515, 2</value>
+    <value>654, 2</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>29, 12</value>
@@ -1936,7 +2422,7 @@
     <value>Top, Right</value>
   </data>
   <data name="Zoomlevel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>550, 0</value>
+    <value>689, 0</value>
   </data>
   <data name="Zoomlevel.Size" type="System.Drawing.Size, System.Drawing">
     <value>46, 21</value>
@@ -1966,7 +2452,7 @@
     <value>66, 0</value>
   </data>
   <data name="distanceBar1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>134, 22</value>
+    <value>273, 22</value>
   </data>
   <data name="distanceBar1.TabIndex" type="System.Int32, mscorlib">
     <value>76</value>
@@ -1978,7 +2464,7 @@
     <value>distanceBar1</value>
   </data>
   <data name="&gt;&gt;distanceBar1.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.DistanceBar, MissionPlanner, Version=1.3.9204.23362, Culture=neutral, PublicKeyToken=null</value>
+    <value>MissionPlanner.Controls.DistanceBar, MissionPlanner, Version=1.3.9204.25283, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;distanceBar1.Parent" xml:space="preserve">
     <value>splitContainer1.Panel2</value>
@@ -1986,37 +2472,37 @@
   <data name="&gt;&gt;distanceBar1.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="TRK_zoom.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="buttonStart.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Right</value>
   </data>
-  <data name="TRK_zoom.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="buttonStart.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="TRK_zoom.Location" type="System.Drawing.Point, System.Drawing">
-    <value>550, 40</value>
+  <data name="buttonStart.Location" type="System.Drawing.Point, System.Drawing">
+    <value>689, 40</value>
   </data>
-  <data name="TRK_zoom.Orientation" type="System.Windows.Forms.Orientation, System.Windows.Forms">
+  <data name="buttonStart.Orientation" type="System.Windows.Forms.Orientation, System.Windows.Forms">
     <value>Vertical</value>
   </data>
-  <data name="TRK_zoom.Size" type="System.Drawing.Size, System.Drawing">
-    <value>45, 796</value>
+  <data name="buttonStart.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 856</value>
   </data>
-  <data name="TRK_zoom.TabIndex" type="System.Int32, mscorlib">
+  <data name="buttonStart.TabIndex" type="System.Int32, mscorlib">
     <value>72</value>
   </data>
-  <data name="TRK_zoom.Visible" type="System.Boolean, mscorlib">
+  <data name="buttonStart.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="&gt;&gt;TRK_zoom.Name" xml:space="preserve">
-    <value>TRK_zoom</value>
+  <data name="&gt;&gt;buttonStart.Name" xml:space="preserve">
+    <value>buttonStart</value>
   </data>
-  <data name="&gt;&gt;TRK_zoom.Type" xml:space="preserve">
+  <data name="&gt;&gt;buttonStart.Type" xml:space="preserve">
     <value>MissionPlanner.Controls.MyTrackBar, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;TRK_zoom.Parent" xml:space="preserve">
+  <data name="&gt;&gt;buttonStart.Parent" xml:space="preserve">
     <value>splitContainer1.Panel2</value>
   </data>
-  <data name="&gt;&gt;TRK_zoom.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;buttonStart.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
   <metadata name="bindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
@@ -2059,7 +2545,7 @@
     <value>NoControl</value>
   </data>
   <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>332, 806</value>
+    <value>332, 866</value>
   </data>
   <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
     <value>107, 12</value>
@@ -2092,7 +2578,7 @@
     <value>NoControl</value>
   </data>
   <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>245, 806</value>
+    <value>245, 866</value>
   </data>
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
     <value>89, 12</value>
@@ -2125,7 +2611,7 @@
     <value>NoControl</value>
   </data>
   <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>135, 806</value>
+    <value>135, 866</value>
   </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
     <value>125, 12</value>
@@ -2158,7 +2644,7 @@
     <value>NoControl</value>
   </data>
   <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>45, 806</value>
+    <value>45, 866</value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
     <value>95, 12</value>
@@ -2188,7 +2674,7 @@
     <value>NoControl</value>
   </data>
   <data name="lbl_hdop.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-1, 788</value>
+    <value>-1, 848</value>
   </data>
   <data name="lbl_hdop.Size" type="System.Drawing.Size, System.Drawing">
     <value>43, 12</value>
@@ -2221,7 +2707,7 @@
     <value>NoControl</value>
   </data>
   <data name="lbl_sats.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-1, 807</value>
+    <value>-1, 867</value>
   </data>
   <data name="lbl_sats.Size" type="System.Drawing.Size, System.Drawing">
     <value>40, 12</value>
@@ -2257,7 +2743,7 @@
     <value>0, 0, 0, 0</value>
   </data>
   <data name="gMapControl1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>595, 622</value>
+    <value>734, 682</value>
   </data>
   <data name="gMapControl1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -2287,7 +2773,7 @@
     <value>1</value>
   </data>
   <data name="splitContainer1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>595, 622</value>
+    <value>734, 682</value>
   </data>
   <data name="splitContainer1.SplitterDistance" type="System.Int32, mscorlib">
     <value>210</value>
@@ -2308,7 +2794,7 @@
     <value>0</value>
   </data>
   <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 633</value>
+    <value>4, 693</value>
   </data>
   <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
     <value>200, 19</value>
@@ -2338,7 +2824,7 @@
     <value>2</value>
   </data>
   <data name="tableMap.Size" type="System.Drawing.Size, System.Drawing">
-    <value>603, 656</value>
+    <value>742, 716</value>
   </data>
   <data name="tableMap.TabIndex" type="System.Int32, mscorlib">
     <value>75</value>
@@ -2371,7 +2857,7 @@
     <value>1</value>
   </data>
   <data name="MainH.Size" type="System.Drawing.Size, System.Drawing">
-    <value>909, 658</value>
+    <value>1048, 718</value>
   </data>
   <data name="MainH.SplitterDistance" type="System.Int32, mscorlib">
     <value>300</value>
@@ -2959,7 +3445,7 @@
     <value>modifyandSetSpeed</value>
   </data>
   <data name="&gt;&gt;modifyandSetSpeed.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.ModifyandSet, MissionPlanner, Version=1.3.9204.23362, Culture=neutral, PublicKeyToken=null</value>
+    <value>MissionPlanner.Controls.ModifyandSet, MissionPlanner, Version=1.3.9204.25283, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="modifyandSetAlt.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2989,7 +3475,7 @@
     <value>modifyandSetAlt</value>
   </data>
   <data name="&gt;&gt;modifyandSetAlt.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.ModifyandSet, MissionPlanner, Version=1.3.9204.23362, Culture=neutral, PublicKeyToken=null</value>
+    <value>MissionPlanner.Controls.ModifyandSet, MissionPlanner, Version=1.3.9204.25283, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="modifyandSetLoiterRad.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -3019,7 +3505,7 @@
     <value>modifyandSetLoiterRad</value>
   </data>
   <data name="&gt;&gt;modifyandSetLoiterRad.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.ModifyandSet, MissionPlanner, Version=1.3.9204.23362, Culture=neutral, PublicKeyToken=null</value>
+    <value>MissionPlanner.Controls.ModifyandSet, MissionPlanner, Version=1.3.9204.25283, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -3031,7 +3517,7 @@
     <value>0, 0, 0, 0</value>
   </data>
   <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
-    <value>909, 658</value>
+    <value>1048, 718</value>
   </data>
   <data name="&gt;&gt;videoToolStripMenuItem.Name" xml:space="preserve">
     <value>videoToolStripMenuItem</value>

@@ -34,10 +34,54 @@ namespace MissionPlanner.GCSViews
             this.customizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.multiLineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControlactions = new System.Windows.Forms.TabControl();
-            this.tabExamConfig = new System.Windows.Forms.TabPage();
-            this.label360 = new System.Windows.Forms.Label();
             this.tabExamOperation = new System.Windows.Forms.TabPage();
-            this.label7 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.radioLoop = new System.Windows.Forms.RadioButton();
+            this.radioSingle = new System.Windows.Forms.RadioButton();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.radioMock = new System.Windows.Forms.RadioButton();
+            this.radio360 = new System.Windows.Forms.RadioButton();
+            this.radio8 = new System.Windows.Forms.RadioButton();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.radioJY = new System.Windows.Forms.RadioButton();
+            this.radioCustom = new System.Windows.Forms.RadioButton();
+            this.radioCSJ = new System.Windows.Forms.RadioButton();
+            this.radioSJN = new System.Windows.Forms.RadioButton();
+            this.myButton6 = new MissionPlanner.Controls.MyButton();
+            this.buttonShow = new MissionPlanner.Controls.MyButton();
+            this.buttonSetCenter = new MissionPlanner.Controls.MyButton();
+            this.buttonSetHight = new MissionPlanner.Controls.MyButton();
+            this.buttonSetRight = new MissionPlanner.Controls.MyButton();
+            this.buttonSetLeft = new MissionPlanner.Controls.MyButton();
+            this.tabExamConfig = new System.Windows.Forms.TabPage();
+            this.buttonReset = new MissionPlanner.Controls.MyButton();
+            this.buttonCofirm = new MissionPlanner.Controls.MyButton();
+            this.textBox8MaxTime = new System.Windows.Forms.TextBox();
+            this.textBox8MaxGaodu = new System.Windows.Forms.TextBox();
+            this.textBox8MaxFeixing = new System.Windows.Forms.TextBox();
+            this.textBox8MinFeixing = new System.Windows.Forms.TextBox();
+            this.textBox8MaxJiao = new System.Windows.Forms.TextBox();
+            this.textBox8MaxShuiping = new System.Windows.Forms.TextBox();
+            this.textBox360MaxTime = new System.Windows.Forms.TextBox();
+            this.textBox360MinTime = new System.Windows.Forms.TextBox();
+            this.textBox360MaxJiao = new System.Windows.Forms.TextBox();
+            this.textBox360MinJiao = new System.Windows.Forms.TextBox();
+            this.textBox360Gaodu = new System.Windows.Forms.TextBox();
+            this.textBox360Shuiping = new System.Windows.Forms.TextBox();
+            this.label8MaxTime = new System.Windows.Forms.Label();
+            this.label8MaxGaodu = new System.Windows.Forms.Label();
+            this.label8MaxFeixing = new System.Windows.Forms.Label();
+            this.label8MinFeixing = new System.Windows.Forms.Label();
+            this.label8MinShuiping = new System.Windows.Forms.Label();
+            this.label8MaxShuiping = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label360MaxTime = new System.Windows.Forms.Label();
+            this.label360MinTime = new System.Windows.Forms.Label();
+            this.label360MaxJiao = new System.Windows.Forms.Label();
+            this.label360MinJiao = new System.Windows.Forms.Label();
+            this.label360Gaodu = new System.Windows.Forms.Label();
+            this.label360Shuiping = new System.Windows.Forms.Label();
+            this.label360 = new System.Windows.Forms.Label();
             this.tabQuick = new System.Windows.Forms.TabPage();
             this.tableLayoutPanelQuick = new System.Windows.Forms.TableLayoutPanel();
             this.quickView6 = new MissionPlanner.Controls.QuickView();
@@ -82,7 +126,7 @@ namespace MissionPlanner.GCSViews
             this.label1 = new System.Windows.Forms.Label();
             this.but_disablejoystick = new MissionPlanner.Controls.MyButton();
             this.Zoomlevel = new System.Windows.Forms.NumericUpDown();
-            this.TRK_zoom = new MissionPlanner.Controls.MyTrackBar();
+            this.buttonStart = new MissionPlanner.Controls.MyTrackBar();
             this.windDir1 = new MissionPlanner.Controls.WindDir();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.label6 = new System.Windows.Forms.Label();
@@ -120,34 +164,7 @@ namespace MissionPlanner.GCSViews
             this.bindingSourceGaugesTab = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSourcePayloadTab = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSourceStatusTab = new System.Windows.Forms.BindingSource(this.components);
-            this.label360Shuiping = new System.Windows.Forms.Label();
-            this.label360Gaodu = new System.Windows.Forms.Label();
-            this.label360MinJiao = new System.Windows.Forms.Label();
-            this.label360MaxJiao = new System.Windows.Forms.Label();
-            this.label360MinTime = new System.Windows.Forms.Label();
-            this.label360MaxTime = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label8MaxShuiping = new System.Windows.Forms.Label();
-            this.label8MinShuiping = new System.Windows.Forms.Label();
-            this.label8MinFeixing = new System.Windows.Forms.Label();
-            this.label8MaxFeixing = new System.Windows.Forms.Label();
-            this.label8MaxGaodu = new System.Windows.Forms.Label();
-            this.label8MaxTime = new System.Windows.Forms.Label();
-            this.textBox360Shuiping = new System.Windows.Forms.TextBox();
             this.contextMenu1 = new System.Windows.Forms.ContextMenu();
-            this.textBox360Gaodu = new System.Windows.Forms.TextBox();
-            this.textBox360MinJiao = new System.Windows.Forms.TextBox();
-            this.textBox360MaxJiao = new System.Windows.Forms.TextBox();
-            this.textBox360MinTime = new System.Windows.Forms.TextBox();
-            this.textBox360MaxTime = new System.Windows.Forms.TextBox();
-            this.textBox8MaxShuiping = new System.Windows.Forms.TextBox();
-            this.textBox8MaxJiao = new System.Windows.Forms.TextBox();
-            this.textBox8MinFeixing = new System.Windows.Forms.TextBox();
-            this.textBox8MaxFeixing = new System.Windows.Forms.TextBox();
-            this.textBox8MaxGaodu = new System.Windows.Forms.TextBox();
-            this.textBox8MaxTime = new System.Windows.Forms.TextBox();
-            this.buttonCofirm = new MissionPlanner.Controls.MyButton();
-            this.buttonReset = new MissionPlanner.Controls.MyButton();
             this.checkListControl1 = new MissionPlanner.Controls.PreFlight.CheckListControl();
             this.distanceBar1 = new MissionPlanner.Controls.DistanceBar();
             this.modifyandSetSpeed = new MissionPlanner.Controls.ModifyandSet();
@@ -165,8 +182,11 @@ namespace MissionPlanner.GCSViews
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceHud)).BeginInit();
             this.contextMenuStripactionstab.SuspendLayout();
             this.tabControlactions.SuspendLayout();
-            this.tabExamConfig.SuspendLayout();
             this.tabExamOperation.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.tabExamConfig.SuspendLayout();
             this.tabQuick.SuspendLayout();
             this.tableLayoutPanelQuick.SuspendLayout();
             this.contextMenuStripQuickView.SuspendLayout();
@@ -179,7 +199,7 @@ namespace MissionPlanner.GCSViews
             this.splitContainer1.SuspendLayout();
             this.contextMenuStripMap.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Zoomlevel)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TRK_zoom)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buttonStart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceGaugesTab)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourcePayloadTab)).BeginInit();
@@ -481,8 +501,8 @@ namespace MissionPlanner.GCSViews
             // tabControlactions
             // 
             this.tabControlactions.ContextMenuStrip = this.contextMenuStripactionstab;
-            this.tabControlactions.Controls.Add(this.tabExamConfig);
             this.tabControlactions.Controls.Add(this.tabExamOperation);
+            this.tabControlactions.Controls.Add(this.tabExamConfig);
             this.tabControlactions.Controls.Add(this.tabQuick);
             this.tabControlactions.Controls.Add(this.tabPagePreFlight);
             this.tabControlactions.Controls.Add(this.tabPagemessages);
@@ -491,6 +511,168 @@ namespace MissionPlanner.GCSViews
             this.tabControlactions.SelectedIndex = 0;
             this.tabControlactions.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tabControl1_DrawItem);
             this.tabControlactions.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
+            // 
+            // tabExamOperation
+            // 
+            this.tabExamOperation.Controls.Add(this.groupBox3);
+            this.tabExamOperation.Controls.Add(this.groupBox2);
+            this.tabExamOperation.Controls.Add(this.groupBox1);
+            this.tabExamOperation.Controls.Add(this.myButton6);
+            this.tabExamOperation.Controls.Add(this.buttonShow);
+            this.tabExamOperation.Controls.Add(this.buttonSetCenter);
+            this.tabExamOperation.Controls.Add(this.buttonSetHight);
+            this.tabExamOperation.Controls.Add(this.buttonSetRight);
+            this.tabExamOperation.Controls.Add(this.buttonSetLeft);
+            resources.ApplyResources(this.tabExamOperation, "tabExamOperation");
+            this.tabExamOperation.Name = "tabExamOperation";
+            this.tabExamOperation.UseVisualStyleBackColor = true;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.radioLoop);
+            this.groupBox3.Controls.Add(this.radioSingle);
+            resources.ApplyResources(this.groupBox3, "groupBox3");
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.TabStop = false;
+            // 
+            // radioLoop
+            // 
+            resources.ApplyResources(this.radioLoop, "radioLoop");
+            this.radioLoop.Name = "radioLoop";
+            this.radioLoop.Tag = "循环";
+            this.radioLoop.UseVisualStyleBackColor = true;
+            this.radioLoop.CheckedChanged += new System.EventHandler(this.radioModel_CheckedChanged);
+            // 
+            // radioSingle
+            // 
+            resources.ApplyResources(this.radioSingle, "radioSingle");
+            this.radioSingle.Checked = true;
+            this.radioSingle.Name = "radioSingle";
+            this.radioSingle.TabStop = true;
+            this.radioSingle.Tag = "单次";
+            this.radioSingle.UseVisualStyleBackColor = true;
+            this.radioSingle.CheckedChanged += new System.EventHandler(this.radioModel_CheckedChanged);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.radioMock);
+            this.groupBox2.Controls.Add(this.radio360);
+            this.groupBox2.Controls.Add(this.radio8);
+            resources.ApplyResources(this.groupBox2, "groupBox2");
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.TabStop = false;
+            // 
+            // radioMock
+            // 
+            resources.ApplyResources(this.radioMock, "radioMock");
+            this.radioMock.Name = "radioMock";
+            this.radioMock.Tag = "模拟考试";
+            this.radioMock.UseVisualStyleBackColor = true;
+            this.radioMock.CheckedChanged += new System.EventHandler(this.radiSubject_CheckedChanged);
+            // 
+            // radio360
+            // 
+            resources.ApplyResources(this.radio360, "radio360");
+            this.radio360.Name = "radio360";
+            this.radio360.Tag = "自旋";
+            this.radio360.UseVisualStyleBackColor = true;
+            this.radio360.CheckedChanged += new System.EventHandler(this.radiSubject_CheckedChanged);
+            // 
+            // radio8
+            // 
+            resources.ApplyResources(this.radio8, "radio8");
+            this.radio8.Checked = true;
+            this.radio8.Name = "radio8";
+            this.radio8.TabStop = true;
+            this.radio8.Tag = "八字";
+            this.radio8.UseVisualStyleBackColor = true;
+            this.radio8.CheckedChanged += new System.EventHandler(this.radiSubject_CheckedChanged);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.radioJY);
+            this.groupBox1.Controls.Add(this.radioCustom);
+            this.groupBox1.Controls.Add(this.radioCSJ);
+            this.groupBox1.Controls.Add(this.radioSJN);
+            resources.ApplyResources(this.groupBox1, "groupBox1");
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.TabStop = false;
+            // 
+            // radioJY
+            // 
+            resources.ApplyResources(this.radioJY, "radioJY");
+            this.radioJY.Name = "radioJY";
+            this.radioJY.Tag = "教员";
+            this.radioJY.UseVisualStyleBackColor = true;
+            this.radioJY.CheckedChanged += new System.EventHandler(this.radioStandard_CheckedChanged);
+            // 
+            // radioCustom
+            // 
+            resources.ApplyResources(this.radioCustom, "radioCustom");
+            this.radioCustom.Name = "radioCustom";
+            this.radioCustom.Tag = "自定义";
+            this.radioCustom.UseVisualStyleBackColor = true;
+            this.radioCustom.CheckedChanged += new System.EventHandler(this.radioStandard_CheckedChanged);
+            // 
+            // radioCSJ
+            // 
+            resources.ApplyResources(this.radioCSJ, "radioCSJ");
+            this.radioCSJ.Name = "radioCSJ";
+            this.radioCSJ.Tag = "超视距";
+            this.radioCSJ.UseVisualStyleBackColor = true;
+            this.radioCSJ.CheckedChanged += new System.EventHandler(this.radioStandard_CheckedChanged);
+            // 
+            // radioSJN
+            // 
+            resources.ApplyResources(this.radioSJN, "radioSJN");
+            this.radioSJN.Checked = true;
+            this.radioSJN.Name = "radioSJN";
+            this.radioSJN.TabStop = true;
+            this.radioSJN.Tag = "视距内";
+            this.radioSJN.UseVisualStyleBackColor = true;
+            this.radioSJN.CheckedChanged += new System.EventHandler(this.radioStandard_CheckedChanged);
+            // 
+            // myButton6
+            // 
+            resources.ApplyResources(this.myButton6, "myButton6");
+            this.myButton6.Name = "myButton6";
+            this.myButton6.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
+            this.myButton6.UseVisualStyleBackColor = true;
+            // 
+            // buttonShow
+            // 
+            resources.ApplyResources(this.buttonShow, "buttonShow");
+            this.buttonShow.Name = "buttonShow";
+            this.buttonShow.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
+            this.buttonShow.UseVisualStyleBackColor = true;
+            // 
+            // buttonSetCenter
+            // 
+            resources.ApplyResources(this.buttonSetCenter, "buttonSetCenter");
+            this.buttonSetCenter.Name = "buttonSetCenter";
+            this.buttonSetCenter.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
+            this.buttonSetCenter.UseVisualStyleBackColor = true;
+            // 
+            // buttonSetHight
+            // 
+            resources.ApplyResources(this.buttonSetHight, "buttonSetHight");
+            this.buttonSetHight.Name = "buttonSetHight";
+            this.buttonSetHight.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
+            this.buttonSetHight.UseVisualStyleBackColor = true;
+            // 
+            // buttonSetRight
+            // 
+            resources.ApplyResources(this.buttonSetRight, "buttonSetRight");
+            this.buttonSetRight.Name = "buttonSetRight";
+            this.buttonSetRight.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
+            this.buttonSetRight.UseVisualStyleBackColor = true;
+            // 
+            // buttonSetLeft
+            // 
+            resources.ApplyResources(this.buttonSetLeft, "buttonSetLeft");
+            this.buttonSetLeft.Name = "buttonSetLeft";
+            this.buttonSetLeft.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
+            this.buttonSetLeft.UseVisualStyleBackColor = true;
             // 
             // tabExamConfig
             // 
@@ -526,22 +708,167 @@ namespace MissionPlanner.GCSViews
             resources.ApplyResources(this.tabExamConfig, "tabExamConfig");
             this.tabExamConfig.Name = "tabExamConfig";
             // 
+            // buttonReset
+            // 
+            this.buttonReset.BGGradBot = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.buttonReset.BGGradTop = System.Drawing.Color.Cyan;
+            resources.ApplyResources(this.buttonReset, "buttonReset");
+            this.buttonReset.Name = "buttonReset";
+            this.buttonReset.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
+            this.buttonReset.UseVisualStyleBackColor = true;
+            this.buttonReset.Click += new System.EventHandler(this.buttonReset_Click);
+            // 
+            // buttonCofirm
+            // 
+            this.buttonCofirm.BGGradBot = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.buttonCofirm.BGGradTop = System.Drawing.Color.Cyan;
+            resources.ApplyResources(this.buttonCofirm, "buttonCofirm");
+            this.buttonCofirm.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.buttonCofirm.Name = "buttonCofirm";
+            this.buttonCofirm.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
+            this.buttonCofirm.UseVisualStyleBackColor = true;
+            // 
+            // textBox8MaxTime
+            // 
+            this.textBox8MaxTime.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.textBox8MaxTime, "textBox8MaxTime");
+            this.textBox8MaxTime.Name = "textBox8MaxTime";
+            // 
+            // textBox8MaxGaodu
+            // 
+            this.textBox8MaxGaodu.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.textBox8MaxGaodu, "textBox8MaxGaodu");
+            this.textBox8MaxGaodu.Name = "textBox8MaxGaodu";
+            // 
+            // textBox8MaxFeixing
+            // 
+            this.textBox8MaxFeixing.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.textBox8MaxFeixing, "textBox8MaxFeixing");
+            this.textBox8MaxFeixing.Name = "textBox8MaxFeixing";
+            // 
+            // textBox8MinFeixing
+            // 
+            this.textBox8MinFeixing.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.textBox8MinFeixing, "textBox8MinFeixing");
+            this.textBox8MinFeixing.Name = "textBox8MinFeixing";
+            // 
+            // textBox8MaxJiao
+            // 
+            this.textBox8MaxJiao.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.textBox8MaxJiao, "textBox8MaxJiao");
+            this.textBox8MaxJiao.Name = "textBox8MaxJiao";
+            // 
+            // textBox8MaxShuiping
+            // 
+            this.textBox8MaxShuiping.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.textBox8MaxShuiping, "textBox8MaxShuiping");
+            this.textBox8MaxShuiping.Name = "textBox8MaxShuiping";
+            // 
+            // textBox360MaxTime
+            // 
+            this.textBox360MaxTime.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.textBox360MaxTime, "textBox360MaxTime");
+            this.textBox360MaxTime.Name = "textBox360MaxTime";
+            // 
+            // textBox360MinTime
+            // 
+            this.textBox360MinTime.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.textBox360MinTime, "textBox360MinTime");
+            this.textBox360MinTime.Name = "textBox360MinTime";
+            // 
+            // textBox360MaxJiao
+            // 
+            this.textBox360MaxJiao.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.textBox360MaxJiao, "textBox360MaxJiao");
+            this.textBox360MaxJiao.Name = "textBox360MaxJiao";
+            // 
+            // textBox360MinJiao
+            // 
+            this.textBox360MinJiao.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.textBox360MinJiao, "textBox360MinJiao");
+            this.textBox360MinJiao.Name = "textBox360MinJiao";
+            // 
+            // textBox360Gaodu
+            // 
+            this.textBox360Gaodu.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.textBox360Gaodu, "textBox360Gaodu");
+            this.textBox360Gaodu.Name = "textBox360Gaodu";
+            // 
+            // textBox360Shuiping
+            // 
+            this.textBox360Shuiping.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.textBox360Shuiping, "textBox360Shuiping");
+            this.textBox360Shuiping.Name = "textBox360Shuiping";
+            // 
+            // label8MaxTime
+            // 
+            resources.ApplyResources(this.label8MaxTime, "label8MaxTime");
+            this.label8MaxTime.Name = "label8MaxTime";
+            // 
+            // label8MaxGaodu
+            // 
+            resources.ApplyResources(this.label8MaxGaodu, "label8MaxGaodu");
+            this.label8MaxGaodu.Name = "label8MaxGaodu";
+            // 
+            // label8MaxFeixing
+            // 
+            resources.ApplyResources(this.label8MaxFeixing, "label8MaxFeixing");
+            this.label8MaxFeixing.Name = "label8MaxFeixing";
+            // 
+            // label8MinFeixing
+            // 
+            resources.ApplyResources(this.label8MinFeixing, "label8MinFeixing");
+            this.label8MinFeixing.Name = "label8MinFeixing";
+            // 
+            // label8MinShuiping
+            // 
+            resources.ApplyResources(this.label8MinShuiping, "label8MinShuiping");
+            this.label8MinShuiping.Name = "label8MinShuiping";
+            // 
+            // label8MaxShuiping
+            // 
+            resources.ApplyResources(this.label8MaxShuiping, "label8MaxShuiping");
+            this.label8MaxShuiping.Name = "label8MaxShuiping";
+            // 
+            // label8
+            // 
+            resources.ApplyResources(this.label8, "label8");
+            this.label8.Name = "label8";
+            // 
+            // label360MaxTime
+            // 
+            resources.ApplyResources(this.label360MaxTime, "label360MaxTime");
+            this.label360MaxTime.Name = "label360MaxTime";
+            // 
+            // label360MinTime
+            // 
+            resources.ApplyResources(this.label360MinTime, "label360MinTime");
+            this.label360MinTime.Name = "label360MinTime";
+            // 
+            // label360MaxJiao
+            // 
+            resources.ApplyResources(this.label360MaxJiao, "label360MaxJiao");
+            this.label360MaxJiao.Name = "label360MaxJiao";
+            // 
+            // label360MinJiao
+            // 
+            resources.ApplyResources(this.label360MinJiao, "label360MinJiao");
+            this.label360MinJiao.Name = "label360MinJiao";
+            // 
+            // label360Gaodu
+            // 
+            resources.ApplyResources(this.label360Gaodu, "label360Gaodu");
+            this.label360Gaodu.Name = "label360Gaodu";
+            // 
+            // label360Shuiping
+            // 
+            resources.ApplyResources(this.label360Shuiping, "label360Shuiping");
+            this.label360Shuiping.Name = "label360Shuiping";
+            // 
             // label360
             // 
             resources.ApplyResources(this.label360, "label360");
             this.label360.Name = "label360";
-            // 
-            // tabExamOperation
-            // 
-            this.tabExamOperation.Controls.Add(this.label7);
-            resources.ApplyResources(this.tabExamOperation, "tabExamOperation");
-            this.tabExamOperation.Name = "tabExamOperation";
-            this.tabExamOperation.UseVisualStyleBackColor = true;
-            // 
-            // label7
-            // 
-            resources.ApplyResources(this.label7, "label7");
-            this.label7.Name = "label7";
             // 
             // tabQuick
             // 
@@ -709,7 +1036,7 @@ namespace MissionPlanner.GCSViews
             this.splitContainer1.Panel2.Controls.Add(this.but_disablejoystick);
             this.splitContainer1.Panel2.Controls.Add(this.Zoomlevel);
             this.splitContainer1.Panel2.Controls.Add(this.distanceBar1);
-            this.splitContainer1.Panel2.Controls.Add(this.TRK_zoom);
+            this.splitContainer1.Panel2.Controls.Add(this.buttonStart);
             this.splitContainer1.Panel2.Controls.Add(this.windDir1);
             this.splitContainer1.Panel2.Controls.Add(this.label6);
             this.splitContainer1.Panel2.Controls.Add(this.label5);
@@ -926,18 +1253,18 @@ namespace MissionPlanner.GCSViews
             0});
             this.Zoomlevel.ValueChanged += new System.EventHandler(this.Zoomlevel_ValueChanged);
             // 
-            // TRK_zoom
+            // buttonStart
             // 
-            resources.ApplyResources(this.TRK_zoom, "TRK_zoom");
-            this.TRK_zoom.LargeChange = 1F;
-            this.TRK_zoom.Maximum = 24F;
-            this.TRK_zoom.Minimum = 1F;
-            this.TRK_zoom.Name = "TRK_zoom";
-            this.TRK_zoom.SmallChange = 1F;
-            this.TRK_zoom.TickFrequency = 1F;
-            this.TRK_zoom.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
-            this.TRK_zoom.Value = 1F;
-            this.TRK_zoom.Scroll += new System.EventHandler(this.TRK_zoom_Scroll);
+            resources.ApplyResources(this.buttonStart, "buttonStart");
+            this.buttonStart.LargeChange = 1F;
+            this.buttonStart.Maximum = 24F;
+            this.buttonStart.Minimum = 1F;
+            this.buttonStart.Name = "buttonStart";
+            this.buttonStart.SmallChange = 1F;
+            this.buttonStart.TickFrequency = 1F;
+            this.buttonStart.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
+            this.buttonStart.Value = 1F;
+            this.buttonStart.Scroll += new System.EventHandler(this.TRK_zoom_Scroll);
             // 
             // windDir1
             // 
@@ -978,6 +1305,7 @@ namespace MissionPlanner.GCSViews
             // label4
             // 
             resources.ApplyResources(this.label4, "label4");
+            this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.ForeColor = System.Drawing.Color.Red;
             this.label4.Name = "label4";
             this.label4.Tag = "custom";
@@ -1291,163 +1619,6 @@ namespace MissionPlanner.GCSViews
             // 
             this.bindingSourceStatusTab.DataSource = typeof(MissionPlanner.CurrentState);
             // 
-            // label360Shuiping
-            // 
-            resources.ApplyResources(this.label360Shuiping, "label360Shuiping");
-            this.label360Shuiping.Name = "label360Shuiping";
-            // 
-            // label360Gaodu
-            // 
-            resources.ApplyResources(this.label360Gaodu, "label360Gaodu");
-            this.label360Gaodu.Name = "label360Gaodu";
-            // 
-            // label360MinJiao
-            // 
-            resources.ApplyResources(this.label360MinJiao, "label360MinJiao");
-            this.label360MinJiao.Name = "label360MinJiao";
-            // 
-            // label360MaxJiao
-            // 
-            resources.ApplyResources(this.label360MaxJiao, "label360MaxJiao");
-            this.label360MaxJiao.Name = "label360MaxJiao";
-            // 
-            // label360MinTime
-            // 
-            resources.ApplyResources(this.label360MinTime, "label360MinTime");
-            this.label360MinTime.Name = "label360MinTime";
-            // 
-            // label360MaxTime
-            // 
-            resources.ApplyResources(this.label360MaxTime, "label360MaxTime");
-            this.label360MaxTime.Name = "label360MaxTime";
-            // 
-            // label8
-            // 
-            resources.ApplyResources(this.label8, "label8");
-            this.label8.Name = "label8";
-            // 
-            // label8MaxShuiping
-            // 
-            resources.ApplyResources(this.label8MaxShuiping, "label8MaxShuiping");
-            this.label8MaxShuiping.Name = "label8MaxShuiping";
-            // 
-            // label8MinShuiping
-            // 
-            resources.ApplyResources(this.label8MinShuiping, "label8MinShuiping");
-            this.label8MinShuiping.Name = "label8MinShuiping";
-            // 
-            // label8MinFeixing
-            // 
-            resources.ApplyResources(this.label8MinFeixing, "label8MinFeixing");
-            this.label8MinFeixing.Name = "label8MinFeixing";
-            // 
-            // label8MaxFeixing
-            // 
-            resources.ApplyResources(this.label8MaxFeixing, "label8MaxFeixing");
-            this.label8MaxFeixing.Name = "label8MaxFeixing";
-            // 
-            // label8MaxGaodu
-            // 
-            resources.ApplyResources(this.label8MaxGaodu, "label8MaxGaodu");
-            this.label8MaxGaodu.Name = "label8MaxGaodu";
-            // 
-            // label8MaxTime
-            // 
-            resources.ApplyResources(this.label8MaxTime, "label8MaxTime");
-            this.label8MaxTime.Name = "label8MaxTime";
-            // 
-            // textBox360Shuiping
-            // 
-            this.textBox360Shuiping.BackColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.textBox360Shuiping, "textBox360Shuiping");
-            this.textBox360Shuiping.Name = "textBox360Shuiping";
-            // 
-            // textBox360Gaodu
-            // 
-            this.textBox360Gaodu.BackColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.textBox360Gaodu, "textBox360Gaodu");
-            this.textBox360Gaodu.Name = "textBox360Gaodu";
-            // 
-            // textBox360MinJiao
-            // 
-            this.textBox360MinJiao.BackColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.textBox360MinJiao, "textBox360MinJiao");
-            this.textBox360MinJiao.Name = "textBox360MinJiao";
-            // 
-            // textBox360MaxJiao
-            // 
-            this.textBox360MaxJiao.BackColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.textBox360MaxJiao, "textBox360MaxJiao");
-            this.textBox360MaxJiao.Name = "textBox360MaxJiao";
-            // 
-            // textBox360MinTime
-            // 
-            this.textBox360MinTime.BackColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.textBox360MinTime, "textBox360MinTime");
-            this.textBox360MinTime.Name = "textBox360MinTime";
-            // 
-            // textBox360MaxTime
-            // 
-            this.textBox360MaxTime.BackColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.textBox360MaxTime, "textBox360MaxTime");
-            this.textBox360MaxTime.Name = "textBox360MaxTime";
-            // 
-            // textBox8MaxShuiping
-            // 
-            this.textBox8MaxShuiping.BackColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.textBox8MaxShuiping, "textBox8MaxShuiping");
-            this.textBox8MaxShuiping.Name = "textBox8MaxShuiping";
-            // 
-            // textBox8MaxJiao
-            // 
-            this.textBox8MaxJiao.BackColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.textBox8MaxJiao, "textBox8MaxJiao");
-            this.textBox8MaxJiao.Name = "textBox8MaxJiao";
-            // 
-            // textBox8MinFeixing
-            // 
-            this.textBox8MinFeixing.BackColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.textBox8MinFeixing, "textBox8MinFeixing");
-            this.textBox8MinFeixing.Name = "textBox8MinFeixing";
-            // 
-            // textBox8MaxFeixing
-            // 
-            this.textBox8MaxFeixing.BackColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.textBox8MaxFeixing, "textBox8MaxFeixing");
-            this.textBox8MaxFeixing.Name = "textBox8MaxFeixing";
-            // 
-            // textBox8MaxGaodu
-            // 
-            this.textBox8MaxGaodu.BackColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.textBox8MaxGaodu, "textBox8MaxGaodu");
-            this.textBox8MaxGaodu.Name = "textBox8MaxGaodu";
-            // 
-            // textBox8MaxTime
-            // 
-            this.textBox8MaxTime.BackColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.textBox8MaxTime, "textBox8MaxTime");
-            this.textBox8MaxTime.Name = "textBox8MaxTime";
-            // 
-            // buttonCofirm
-            // 
-            this.buttonCofirm.BGGradBot = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.buttonCofirm.BGGradTop = System.Drawing.Color.Cyan;
-            resources.ApplyResources(this.buttonCofirm, "buttonCofirm");
-            this.buttonCofirm.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonCofirm.Name = "buttonCofirm";
-            this.buttonCofirm.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
-            this.buttonCofirm.UseVisualStyleBackColor = true;
-            // 
-            // buttonReset
-            // 
-            this.buttonReset.BGGradBot = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.buttonReset.BGGradTop = System.Drawing.Color.Cyan;
-            resources.ApplyResources(this.buttonReset, "buttonReset");
-            this.buttonReset.Name = "buttonReset";
-            this.buttonReset.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
-            this.buttonReset.UseVisualStyleBackColor = true;
-            this.buttonReset.Click += new System.EventHandler(this.buttonReset_Click);
-            // 
             // checkListControl1
             // 
             resources.ApplyResources(this.checkListControl1, "checkListControl1");
@@ -1568,10 +1739,15 @@ namespace MissionPlanner.GCSViews
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceHud)).EndInit();
             this.contextMenuStripactionstab.ResumeLayout(false);
             this.tabControlactions.ResumeLayout(false);
+            this.tabExamOperation.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.tabExamConfig.ResumeLayout(false);
             this.tabExamConfig.PerformLayout();
-            this.tabExamOperation.ResumeLayout(false);
-            this.tabExamOperation.PerformLayout();
             this.tabQuick.ResumeLayout(false);
             this.tableLayoutPanelQuick.ResumeLayout(false);
             this.contextMenuStripQuickView.ResumeLayout(false);
@@ -1586,7 +1762,7 @@ namespace MissionPlanner.GCSViews
             this.splitContainer1.ResumeLayout(false);
             this.contextMenuStripMap.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Zoomlevel)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TRK_zoom)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buttonStart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceGaugesTab)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourcePayloadTab)).EndInit();
@@ -1622,7 +1798,7 @@ namespace MissionPlanner.GCSViews
         private System.Windows.Forms.ToolStripMenuItem flightPlannerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem userItemsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem triggerCameraToolStripMenuItem;
-        private Controls.MyTrackBar TRK_zoom;
+        private Controls.MyTrackBar buttonStart;
         private System.Windows.Forms.BindingSource bindingSourceHud;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelQuick;
         private System.Windows.Forms.Label label6;
@@ -1711,7 +1887,6 @@ namespace MissionPlanner.GCSViews
         public TabPage tabExamConfig;
         public TabPage tabExamOperation;
         private Label label360;
-        private Label label7;
         private Label label360Shuiping;
         private Label label360Gaodu;
         private Label label360MaxTime;
@@ -1740,5 +1915,23 @@ namespace MissionPlanner.GCSViews
         private TextBox textBox8MaxShuiping;
         private Controls.MyButton buttonReset;
         private Controls.MyButton buttonCofirm;
+        private Controls.MyButton buttonSetLeft;
+        private Controls.MyButton buttonSetHight;
+        private Controls.MyButton buttonSetRight;
+        private Controls.MyButton buttonShow;
+        private Controls.MyButton buttonSetCenter;
+        private Controls.MyButton myButton6;
+        private GroupBox groupBox1;
+        private RadioButton radioCustom;
+        private RadioButton radioCSJ;
+        private RadioButton radioSJN;
+        private RadioButton radioJY;
+        private GroupBox groupBox2;
+        private GroupBox groupBox3;
+        private RadioButton radioMock;
+        private RadioButton radio360;
+        private RadioButton radio8;
+        private RadioButton radioLoop;
+        private RadioButton radioSingle;
     }
 }
