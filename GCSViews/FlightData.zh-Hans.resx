@@ -317,13 +317,13 @@
     <value>350, 163</value>
   </data>
   <data name="tabPagePreFlight.Text" xml:space="preserve">
-    <value>考试机信息</value>
+    <value>连接信息</value>
   </data>
   <data name="tabExamConfig.Text" xml:space="preserve">
     <value>考试配置</value>
   </data>
   <data name="tabExamOperation.Text" xml:space="preserve">
-    <value>考试</value>
+    <value>操作</value>
   </data>
   <data name="Gspeed.ToolTip" xml:space="preserve">
     <value>双击我改变最大值</value>

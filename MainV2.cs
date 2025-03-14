@@ -1877,7 +1877,7 @@ namespace MissionPlanner
                 // 更新日志
                 if(this.FlightData != null)
                 {
-                    this.FlightData.updateMessage("设备连接成功");
+                    this.FlightData.SendVideo(114);
                 }
             }
         }

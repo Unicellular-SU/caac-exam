@@ -32,6 +32,7 @@ using ZedGraph;
 using LogAnalyzer = MissionPlanner.Utilities.LogAnalyzer;
 using TableLayoutPanelCellPosition = System.Windows.Forms.TableLayoutPanelCellPosition;
 using UnauthorizedAccessException = System.UnauthorizedAccessException;
+using System.Media;
 
 // written by michael oborne
 
@@ -204,13 +205,57 @@ namespace MissionPlanner.GCSViews
         public double[] _config_12 = new double[4];
 
         // 标准
-        private int selectA;
+        private int selectA = 0;
 
         // 科目
-        private int selectB;
+        private int selectB = 0;
 
         // 模式
-        private int selectC;
+        private int selectC = 0;
+
+        // 地面高度
+        private float groundHight;
+
+        // 提示信息
+        private static readonly Dictionary<int, string> Messages = new Dictionary<int, string>
+    {
+        { 1, "水平偏差过大。" },
+        { 2, "高度偏差过大。" },
+        { 3, "角速度过小。" },
+        { 4, "角速度过大。" },
+        { 5, "未在指定时间内进入中心桶。" },
+        { 6, "未在指定时间内完成自旋。" },
+        { 7, "自旋方向错误。" },
+        { 8, "未在指定时间内完成八字飞行。" },
+        { 9, "角度偏差过大。" },
+        { 10, "水平速度过小。" },
+        { 11, "水平速度过大。" },
+        { 98, "考试已通过。" },
+        { 99, "考试失败。" },
+        { 100, "请回到中心桶。" },
+        { 101, "请进入中心桶，一分钟倒计时。" },
+        { 102, "请升高至高于1.5米小于5米的高度。" },
+        { 103, "请调整飞机至对尾方向。" },
+        { 104, "自旋开始，一分钟倒计时。" },
+        { 105, "自旋完成。" },
+        { 106, "八字飞行开始，三分钟倒计时。" },
+        { 107, "八字飞行完成。" },
+        { 108, "反向自旋开始，一分钟倒计时。" },
+        { 109, "已定位左边桶。" },
+        { 110, "已定位右边桶。" },
+        { 111, "循环训练即将开始。" },
+        { 112, "教员倒飞八字开始，三分钟倒计时。" },
+        { 113, "地面高度已重置。" },
+        { 114, "设备已连接。" },
+        { 115, "设备已断开。" }
+    };
+
+        // 播放队列
+        private readonly Queue<int> _audioQueue = new Queue<int>();
+
+        // 是否正在播放
+        private bool _isPlaying = false;
+
 
         public enum actions
         {
@@ -324,6 +369,9 @@ namespace MissionPlanner.GCSViews
                 }
             }
 
+            //初始化考试相关组件
+            InitComp();
+
             CMB_action.DataSource = Enum.GetNames(typeof(actions));
 
             CMB_modes.DataSource = ArduPilot.Common.getModesList(MainV2.comPort.MAV.cs.firmware);
@@ -401,6 +449,12 @@ namespace MissionPlanner.GCSViews
             // 初始化考试数据
             initExamConfig();
 
+        }
+
+        // 初始化考试相关组件
+        private void InitComp()
+        {
+            this.label4.Parent = this.gMapControl1;
         }
 
         public void Activate()
@@ -564,52 +618,6 @@ namespace MissionPlanner.GCSViews
             //Check if we want to display calculated battery cell voltage
             hud1.displayCellVoltage = Settings.Instance.GetBoolean("HUD_showbatterycell", false);
             hud1.batterycellcount = Settings.Instance.GetInt32("HUD_batterycellcount", 0);
-        }
-
-        public void CreateChart(ZedGraphControl zgc)
-        {
-            if (zgc == null) throw new ArgumentNullException(nameof(zgc));
-
-            GraphPane myPane = zgc.GraphPane;
-
-            // Set the titles and axis labels
-            myPane.Title.Text = "Tuning - Double click to change items";
-            myPane.XAxis.Title.Text = "Time (s)";
-            myPane.YAxis.Title.Text = "Unit";
-            myPane.YAxis.Title.FontSpec.Size += 2;
-
-            // Show the x axis grid
-            myPane.XAxis.MajorGrid.IsVisible = true;
-
-            myPane.XAxis.Scale.Min = 0;
-            myPane.XAxis.Scale.Max = 5;
-
-            // Make the Y axis scale red
-            myPane.YAxis.Scale.FontSpec.FontColor = Color.White;
-            myPane.YAxis.Title.FontSpec.FontColor = Color.White;
-            // turn off the opposite tics so the Y tics don't show up on the Y2 axis
-            myPane.YAxis.MajorTic.IsOpposite = false;
-            myPane.YAxis.MinorTic.IsOpposite = false;
-            // Don't display the Y zero line
-            myPane.YAxis.MajorGrid.IsZeroLine = true;
-            // Align the Y axis labels so they are flush to the axis
-            myPane.YAxis.Scale.Align = AlignP.Inside;
-            // Manually set the axis range
-            //myPane.YAxis.Scale.Min = -1;
-            //myPane.YAxis.Scale.Max = 1;
-
-            // Fill the axis background with a gradient
-            //myPane.Chart.Fill = new Fill(Color.White, Color.LightGray, 45.0f);
-
-            // Sample at 50ms intervals
-            //timer1.Enabled = true;
-            //timer1.Start();
-
-
-            // Calculate the Axis Scale Ranges
-            //zgc.AxisChange();
-
-            tickStart = Environment.TickCount;
         }
 
         public void Deactivate()
@@ -2011,7 +2019,7 @@ namespace MissionPlanner.GCSViews
                 textBox8MaxFeixing.Text = Settings.Instance["_config_10"];
                 textBox8MaxGaodu.Text = Settings.Instance["_config_11"];
                 textBox8MaxTime.Text = Settings.Instance["_config_12"];
-                //setConfigList();
+                setConfigList();
             }
 
             if (Settings.Instance.ContainsKey("HudSwap") && Settings.Instance["HudSwap"] == "true")
@@ -2037,7 +2045,14 @@ namespace MissionPlanner.GCSViews
 
             splitContainer1.Panel1Collapsed = true;
 
-           
+            // 考试相关功能
+            // 初始化地面高度为0
+            groundHight = 0f;
+            if (Settings.Instance["groundHight"] != null)
+            {
+                groundHight = float.Parse(Settings.Instance["groundHight"]);
+            }
+
 
             try
             {
@@ -2098,8 +2113,53 @@ namespace MissionPlanner.GCSViews
             textBox8MaxFeixing.Text = _config_10[1].ToString("F1");
             textBox8MaxGaodu.Text = _config_11[1].ToString("F1");
             textBox8MaxTime.Text = _config_12[1].ToString("F1");
-            //setConfigList();
+            setConfigList();
         }
+
+
+        private void setConfigList()
+        {
+            bool needrest = false;
+            if (_config_1[3] != double.Parse(textBox360Shuiping.Text))
+            {
+                needrest = true;
+            }
+            if (_config_7[3] != double.Parse(textBox8MaxShuiping.Text))
+            {
+                needrest = true;
+            }
+            _config_1[3] = double.Parse(textBox360Shuiping.Text);
+            _config_2[3] = double.Parse(textBox360Gaodu.Text);
+            _config_3[3] = double.Parse(textBox360MinJiao.Text);
+            _config_4[3] = double.Parse(textBox360MaxJiao.Text);
+            _config_5[3] = double.Parse(textBox360MinTime.Text);
+            _config_6[3] = double.Parse(textBox360MaxTime.Text);
+            _config_7[3] = double.Parse(textBox8MaxShuiping.Text);
+            _config_8[3] = double.Parse(textBox8MaxJiao.Text);
+            _config_9[3] = double.Parse(textBox8MinFeixing.Text);
+            _config_10[3] = double.Parse(textBox8MaxFeixing.Text);
+            _config_11[3] = double.Parse(textBox8MaxGaodu.Text);
+            _config_12[3] = double.Parse(textBox8MaxTime.Text);
+            // 修改功能
+            //if (needrest && zuotongLocation != null && youtongLocation != null)
+            //{
+            //    GetMidpoint();
+            //}
+            Settings.Instance["_config_1"] = _config_1[3].ToString("F1");
+            Settings.Instance["_config_2"] = _config_2[3].ToString("F1");
+            Settings.Instance["_config_3"] = _config_3[3].ToString("F1");
+            Settings.Instance["_config_4"] = _config_4[3].ToString("F1");
+            Settings.Instance["_config_5"] = _config_5[3].ToString("F1");
+            Settings.Instance["_config_6"] = _config_6[3].ToString("F1");
+            Settings.Instance["_config_7"] = _config_7[3].ToString("F1");
+            Settings.Instance["_config_8"] = _config_8[3].ToString("F1");
+            Settings.Instance["_config_9"] = _config_9[3].ToString("F1");
+            Settings.Instance["_config_10"] = _config_10[3].ToString("F1");
+            Settings.Instance["_config_11"] = _config_11[3].ToString("F1");
+            Settings.Instance["_config_12"] = _config_12[3].ToString("F1");
+        }
+
+
 
         private void FlightData_ParentChanged(object sender, EventArgs e)
         {
@@ -5508,6 +5568,68 @@ namespace MissionPlanner.GCSViews
                 case "模拟考试":
                     selectB = 2;
                     break;
+            }
+        }
+
+        private void buttonCofirm_Click(object sender, EventArgs e)
+        {
+            setConfigList();
+        }
+
+        private void buttonSetHight_Click(object sender, EventArgs e)
+        {
+            if (!MainV2.comPort.BaseStream.IsOpen)
+            {
+                CustomMessageBox.Show("设备未连接。");
+                return;
+            }
+            groundHight = MainV2.comPort.MAV.cs.altasl;
+            Settings.Instance["groundHight"] = groundHight.ToString();
+            SendVideo(113);
+        }
+
+        private void PlayNext()
+        {
+            if (_audioQueue.Count == 0)
+            {
+                _isPlaying = false;
+                return;
+            }
+            _isPlaying = true;
+            int nextIndex = _audioQueue.Dequeue();
+            updateMessage(Messages[nextIndex]);
+            string message = Messages[nextIndex];
+            Thread playThread = new Thread((ThreadStart)delegate
+            {
+                string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+                string text = Path.Combine(baseDirectory, "WAV", $"{nextIndex}.wav");
+                if (File.Exists(text))
+                {
+                    SoundPlayer soundPlayer = new SoundPlayer(text);
+                    soundPlayer.PlaySync();
+                }
+                PlayNext();
+            });
+            playThread.Start();
+        }
+
+        public void AddToQueue(int index)
+        {
+            if (Messages.ContainsKey(index))
+            {
+                _audioQueue.Enqueue(index);
+                if (!_isPlaying)
+                {
+                    PlayNext();
+                }
+            }
+        }
+
+        public void SendVideo(int index)
+        {
+            if (Messages.ContainsKey(index))
+            {
+                AddToQueue(index);
             }
         }
     }
