@@ -29,6 +29,7 @@ namespace MissionPlanner.GCSViews
             this.groundColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.setBatteryCellCountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showIconsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bindingSourceHud = new System.Windows.Forms.BindingSource(this.components);
             this.contextMenuStripactionstab = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.customizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.multiLineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -53,18 +54,49 @@ namespace MissionPlanner.GCSViews
             this.buttonSetRight = new MissionPlanner.Controls.MyButton();
             this.buttonSetLeft = new MissionPlanner.Controls.MyButton();
             this.tabExamConfig = new System.Windows.Forms.TabPage();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label360 = new System.Windows.Forms.Label();
+            this.label360Shuiping = new System.Windows.Forms.Label();
+            this.textBox360Shuiping = new System.Windows.Forms.TextBox();
+            this.label360Gaodu = new System.Windows.Forms.Label();
+            this.textBox360Gaodu = new System.Windows.Forms.TextBox();
+            this.label360MinJiao = new System.Windows.Forms.Label();
+            this.textBox360MinJiao = new System.Windows.Forms.TextBox();
+            this.label360MaxJiao = new System.Windows.Forms.Label();
+            this.textBox360MaxJiao = new System.Windows.Forms.TextBox();
+            this.label360MinTime = new System.Windows.Forms.Label();
+            this.textBox360MinTime = new System.Windows.Forms.TextBox();
+            this.label360MaxTime = new System.Windows.Forms.Label();
+            this.textBox360MaxTime = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label8MaxShuiping = new System.Windows.Forms.Label();
+            this.textBox8MaxShuiping = new System.Windows.Forms.TextBox();
+            this.label8MaxJiao = new System.Windows.Forms.Label();
+            this.textBox8MaxJiao = new System.Windows.Forms.TextBox();
+            this.label8MinFeixing = new System.Windows.Forms.Label();
+            this.textBox8MinFeixing = new System.Windows.Forms.TextBox();
+            this.label8MaxFeixing = new System.Windows.Forms.Label();
+            this.textBox8MaxFeixing = new System.Windows.Forms.TextBox();
+            this.label8MaxGaodu = new System.Windows.Forms.Label();
+            this.textBox8MaxGaodu = new System.Windows.Forms.TextBox();
+            this.label8MaxTime = new System.Windows.Forms.Label();
+            this.textBox8MaxTime = new System.Windows.Forms.TextBox();
+            this.buttonReset = new MissionPlanner.Controls.MyButton();
+            this.buttonCofirm = new MissionPlanner.Controls.MyButton();
             this.tabQuick = new System.Windows.Forms.TabPage();
             this.tableLayoutPanelQuick = new System.Windows.Forms.TableLayoutPanel();
             this.quickView6 = new MissionPlanner.Controls.QuickView();
             this.contextMenuStripQuickView = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.setViewCountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.undockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bindingSourceQuickTab = new System.Windows.Forms.BindingSource(this.components);
             this.quickView5 = new MissionPlanner.Controls.QuickView();
             this.quickView4 = new MissionPlanner.Controls.QuickView();
             this.quickView3 = new MissionPlanner.Controls.QuickView();
             this.quickView2 = new MissionPlanner.Controls.QuickView();
             this.quickView1 = new MissionPlanner.Controls.QuickView();
             this.tabPagePreFlight = new System.Windows.Forms.TabPage();
+            this.checkListControl1 = new MissionPlanner.Controls.PreFlight.CheckListControl();
             this.tabPagemessages = new System.Windows.Forms.TabPage();
             this.txt_messagebox = new System.Windows.Forms.TextBox();
             this.panel_persistent = new System.Windows.Forms.Panel();
@@ -96,8 +128,10 @@ namespace MissionPlanner.GCSViews
             this.label1 = new System.Windows.Forms.Label();
             this.but_disablejoystick = new MissionPlanner.Controls.MyButton();
             this.Zoomlevel = new System.Windows.Forms.NumericUpDown();
+            this.distanceBar1 = new MissionPlanner.Controls.DistanceBar();
             this.buttonStart = new MissionPlanner.Controls.MyTrackBar();
             this.windDir1 = new MissionPlanner.Controls.WindDir();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -131,43 +165,9 @@ namespace MissionPlanner.GCSViews
             this.BUT_resumemis = new MissionPlanner.Controls.MyButton();
             this.CMB_action = new System.Windows.Forms.ComboBox();
             this.contextMenu1 = new System.Windows.Forms.ContextMenu();
-            this.bindingSourceHud = new System.Windows.Forms.BindingSource(this.components);
-            this.bindingSourceQuickTab = new System.Windows.Forms.BindingSource(this.components);
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSourceGaugesTab = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSourcePayloadTab = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSourceStatusTab = new System.Windows.Forms.BindingSource(this.components);
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.buttonReset = new MissionPlanner.Controls.MyButton();
-            this.buttonCofirm = new MissionPlanner.Controls.MyButton();
-            this.textBox8MaxTime = new System.Windows.Forms.TextBox();
-            this.textBox8MaxGaodu = new System.Windows.Forms.TextBox();
-            this.textBox8MaxFeixing = new System.Windows.Forms.TextBox();
-            this.textBox8MinFeixing = new System.Windows.Forms.TextBox();
-            this.textBox8MaxJiao = new System.Windows.Forms.TextBox();
-            this.textBox8MaxShuiping = new System.Windows.Forms.TextBox();
-            this.textBox360MaxTime = new System.Windows.Forms.TextBox();
-            this.textBox360MinTime = new System.Windows.Forms.TextBox();
-            this.textBox360MaxJiao = new System.Windows.Forms.TextBox();
-            this.textBox360MinJiao = new System.Windows.Forms.TextBox();
-            this.textBox360Gaodu = new System.Windows.Forms.TextBox();
-            this.textBox360Shuiping = new System.Windows.Forms.TextBox();
-            this.label8MaxTime = new System.Windows.Forms.Label();
-            this.label8MaxGaodu = new System.Windows.Forms.Label();
-            this.label8MaxFeixing = new System.Windows.Forms.Label();
-            this.label8MinFeixing = new System.Windows.Forms.Label();
-            this.label8MaxJiao = new System.Windows.Forms.Label();
-            this.label8MaxShuiping = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label360MaxTime = new System.Windows.Forms.Label();
-            this.label360MinTime = new System.Windows.Forms.Label();
-            this.label360MaxJiao = new System.Windows.Forms.Label();
-            this.label360MinJiao = new System.Windows.Forms.Label();
-            this.label360Gaodu = new System.Windows.Forms.Label();
-            this.label360Shuiping = new System.Windows.Forms.Label();
-            this.label360 = new System.Windows.Forms.Label();
-            this.checkListControl1 = new MissionPlanner.Controls.PreFlight.CheckListControl();
-            this.distanceBar1 = new MissionPlanner.Controls.DistanceBar();
             this.modifyandSetSpeed = new MissionPlanner.Controls.ModifyandSet();
             this.modifyandSetAlt = new MissionPlanner.Controls.ModifyandSet();
             this.modifyandSetLoiterRad = new MissionPlanner.Controls.ModifyandSet();
@@ -180,6 +180,7 @@ namespace MissionPlanner.GCSViews
             this.SubMainLeft.Panel2.SuspendLayout();
             this.SubMainLeft.SuspendLayout();
             this.contextMenuStripHud.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceHud)).BeginInit();
             this.contextMenuStripactionstab.SuspendLayout();
             this.tabControlactions.SuspendLayout();
             this.tabExamOperation.SuspendLayout();
@@ -187,9 +188,11 @@ namespace MissionPlanner.GCSViews
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabExamConfig.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.tabQuick.SuspendLayout();
             this.tableLayoutPanelQuick.SuspendLayout();
             this.contextMenuStripQuickView.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceQuickTab)).BeginInit();
             this.tabPagePreFlight.SuspendLayout();
             this.tabPagemessages.SuspendLayout();
             this.tableMap.SuspendLayout();
@@ -199,13 +202,10 @@ namespace MissionPlanner.GCSViews
             this.contextMenuStripMap.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Zoomlevel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonStart)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceHud)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceQuickTab)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceGaugesTab)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourcePayloadTab)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceStatusTab)).BeginInit();
-            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // MainH
@@ -476,6 +476,10 @@ namespace MissionPlanner.GCSViews
             resources.ApplyResources(this.showIconsToolStripMenuItem, "showIconsToolStripMenuItem");
             this.showIconsToolStripMenuItem.Click += new System.EventHandler(this.showIconsToolStripMenuItem_Click);
             // 
+            // bindingSourceHud
+            // 
+            this.bindingSourceHud.DataSource = typeof(MissionPlanner.CurrentState);
+            // 
             // contextMenuStripactionstab
             // 
             this.contextMenuStripactionstab.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -512,6 +516,7 @@ namespace MissionPlanner.GCSViews
             // 
             // tabExamOperation
             // 
+            resources.ApplyResources(this.tabExamOperation, "tabExamOperation");
             this.tabExamOperation.Controls.Add(this.groupBox3);
             this.tabExamOperation.Controls.Add(this.groupBox2);
             this.tabExamOperation.Controls.Add(this.groupBox1);
@@ -521,7 +526,6 @@ namespace MissionPlanner.GCSViews
             this.tabExamOperation.Controls.Add(this.buttonSetHight);
             this.tabExamOperation.Controls.Add(this.buttonSetRight);
             this.tabExamOperation.Controls.Add(this.buttonSetLeft);
-            resources.ApplyResources(this.tabExamOperation, "tabExamOperation");
             this.tabExamOperation.Name = "tabExamOperation";
             this.tabExamOperation.UseVisualStyleBackColor = true;
             // 
@@ -680,6 +684,214 @@ namespace MissionPlanner.GCSViews
             resources.ApplyResources(this.tabExamConfig, "tabExamConfig");
             this.tabExamConfig.Name = "tabExamConfig";
             // 
+            // flowLayoutPanel1
+            // 
+            resources.ApplyResources(this.flowLayoutPanel1, "flowLayoutPanel1");
+            this.flowLayoutPanel1.Controls.Add(this.label360);
+            this.flowLayoutPanel1.Controls.Add(this.label360Shuiping);
+            this.flowLayoutPanel1.Controls.Add(this.textBox360Shuiping);
+            this.flowLayoutPanel1.Controls.Add(this.label360Gaodu);
+            this.flowLayoutPanel1.Controls.Add(this.textBox360Gaodu);
+            this.flowLayoutPanel1.Controls.Add(this.label360MinJiao);
+            this.flowLayoutPanel1.Controls.Add(this.textBox360MinJiao);
+            this.flowLayoutPanel1.Controls.Add(this.label360MaxJiao);
+            this.flowLayoutPanel1.Controls.Add(this.textBox360MaxJiao);
+            this.flowLayoutPanel1.Controls.Add(this.label360MinTime);
+            this.flowLayoutPanel1.Controls.Add(this.textBox360MinTime);
+            this.flowLayoutPanel1.Controls.Add(this.label360MaxTime);
+            this.flowLayoutPanel1.Controls.Add(this.textBox360MaxTime);
+            this.flowLayoutPanel1.Controls.Add(this.label8);
+            this.flowLayoutPanel1.Controls.Add(this.label8MaxShuiping);
+            this.flowLayoutPanel1.Controls.Add(this.textBox8MaxShuiping);
+            this.flowLayoutPanel1.Controls.Add(this.label8MaxJiao);
+            this.flowLayoutPanel1.Controls.Add(this.textBox8MaxJiao);
+            this.flowLayoutPanel1.Controls.Add(this.label8MinFeixing);
+            this.flowLayoutPanel1.Controls.Add(this.textBox8MinFeixing);
+            this.flowLayoutPanel1.Controls.Add(this.label8MaxFeixing);
+            this.flowLayoutPanel1.Controls.Add(this.textBox8MaxFeixing);
+            this.flowLayoutPanel1.Controls.Add(this.label8MaxGaodu);
+            this.flowLayoutPanel1.Controls.Add(this.textBox8MaxGaodu);
+            this.flowLayoutPanel1.Controls.Add(this.label8MaxTime);
+            this.flowLayoutPanel1.Controls.Add(this.textBox8MaxTime);
+            this.flowLayoutPanel1.Controls.Add(this.buttonReset);
+            this.flowLayoutPanel1.Controls.Add(this.buttonCofirm);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            // 
+            // label360
+            // 
+            resources.ApplyResources(this.label360, "label360");
+            this.flowLayoutPanel1.SetFlowBreak(this.label360, true);
+            this.label360.Name = "label360";
+            // 
+            // label360Shuiping
+            // 
+            resources.ApplyResources(this.label360Shuiping, "label360Shuiping");
+            this.label360Shuiping.Name = "label360Shuiping";
+            // 
+            // textBox360Shuiping
+            // 
+            this.textBox360Shuiping.BackColor = System.Drawing.Color.White;
+            this.flowLayoutPanel1.SetFlowBreak(this.textBox360Shuiping, true);
+            resources.ApplyResources(this.textBox360Shuiping, "textBox360Shuiping");
+            this.textBox360Shuiping.Name = "textBox360Shuiping";
+            // 
+            // label360Gaodu
+            // 
+            resources.ApplyResources(this.label360Gaodu, "label360Gaodu");
+            this.label360Gaodu.Name = "label360Gaodu";
+            // 
+            // textBox360Gaodu
+            // 
+            this.textBox360Gaodu.BackColor = System.Drawing.Color.White;
+            this.flowLayoutPanel1.SetFlowBreak(this.textBox360Gaodu, true);
+            resources.ApplyResources(this.textBox360Gaodu, "textBox360Gaodu");
+            this.textBox360Gaodu.Name = "textBox360Gaodu";
+            // 
+            // label360MinJiao
+            // 
+            resources.ApplyResources(this.label360MinJiao, "label360MinJiao");
+            this.label360MinJiao.Name = "label360MinJiao";
+            // 
+            // textBox360MinJiao
+            // 
+            this.textBox360MinJiao.BackColor = System.Drawing.Color.White;
+            this.flowLayoutPanel1.SetFlowBreak(this.textBox360MinJiao, true);
+            resources.ApplyResources(this.textBox360MinJiao, "textBox360MinJiao");
+            this.textBox360MinJiao.Name = "textBox360MinJiao";
+            // 
+            // label360MaxJiao
+            // 
+            resources.ApplyResources(this.label360MaxJiao, "label360MaxJiao");
+            this.label360MaxJiao.Name = "label360MaxJiao";
+            // 
+            // textBox360MaxJiao
+            // 
+            this.textBox360MaxJiao.BackColor = System.Drawing.Color.White;
+            this.flowLayoutPanel1.SetFlowBreak(this.textBox360MaxJiao, true);
+            resources.ApplyResources(this.textBox360MaxJiao, "textBox360MaxJiao");
+            this.textBox360MaxJiao.Name = "textBox360MaxJiao";
+            // 
+            // label360MinTime
+            // 
+            resources.ApplyResources(this.label360MinTime, "label360MinTime");
+            this.label360MinTime.Name = "label360MinTime";
+            // 
+            // textBox360MinTime
+            // 
+            this.textBox360MinTime.BackColor = System.Drawing.Color.White;
+            this.flowLayoutPanel1.SetFlowBreak(this.textBox360MinTime, true);
+            resources.ApplyResources(this.textBox360MinTime, "textBox360MinTime");
+            this.textBox360MinTime.Name = "textBox360MinTime";
+            // 
+            // label360MaxTime
+            // 
+            resources.ApplyResources(this.label360MaxTime, "label360MaxTime");
+            this.label360MaxTime.Name = "label360MaxTime";
+            // 
+            // textBox360MaxTime
+            // 
+            this.textBox360MaxTime.BackColor = System.Drawing.Color.White;
+            this.flowLayoutPanel1.SetFlowBreak(this.textBox360MaxTime, true);
+            resources.ApplyResources(this.textBox360MaxTime, "textBox360MaxTime");
+            this.textBox360MaxTime.Name = "textBox360MaxTime";
+            // 
+            // label8
+            // 
+            resources.ApplyResources(this.label8, "label8");
+            this.flowLayoutPanel1.SetFlowBreak(this.label8, true);
+            this.label8.Name = "label8";
+            // 
+            // label8MaxShuiping
+            // 
+            resources.ApplyResources(this.label8MaxShuiping, "label8MaxShuiping");
+            this.label8MaxShuiping.Name = "label8MaxShuiping";
+            // 
+            // textBox8MaxShuiping
+            // 
+            this.textBox8MaxShuiping.BackColor = System.Drawing.Color.White;
+            this.flowLayoutPanel1.SetFlowBreak(this.textBox8MaxShuiping, true);
+            resources.ApplyResources(this.textBox8MaxShuiping, "textBox8MaxShuiping");
+            this.textBox8MaxShuiping.Name = "textBox8MaxShuiping";
+            // 
+            // label8MaxJiao
+            // 
+            resources.ApplyResources(this.label8MaxJiao, "label8MaxJiao");
+            this.label8MaxJiao.Name = "label8MaxJiao";
+            // 
+            // textBox8MaxJiao
+            // 
+            this.textBox8MaxJiao.BackColor = System.Drawing.Color.White;
+            this.flowLayoutPanel1.SetFlowBreak(this.textBox8MaxJiao, true);
+            resources.ApplyResources(this.textBox8MaxJiao, "textBox8MaxJiao");
+            this.textBox8MaxJiao.Name = "textBox8MaxJiao";
+            // 
+            // label8MinFeixing
+            // 
+            resources.ApplyResources(this.label8MinFeixing, "label8MinFeixing");
+            this.label8MinFeixing.Name = "label8MinFeixing";
+            // 
+            // textBox8MinFeixing
+            // 
+            this.textBox8MinFeixing.BackColor = System.Drawing.Color.White;
+            this.flowLayoutPanel1.SetFlowBreak(this.textBox8MinFeixing, true);
+            resources.ApplyResources(this.textBox8MinFeixing, "textBox8MinFeixing");
+            this.textBox8MinFeixing.Name = "textBox8MinFeixing";
+            // 
+            // label8MaxFeixing
+            // 
+            resources.ApplyResources(this.label8MaxFeixing, "label8MaxFeixing");
+            this.label8MaxFeixing.Name = "label8MaxFeixing";
+            // 
+            // textBox8MaxFeixing
+            // 
+            this.textBox8MaxFeixing.BackColor = System.Drawing.Color.White;
+            this.flowLayoutPanel1.SetFlowBreak(this.textBox8MaxFeixing, true);
+            resources.ApplyResources(this.textBox8MaxFeixing, "textBox8MaxFeixing");
+            this.textBox8MaxFeixing.Name = "textBox8MaxFeixing";
+            // 
+            // label8MaxGaodu
+            // 
+            resources.ApplyResources(this.label8MaxGaodu, "label8MaxGaodu");
+            this.label8MaxGaodu.Name = "label8MaxGaodu";
+            // 
+            // textBox8MaxGaodu
+            // 
+            this.textBox8MaxGaodu.BackColor = System.Drawing.Color.White;
+            this.flowLayoutPanel1.SetFlowBreak(this.textBox8MaxGaodu, true);
+            resources.ApplyResources(this.textBox8MaxGaodu, "textBox8MaxGaodu");
+            this.textBox8MaxGaodu.Name = "textBox8MaxGaodu";
+            // 
+            // label8MaxTime
+            // 
+            resources.ApplyResources(this.label8MaxTime, "label8MaxTime");
+            this.label8MaxTime.Name = "label8MaxTime";
+            // 
+            // textBox8MaxTime
+            // 
+            this.textBox8MaxTime.BackColor = System.Drawing.Color.White;
+            this.flowLayoutPanel1.SetFlowBreak(this.textBox8MaxTime, true);
+            resources.ApplyResources(this.textBox8MaxTime, "textBox8MaxTime");
+            this.textBox8MaxTime.Name = "textBox8MaxTime";
+            // 
+            // buttonReset
+            // 
+            this.buttonReset.BGGradBot = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.buttonReset.BGGradTop = System.Drawing.Color.Cyan;
+            resources.ApplyResources(this.buttonReset, "buttonReset");
+            this.buttonReset.Name = "buttonReset";
+            this.buttonReset.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
+            this.buttonReset.UseVisualStyleBackColor = true;
+            // 
+            // buttonCofirm
+            // 
+            this.buttonCofirm.BGGradBot = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.buttonCofirm.BGGradTop = System.Drawing.Color.Cyan;
+            resources.ApplyResources(this.buttonCofirm, "buttonCofirm");
+            this.buttonCofirm.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.buttonCofirm.Name = "buttonCofirm";
+            this.buttonCofirm.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
+            this.buttonCofirm.UseVisualStyleBackColor = true;
+            // 
             // tabQuick
             // 
             resources.ApplyResources(this.tabQuick, "tabQuick");
@@ -731,6 +943,10 @@ namespace MissionPlanner.GCSViews
             this.undockToolStripMenuItem.Name = "undockToolStripMenuItem";
             resources.ApplyResources(this.undockToolStripMenuItem, "undockToolStripMenuItem");
             this.undockToolStripMenuItem.Click += new System.EventHandler(this.undockDockToolStripMenuItem_Click);
+            // 
+            // bindingSourceQuickTab
+            // 
+            this.bindingSourceQuickTab.DataSource = typeof(MissionPlanner.CurrentState);
             // 
             // quickView5
             // 
@@ -804,6 +1020,11 @@ namespace MissionPlanner.GCSViews
             resources.ApplyResources(this.tabPagePreFlight, "tabPagePreFlight");
             this.tabPagePreFlight.Name = "tabPagePreFlight";
             this.tabPagePreFlight.UseVisualStyleBackColor = true;
+            // 
+            // checkListControl1
+            // 
+            resources.ApplyResources(this.checkListControl1, "checkListControl1");
+            this.checkListControl1.Name = "checkListControl1";
             // 
             // tabPagemessages
             // 
@@ -1059,6 +1280,14 @@ namespace MissionPlanner.GCSViews
             0});
             this.Zoomlevel.ValueChanged += new System.EventHandler(this.Zoomlevel_ValueChanged);
             // 
+            // distanceBar1
+            // 
+            resources.ApplyResources(this.distanceBar1, "distanceBar1");
+            this.distanceBar1.BackColor = System.Drawing.Color.Transparent;
+            this.distanceBar1.Name = "distanceBar1";
+            this.distanceBar1.totaldist = 100F;
+            this.distanceBar1.traveleddist = 0F;
+            // 
             // buttonStart
             // 
             resources.ApplyResources(this.buttonStart, "buttonStart");
@@ -1081,6 +1310,10 @@ namespace MissionPlanner.GCSViews
             resources.ApplyResources(this.windDir1, "windDir1");
             this.windDir1.Name = "windDir1";
             this.windDir1.Speed = 0D;
+            // 
+            // bindingSource1
+            // 
+            this.bindingSource1.DataSource = typeof(MissionPlanner.CurrentState);
             // 
             // label6
             // 
@@ -1409,18 +1642,6 @@ namespace MissionPlanner.GCSViews
             this.CMB_action.FormattingEnabled = true;
             this.CMB_action.Name = "CMB_action";
             // 
-            // bindingSourceHud
-            // 
-            this.bindingSourceHud.DataSource = typeof(MissionPlanner.CurrentState);
-            // 
-            // bindingSourceQuickTab
-            // 
-            this.bindingSourceQuickTab.DataSource = typeof(MissionPlanner.CurrentState);
-            // 
-            // bindingSource1
-            // 
-            this.bindingSource1.DataSource = typeof(MissionPlanner.CurrentState);
-            // 
             // bindingSourceGaugesTab
             // 
             this.bindingSourceGaugesTab.DataSource = typeof(MissionPlanner.CurrentState);
@@ -1432,227 +1653,6 @@ namespace MissionPlanner.GCSViews
             // bindingSourceStatusTab
             // 
             this.bindingSourceStatusTab.DataSource = typeof(MissionPlanner.CurrentState);
-            // 
-            // flowLayoutPanel1
-            // 
-            resources.ApplyResources(this.flowLayoutPanel1, "flowLayoutPanel1");
-            this.flowLayoutPanel1.Controls.Add(this.label360);
-            this.flowLayoutPanel1.Controls.Add(this.label360Shuiping);
-            this.flowLayoutPanel1.Controls.Add(this.textBox360Shuiping);
-            this.flowLayoutPanel1.Controls.Add(this.label360Gaodu);
-            this.flowLayoutPanel1.Controls.Add(this.textBox360Gaodu);
-            this.flowLayoutPanel1.Controls.Add(this.label360MinJiao);
-            this.flowLayoutPanel1.Controls.Add(this.textBox360MinJiao);
-            this.flowLayoutPanel1.Controls.Add(this.label360MaxJiao);
-            this.flowLayoutPanel1.Controls.Add(this.textBox360MaxJiao);
-            this.flowLayoutPanel1.Controls.Add(this.label360MinTime);
-            this.flowLayoutPanel1.Controls.Add(this.textBox360MinTime);
-            this.flowLayoutPanel1.Controls.Add(this.label360MaxTime);
-            this.flowLayoutPanel1.Controls.Add(this.textBox360MaxTime);
-            this.flowLayoutPanel1.Controls.Add(this.label8);
-            this.flowLayoutPanel1.Controls.Add(this.label8MaxShuiping);
-            this.flowLayoutPanel1.Controls.Add(this.textBox8MaxShuiping);
-            this.flowLayoutPanel1.Controls.Add(this.label8MaxJiao);
-            this.flowLayoutPanel1.Controls.Add(this.textBox8MaxJiao);
-            this.flowLayoutPanel1.Controls.Add(this.label8MinFeixing);
-            this.flowLayoutPanel1.Controls.Add(this.textBox8MinFeixing);
-            this.flowLayoutPanel1.Controls.Add(this.label8MaxFeixing);
-            this.flowLayoutPanel1.Controls.Add(this.textBox8MaxFeixing);
-            this.flowLayoutPanel1.Controls.Add(this.label8MaxGaodu);
-            this.flowLayoutPanel1.Controls.Add(this.textBox8MaxGaodu);
-            this.flowLayoutPanel1.Controls.Add(this.label8MaxTime);
-            this.flowLayoutPanel1.Controls.Add(this.textBox8MaxTime);
-            this.flowLayoutPanel1.Controls.Add(this.buttonReset);
-            this.flowLayoutPanel1.Controls.Add(this.buttonCofirm);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            // 
-            // buttonReset
-            // 
-            this.buttonReset.BGGradBot = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.buttonReset.BGGradTop = System.Drawing.Color.Cyan;
-            resources.ApplyResources(this.buttonReset, "buttonReset");
-            this.buttonReset.Name = "buttonReset";
-            this.buttonReset.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
-            this.buttonReset.UseVisualStyleBackColor = true;
-            // 
-            // buttonCofirm
-            // 
-            this.buttonCofirm.BGGradBot = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.buttonCofirm.BGGradTop = System.Drawing.Color.Cyan;
-            resources.ApplyResources(this.buttonCofirm, "buttonCofirm");
-            this.buttonCofirm.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonCofirm.Name = "buttonCofirm";
-            this.buttonCofirm.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
-            this.buttonCofirm.UseVisualStyleBackColor = true;
-            // 
-            // textBox8MaxTime
-            // 
-            this.textBox8MaxTime.BackColor = System.Drawing.Color.White;
-            this.flowLayoutPanel1.SetFlowBreak(this.textBox8MaxTime, true);
-            resources.ApplyResources(this.textBox8MaxTime, "textBox8MaxTime");
-            this.textBox8MaxTime.Name = "textBox8MaxTime";
-            // 
-            // textBox8MaxGaodu
-            // 
-            this.textBox8MaxGaodu.BackColor = System.Drawing.Color.White;
-            this.flowLayoutPanel1.SetFlowBreak(this.textBox8MaxGaodu, true);
-            resources.ApplyResources(this.textBox8MaxGaodu, "textBox8MaxGaodu");
-            this.textBox8MaxGaodu.Name = "textBox8MaxGaodu";
-            // 
-            // textBox8MaxFeixing
-            // 
-            this.textBox8MaxFeixing.BackColor = System.Drawing.Color.White;
-            this.flowLayoutPanel1.SetFlowBreak(this.textBox8MaxFeixing, true);
-            resources.ApplyResources(this.textBox8MaxFeixing, "textBox8MaxFeixing");
-            this.textBox8MaxFeixing.Name = "textBox8MaxFeixing";
-            // 
-            // textBox8MinFeixing
-            // 
-            this.textBox8MinFeixing.BackColor = System.Drawing.Color.White;
-            this.flowLayoutPanel1.SetFlowBreak(this.textBox8MinFeixing, true);
-            resources.ApplyResources(this.textBox8MinFeixing, "textBox8MinFeixing");
-            this.textBox8MinFeixing.Name = "textBox8MinFeixing";
-            // 
-            // textBox8MaxJiao
-            // 
-            this.textBox8MaxJiao.BackColor = System.Drawing.Color.White;
-            this.flowLayoutPanel1.SetFlowBreak(this.textBox8MaxJiao, true);
-            resources.ApplyResources(this.textBox8MaxJiao, "textBox8MaxJiao");
-            this.textBox8MaxJiao.Name = "textBox8MaxJiao";
-            // 
-            // textBox8MaxShuiping
-            // 
-            this.textBox8MaxShuiping.BackColor = System.Drawing.Color.White;
-            this.flowLayoutPanel1.SetFlowBreak(this.textBox8MaxShuiping, true);
-            resources.ApplyResources(this.textBox8MaxShuiping, "textBox8MaxShuiping");
-            this.textBox8MaxShuiping.Name = "textBox8MaxShuiping";
-            // 
-            // textBox360MaxTime
-            // 
-            this.textBox360MaxTime.BackColor = System.Drawing.Color.White;
-            this.flowLayoutPanel1.SetFlowBreak(this.textBox360MaxTime, true);
-            resources.ApplyResources(this.textBox360MaxTime, "textBox360MaxTime");
-            this.textBox360MaxTime.Name = "textBox360MaxTime";
-            // 
-            // textBox360MinTime
-            // 
-            this.textBox360MinTime.BackColor = System.Drawing.Color.White;
-            this.flowLayoutPanel1.SetFlowBreak(this.textBox360MinTime, true);
-            resources.ApplyResources(this.textBox360MinTime, "textBox360MinTime");
-            this.textBox360MinTime.Name = "textBox360MinTime";
-            // 
-            // textBox360MaxJiao
-            // 
-            this.textBox360MaxJiao.BackColor = System.Drawing.Color.White;
-            this.flowLayoutPanel1.SetFlowBreak(this.textBox360MaxJiao, true);
-            resources.ApplyResources(this.textBox360MaxJiao, "textBox360MaxJiao");
-            this.textBox360MaxJiao.Name = "textBox360MaxJiao";
-            // 
-            // textBox360MinJiao
-            // 
-            this.textBox360MinJiao.BackColor = System.Drawing.Color.White;
-            this.flowLayoutPanel1.SetFlowBreak(this.textBox360MinJiao, true);
-            resources.ApplyResources(this.textBox360MinJiao, "textBox360MinJiao");
-            this.textBox360MinJiao.Name = "textBox360MinJiao";
-            // 
-            // textBox360Gaodu
-            // 
-            this.textBox360Gaodu.BackColor = System.Drawing.Color.White;
-            this.flowLayoutPanel1.SetFlowBreak(this.textBox360Gaodu, true);
-            resources.ApplyResources(this.textBox360Gaodu, "textBox360Gaodu");
-            this.textBox360Gaodu.Name = "textBox360Gaodu";
-            // 
-            // textBox360Shuiping
-            // 
-            this.textBox360Shuiping.BackColor = System.Drawing.Color.White;
-            this.flowLayoutPanel1.SetFlowBreak(this.textBox360Shuiping, true);
-            resources.ApplyResources(this.textBox360Shuiping, "textBox360Shuiping");
-            this.textBox360Shuiping.Name = "textBox360Shuiping";
-            // 
-            // label8MaxTime
-            // 
-            resources.ApplyResources(this.label8MaxTime, "label8MaxTime");
-            this.label8MaxTime.Name = "label8MaxTime";
-            // 
-            // label8MaxGaodu
-            // 
-            resources.ApplyResources(this.label8MaxGaodu, "label8MaxGaodu");
-            this.label8MaxGaodu.Name = "label8MaxGaodu";
-            // 
-            // label8MaxFeixing
-            // 
-            resources.ApplyResources(this.label8MaxFeixing, "label8MaxFeixing");
-            this.label8MaxFeixing.Name = "label8MaxFeixing";
-            // 
-            // label8MinFeixing
-            // 
-            resources.ApplyResources(this.label8MinFeixing, "label8MinFeixing");
-            this.label8MinFeixing.Name = "label8MinFeixing";
-            // 
-            // label8MaxJiao
-            // 
-            resources.ApplyResources(this.label8MaxJiao, "label8MaxJiao");
-            this.label8MaxJiao.Name = "label8MaxJiao";
-            // 
-            // label8MaxShuiping
-            // 
-            resources.ApplyResources(this.label8MaxShuiping, "label8MaxShuiping");
-            this.label8MaxShuiping.Name = "label8MaxShuiping";
-            // 
-            // label8
-            // 
-            resources.ApplyResources(this.label8, "label8");
-            this.flowLayoutPanel1.SetFlowBreak(this.label8, true);
-            this.label8.Name = "label8";
-            // 
-            // label360MaxTime
-            // 
-            resources.ApplyResources(this.label360MaxTime, "label360MaxTime");
-            this.label360MaxTime.Name = "label360MaxTime";
-            // 
-            // label360MinTime
-            // 
-            resources.ApplyResources(this.label360MinTime, "label360MinTime");
-            this.label360MinTime.Name = "label360MinTime";
-            // 
-            // label360MaxJiao
-            // 
-            resources.ApplyResources(this.label360MaxJiao, "label360MaxJiao");
-            this.label360MaxJiao.Name = "label360MaxJiao";
-            // 
-            // label360MinJiao
-            // 
-            resources.ApplyResources(this.label360MinJiao, "label360MinJiao");
-            this.label360MinJiao.Name = "label360MinJiao";
-            // 
-            // label360Gaodu
-            // 
-            resources.ApplyResources(this.label360Gaodu, "label360Gaodu");
-            this.label360Gaodu.Name = "label360Gaodu";
-            // 
-            // label360Shuiping
-            // 
-            resources.ApplyResources(this.label360Shuiping, "label360Shuiping");
-            this.label360Shuiping.Name = "label360Shuiping";
-            // 
-            // label360
-            // 
-            resources.ApplyResources(this.label360, "label360");
-            this.flowLayoutPanel1.SetFlowBreak(this.label360, true);
-            this.label360.Name = "label360";
-            // 
-            // checkListControl1
-            // 
-            resources.ApplyResources(this.checkListControl1, "checkListControl1");
-            this.checkListControl1.Name = "checkListControl1";
-            // 
-            // distanceBar1
-            // 
-            resources.ApplyResources(this.distanceBar1, "distanceBar1");
-            this.distanceBar1.BackColor = System.Drawing.Color.Transparent;
-            this.distanceBar1.Name = "distanceBar1";
-            this.distanceBar1.totaldist = 100F;
-            this.distanceBar1.traveleddist = 0F;
             // 
             // modifyandSetSpeed
             // 
@@ -1758,6 +1758,7 @@ namespace MissionPlanner.GCSViews
             ((System.ComponentModel.ISupportInitialize)(this.SubMainLeft)).EndInit();
             this.SubMainLeft.ResumeLayout(false);
             this.contextMenuStripHud.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceHud)).EndInit();
             this.contextMenuStripactionstab.ResumeLayout(false);
             this.tabControlactions.ResumeLayout(false);
             this.tabExamOperation.ResumeLayout(false);
@@ -1768,9 +1769,12 @@ namespace MissionPlanner.GCSViews
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tabExamConfig.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
             this.tabQuick.ResumeLayout(false);
             this.tableLayoutPanelQuick.ResumeLayout(false);
             this.contextMenuStripQuickView.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceQuickTab)).EndInit();
             this.tabPagePreFlight.ResumeLayout(false);
             this.tabPagemessages.ResumeLayout(false);
             this.tabPagemessages.PerformLayout();
@@ -1782,14 +1786,10 @@ namespace MissionPlanner.GCSViews
             this.contextMenuStripMap.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Zoomlevel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonStart)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceHud)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceQuickTab)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceGaugesTab)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourcePayloadTab)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceStatusTab)).EndInit();
-            this.flowLayoutPanel1.ResumeLayout(false);
-            this.flowLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }

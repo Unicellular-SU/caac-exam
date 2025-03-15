@@ -116,7 +116,7 @@ namespace MissionPlanner.Controls
 
                 gr.FillPath(linear, outline);
 
-                gr.DrawPath(mypen, outline);
+                //gr.DrawPath(mypen, outline);
 
                 SolidBrush mybrush = this.Enabled ? new SolidBrush(TextColor) : new SolidBrush(TextColorNotEnabled);
 
@@ -149,12 +149,43 @@ namespace MissionPlanner.Controls
                 int amppos = display.IndexOf('&');
                 if (amppos != -1)
                     display = display.Remove(amppos, 1);
-
+                PaintRoundCorner();
                 gr.DrawString(display, this.Font, mybrush, outside, stringFormat);
             }
             catch { }
 
             inOnPaint = false;
+        }
+
+        /// <summary>
+        /// 绘制圆角
+        /// </summary>
+        private void PaintRoundCorner()
+        {
+            Rectangle rect = new Rectangle(-1, -1, base.Width + 1, base.Height);
+            Rectangle rect2 = new Rectangle(rect.Location, new Size(24, 24));
+            GraphicsPath graphicsPath = new GraphicsPath();
+            graphicsPath.AddArc(rect2, 180f, 90f);//左上角
+            rect2.X = rect.Right - 24;
+            graphicsPath.AddArc(rect2, 270f, 90f);//右上角
+            rect2.Y = rect.Bottom - 24;
+            rect2.Width += 1;
+            rect2.Height += 1;
+            graphicsPath.AddArc(rect2, 360f, 90f);//右下角           
+            rect2.X = rect.Left;
+            graphicsPath.AddArc(rect2, 90f, 90f);//左下角
+            graphicsPath.CloseFigure();
+            base.Region = new Region(graphicsPath);
+        }
+        /// <summary>
+        /// 设置GDI高质量模式抗锯齿
+        /// </summary>
+        void SetGDIHigh(Graphics g)
+        {
+            g.SmoothingMode = SmoothingMode.AntiAlias;  //使绘图质量最高，即消除锯齿
+            g.InterpolationMode = InterpolationMode.HighQualityBicubic;
+            g.CompositingQuality = CompositingQuality.HighQuality;
+
         }
 
         protected override void OnClick(EventArgs e)

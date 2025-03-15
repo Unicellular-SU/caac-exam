@@ -309,6 +309,9 @@
   <data name="&gt;&gt;contextMenuStripactionstab.Type" xml:space="preserve">
     <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="tabExamOperation.AutoScroll" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
   <data name="radioLoop.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -319,7 +322,7 @@
     <value>147, 20</value>
   </data>
   <data name="radioLoop.Size" type="System.Drawing.Size, System.Drawing">
-    <value>47, 16</value>
+    <value>50, 21</value>
   </data>
   <data name="radioLoop.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -349,7 +352,7 @@
     <value>25, 20</value>
   </data>
   <data name="radioSingle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>47, 16</value>
+    <value>50, 21</value>
   </data>
   <data name="radioSingle.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -370,7 +373,7 @@
     <value>1</value>
   </data>
   <data name="groupBox3.Font" type="System.Drawing.Font, System.Drawing">
-    <value>黑体, 9pt</value>
+    <value>微软雅黑, 9pt</value>
   </data>
   <data name="groupBox3.Location" type="System.Drawing.Point, System.Drawing">
     <value>26, 471</value>
@@ -406,7 +409,7 @@
     <value>147, 22</value>
   </data>
   <data name="radioMock.Size" type="System.Drawing.Size, System.Drawing">
-    <value>71, 16</value>
+    <value>74, 21</value>
   </data>
   <data name="radioMock.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -436,7 +439,7 @@
     <value>86, 22</value>
   </data>
   <data name="radio360.Size" type="System.Drawing.Size, System.Drawing">
-    <value>47, 16</value>
+    <value>50, 21</value>
   </data>
   <data name="radio360.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -466,7 +469,7 @@
     <value>25, 22</value>
   </data>
   <data name="radio8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>47, 16</value>
+    <value>50, 21</value>
   </data>
   <data name="radio8.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -487,7 +490,7 @@
     <value>2</value>
   </data>
   <data name="groupBox2.Font" type="System.Drawing.Font, System.Drawing">
-    <value>黑体, 9pt</value>
+    <value>微软雅黑, 9pt</value>
   </data>
   <data name="groupBox2.Location" type="System.Drawing.Point, System.Drawing">
     <value>26, 404</value>
@@ -523,7 +526,7 @@
     <value>25, 42</value>
   </data>
   <data name="radioJY.Size" type="System.Drawing.Size, System.Drawing">
-    <value>47, 16</value>
+    <value>50, 21</value>
   </data>
   <data name="radioJY.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -553,7 +556,7 @@
     <value>147, 42</value>
   </data>
   <data name="radioCustom.Size" type="System.Drawing.Size, System.Drawing">
-    <value>59, 16</value>
+    <value>62, 21</value>
   </data>
   <data name="radioCustom.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -583,7 +586,7 @@
     <value>147, 20</value>
   </data>
   <data name="radioCSJ.Size" type="System.Drawing.Size, System.Drawing">
-    <value>59, 16</value>
+    <value>62, 21</value>
   </data>
   <data name="radioCSJ.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -606,6 +609,9 @@
   <data name="radioSJN.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="radioSJN.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 9pt</value>
+  </data>
   <data name="radioSJN.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -613,7 +619,7 @@
     <value>25, 20</value>
   </data>
   <data name="radioSJN.Size" type="System.Drawing.Size, System.Drawing">
-    <value>59, 16</value>
+    <value>62, 21</value>
   </data>
   <data name="radioSJN.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -634,7 +640,7 @@
     <value>3</value>
   </data>
   <data name="groupBox1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>黑体, 9pt</value>
+    <value>微软雅黑, 9pt</value>
   </data>
   <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
     <value>26, 316</value>
@@ -661,7 +667,7 @@
     <value>2</value>
   </data>
   <data name="myButton6.Font" type="System.Drawing.Font, System.Drawing">
-    <value>黑体, 24pt</value>
+    <value>微软雅黑, 24pt</value>
   </data>
   <data name="myButton6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -690,6 +696,9 @@
   <data name="&gt;&gt;myButton6.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
+  <data name="buttonShow.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 9pt</value>
+  </data>
   <data name="buttonShow.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -716,6 +725,9 @@
   </data>
   <data name="&gt;&gt;buttonShow.ZOrder" xml:space="preserve">
     <value>4</value>
+  </data>
+  <data name="buttonSetCenter.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 9pt</value>
   </data>
   <data name="buttonSetCenter.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -744,6 +756,9 @@
   <data name="&gt;&gt;buttonSetCenter.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
+  <data name="buttonSetHight.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 9pt</value>
+  </data>
   <data name="buttonSetHight.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -771,6 +786,9 @@
   <data name="&gt;&gt;buttonSetHight.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
+  <data name="buttonSetRight.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 9pt</value>
+  </data>
   <data name="buttonSetRight.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -797,6 +815,9 @@
   </data>
   <data name="&gt;&gt;buttonSetRight.ZOrder" xml:space="preserve">
     <value>7</value>
+  </data>
+  <data name="buttonSetLeft.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 9pt</value>
   </data>
   <data name="buttonSetLeft.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -859,7 +880,7 @@
     <value>True</value>
   </data>
   <data name="label360.Font" type="System.Drawing.Font, System.Drawing">
-    <value>黑体, 15.75pt, style=Bold</value>
+    <value>微软雅黑, 15.75pt, style=Bold</value>
   </data>
   <data name="label360.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -871,7 +892,7 @@
     <value>3, 3, 3, 10</value>
   </data>
   <data name="label360.Size" type="System.Drawing.Size, System.Drawing">
-    <value>115, 21</value>
+    <value>102, 28</value>
   </data>
   <data name="label360.TabIndex" type="System.Int32, mscorlib">
     <value>28</value>
@@ -895,19 +916,19 @@
     <value>True</value>
   </data>
   <data name="label360Shuiping.Font" type="System.Drawing.Font, System.Drawing">
-    <value>黑体, 12pt</value>
+    <value>微软雅黑, 12pt</value>
   </data>
   <data name="label360Shuiping.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="label360Shuiping.Location" type="System.Drawing.Point, System.Drawing">
-    <value>23, 57</value>
+    <value>23, 64</value>
   </data>
   <data name="label360Shuiping.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 10</value>
   </data>
   <data name="label360Shuiping.Size" type="System.Drawing.Size, System.Drawing">
-    <value>103, 16</value>
+    <value>106, 21</value>
   </data>
   <data name="label360Shuiping.TabIndex" type="System.Int32, mscorlib">
     <value>29</value>
@@ -931,7 +952,7 @@
     <value>宋体, 10.5pt, style=Bold</value>
   </data>
   <data name="textBox360Shuiping.Location" type="System.Drawing.Point, System.Drawing">
-    <value>132, 57</value>
+    <value>135, 64</value>
   </data>
   <data name="textBox360Shuiping.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 10</value>
@@ -958,19 +979,19 @@
     <value>True</value>
   </data>
   <data name="label360Gaodu.Font" type="System.Drawing.Font, System.Drawing">
-    <value>黑体, 12pt</value>
+    <value>微软雅黑, 12pt</value>
   </data>
   <data name="label360Gaodu.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="label360Gaodu.Location" type="System.Drawing.Point, System.Drawing">
-    <value>23, 93</value>
+    <value>23, 100</value>
   </data>
   <data name="label360Gaodu.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 10</value>
   </data>
   <data name="label360Gaodu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>103, 16</value>
+    <value>106, 21</value>
   </data>
   <data name="label360Gaodu.TabIndex" type="System.Int32, mscorlib">
     <value>30</value>
@@ -994,7 +1015,7 @@
     <value>宋体, 10.5pt, style=Bold</value>
   </data>
   <data name="textBox360Gaodu.Location" type="System.Drawing.Point, System.Drawing">
-    <value>132, 93</value>
+    <value>135, 100</value>
   </data>
   <data name="textBox360Gaodu.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 10</value>
@@ -1021,19 +1042,19 @@
     <value>True</value>
   </data>
   <data name="label360MinJiao.Font" type="System.Drawing.Font, System.Drawing">
-    <value>黑体, 12pt</value>
+    <value>微软雅黑, 12pt</value>
   </data>
   <data name="label360MinJiao.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="label360MinJiao.Location" type="System.Drawing.Point, System.Drawing">
-    <value>23, 129</value>
+    <value>23, 136</value>
   </data>
   <data name="label360MinJiao.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 10</value>
   </data>
   <data name="label360MinJiao.Size" type="System.Drawing.Size, System.Drawing">
-    <value>103, 16</value>
+    <value>106, 21</value>
   </data>
   <data name="label360MinJiao.TabIndex" type="System.Int32, mscorlib">
     <value>31</value>
@@ -1057,7 +1078,7 @@
     <value>宋体, 10.5pt, style=Bold</value>
   </data>
   <data name="textBox360MinJiao.Location" type="System.Drawing.Point, System.Drawing">
-    <value>132, 129</value>
+    <value>135, 136</value>
   </data>
   <data name="textBox360MinJiao.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 10</value>
@@ -1084,19 +1105,19 @@
     <value>True</value>
   </data>
   <data name="label360MaxJiao.Font" type="System.Drawing.Font, System.Drawing">
-    <value>黑体, 12pt</value>
+    <value>微软雅黑, 12pt</value>
   </data>
   <data name="label360MaxJiao.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="label360MaxJiao.Location" type="System.Drawing.Point, System.Drawing">
-    <value>23, 165</value>
+    <value>23, 172</value>
   </data>
   <data name="label360MaxJiao.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 10</value>
   </data>
   <data name="label360MaxJiao.Size" type="System.Drawing.Size, System.Drawing">
-    <value>103, 16</value>
+    <value>106, 21</value>
   </data>
   <data name="label360MaxJiao.TabIndex" type="System.Int32, mscorlib">
     <value>32</value>
@@ -1120,7 +1141,7 @@
     <value>宋体, 10.5pt, style=Bold</value>
   </data>
   <data name="textBox360MaxJiao.Location" type="System.Drawing.Point, System.Drawing">
-    <value>132, 165</value>
+    <value>135, 172</value>
   </data>
   <data name="textBox360MaxJiao.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 10</value>
@@ -1147,19 +1168,19 @@
     <value>True</value>
   </data>
   <data name="label360MinTime.Font" type="System.Drawing.Font, System.Drawing">
-    <value>黑体, 12pt</value>
+    <value>微软雅黑, 12pt</value>
   </data>
   <data name="label360MinTime.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="label360MinTime.Location" type="System.Drawing.Point, System.Drawing">
-    <value>23, 201</value>
+    <value>23, 208</value>
   </data>
   <data name="label360MinTime.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 10</value>
   </data>
   <data name="label360MinTime.Size" type="System.Drawing.Size, System.Drawing">
-    <value>103, 16</value>
+    <value>106, 21</value>
   </data>
   <data name="label360MinTime.TabIndex" type="System.Int32, mscorlib">
     <value>33</value>
@@ -1183,7 +1204,7 @@
     <value>宋体, 10.5pt, style=Bold</value>
   </data>
   <data name="textBox360MinTime.Location" type="System.Drawing.Point, System.Drawing">
-    <value>132, 201</value>
+    <value>135, 208</value>
   </data>
   <data name="textBox360MinTime.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 10</value>
@@ -1210,19 +1231,19 @@
     <value>True</value>
   </data>
   <data name="label360MaxTime.Font" type="System.Drawing.Font, System.Drawing">
-    <value>黑体, 12pt</value>
+    <value>微软雅黑, 12pt</value>
   </data>
   <data name="label360MaxTime.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="label360MaxTime.Location" type="System.Drawing.Point, System.Drawing">
-    <value>23, 237</value>
+    <value>23, 244</value>
   </data>
   <data name="label360MaxTime.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 10</value>
   </data>
   <data name="label360MaxTime.Size" type="System.Drawing.Size, System.Drawing">
-    <value>103, 16</value>
+    <value>106, 21</value>
   </data>
   <data name="label360MaxTime.TabIndex" type="System.Int32, mscorlib">
     <value>34</value>
@@ -1246,7 +1267,7 @@
     <value>宋体, 10.5pt, style=Bold</value>
   </data>
   <data name="textBox360MaxTime.Location" type="System.Drawing.Point, System.Drawing">
-    <value>132, 237</value>
+    <value>135, 244</value>
   </data>
   <data name="textBox360MaxTime.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 10</value>
@@ -1273,19 +1294,19 @@
     <value>True</value>
   </data>
   <data name="label8.Font" type="System.Drawing.Font, System.Drawing">
-    <value>黑体, 15.75pt, style=Bold</value>
+    <value>微软雅黑, 15.75pt, style=Bold</value>
   </data>
   <data name="label8.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="label8.Location" type="System.Drawing.Point, System.Drawing">
-    <value>23, 305</value>
+    <value>23, 312</value>
   </data>
   <data name="label8.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 35, 3, 10</value>
   </data>
   <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>102, 21</value>
+    <value>96, 28</value>
   </data>
   <data name="label8.TabIndex" type="System.Int32, mscorlib">
     <value>35</value>
@@ -1309,19 +1330,19 @@
     <value>True</value>
   </data>
   <data name="label8MaxShuiping.Font" type="System.Drawing.Font, System.Drawing">
-    <value>黑体, 12pt</value>
+    <value>微软雅黑, 12pt</value>
   </data>
   <data name="label8MaxShuiping.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="label8MaxShuiping.Location" type="System.Drawing.Point, System.Drawing">
-    <value>23, 339</value>
+    <value>23, 353</value>
   </data>
   <data name="label8MaxShuiping.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 10</value>
   </data>
   <data name="label8MaxShuiping.Size" type="System.Drawing.Size, System.Drawing">
-    <value>103, 16</value>
+    <value>106, 21</value>
   </data>
   <data name="label8MaxShuiping.TabIndex" type="System.Int32, mscorlib">
     <value>36</value>
@@ -1345,7 +1366,7 @@
     <value>宋体, 10.5pt, style=Bold</value>
   </data>
   <data name="textBox8MaxShuiping.Location" type="System.Drawing.Point, System.Drawing">
-    <value>132, 339</value>
+    <value>135, 353</value>
   </data>
   <data name="textBox8MaxShuiping.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 10</value>
@@ -1372,19 +1393,19 @@
     <value>True</value>
   </data>
   <data name="label8MaxJiao.Font" type="System.Drawing.Font, System.Drawing">
-    <value>黑体, 12pt</value>
+    <value>微软雅黑, 12pt</value>
   </data>
   <data name="label8MaxJiao.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="label8MaxJiao.Location" type="System.Drawing.Point, System.Drawing">
-    <value>23, 375</value>
+    <value>23, 389</value>
   </data>
   <data name="label8MaxJiao.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 10</value>
   </data>
   <data name="label8MaxJiao.Size" type="System.Drawing.Size, System.Drawing">
-    <value>103, 16</value>
+    <value>106, 21</value>
   </data>
   <data name="label8MaxJiao.TabIndex" type="System.Int32, mscorlib">
     <value>37</value>
@@ -1408,7 +1429,7 @@
     <value>宋体, 10.5pt, style=Bold</value>
   </data>
   <data name="textBox8MaxJiao.Location" type="System.Drawing.Point, System.Drawing">
-    <value>132, 375</value>
+    <value>135, 389</value>
   </data>
   <data name="textBox8MaxJiao.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 10</value>
@@ -1435,19 +1456,19 @@
     <value>True</value>
   </data>
   <data name="label8MinFeixing.Font" type="System.Drawing.Font, System.Drawing">
-    <value>黑体, 12pt</value>
+    <value>微软雅黑, 12pt</value>
   </data>
   <data name="label8MinFeixing.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="label8MinFeixing.Location" type="System.Drawing.Point, System.Drawing">
-    <value>23, 411</value>
+    <value>23, 425</value>
   </data>
   <data name="label8MinFeixing.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 10</value>
   </data>
   <data name="label8MinFeixing.Size" type="System.Drawing.Size, System.Drawing">
-    <value>103, 16</value>
+    <value>106, 21</value>
   </data>
   <data name="label8MinFeixing.TabIndex" type="System.Int32, mscorlib">
     <value>38</value>
@@ -1471,7 +1492,7 @@
     <value>宋体, 10.5pt, style=Bold</value>
   </data>
   <data name="textBox8MinFeixing.Location" type="System.Drawing.Point, System.Drawing">
-    <value>132, 411</value>
+    <value>135, 425</value>
   </data>
   <data name="textBox8MinFeixing.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 10</value>
@@ -1498,19 +1519,19 @@
     <value>True</value>
   </data>
   <data name="label8MaxFeixing.Font" type="System.Drawing.Font, System.Drawing">
-    <value>黑体, 12pt</value>
+    <value>微软雅黑, 12pt</value>
   </data>
   <data name="label8MaxFeixing.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="label8MaxFeixing.Location" type="System.Drawing.Point, System.Drawing">
-    <value>23, 447</value>
+    <value>23, 461</value>
   </data>
   <data name="label8MaxFeixing.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 10</value>
   </data>
   <data name="label8MaxFeixing.Size" type="System.Drawing.Size, System.Drawing">
-    <value>103, 16</value>
+    <value>106, 21</value>
   </data>
   <data name="label8MaxFeixing.TabIndex" type="System.Int32, mscorlib">
     <value>39</value>
@@ -1534,7 +1555,7 @@
     <value>宋体, 10.5pt, style=Bold</value>
   </data>
   <data name="textBox8MaxFeixing.Location" type="System.Drawing.Point, System.Drawing">
-    <value>132, 447</value>
+    <value>135, 461</value>
   </data>
   <data name="textBox8MaxFeixing.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 10</value>
@@ -1561,19 +1582,19 @@
     <value>True</value>
   </data>
   <data name="label8MaxGaodu.Font" type="System.Drawing.Font, System.Drawing">
-    <value>黑体, 12pt</value>
+    <value>微软雅黑, 12pt</value>
   </data>
   <data name="label8MaxGaodu.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="label8MaxGaodu.Location" type="System.Drawing.Point, System.Drawing">
-    <value>23, 483</value>
+    <value>23, 497</value>
   </data>
   <data name="label8MaxGaodu.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 10</value>
   </data>
   <data name="label8MaxGaodu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>103, 16</value>
+    <value>106, 21</value>
   </data>
   <data name="label8MaxGaodu.TabIndex" type="System.Int32, mscorlib">
     <value>40</value>
@@ -1597,7 +1618,7 @@
     <value>宋体, 10.5pt, style=Bold</value>
   </data>
   <data name="textBox8MaxGaodu.Location" type="System.Drawing.Point, System.Drawing">
-    <value>132, 483</value>
+    <value>135, 497</value>
   </data>
   <data name="textBox8MaxGaodu.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 10</value>
@@ -1624,19 +1645,19 @@
     <value>True</value>
   </data>
   <data name="label8MaxTime.Font" type="System.Drawing.Font, System.Drawing">
-    <value>黑体, 12pt</value>
+    <value>微软雅黑, 12pt</value>
   </data>
   <data name="label8MaxTime.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="label8MaxTime.Location" type="System.Drawing.Point, System.Drawing">
-    <value>23, 519</value>
+    <value>23, 533</value>
   </data>
   <data name="label8MaxTime.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 10</value>
   </data>
   <data name="label8MaxTime.Size" type="System.Drawing.Size, System.Drawing">
-    <value>103, 16</value>
+    <value>106, 21</value>
   </data>
   <data name="label8MaxTime.TabIndex" type="System.Int32, mscorlib">
     <value>41</value>
@@ -1660,7 +1681,7 @@
     <value>宋体, 10.5pt, style=Bold</value>
   </data>
   <data name="textBox8MaxTime.Location" type="System.Drawing.Point, System.Drawing">
-    <value>132, 519</value>
+    <value>135, 533</value>
   </data>
   <data name="textBox8MaxTime.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 10</value>
@@ -1687,7 +1708,7 @@
     <value>NoControl</value>
   </data>
   <data name="buttonReset.Location" type="System.Drawing.Point, System.Drawing">
-    <value>23, 587</value>
+    <value>23, 601</value>
   </data>
   <data name="buttonReset.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 35, 3, 10</value>
@@ -1720,7 +1741,7 @@
     <value>NoControl</value>
   </data>
   <data name="buttonCofirm.Location" type="System.Drawing.Point, System.Drawing">
-    <value>129, 587</value>
+    <value>129, 601</value>
   </data>
   <data name="buttonCofirm.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 35, 3, 10</value>
@@ -1748,6 +1769,9 @@
   </data>
   <data name="flowLayoutPanel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
+  </data>
+  <data name="flowLayoutPanel1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 9pt</value>
   </data>
   <data name="flowLayoutPanel1.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 3</value>
@@ -2101,7 +2125,7 @@
     <value>checkListControl1</value>
   </data>
   <data name="&gt;&gt;checkListControl1.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.PreFlight.CheckListControl, MissionPlanner, Version=1.3.9205.17468, Culture=neutral, PublicKeyToken=null</value>
+    <value>MissionPlanner.Controls.PreFlight.CheckListControl, MissionPlanner, Version=1.3.9205.18338, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;checkListControl1.Parent" xml:space="preserve">
     <value>tabPagePreFlight</value>
@@ -2581,7 +2605,7 @@
     <value>distanceBar1</value>
   </data>
   <data name="&gt;&gt;distanceBar1.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.DistanceBar, MissionPlanner, Version=1.3.9205.17468, Culture=neutral, PublicKeyToken=null</value>
+    <value>MissionPlanner.Controls.DistanceBar, MissionPlanner, Version=1.3.9205.18338, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;distanceBar1.Parent" xml:space="preserve">
     <value>splitContainer1.Panel2</value>
@@ -3562,7 +3586,7 @@
     <value>modifyandSetSpeed</value>
   </data>
   <data name="&gt;&gt;modifyandSetSpeed.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.ModifyandSet, MissionPlanner, Version=1.3.9205.17468, Culture=neutral, PublicKeyToken=null</value>
+    <value>MissionPlanner.Controls.ModifyandSet, MissionPlanner, Version=1.3.9205.18338, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="modifyandSetAlt.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -3592,7 +3616,7 @@
     <value>modifyandSetAlt</value>
   </data>
   <data name="&gt;&gt;modifyandSetAlt.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.ModifyandSet, MissionPlanner, Version=1.3.9205.17468, Culture=neutral, PublicKeyToken=null</value>
+    <value>MissionPlanner.Controls.ModifyandSet, MissionPlanner, Version=1.3.9205.18338, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="modifyandSetLoiterRad.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -3622,7 +3646,7 @@
     <value>modifyandSetLoiterRad</value>
   </data>
   <data name="&gt;&gt;modifyandSetLoiterRad.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.ModifyandSet, MissionPlanner, Version=1.3.9205.17468, Culture=neutral, PublicKeyToken=null</value>
+    <value>MissionPlanner.Controls.ModifyandSet, MissionPlanner, Version=1.3.9205.18338, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -3726,6 +3750,12 @@
   <data name="&gt;&gt;showIconsToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;bindingSourceHud.Name" xml:space="preserve">
+    <value>bindingSourceHud</value>
+  </data>
+  <data name="&gt;&gt;bindingSourceHud.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;customizeToolStripMenuItem.Name" xml:space="preserve">
     <value>customizeToolStripMenuItem</value>
   </data>
@@ -3749,6 +3779,12 @@
   </data>
   <data name="&gt;&gt;undockToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;bindingSourceQuickTab.Name" xml:space="preserve">
+    <value>bindingSourceQuickTab</value>
+  </data>
+  <data name="&gt;&gt;bindingSourceQuickTab.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;goHereToolStripMenuItem.Name" xml:space="preserve">
     <value>goHereToolStripMenuItem</value>
@@ -3882,6 +3918,12 @@
   <data name="&gt;&gt;gimbalVideoPopOutToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;bindingSource1.Name" xml:space="preserve">
+    <value>bindingSource1</value>
+  </data>
+  <data name="&gt;&gt;bindingSource1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;toolTip1.Name" xml:space="preserve">
     <value>toolTip1</value>
   </data>
@@ -3911,24 +3953,6 @@
   </data>
   <data name="&gt;&gt;contextMenu1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ContextMenu, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;bindingSourceHud.Name" xml:space="preserve">
-    <value>bindingSourceHud</value>
-  </data>
-  <data name="&gt;&gt;bindingSourceHud.Type" xml:space="preserve">
-    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;bindingSourceQuickTab.Name" xml:space="preserve">
-    <value>bindingSourceQuickTab</value>
-  </data>
-  <data name="&gt;&gt;bindingSourceQuickTab.Type" xml:space="preserve">
-    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;bindingSource1.Name" xml:space="preserve">
-    <value>bindingSource1</value>
-  </data>
-  <data name="&gt;&gt;bindingSource1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;bindingSourceGaugesTab.Name" xml:space="preserve">
     <value>bindingSourceGaugesTab</value>
