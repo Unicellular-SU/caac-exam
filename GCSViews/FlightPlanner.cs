@@ -7005,7 +7005,7 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
                     // 删除功能：中国大陆地图提示
                     try
                     {
-                        var index = GMapProviders.List.FindIndex(x => (x.Name == "高德地图"));
+                        var index = GMapProviders.List.FindIndex(x => (x.Name == "Custom"));
 
                         if (index != -1) comboBoxMapType.SelectedIndex = index;
                     }
@@ -7016,7 +7016,7 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
                 }
                 else
                 {
-                    mapType = "高德地图";
+                    mapType = "Custom";
                     // set default
                     try
                     {

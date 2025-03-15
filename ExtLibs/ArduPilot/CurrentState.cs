@@ -57,6 +57,8 @@ namespace MissionPlanner
         private float _altasl;
         private float _aspd_error;
 
+        private float _gpsaltasl = 0f;
+
         private int _battery_remaining;
 
         internal double _battery_voltage;
@@ -351,6 +353,21 @@ namespace MissionPlanner
         {
             get => _altasl * multiplieralt;
             set => _altasl = value;
+        }
+
+        [GroupText("Position")]
+        [DisplayFieldName("gpsaltasl.Field")]
+        [DisplayText("Altitude (gpsalt)")]
+        public float gpsaltasl
+        {
+            get
+            {
+                return _gpsaltasl;
+            }
+            set
+            {
+                _gpsaltasl = value;
+            }
         }
 
         [GroupText("Position")]
@@ -3216,6 +3233,7 @@ namespace MissionPlanner
                                 // alt = gps.alt; // using vfr as includes baro calc
                             }
 
+                            gpsaltasl = (float)gps.alt / 1000f;
                             gpsstatus = gps.fix_type;
                             //                    Console.WriteLine("gpsfix {0}",gpsstatus);
 

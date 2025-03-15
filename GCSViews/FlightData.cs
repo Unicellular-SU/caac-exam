@@ -3718,8 +3718,23 @@ namespace MissionPlanner.GCSViews
 
         public void updateMessage(String msg)
         {
-            if (msg == null) return;
-            txt_messagebox.Text = txt_messagebox.Text + "\r\n" + msg;
+            if (string.IsNullOrEmpty(msg)) return;
+
+            // 获取当前时间并格式化为精确到秒的字符串
+            string currentTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+
+            // 美化格式，将时间和消息用方括号和冒号分隔
+            string formattedMessage = $"[{currentTime}] {msg}";
+
+            // 将格式化后的消息添加到文本框中
+            if (string.IsNullOrEmpty(txt_messagebox.Text))
+            {
+                txt_messagebox.Text = formattedMessage;
+            }
+            else
+            {
+                txt_messagebox.Text += Environment.NewLine + formattedMessage;
+            }
         }
 
         private void modifyandSetAlt_Click(object sender, EventArgs e)
@@ -5583,7 +5598,7 @@ namespace MissionPlanner.GCSViews
                 CustomMessageBox.Show("设备未连接。");
                 return;
             }
-            groundHight = MainV2.comPort.MAV.cs.altasl;
+            groundHight = MainV2.comPort.MAV.cs.gpsaltasl;
             Settings.Instance["groundHight"] = groundHight.ToString();
             SendVideo(113);
         }
@@ -5632,5 +5647,119 @@ namespace MissionPlanner.GCSViews
                 AddToQueue(index);
             }
         }
+
+
+        /**
+         * GetRotationDirection - 获取旋转方向
+         * 计算从一个角度旋转到另一个角度时的最短旋转方向
+         * 
+         * @param angle1 起始角度(度)
+         * @param angle2 目标角度(度)
+         * @return 旋转方向，正值表示顺时针，负值表示逆时针
+         */
+        private static double GetRotationDirection(double angle1, double angle2)
+        {
+            angle1 = NormalizeAngle(angle1);
+            angle2 = NormalizeAngle(angle2);
+            double delta = angle2 - angle1;
+            if (delta < -180.0)
+            {
+                delta += 360.0;
+            }
+            else if (delta > 180.0)
+            {
+                delta -= 360.0;
+            }
+            return 0.0 - delta;
+        }
+
+        /**
+         * NormalizeAngle - 标准化角度
+         * 将任意角度转换为[0, 360)范围内的等效角度
+         * 
+         * @param angle 输入角度(度)
+         * @return 标准化后的角度(度)
+         */
+        private static double NormalizeAngle(double angle)
+        {
+            angle %= 360.0;
+            if (angle < 0.0)
+            {
+                angle += 360.0;
+            }
+            return angle;
+        }
+
+        /**
+         * DegreesToRadians - 角度转弧度
+         * 将角度值转换为弧度值
+         * 
+         * @param degrees 角度值
+         * @return 对应的弧度值
+         */
+        private static double DegreesToRadians(double degrees)
+        {
+            return degrees * Math.PI / 180.0;
+        }
+
+        /**
+         * RadiansToDegrees - 弧度转角度
+         * 将弧度值转换为角度值
+         * 
+         * @param radians 弧度值
+         * @return 对应的角度值
+         */
+        private static double RadiansToDegrees(double radians)
+        {
+            return radians * 180.0 / Math.PI;
+        }
+
+        /**
+         * GetTargetLocation - 获取目标位置
+         * 根据起始位置、方位角和距离计算目标位置的经纬度坐标
+         * 
+         * @param lat1 起始纬度
+         * @param lon1 起始经度
+         * @param bearing 方位角(度)
+         * @param distance 距离(米)
+         * @return 包含目标纬度和经度的元组
+         */
+        private static Tuple<double, double> GetTargetLocation(double lat1, double lon1, double bearing, double distance)
+        {
+            double R = 6371000.0;
+            double lat1Rad = DegreesToRadians(lat1);
+            double lon1Rad = DegreesToRadians(lon1);
+            double bearingRad = DegreesToRadians(bearing);
+            double lat2Rad = Math.Asin(Math.Sin(lat1Rad) * Math.Cos(distance / R) + Math.Cos(lat1Rad) * Math.Sin(distance / R) * Math.Cos(bearingRad));
+            double lon2Rad = lon1Rad + Math.Atan2(Math.Sin(bearingRad) * Math.Sin(distance / R) * Math.Cos(lat1Rad), Math.Cos(distance / R) - Math.Sin(lat1Rad) * Math.Sin(lat2Rad));
+            double lat2 = RadiansToDegrees(lat2Rad);
+            double lon2 = RadiansToDegrees(lon2Rad);
+            return Tuple.Create(lat2, lon2);
+        }
+
+        /**
+         * AddWPToMapForBearingAndDis - 根据方位和距离添加航点到地图
+         * 在给定位置的基础上，按指定方位和距离计算新位置并添加到地图
+         * 
+         * @param lat 纬度引用，将被更新为新位置的纬度
+         * @param lng 经度引用，将被更新为新位置的经度
+         * @param bearing 方位角(度)
+         * @param distance 距离(米)
+         */
+        public void AddWPToMapForBearingAndDis(ref double lat, ref double lng, double bearing, double distance)
+        {
+            if (bearing < 0.0)
+            {
+                bearing += 360.0;
+            }
+            if (bearing >= 360.0)
+            {
+                bearing -= 360.0;
+            }
+            Tuple<double, double> targetLocation = GetTargetLocation(lat, lng, bearing, distance);
+            lat = targetLocation.Item1;
+            lng = targetLocation.Item2;
+        }
+
     }
 }

@@ -96,9 +96,12 @@ namespace MissionPlanner.Maps
             PureImage ret = null;
             try
             {
-                string file = CacheLocation + Path.DirectorySeparatorChar + GMapProviders.TryGetProvider(type).Name +
-                              Path.DirectorySeparatorChar + zoom + Path.DirectorySeparatorChar + pos.Y +
-                              Path.DirectorySeparatorChar + pos.X + ".jpg";
+                //string file = CacheLocation + Path.DirectorySeparatorChar + GMapProviders.TryGetProvider(type).Name +
+                //              Path.DirectorySeparatorChar + zoom + Path.DirectorySeparatorChar + pos.Y +
+                //              Path.DirectorySeparatorChar + pos.X + ".jpg";
+                // 将底图固定
+                string appDirectory = AppDomain.CurrentDomain.BaseDirectory;
+                string file = Path.Combine(appDirectory, "IMG", "back256.png");
                 if (File.Exists(file))
                 {
                     using (
