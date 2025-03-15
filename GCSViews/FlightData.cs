@@ -389,9 +389,9 @@ namespace MissionPlanner.GCSViews
             log.Info("Map Setup");
             gMapControl1.CacheLocation = Settings.GetDataDirectory() +
                                          "gmapcache" + Path.DirectorySeparatorChar;
-            gMapControl1.MinZoom = 0;
+            gMapControl1.MinZoom = 21;
             gMapControl1.MaxZoom = 24;
-            gMapControl1.Zoom = 3;
+            gMapControl1.Zoom = 21;
 
             gMapControl1.OnMapZoomChanged += gMapControl1_OnMapZoomChanged;
 

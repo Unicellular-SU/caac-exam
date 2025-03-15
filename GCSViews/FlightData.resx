@@ -852,779 +852,8 @@
   <data name="&gt;&gt;tabExamOperation.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="buttonReset.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="buttonReset.Location" type="System.Drawing.Point, System.Drawing">
-    <value>24, 558</value>
-  </data>
-  <data name="buttonReset.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 34</value>
-  </data>
-  <data name="buttonReset.TabIndex" type="System.Int32, mscorlib">
-    <value>27</value>
-  </data>
-  <data name="buttonReset.Text" xml:space="preserve">
-    <value>重置</value>
-  </data>
-  <data name="&gt;&gt;buttonReset.Name" xml:space="preserve">
-    <value>buttonReset</value>
-  </data>
-  <data name="&gt;&gt;buttonReset.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;buttonReset.Parent" xml:space="preserve">
-    <value>tabExamConfig</value>
-  </data>
-  <data name="&gt;&gt;buttonReset.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="buttonCofirm.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Popup</value>
-  </data>
-  <data name="buttonCofirm.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="buttonCofirm.Location" type="System.Drawing.Point, System.Drawing">
-    <value>154, 558</value>
-  </data>
-  <data name="buttonCofirm.Size" type="System.Drawing.Size, System.Drawing">
-    <value>103, 34</value>
-  </data>
-  <data name="buttonCofirm.TabIndex" type="System.Int32, mscorlib">
-    <value>26</value>
-  </data>
-  <data name="buttonCofirm.Text" xml:space="preserve">
-    <value>确认</value>
-  </data>
-  <data name="&gt;&gt;buttonCofirm.Name" xml:space="preserve">
-    <value>buttonCofirm</value>
-  </data>
-  <data name="&gt;&gt;buttonCofirm.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;buttonCofirm.Parent" xml:space="preserve">
-    <value>tabExamConfig</value>
-  </data>
-  <data name="&gt;&gt;buttonCofirm.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="textBox8MaxTime.Font" type="System.Drawing.Font, System.Drawing">
-    <value>宋体, 10.5pt, style=Bold</value>
-  </data>
-  <data name="textBox8MaxTime.Location" type="System.Drawing.Point, System.Drawing">
-    <value>154, 509</value>
-  </data>
-  <data name="textBox8MaxTime.Size" type="System.Drawing.Size, System.Drawing">
-    <value>103, 23</value>
-  </data>
-  <data name="textBox8MaxTime.TabIndex" type="System.Int32, mscorlib">
-    <value>25</value>
-  </data>
-  <data name="&gt;&gt;textBox8MaxTime.Name" xml:space="preserve">
-    <value>textBox8MaxTime</value>
-  </data>
-  <data name="&gt;&gt;textBox8MaxTime.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;textBox8MaxTime.Parent" xml:space="preserve">
-    <value>tabExamConfig</value>
-  </data>
-  <data name="&gt;&gt;textBox8MaxTime.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="textBox8MaxGaodu.Font" type="System.Drawing.Font, System.Drawing">
-    <value>宋体, 10.5pt, style=Bold</value>
-  </data>
-  <data name="textBox8MaxGaodu.Location" type="System.Drawing.Point, System.Drawing">
-    <value>154, 474</value>
-  </data>
-  <data name="textBox8MaxGaodu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>103, 23</value>
-  </data>
-  <data name="textBox8MaxGaodu.TabIndex" type="System.Int32, mscorlib">
-    <value>24</value>
-  </data>
-  <data name="&gt;&gt;textBox8MaxGaodu.Name" xml:space="preserve">
-    <value>textBox8MaxGaodu</value>
-  </data>
-  <data name="&gt;&gt;textBox8MaxGaodu.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;textBox8MaxGaodu.Parent" xml:space="preserve">
-    <value>tabExamConfig</value>
-  </data>
-  <data name="&gt;&gt;textBox8MaxGaodu.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="textBox8MaxFeixing.Font" type="System.Drawing.Font, System.Drawing">
-    <value>宋体, 10.5pt, style=Bold</value>
-  </data>
-  <data name="textBox8MaxFeixing.Location" type="System.Drawing.Point, System.Drawing">
-    <value>154, 439</value>
-  </data>
-  <data name="textBox8MaxFeixing.Size" type="System.Drawing.Size, System.Drawing">
-    <value>103, 23</value>
-  </data>
-  <data name="textBox8MaxFeixing.TabIndex" type="System.Int32, mscorlib">
-    <value>23</value>
-  </data>
-  <data name="&gt;&gt;textBox8MaxFeixing.Name" xml:space="preserve">
-    <value>textBox8MaxFeixing</value>
-  </data>
-  <data name="&gt;&gt;textBox8MaxFeixing.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;textBox8MaxFeixing.Parent" xml:space="preserve">
-    <value>tabExamConfig</value>
-  </data>
-  <data name="&gt;&gt;textBox8MaxFeixing.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="textBox8MinFeixing.Font" type="System.Drawing.Font, System.Drawing">
-    <value>宋体, 10.5pt, style=Bold</value>
-  </data>
-  <data name="textBox8MinFeixing.Location" type="System.Drawing.Point, System.Drawing">
-    <value>154, 404</value>
-  </data>
-  <data name="textBox8MinFeixing.Size" type="System.Drawing.Size, System.Drawing">
-    <value>103, 23</value>
-  </data>
-  <data name="textBox8MinFeixing.TabIndex" type="System.Int32, mscorlib">
-    <value>22</value>
-  </data>
-  <data name="&gt;&gt;textBox8MinFeixing.Name" xml:space="preserve">
-    <value>textBox8MinFeixing</value>
-  </data>
-  <data name="&gt;&gt;textBox8MinFeixing.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;textBox8MinFeixing.Parent" xml:space="preserve">
-    <value>tabExamConfig</value>
-  </data>
-  <data name="&gt;&gt;textBox8MinFeixing.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="textBox8MaxJiao.Font" type="System.Drawing.Font, System.Drawing">
-    <value>宋体, 10.5pt, style=Bold</value>
-  </data>
-  <data name="textBox8MaxJiao.Location" type="System.Drawing.Point, System.Drawing">
-    <value>154, 369</value>
-  </data>
-  <data name="textBox8MaxJiao.Size" type="System.Drawing.Size, System.Drawing">
-    <value>103, 23</value>
-  </data>
-  <data name="textBox8MaxJiao.TabIndex" type="System.Int32, mscorlib">
-    <value>21</value>
-  </data>
-  <data name="&gt;&gt;textBox8MaxJiao.Name" xml:space="preserve">
-    <value>textBox8MaxJiao</value>
-  </data>
-  <data name="&gt;&gt;textBox8MaxJiao.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;textBox8MaxJiao.Parent" xml:space="preserve">
-    <value>tabExamConfig</value>
-  </data>
-  <data name="&gt;&gt;textBox8MaxJiao.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="textBox8MaxShuiping.Font" type="System.Drawing.Font, System.Drawing">
-    <value>宋体, 10.5pt, style=Bold</value>
-  </data>
-  <data name="textBox8MaxShuiping.Location" type="System.Drawing.Point, System.Drawing">
-    <value>154, 334</value>
-  </data>
-  <data name="textBox8MaxShuiping.Size" type="System.Drawing.Size, System.Drawing">
-    <value>103, 23</value>
-  </data>
-  <data name="textBox8MaxShuiping.TabIndex" type="System.Int32, mscorlib">
-    <value>20</value>
-  </data>
-  <data name="&gt;&gt;textBox8MaxShuiping.Name" xml:space="preserve">
-    <value>textBox8MaxShuiping</value>
-  </data>
-  <data name="&gt;&gt;textBox8MaxShuiping.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;textBox8MaxShuiping.Parent" xml:space="preserve">
-    <value>tabExamConfig</value>
-  </data>
-  <data name="&gt;&gt;textBox8MaxShuiping.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="textBox360MaxTime.Font" type="System.Drawing.Font, System.Drawing">
-    <value>宋体, 10.5pt, style=Bold</value>
-  </data>
-  <data name="textBox360MaxTime.Location" type="System.Drawing.Point, System.Drawing">
-    <value>154, 244</value>
-  </data>
-  <data name="textBox360MaxTime.Size" type="System.Drawing.Size, System.Drawing">
-    <value>103, 23</value>
-  </data>
-  <data name="textBox360MaxTime.TabIndex" type="System.Int32, mscorlib">
-    <value>19</value>
-  </data>
-  <data name="&gt;&gt;textBox360MaxTime.Name" xml:space="preserve">
-    <value>textBox360MaxTime</value>
-  </data>
-  <data name="&gt;&gt;textBox360MaxTime.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;textBox360MaxTime.Parent" xml:space="preserve">
-    <value>tabExamConfig</value>
-  </data>
-  <data name="&gt;&gt;textBox360MaxTime.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="textBox360MinTime.Font" type="System.Drawing.Font, System.Drawing">
-    <value>宋体, 10.5pt, style=Bold</value>
-  </data>
-  <data name="textBox360MinTime.Location" type="System.Drawing.Point, System.Drawing">
-    <value>154, 207</value>
-  </data>
-  <data name="textBox360MinTime.Size" type="System.Drawing.Size, System.Drawing">
-    <value>103, 23</value>
-  </data>
-  <data name="textBox360MinTime.TabIndex" type="System.Int32, mscorlib">
-    <value>18</value>
-  </data>
-  <data name="&gt;&gt;textBox360MinTime.Name" xml:space="preserve">
-    <value>textBox360MinTime</value>
-  </data>
-  <data name="&gt;&gt;textBox360MinTime.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;textBox360MinTime.Parent" xml:space="preserve">
-    <value>tabExamConfig</value>
-  </data>
-  <data name="&gt;&gt;textBox360MinTime.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="textBox360MaxJiao.Font" type="System.Drawing.Font, System.Drawing">
-    <value>宋体, 10.5pt, style=Bold</value>
-  </data>
-  <data name="textBox360MaxJiao.Location" type="System.Drawing.Point, System.Drawing">
-    <value>154, 170</value>
-  </data>
-  <data name="textBox360MaxJiao.Size" type="System.Drawing.Size, System.Drawing">
-    <value>103, 23</value>
-  </data>
-  <data name="textBox360MaxJiao.TabIndex" type="System.Int32, mscorlib">
-    <value>17</value>
-  </data>
-  <data name="&gt;&gt;textBox360MaxJiao.Name" xml:space="preserve">
-    <value>textBox360MaxJiao</value>
-  </data>
-  <data name="&gt;&gt;textBox360MaxJiao.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;textBox360MaxJiao.Parent" xml:space="preserve">
-    <value>tabExamConfig</value>
-  </data>
-  <data name="&gt;&gt;textBox360MaxJiao.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="textBox360MinJiao.Font" type="System.Drawing.Font, System.Drawing">
-    <value>宋体, 10.5pt, style=Bold</value>
-  </data>
-  <data name="textBox360MinJiao.Location" type="System.Drawing.Point, System.Drawing">
-    <value>154, 133</value>
-  </data>
-  <data name="textBox360MinJiao.Size" type="System.Drawing.Size, System.Drawing">
-    <value>103, 23</value>
-  </data>
-  <data name="textBox360MinJiao.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
-  </data>
-  <data name="&gt;&gt;textBox360MinJiao.Name" xml:space="preserve">
-    <value>textBox360MinJiao</value>
-  </data>
-  <data name="&gt;&gt;textBox360MinJiao.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;textBox360MinJiao.Parent" xml:space="preserve">
-    <value>tabExamConfig</value>
-  </data>
-  <data name="&gt;&gt;textBox360MinJiao.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="textBox360Gaodu.Font" type="System.Drawing.Font, System.Drawing">
-    <value>宋体, 10.5pt, style=Bold</value>
-  </data>
-  <data name="textBox360Gaodu.Location" type="System.Drawing.Point, System.Drawing">
-    <value>154, 96</value>
-  </data>
-  <data name="textBox360Gaodu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>103, 23</value>
-  </data>
-  <data name="textBox360Gaodu.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
-  </data>
-  <data name="&gt;&gt;textBox360Gaodu.Name" xml:space="preserve">
-    <value>textBox360Gaodu</value>
-  </data>
-  <data name="&gt;&gt;textBox360Gaodu.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;textBox360Gaodu.Parent" xml:space="preserve">
-    <value>tabExamConfig</value>
-  </data>
-  <data name="&gt;&gt;textBox360Gaodu.ZOrder" xml:space="preserve">
-    <value>12</value>
-  </data>
-  <data name="textBox360Shuiping.Font" type="System.Drawing.Font, System.Drawing">
-    <value>宋体, 10.5pt, style=Bold</value>
-  </data>
-  <data name="textBox360Shuiping.Location" type="System.Drawing.Point, System.Drawing">
-    <value>154, 59</value>
-  </data>
-  <data name="textBox360Shuiping.Size" type="System.Drawing.Size, System.Drawing">
-    <value>103, 23</value>
-  </data>
-  <data name="textBox360Shuiping.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
-  </data>
-  <data name="&gt;&gt;textBox360Shuiping.Name" xml:space="preserve">
-    <value>textBox360Shuiping</value>
-  </data>
-  <data name="&gt;&gt;textBox360Shuiping.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;textBox360Shuiping.Parent" xml:space="preserve">
-    <value>tabExamConfig</value>
-  </data>
-  <data name="&gt;&gt;textBox360Shuiping.ZOrder" xml:space="preserve">
-    <value>13</value>
-  </data>
-  <data name="label8MaxTime.AutoSize" type="System.Boolean, mscorlib">
+  <data name="flowLayoutPanel1.AutoScroll" type="System.Boolean, mscorlib">
     <value>True</value>
-  </data>
-  <data name="label8MaxTime.Font" type="System.Drawing.Font, System.Drawing">
-    <value>黑体, 12pt</value>
-  </data>
-  <data name="label8MaxTime.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="label8MaxTime.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 509</value>
-  </data>
-  <data name="label8MaxTime.Size" type="System.Drawing.Size, System.Drawing">
-    <value>103, 16</value>
-  </data>
-  <data name="label8MaxTime.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
-  </data>
-  <data name="label8MaxTime.Text" xml:space="preserve">
-    <value>最长完成时间</value>
-  </data>
-  <data name="&gt;&gt;label8MaxTime.Name" xml:space="preserve">
-    <value>label8MaxTime</value>
-  </data>
-  <data name="&gt;&gt;label8MaxTime.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label8MaxTime.Parent" xml:space="preserve">
-    <value>tabExamConfig</value>
-  </data>
-  <data name="&gt;&gt;label8MaxTime.ZOrder" xml:space="preserve">
-    <value>14</value>
-  </data>
-  <data name="label8MaxGaodu.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label8MaxGaodu.Font" type="System.Drawing.Font, System.Drawing">
-    <value>黑体, 12pt</value>
-  </data>
-  <data name="label8MaxGaodu.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="label8MaxGaodu.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 474</value>
-  </data>
-  <data name="label8MaxGaodu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>103, 16</value>
-  </data>
-  <data name="label8MaxGaodu.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
-  </data>
-  <data name="label8MaxGaodu.Text" xml:space="preserve">
-    <value>最大高度偏差</value>
-  </data>
-  <data name="&gt;&gt;label8MaxGaodu.Name" xml:space="preserve">
-    <value>label8MaxGaodu</value>
-  </data>
-  <data name="&gt;&gt;label8MaxGaodu.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label8MaxGaodu.Parent" xml:space="preserve">
-    <value>tabExamConfig</value>
-  </data>
-  <data name="&gt;&gt;label8MaxGaodu.ZOrder" xml:space="preserve">
-    <value>15</value>
-  </data>
-  <data name="label8MaxFeixing.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label8MaxFeixing.Font" type="System.Drawing.Font, System.Drawing">
-    <value>黑体, 12pt</value>
-  </data>
-  <data name="label8MaxFeixing.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="label8MaxFeixing.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 439</value>
-  </data>
-  <data name="label8MaxFeixing.Size" type="System.Drawing.Size, System.Drawing">
-    <value>103, 16</value>
-  </data>
-  <data name="label8MaxFeixing.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
-  </data>
-  <data name="label8MaxFeixing.Text" xml:space="preserve">
-    <value>最大飞行速度</value>
-  </data>
-  <data name="&gt;&gt;label8MaxFeixing.Name" xml:space="preserve">
-    <value>label8MaxFeixing</value>
-  </data>
-  <data name="&gt;&gt;label8MaxFeixing.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label8MaxFeixing.Parent" xml:space="preserve">
-    <value>tabExamConfig</value>
-  </data>
-  <data name="&gt;&gt;label8MaxFeixing.ZOrder" xml:space="preserve">
-    <value>16</value>
-  </data>
-  <data name="label8MinFeixing.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label8MinFeixing.Font" type="System.Drawing.Font, System.Drawing">
-    <value>黑体, 12pt</value>
-  </data>
-  <data name="label8MinFeixing.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="label8MinFeixing.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 404</value>
-  </data>
-  <data name="label8MinFeixing.Size" type="System.Drawing.Size, System.Drawing">
-    <value>103, 16</value>
-  </data>
-  <data name="label8MinFeixing.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="label8MinFeixing.Text" xml:space="preserve">
-    <value>最小飞行速度</value>
-  </data>
-  <data name="&gt;&gt;label8MinFeixing.Name" xml:space="preserve">
-    <value>label8MinFeixing</value>
-  </data>
-  <data name="&gt;&gt;label8MinFeixing.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label8MinFeixing.Parent" xml:space="preserve">
-    <value>tabExamConfig</value>
-  </data>
-  <data name="&gt;&gt;label8MinFeixing.ZOrder" xml:space="preserve">
-    <value>17</value>
-  </data>
-  <data name="label8MinShuiping.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label8MinShuiping.Font" type="System.Drawing.Font, System.Drawing">
-    <value>黑体, 12pt</value>
-  </data>
-  <data name="label8MinShuiping.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="label8MinShuiping.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 369</value>
-  </data>
-  <data name="label8MinShuiping.Size" type="System.Drawing.Size, System.Drawing">
-    <value>103, 16</value>
-  </data>
-  <data name="label8MinShuiping.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="label8MinShuiping.Text" xml:space="preserve">
-    <value>最大角度偏差</value>
-  </data>
-  <data name="&gt;&gt;label8MinShuiping.Name" xml:space="preserve">
-    <value>label8MinShuiping</value>
-  </data>
-  <data name="&gt;&gt;label8MinShuiping.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label8MinShuiping.Parent" xml:space="preserve">
-    <value>tabExamConfig</value>
-  </data>
-  <data name="&gt;&gt;label8MinShuiping.ZOrder" xml:space="preserve">
-    <value>18</value>
-  </data>
-  <data name="label8MaxShuiping.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label8MaxShuiping.Font" type="System.Drawing.Font, System.Drawing">
-    <value>黑体, 12pt</value>
-  </data>
-  <data name="label8MaxShuiping.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="label8MaxShuiping.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 334</value>
-  </data>
-  <data name="label8MaxShuiping.Size" type="System.Drawing.Size, System.Drawing">
-    <value>103, 16</value>
-  </data>
-  <data name="label8MaxShuiping.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="label8MaxShuiping.Text" xml:space="preserve">
-    <value>最大水平偏差</value>
-  </data>
-  <data name="&gt;&gt;label8MaxShuiping.Name" xml:space="preserve">
-    <value>label8MaxShuiping</value>
-  </data>
-  <data name="&gt;&gt;label8MaxShuiping.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label8MaxShuiping.Parent" xml:space="preserve">
-    <value>tabExamConfig</value>
-  </data>
-  <data name="&gt;&gt;label8MaxShuiping.ZOrder" xml:space="preserve">
-    <value>19</value>
-  </data>
-  <data name="label8.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label8.Font" type="System.Drawing.Font, System.Drawing">
-    <value>黑体, 15.75pt, style=Bold</value>
-  </data>
-  <data name="label8.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="label8.Location" type="System.Drawing.Point, System.Drawing">
-    <value>86, 288</value>
-  </data>
-  <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>102, 21</value>
-  </data>
-  <data name="label8.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="label8.Text" xml:space="preserve">
-    <value>八字飞行</value>
-  </data>
-  <data name="&gt;&gt;label8.Name" xml:space="preserve">
-    <value>label8</value>
-  </data>
-  <data name="&gt;&gt;label8.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label8.Parent" xml:space="preserve">
-    <value>tabExamConfig</value>
-  </data>
-  <data name="&gt;&gt;label8.ZOrder" xml:space="preserve">
-    <value>20</value>
-  </data>
-  <data name="label360MaxTime.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label360MaxTime.Font" type="System.Drawing.Font, System.Drawing">
-    <value>黑体, 12pt</value>
-  </data>
-  <data name="label360MaxTime.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="label360MaxTime.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 244</value>
-  </data>
-  <data name="label360MaxTime.Size" type="System.Drawing.Size, System.Drawing">
-    <value>103, 16</value>
-  </data>
-  <data name="label360MaxTime.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="label360MaxTime.Text" xml:space="preserve">
-    <value>最长完成时间</value>
-  </data>
-  <data name="&gt;&gt;label360MaxTime.Name" xml:space="preserve">
-    <value>label360MaxTime</value>
-  </data>
-  <data name="&gt;&gt;label360MaxTime.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label360MaxTime.Parent" xml:space="preserve">
-    <value>tabExamConfig</value>
-  </data>
-  <data name="&gt;&gt;label360MaxTime.ZOrder" xml:space="preserve">
-    <value>21</value>
-  </data>
-  <data name="label360MinTime.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label360MinTime.Font" type="System.Drawing.Font, System.Drawing">
-    <value>黑体, 12pt</value>
-  </data>
-  <data name="label360MinTime.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="label360MinTime.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 207</value>
-  </data>
-  <data name="label360MinTime.Size" type="System.Drawing.Size, System.Drawing">
-    <value>103, 16</value>
-  </data>
-  <data name="label360MinTime.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="label360MinTime.Text" xml:space="preserve">
-    <value>最短完成时间</value>
-  </data>
-  <data name="&gt;&gt;label360MinTime.Name" xml:space="preserve">
-    <value>label360MinTime</value>
-  </data>
-  <data name="&gt;&gt;label360MinTime.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label360MinTime.Parent" xml:space="preserve">
-    <value>tabExamConfig</value>
-  </data>
-  <data name="&gt;&gt;label360MinTime.ZOrder" xml:space="preserve">
-    <value>22</value>
-  </data>
-  <data name="label360MaxJiao.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label360MaxJiao.Font" type="System.Drawing.Font, System.Drawing">
-    <value>黑体, 12pt</value>
-  </data>
-  <data name="label360MaxJiao.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="label360MaxJiao.Location" type="System.Drawing.Point, System.Drawing">
-    <value>37, 170</value>
-  </data>
-  <data name="label360MaxJiao.Size" type="System.Drawing.Size, System.Drawing">
-    <value>87, 16</value>
-  </data>
-  <data name="label360MaxJiao.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="label360MaxJiao.Text" xml:space="preserve">
-    <value>最大角速度</value>
-  </data>
-  <data name="&gt;&gt;label360MaxJiao.Name" xml:space="preserve">
-    <value>label360MaxJiao</value>
-  </data>
-  <data name="&gt;&gt;label360MaxJiao.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label360MaxJiao.Parent" xml:space="preserve">
-    <value>tabExamConfig</value>
-  </data>
-  <data name="&gt;&gt;label360MaxJiao.ZOrder" xml:space="preserve">
-    <value>23</value>
-  </data>
-  <data name="label360MinJiao.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label360MinJiao.Font" type="System.Drawing.Font, System.Drawing">
-    <value>黑体, 12pt</value>
-  </data>
-  <data name="label360MinJiao.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="label360MinJiao.Location" type="System.Drawing.Point, System.Drawing">
-    <value>37, 133</value>
-  </data>
-  <data name="label360MinJiao.Size" type="System.Drawing.Size, System.Drawing">
-    <value>87, 16</value>
-  </data>
-  <data name="label360MinJiao.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="label360MinJiao.Text" xml:space="preserve">
-    <value>最小角速度</value>
-  </data>
-  <data name="&gt;&gt;label360MinJiao.Name" xml:space="preserve">
-    <value>label360MinJiao</value>
-  </data>
-  <data name="&gt;&gt;label360MinJiao.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label360MinJiao.Parent" xml:space="preserve">
-    <value>tabExamConfig</value>
-  </data>
-  <data name="&gt;&gt;label360MinJiao.ZOrder" xml:space="preserve">
-    <value>24</value>
-  </data>
-  <data name="label360Gaodu.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label360Gaodu.Font" type="System.Drawing.Font, System.Drawing">
-    <value>黑体, 12pt</value>
-  </data>
-  <data name="label360Gaodu.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="label360Gaodu.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 96</value>
-  </data>
-  <data name="label360Gaodu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>103, 16</value>
-  </data>
-  <data name="label360Gaodu.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="label360Gaodu.Text" xml:space="preserve">
-    <value>最大高度偏差</value>
-  </data>
-  <data name="&gt;&gt;label360Gaodu.Name" xml:space="preserve">
-    <value>label360Gaodu</value>
-  </data>
-  <data name="&gt;&gt;label360Gaodu.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label360Gaodu.Parent" xml:space="preserve">
-    <value>tabExamConfig</value>
-  </data>
-  <data name="&gt;&gt;label360Gaodu.ZOrder" xml:space="preserve">
-    <value>25</value>
-  </data>
-  <data name="label360Shuiping.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label360Shuiping.Font" type="System.Drawing.Font, System.Drawing">
-    <value>黑体, 12pt</value>
-  </data>
-  <data name="label360Shuiping.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="label360Shuiping.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 59</value>
-  </data>
-  <data name="label360Shuiping.Size" type="System.Drawing.Size, System.Drawing">
-    <value>103, 16</value>
-  </data>
-  <data name="label360Shuiping.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="label360Shuiping.Text" xml:space="preserve">
-    <value>最大水平偏差</value>
-  </data>
-  <data name="&gt;&gt;label360Shuiping.Name" xml:space="preserve">
-    <value>label360Shuiping</value>
-  </data>
-  <data name="&gt;&gt;label360Shuiping.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label360Shuiping.Parent" xml:space="preserve">
-    <value>tabExamConfig</value>
-  </data>
-  <data name="&gt;&gt;label360Shuiping.ZOrder" xml:space="preserve">
-    <value>26</value>
   </data>
   <data name="label360.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1636,13 +865,16 @@
     <value>NoControl</value>
   </data>
   <data name="label360.Location" type="System.Drawing.Point, System.Drawing">
-    <value>86, 24</value>
+    <value>23, 23</value>
+  </data>
+  <data name="label360.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 10</value>
   </data>
   <data name="label360.Size" type="System.Drawing.Size, System.Drawing">
     <value>115, 21</value>
   </data>
   <data name="label360.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+    <value>28</value>
   </data>
   <data name="label360.Text" xml:space="preserve">
     <value>360°自旋</value>
@@ -1654,10 +886,895 @@
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label360.Parent" xml:space="preserve">
-    <value>tabExamConfig</value>
+    <value>flowLayoutPanel1</value>
   </data>
   <data name="&gt;&gt;label360.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="label360Shuiping.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label360Shuiping.Font" type="System.Drawing.Font, System.Drawing">
+    <value>黑体, 12pt</value>
+  </data>
+  <data name="label360Shuiping.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label360Shuiping.Location" type="System.Drawing.Point, System.Drawing">
+    <value>23, 57</value>
+  </data>
+  <data name="label360Shuiping.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 10</value>
+  </data>
+  <data name="label360Shuiping.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 16</value>
+  </data>
+  <data name="label360Shuiping.TabIndex" type="System.Int32, mscorlib">
+    <value>29</value>
+  </data>
+  <data name="label360Shuiping.Text" xml:space="preserve">
+    <value>最大水平偏差</value>
+  </data>
+  <data name="&gt;&gt;label360Shuiping.Name" xml:space="preserve">
+    <value>label360Shuiping</value>
+  </data>
+  <data name="&gt;&gt;label360Shuiping.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label360Shuiping.Parent" xml:space="preserve">
+    <value>flowLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;label360Shuiping.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="textBox360Shuiping.Font" type="System.Drawing.Font, System.Drawing">
+    <value>宋体, 10.5pt, style=Bold</value>
+  </data>
+  <data name="textBox360Shuiping.Location" type="System.Drawing.Point, System.Drawing">
+    <value>132, 57</value>
+  </data>
+  <data name="textBox360Shuiping.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 10</value>
+  </data>
+  <data name="textBox360Shuiping.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 23</value>
+  </data>
+  <data name="textBox360Shuiping.TabIndex" type="System.Int32, mscorlib">
+    <value>42</value>
+  </data>
+  <data name="&gt;&gt;textBox360Shuiping.Name" xml:space="preserve">
+    <value>textBox360Shuiping</value>
+  </data>
+  <data name="&gt;&gt;textBox360Shuiping.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textBox360Shuiping.Parent" xml:space="preserve">
+    <value>flowLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;textBox360Shuiping.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="label360Gaodu.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label360Gaodu.Font" type="System.Drawing.Font, System.Drawing">
+    <value>黑体, 12pt</value>
+  </data>
+  <data name="label360Gaodu.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label360Gaodu.Location" type="System.Drawing.Point, System.Drawing">
+    <value>23, 93</value>
+  </data>
+  <data name="label360Gaodu.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 10</value>
+  </data>
+  <data name="label360Gaodu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 16</value>
+  </data>
+  <data name="label360Gaodu.TabIndex" type="System.Int32, mscorlib">
+    <value>30</value>
+  </data>
+  <data name="label360Gaodu.Text" xml:space="preserve">
+    <value>最大高度偏差</value>
+  </data>
+  <data name="&gt;&gt;label360Gaodu.Name" xml:space="preserve">
+    <value>label360Gaodu</value>
+  </data>
+  <data name="&gt;&gt;label360Gaodu.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label360Gaodu.Parent" xml:space="preserve">
+    <value>flowLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;label360Gaodu.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="textBox360Gaodu.Font" type="System.Drawing.Font, System.Drawing">
+    <value>宋体, 10.5pt, style=Bold</value>
+  </data>
+  <data name="textBox360Gaodu.Location" type="System.Drawing.Point, System.Drawing">
+    <value>132, 93</value>
+  </data>
+  <data name="textBox360Gaodu.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 10</value>
+  </data>
+  <data name="textBox360Gaodu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 23</value>
+  </data>
+  <data name="textBox360Gaodu.TabIndex" type="System.Int32, mscorlib">
+    <value>43</value>
+  </data>
+  <data name="&gt;&gt;textBox360Gaodu.Name" xml:space="preserve">
+    <value>textBox360Gaodu</value>
+  </data>
+  <data name="&gt;&gt;textBox360Gaodu.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textBox360Gaodu.Parent" xml:space="preserve">
+    <value>flowLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;textBox360Gaodu.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="label360MinJiao.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label360MinJiao.Font" type="System.Drawing.Font, System.Drawing">
+    <value>黑体, 12pt</value>
+  </data>
+  <data name="label360MinJiao.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label360MinJiao.Location" type="System.Drawing.Point, System.Drawing">
+    <value>23, 129</value>
+  </data>
+  <data name="label360MinJiao.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 10</value>
+  </data>
+  <data name="label360MinJiao.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 16</value>
+  </data>
+  <data name="label360MinJiao.TabIndex" type="System.Int32, mscorlib">
+    <value>31</value>
+  </data>
+  <data name="label360MinJiao.Text" xml:space="preserve">
+    <value>最小角速度值</value>
+  </data>
+  <data name="&gt;&gt;label360MinJiao.Name" xml:space="preserve">
+    <value>label360MinJiao</value>
+  </data>
+  <data name="&gt;&gt;label360MinJiao.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label360MinJiao.Parent" xml:space="preserve">
+    <value>flowLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;label360MinJiao.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="textBox360MinJiao.Font" type="System.Drawing.Font, System.Drawing">
+    <value>宋体, 10.5pt, style=Bold</value>
+  </data>
+  <data name="textBox360MinJiao.Location" type="System.Drawing.Point, System.Drawing">
+    <value>132, 129</value>
+  </data>
+  <data name="textBox360MinJiao.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 10</value>
+  </data>
+  <data name="textBox360MinJiao.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 23</value>
+  </data>
+  <data name="textBox360MinJiao.TabIndex" type="System.Int32, mscorlib">
+    <value>44</value>
+  </data>
+  <data name="&gt;&gt;textBox360MinJiao.Name" xml:space="preserve">
+    <value>textBox360MinJiao</value>
+  </data>
+  <data name="&gt;&gt;textBox360MinJiao.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textBox360MinJiao.Parent" xml:space="preserve">
+    <value>flowLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;textBox360MinJiao.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="label360MaxJiao.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label360MaxJiao.Font" type="System.Drawing.Font, System.Drawing">
+    <value>黑体, 12pt</value>
+  </data>
+  <data name="label360MaxJiao.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label360MaxJiao.Location" type="System.Drawing.Point, System.Drawing">
+    <value>23, 165</value>
+  </data>
+  <data name="label360MaxJiao.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 10</value>
+  </data>
+  <data name="label360MaxJiao.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 16</value>
+  </data>
+  <data name="label360MaxJiao.TabIndex" type="System.Int32, mscorlib">
+    <value>32</value>
+  </data>
+  <data name="label360MaxJiao.Text" xml:space="preserve">
+    <value>最大角速度值</value>
+  </data>
+  <data name="&gt;&gt;label360MaxJiao.Name" xml:space="preserve">
+    <value>label360MaxJiao</value>
+  </data>
+  <data name="&gt;&gt;label360MaxJiao.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label360MaxJiao.Parent" xml:space="preserve">
+    <value>flowLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;label360MaxJiao.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="textBox360MaxJiao.Font" type="System.Drawing.Font, System.Drawing">
+    <value>宋体, 10.5pt, style=Bold</value>
+  </data>
+  <data name="textBox360MaxJiao.Location" type="System.Drawing.Point, System.Drawing">
+    <value>132, 165</value>
+  </data>
+  <data name="textBox360MaxJiao.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 10</value>
+  </data>
+  <data name="textBox360MaxJiao.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 23</value>
+  </data>
+  <data name="textBox360MaxJiao.TabIndex" type="System.Int32, mscorlib">
+    <value>45</value>
+  </data>
+  <data name="&gt;&gt;textBox360MaxJiao.Name" xml:space="preserve">
+    <value>textBox360MaxJiao</value>
+  </data>
+  <data name="&gt;&gt;textBox360MaxJiao.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textBox360MaxJiao.Parent" xml:space="preserve">
+    <value>flowLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;textBox360MaxJiao.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="label360MinTime.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label360MinTime.Font" type="System.Drawing.Font, System.Drawing">
+    <value>黑体, 12pt</value>
+  </data>
+  <data name="label360MinTime.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label360MinTime.Location" type="System.Drawing.Point, System.Drawing">
+    <value>23, 201</value>
+  </data>
+  <data name="label360MinTime.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 10</value>
+  </data>
+  <data name="label360MinTime.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 16</value>
+  </data>
+  <data name="label360MinTime.TabIndex" type="System.Int32, mscorlib">
+    <value>33</value>
+  </data>
+  <data name="label360MinTime.Text" xml:space="preserve">
+    <value>最短完成时间</value>
+  </data>
+  <data name="&gt;&gt;label360MinTime.Name" xml:space="preserve">
+    <value>label360MinTime</value>
+  </data>
+  <data name="&gt;&gt;label360MinTime.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label360MinTime.Parent" xml:space="preserve">
+    <value>flowLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;label360MinTime.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="textBox360MinTime.Font" type="System.Drawing.Font, System.Drawing">
+    <value>宋体, 10.5pt, style=Bold</value>
+  </data>
+  <data name="textBox360MinTime.Location" type="System.Drawing.Point, System.Drawing">
+    <value>132, 201</value>
+  </data>
+  <data name="textBox360MinTime.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 10</value>
+  </data>
+  <data name="textBox360MinTime.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 23</value>
+  </data>
+  <data name="textBox360MinTime.TabIndex" type="System.Int32, mscorlib">
+    <value>46</value>
+  </data>
+  <data name="&gt;&gt;textBox360MinTime.Name" xml:space="preserve">
+    <value>textBox360MinTime</value>
+  </data>
+  <data name="&gt;&gt;textBox360MinTime.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textBox360MinTime.Parent" xml:space="preserve">
+    <value>flowLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;textBox360MinTime.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="label360MaxTime.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label360MaxTime.Font" type="System.Drawing.Font, System.Drawing">
+    <value>黑体, 12pt</value>
+  </data>
+  <data name="label360MaxTime.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label360MaxTime.Location" type="System.Drawing.Point, System.Drawing">
+    <value>23, 237</value>
+  </data>
+  <data name="label360MaxTime.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 10</value>
+  </data>
+  <data name="label360MaxTime.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 16</value>
+  </data>
+  <data name="label360MaxTime.TabIndex" type="System.Int32, mscorlib">
+    <value>34</value>
+  </data>
+  <data name="label360MaxTime.Text" xml:space="preserve">
+    <value>最长完成时间</value>
+  </data>
+  <data name="&gt;&gt;label360MaxTime.Name" xml:space="preserve">
+    <value>label360MaxTime</value>
+  </data>
+  <data name="&gt;&gt;label360MaxTime.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label360MaxTime.Parent" xml:space="preserve">
+    <value>flowLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;label360MaxTime.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="textBox360MaxTime.Font" type="System.Drawing.Font, System.Drawing">
+    <value>宋体, 10.5pt, style=Bold</value>
+  </data>
+  <data name="textBox360MaxTime.Location" type="System.Drawing.Point, System.Drawing">
+    <value>132, 237</value>
+  </data>
+  <data name="textBox360MaxTime.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 10</value>
+  </data>
+  <data name="textBox360MaxTime.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 23</value>
+  </data>
+  <data name="textBox360MaxTime.TabIndex" type="System.Int32, mscorlib">
+    <value>47</value>
+  </data>
+  <data name="&gt;&gt;textBox360MaxTime.Name" xml:space="preserve">
+    <value>textBox360MaxTime</value>
+  </data>
+  <data name="&gt;&gt;textBox360MaxTime.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textBox360MaxTime.Parent" xml:space="preserve">
+    <value>flowLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;textBox360MaxTime.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="label8.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label8.Font" type="System.Drawing.Font, System.Drawing">
+    <value>黑体, 15.75pt, style=Bold</value>
+  </data>
+  <data name="label8.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>23, 305</value>
+  </data>
+  <data name="label8.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 35, 3, 10</value>
+  </data>
+  <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>102, 21</value>
+  </data>
+  <data name="label8.TabIndex" type="System.Int32, mscorlib">
+    <value>35</value>
+  </data>
+  <data name="label8.Text" xml:space="preserve">
+    <value>八字飞行</value>
+  </data>
+  <data name="&gt;&gt;label8.Name" xml:space="preserve">
+    <value>label8</value>
+  </data>
+  <data name="&gt;&gt;label8.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label8.Parent" xml:space="preserve">
+    <value>flowLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;label8.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="label8MaxShuiping.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label8MaxShuiping.Font" type="System.Drawing.Font, System.Drawing">
+    <value>黑体, 12pt</value>
+  </data>
+  <data name="label8MaxShuiping.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label8MaxShuiping.Location" type="System.Drawing.Point, System.Drawing">
+    <value>23, 339</value>
+  </data>
+  <data name="label8MaxShuiping.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 10</value>
+  </data>
+  <data name="label8MaxShuiping.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 16</value>
+  </data>
+  <data name="label8MaxShuiping.TabIndex" type="System.Int32, mscorlib">
+    <value>36</value>
+  </data>
+  <data name="label8MaxShuiping.Text" xml:space="preserve">
+    <value>最大水平偏差</value>
+  </data>
+  <data name="&gt;&gt;label8MaxShuiping.Name" xml:space="preserve">
+    <value>label8MaxShuiping</value>
+  </data>
+  <data name="&gt;&gt;label8MaxShuiping.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label8MaxShuiping.Parent" xml:space="preserve">
+    <value>flowLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;label8MaxShuiping.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="textBox8MaxShuiping.Font" type="System.Drawing.Font, System.Drawing">
+    <value>宋体, 10.5pt, style=Bold</value>
+  </data>
+  <data name="textBox8MaxShuiping.Location" type="System.Drawing.Point, System.Drawing">
+    <value>132, 339</value>
+  </data>
+  <data name="textBox8MaxShuiping.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 10</value>
+  </data>
+  <data name="textBox8MaxShuiping.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 23</value>
+  </data>
+  <data name="textBox8MaxShuiping.TabIndex" type="System.Int32, mscorlib">
+    <value>48</value>
+  </data>
+  <data name="&gt;&gt;textBox8MaxShuiping.Name" xml:space="preserve">
+    <value>textBox8MaxShuiping</value>
+  </data>
+  <data name="&gt;&gt;textBox8MaxShuiping.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textBox8MaxShuiping.Parent" xml:space="preserve">
+    <value>flowLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;textBox8MaxShuiping.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="label8MaxJiao.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label8MaxJiao.Font" type="System.Drawing.Font, System.Drawing">
+    <value>黑体, 12pt</value>
+  </data>
+  <data name="label8MaxJiao.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label8MaxJiao.Location" type="System.Drawing.Point, System.Drawing">
+    <value>23, 375</value>
+  </data>
+  <data name="label8MaxJiao.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 10</value>
+  </data>
+  <data name="label8MaxJiao.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 16</value>
+  </data>
+  <data name="label8MaxJiao.TabIndex" type="System.Int32, mscorlib">
+    <value>37</value>
+  </data>
+  <data name="label8MaxJiao.Text" xml:space="preserve">
+    <value>最大角度偏差</value>
+  </data>
+  <data name="&gt;&gt;label8MaxJiao.Name" xml:space="preserve">
+    <value>label8MaxJiao</value>
+  </data>
+  <data name="&gt;&gt;label8MaxJiao.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label8MaxJiao.Parent" xml:space="preserve">
+    <value>flowLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;label8MaxJiao.ZOrder" xml:space="preserve">
+    <value>16</value>
+  </data>
+  <data name="textBox8MaxJiao.Font" type="System.Drawing.Font, System.Drawing">
+    <value>宋体, 10.5pt, style=Bold</value>
+  </data>
+  <data name="textBox8MaxJiao.Location" type="System.Drawing.Point, System.Drawing">
+    <value>132, 375</value>
+  </data>
+  <data name="textBox8MaxJiao.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 10</value>
+  </data>
+  <data name="textBox8MaxJiao.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 23</value>
+  </data>
+  <data name="textBox8MaxJiao.TabIndex" type="System.Int32, mscorlib">
+    <value>49</value>
+  </data>
+  <data name="&gt;&gt;textBox8MaxJiao.Name" xml:space="preserve">
+    <value>textBox8MaxJiao</value>
+  </data>
+  <data name="&gt;&gt;textBox8MaxJiao.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textBox8MaxJiao.Parent" xml:space="preserve">
+    <value>flowLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;textBox8MaxJiao.ZOrder" xml:space="preserve">
+    <value>17</value>
+  </data>
+  <data name="label8MinFeixing.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label8MinFeixing.Font" type="System.Drawing.Font, System.Drawing">
+    <value>黑体, 12pt</value>
+  </data>
+  <data name="label8MinFeixing.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label8MinFeixing.Location" type="System.Drawing.Point, System.Drawing">
+    <value>23, 411</value>
+  </data>
+  <data name="label8MinFeixing.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 10</value>
+  </data>
+  <data name="label8MinFeixing.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 16</value>
+  </data>
+  <data name="label8MinFeixing.TabIndex" type="System.Int32, mscorlib">
+    <value>38</value>
+  </data>
+  <data name="label8MinFeixing.Text" xml:space="preserve">
+    <value>最小飞行速度</value>
+  </data>
+  <data name="&gt;&gt;label8MinFeixing.Name" xml:space="preserve">
+    <value>label8MinFeixing</value>
+  </data>
+  <data name="&gt;&gt;label8MinFeixing.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label8MinFeixing.Parent" xml:space="preserve">
+    <value>flowLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;label8MinFeixing.ZOrder" xml:space="preserve">
+    <value>18</value>
+  </data>
+  <data name="textBox8MinFeixing.Font" type="System.Drawing.Font, System.Drawing">
+    <value>宋体, 10.5pt, style=Bold</value>
+  </data>
+  <data name="textBox8MinFeixing.Location" type="System.Drawing.Point, System.Drawing">
+    <value>132, 411</value>
+  </data>
+  <data name="textBox8MinFeixing.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 10</value>
+  </data>
+  <data name="textBox8MinFeixing.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 23</value>
+  </data>
+  <data name="textBox8MinFeixing.TabIndex" type="System.Int32, mscorlib">
+    <value>50</value>
+  </data>
+  <data name="&gt;&gt;textBox8MinFeixing.Name" xml:space="preserve">
+    <value>textBox8MinFeixing</value>
+  </data>
+  <data name="&gt;&gt;textBox8MinFeixing.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textBox8MinFeixing.Parent" xml:space="preserve">
+    <value>flowLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;textBox8MinFeixing.ZOrder" xml:space="preserve">
+    <value>19</value>
+  </data>
+  <data name="label8MaxFeixing.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label8MaxFeixing.Font" type="System.Drawing.Font, System.Drawing">
+    <value>黑体, 12pt</value>
+  </data>
+  <data name="label8MaxFeixing.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label8MaxFeixing.Location" type="System.Drawing.Point, System.Drawing">
+    <value>23, 447</value>
+  </data>
+  <data name="label8MaxFeixing.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 10</value>
+  </data>
+  <data name="label8MaxFeixing.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 16</value>
+  </data>
+  <data name="label8MaxFeixing.TabIndex" type="System.Int32, mscorlib">
+    <value>39</value>
+  </data>
+  <data name="label8MaxFeixing.Text" xml:space="preserve">
+    <value>最大飞行速度</value>
+  </data>
+  <data name="&gt;&gt;label8MaxFeixing.Name" xml:space="preserve">
+    <value>label8MaxFeixing</value>
+  </data>
+  <data name="&gt;&gt;label8MaxFeixing.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label8MaxFeixing.Parent" xml:space="preserve">
+    <value>flowLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;label8MaxFeixing.ZOrder" xml:space="preserve">
+    <value>20</value>
+  </data>
+  <data name="textBox8MaxFeixing.Font" type="System.Drawing.Font, System.Drawing">
+    <value>宋体, 10.5pt, style=Bold</value>
+  </data>
+  <data name="textBox8MaxFeixing.Location" type="System.Drawing.Point, System.Drawing">
+    <value>132, 447</value>
+  </data>
+  <data name="textBox8MaxFeixing.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 10</value>
+  </data>
+  <data name="textBox8MaxFeixing.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 23</value>
+  </data>
+  <data name="textBox8MaxFeixing.TabIndex" type="System.Int32, mscorlib">
+    <value>51</value>
+  </data>
+  <data name="&gt;&gt;textBox8MaxFeixing.Name" xml:space="preserve">
+    <value>textBox8MaxFeixing</value>
+  </data>
+  <data name="&gt;&gt;textBox8MaxFeixing.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textBox8MaxFeixing.Parent" xml:space="preserve">
+    <value>flowLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;textBox8MaxFeixing.ZOrder" xml:space="preserve">
+    <value>21</value>
+  </data>
+  <data name="label8MaxGaodu.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label8MaxGaodu.Font" type="System.Drawing.Font, System.Drawing">
+    <value>黑体, 12pt</value>
+  </data>
+  <data name="label8MaxGaodu.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label8MaxGaodu.Location" type="System.Drawing.Point, System.Drawing">
+    <value>23, 483</value>
+  </data>
+  <data name="label8MaxGaodu.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 10</value>
+  </data>
+  <data name="label8MaxGaodu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 16</value>
+  </data>
+  <data name="label8MaxGaodu.TabIndex" type="System.Int32, mscorlib">
+    <value>40</value>
+  </data>
+  <data name="label8MaxGaodu.Text" xml:space="preserve">
+    <value>最大高度偏差</value>
+  </data>
+  <data name="&gt;&gt;label8MaxGaodu.Name" xml:space="preserve">
+    <value>label8MaxGaodu</value>
+  </data>
+  <data name="&gt;&gt;label8MaxGaodu.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label8MaxGaodu.Parent" xml:space="preserve">
+    <value>flowLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;label8MaxGaodu.ZOrder" xml:space="preserve">
+    <value>22</value>
+  </data>
+  <data name="textBox8MaxGaodu.Font" type="System.Drawing.Font, System.Drawing">
+    <value>宋体, 10.5pt, style=Bold</value>
+  </data>
+  <data name="textBox8MaxGaodu.Location" type="System.Drawing.Point, System.Drawing">
+    <value>132, 483</value>
+  </data>
+  <data name="textBox8MaxGaodu.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 10</value>
+  </data>
+  <data name="textBox8MaxGaodu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 23</value>
+  </data>
+  <data name="textBox8MaxGaodu.TabIndex" type="System.Int32, mscorlib">
+    <value>52</value>
+  </data>
+  <data name="&gt;&gt;textBox8MaxGaodu.Name" xml:space="preserve">
+    <value>textBox8MaxGaodu</value>
+  </data>
+  <data name="&gt;&gt;textBox8MaxGaodu.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textBox8MaxGaodu.Parent" xml:space="preserve">
+    <value>flowLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;textBox8MaxGaodu.ZOrder" xml:space="preserve">
+    <value>23</value>
+  </data>
+  <data name="label8MaxTime.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label8MaxTime.Font" type="System.Drawing.Font, System.Drawing">
+    <value>黑体, 12pt</value>
+  </data>
+  <data name="label8MaxTime.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label8MaxTime.Location" type="System.Drawing.Point, System.Drawing">
+    <value>23, 519</value>
+  </data>
+  <data name="label8MaxTime.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 10</value>
+  </data>
+  <data name="label8MaxTime.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 16</value>
+  </data>
+  <data name="label8MaxTime.TabIndex" type="System.Int32, mscorlib">
+    <value>41</value>
+  </data>
+  <data name="label8MaxTime.Text" xml:space="preserve">
+    <value>最长完成时间</value>
+  </data>
+  <data name="&gt;&gt;label8MaxTime.Name" xml:space="preserve">
+    <value>label8MaxTime</value>
+  </data>
+  <data name="&gt;&gt;label8MaxTime.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label8MaxTime.Parent" xml:space="preserve">
+    <value>flowLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;label8MaxTime.ZOrder" xml:space="preserve">
+    <value>24</value>
+  </data>
+  <data name="textBox8MaxTime.Font" type="System.Drawing.Font, System.Drawing">
+    <value>宋体, 10.5pt, style=Bold</value>
+  </data>
+  <data name="textBox8MaxTime.Location" type="System.Drawing.Point, System.Drawing">
+    <value>132, 519</value>
+  </data>
+  <data name="textBox8MaxTime.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 10</value>
+  </data>
+  <data name="textBox8MaxTime.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 23</value>
+  </data>
+  <data name="textBox8MaxTime.TabIndex" type="System.Int32, mscorlib">
+    <value>53</value>
+  </data>
+  <data name="&gt;&gt;textBox8MaxTime.Name" xml:space="preserve">
+    <value>textBox8MaxTime</value>
+  </data>
+  <data name="&gt;&gt;textBox8MaxTime.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textBox8MaxTime.Parent" xml:space="preserve">
+    <value>flowLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;textBox8MaxTime.ZOrder" xml:space="preserve">
+    <value>25</value>
+  </data>
+  <data name="buttonReset.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="buttonReset.Location" type="System.Drawing.Point, System.Drawing">
+    <value>23, 587</value>
+  </data>
+  <data name="buttonReset.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 35, 3, 10</value>
+  </data>
+  <data name="buttonReset.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 34</value>
+  </data>
+  <data name="buttonReset.TabIndex" type="System.Int32, mscorlib">
+    <value>55</value>
+  </data>
+  <data name="buttonReset.Text" xml:space="preserve">
+    <value>重置</value>
+  </data>
+  <data name="&gt;&gt;buttonReset.Name" xml:space="preserve">
+    <value>buttonReset</value>
+  </data>
+  <data name="&gt;&gt;buttonReset.Type" xml:space="preserve">
+    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;buttonReset.Parent" xml:space="preserve">
+    <value>flowLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;buttonReset.ZOrder" xml:space="preserve">
+    <value>26</value>
+  </data>
+  <data name="buttonCofirm.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Popup</value>
+  </data>
+  <data name="buttonCofirm.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="buttonCofirm.Location" type="System.Drawing.Point, System.Drawing">
+    <value>129, 587</value>
+  </data>
+  <data name="buttonCofirm.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 35, 3, 10</value>
+  </data>
+  <data name="buttonCofirm.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 34</value>
+  </data>
+  <data name="buttonCofirm.TabIndex" type="System.Int32, mscorlib">
+    <value>54</value>
+  </data>
+  <data name="buttonCofirm.Text" xml:space="preserve">
+    <value>确认</value>
+  </data>
+  <data name="&gt;&gt;buttonCofirm.Name" xml:space="preserve">
+    <value>buttonCofirm</value>
+  </data>
+  <data name="&gt;&gt;buttonCofirm.Type" xml:space="preserve">
+    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;buttonCofirm.Parent" xml:space="preserve">
+    <value>flowLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;buttonCofirm.ZOrder" xml:space="preserve">
     <value>27</value>
+  </data>
+  <data name="flowLayoutPanel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="flowLayoutPanel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="flowLayoutPanel1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 10, 10, 10</value>
+  </data>
+  <data name="flowLayoutPanel1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>20, 20, 20, 20</value>
+  </data>
+  <data name="flowLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>284, 662</value>
+  </data>
+  <data name="flowLayoutPanel1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;flowLayoutPanel1.Name" xml:space="preserve">
+    <value>flowLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;flowLayoutPanel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;flowLayoutPanel1.Parent" xml:space="preserve">
+    <value>tabExamConfig</value>
+  </data>
+  <data name="&gt;&gt;flowLayoutPanel1.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="tabExamConfig.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 44</value>
@@ -1984,7 +2101,7 @@
     <value>checkListControl1</value>
   </data>
   <data name="&gt;&gt;checkListControl1.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.PreFlight.CheckListControl, MissionPlanner, Version=1.3.9204.26184, Culture=neutral, PublicKeyToken=null</value>
+    <value>MissionPlanner.Controls.PreFlight.CheckListControl, MissionPlanner, Version=1.3.9205.17468, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;checkListControl1.Parent" xml:space="preserve">
     <value>tabPagePreFlight</value>
@@ -2464,7 +2581,7 @@
     <value>distanceBar1</value>
   </data>
   <data name="&gt;&gt;distanceBar1.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.DistanceBar, MissionPlanner, Version=1.3.9204.26184, Culture=neutral, PublicKeyToken=null</value>
+    <value>MissionPlanner.Controls.DistanceBar, MissionPlanner, Version=1.3.9205.17468, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;distanceBar1.Parent" xml:space="preserve">
     <value>splitContainer1.Panel2</value>
@@ -3405,6 +3522,9 @@
   <data name="&gt;&gt;CMB_action.Type" xml:space="preserve">
     <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <metadata name="contextMenu1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>1109, 57</value>
+  </metadata>
   <metadata name="bindingSourceGaugesTab.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>154, 57</value>
   </metadata>
@@ -3413,9 +3533,6 @@
   </metadata>
   <metadata name="bindingSourceStatusTab.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 57</value>
-  </metadata>
-  <metadata name="contextMenu1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>1109, 57</value>
   </metadata>
   <data name="modifyandSetSpeed.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -3445,7 +3562,7 @@
     <value>modifyandSetSpeed</value>
   </data>
   <data name="&gt;&gt;modifyandSetSpeed.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.ModifyandSet, MissionPlanner, Version=1.3.9204.26184, Culture=neutral, PublicKeyToken=null</value>
+    <value>MissionPlanner.Controls.ModifyandSet, MissionPlanner, Version=1.3.9205.17468, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="modifyandSetAlt.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -3475,7 +3592,7 @@
     <value>modifyandSetAlt</value>
   </data>
   <data name="&gt;&gt;modifyandSetAlt.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.ModifyandSet, MissionPlanner, Version=1.3.9204.26184, Culture=neutral, PublicKeyToken=null</value>
+    <value>MissionPlanner.Controls.ModifyandSet, MissionPlanner, Version=1.3.9205.17468, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="modifyandSetLoiterRad.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -3505,7 +3622,7 @@
     <value>modifyandSetLoiterRad</value>
   </data>
   <data name="&gt;&gt;modifyandSetLoiterRad.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.ModifyandSet, MissionPlanner, Version=1.3.9204.26184, Culture=neutral, PublicKeyToken=null</value>
+    <value>MissionPlanner.Controls.ModifyandSet, MissionPlanner, Version=1.3.9205.17468, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -3609,12 +3726,6 @@
   <data name="&gt;&gt;showIconsToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;bindingSourceHud.Name" xml:space="preserve">
-    <value>bindingSourceHud</value>
-  </data>
-  <data name="&gt;&gt;bindingSourceHud.Type" xml:space="preserve">
-    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;customizeToolStripMenuItem.Name" xml:space="preserve">
     <value>customizeToolStripMenuItem</value>
   </data>
@@ -3638,12 +3749,6 @@
   </data>
   <data name="&gt;&gt;undockToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;bindingSourceQuickTab.Name" xml:space="preserve">
-    <value>bindingSourceQuickTab</value>
-  </data>
-  <data name="&gt;&gt;bindingSourceQuickTab.Type" xml:space="preserve">
-    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;goHereToolStripMenuItem.Name" xml:space="preserve">
     <value>goHereToolStripMenuItem</value>
@@ -3777,12 +3882,6 @@
   <data name="&gt;&gt;gimbalVideoPopOutToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;bindingSource1.Name" xml:space="preserve">
-    <value>bindingSource1</value>
-  </data>
-  <data name="&gt;&gt;bindingSource1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;toolTip1.Name" xml:space="preserve">
     <value>toolTip1</value>
   </data>
@@ -3807,6 +3906,30 @@
   <data name="&gt;&gt;Messagetabtimer.Type" xml:space="preserve">
     <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;contextMenu1.Name" xml:space="preserve">
+    <value>contextMenu1</value>
+  </data>
+  <data name="&gt;&gt;contextMenu1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenu, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;bindingSourceHud.Name" xml:space="preserve">
+    <value>bindingSourceHud</value>
+  </data>
+  <data name="&gt;&gt;bindingSourceHud.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;bindingSourceQuickTab.Name" xml:space="preserve">
+    <value>bindingSourceQuickTab</value>
+  </data>
+  <data name="&gt;&gt;bindingSourceQuickTab.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;bindingSource1.Name" xml:space="preserve">
+    <value>bindingSource1</value>
+  </data>
+  <data name="&gt;&gt;bindingSource1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;bindingSourceGaugesTab.Name" xml:space="preserve">
     <value>bindingSourceGaugesTab</value>
   </data>
@@ -3824,12 +3947,6 @@
   </data>
   <data name="&gt;&gt;bindingSourceStatusTab.Type" xml:space="preserve">
     <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;contextMenu1.Name" xml:space="preserve">
-    <value>contextMenu1</value>
-  </data>
-  <data name="&gt;&gt;contextMenu1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ContextMenu, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>FlightData</value>

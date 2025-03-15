@@ -1682,12 +1682,12 @@ namespace MissionPlanner
                                 {
                                     Version ver1 = VersionDetection.GetVersion(comPort.MAV.VersionString);
                                     Version ver2 = item.MavFirmwareVersion;
-
+                                    // 删除功能： 屏蔽硬件更新
                                     if (ver2 > ver1)
                                     {
-                                        Common.MessageShowAgain(Strings.NewFirmware + "-" + item.VehicleType + " " + ver2,
-                                            Strings.NewFirmwareA + item.VehicleType + " " + ver2 + Strings.Pleaseup +
-                                            "[link;https://discuss.ardupilot.org/tags/stable-release;Release Notes]");
+                                        //Common.MessageShowAgain(Strings.NewFirmware + "-" + item.VehicleType + " " + ver2,
+                                        //    Strings.NewFirmwareA + item.VehicleType + " " + ver2 + Strings.Pleaseup +
+                                        //    "[link;https://discuss.ardupilot.org/tags/stable-release;Release Notes]");
                                         break;
                                     }
 

@@ -29,7 +29,7 @@ namespace MissionPlanner.Utilities
         private static readonly ILog log =
             LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
-        private static Themes _currentTheme = Themes.BurntKermit;
+        private static Themes _currentTheme = Themes.None;
 
         /// <summary>
         ///     Change the current theme. Existing controls are not affected

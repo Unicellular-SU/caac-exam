@@ -145,7 +145,7 @@ namespace MissionPlanner
                 Update.DoUpdate();
                 return;
             }
-            name = "Electronic Evaluation System";
+            name = "金英圣杰CAAC";
             try
             {
                 if (File.Exists(Settings.GetRunningDirectory() + "logo.txt"))
