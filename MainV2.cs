@@ -4737,39 +4737,6 @@ namespace MissionPlanner
             // return if we still initialize
             if (FlightData == null) return;
 
-            //Find panel with
-            foreach (var q in FlightData.tabQuick.Controls["tableLayoutPanelQuick"].Controls)
-            {
-                QuickView qv = (QuickView) q;
-
-                //Get the data field name bind to the control
-                var fieldname = qv.DataBindings[0].BindingMemberInfo.BindingField;
-
-                if (fieldname == name)
-                {
-
-                    if (color == "NoColor")
-                    {
-                        qv.BackColor = ThemeManager.BGColor;
-                        qv.numberColor = qv.numberColorBackup; //Restore original color from backup :)
-                        qv.ForeColor = ThemeManager.TextColor;
-
-
-                    }
-                    else
-                    {
-                        qv.BackColor = Color.FromName(color);
-                        // Ensure color is readable on the background
-                        qv.numberColor = (((qv.BackColor.R + qv.BackColor.B + qv.BackColor.G) / 3) > 128)
-                            ? Color.Black
-                            : Color.White;
-                        qv.ForeColor = qv.numberColor; //Same as the number
-                    }
-
-                    //We have our panel, color it and exit loop
-                    break;
-                }
-            }
         }
     }
 }

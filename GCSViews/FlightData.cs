@@ -40,6 +40,26 @@ namespace MissionPlanner.GCSViews
 {
     public partial class FlightData : MyUserControl, IActivate, IDeactivate
     {
+
+        /**
+         * FlightPoint结构体 - 表示航线上的单个航点
+         * 用于构建8字航线和其他航线类型
+         */
+        private struct FlightPoint
+        {
+            /** 航点序号，用于标识航点在航线中的顺序 */
+            public int Entry;
+
+            /** 纬度坐标，使用WGS84坐标系 */
+            public double Lat;
+
+            /** 经度坐标，使用WGS84坐标系 */
+            public double Lng;
+
+            /** 航向角，表示航点处飞行器的预期航向 */
+            public double Ang;
+        }
+
         public static FlightData instance;
         public static GMapOverlay kmlpolygons;
         public static HUD myhud;
@@ -50,6 +70,10 @@ namespace MissionPlanner.GCSViews
         internal static GMapOverlay geofence;
         internal static GMapOverlay photosoverlay;
         internal static GMapOverlay poioverlay = new GMapOverlay("POI");
+        // 负责展示错误位置的图标
+        internal static GMapOverlay poioverlay2 = new GMapOverlay("POI2");
+        // 负责展示八字轨迹
+        internal static GMapOverlay poioverlay3 = new GMapOverlay("POI3");
         internal static GMapOverlay cameraBounds;
         internal static GMapOverlay rallypointoverlay;
         internal static GMapOverlay tfrpolygons;
@@ -146,7 +170,9 @@ namespace MissionPlanner.GCSViews
         private Propagation prop;
 
         GMapRoute route;
+        GMapRoute route2;
         GMapOverlay routes;
+        GMapOverlay routes2;
         GMapOverlay adsbais;
 
         Script script;
@@ -213,9 +239,6 @@ namespace MissionPlanner.GCSViews
         // 模式
         private int selectC = 0;
 
-        // 地面高度
-        private float groundHight;
-
         // 提示信息
         private static readonly Dictionary<int, string> Messages = new Dictionary<int, string>
     {
@@ -255,6 +278,83 @@ namespace MissionPlanner.GCSViews
 
         // 是否正在播放
         private bool _isPlaying = false;
+
+        /** 考试状态标志，表示是否正在进行飞行考试 */
+        private bool onTest = false;
+
+        /**
+         * 8字航线关键位置点定义
+         * 这些点用于定义和生成完整的8字航线
+         */
+        private PointLatLngAlt zuotongLocation; // 左圆心位置，8字航线左侧圆形的中心点
+        private PointLatLngAlt youtongLocation; // 右圆心位置，8字航线右侧圆形的中心点
+        private PointLatLngAlt mintongLocation; // 中心位置，8字航线的中心交叉点
+        private PointLatLngAlt zuoquanLocation; // 左圆上的定位点
+        private PointLatLngAlt youquanLocation; // 右圆上的定位点
+        private PointLatLngAlt tong1Location; // 辅助定位点1
+        private PointLatLngAlt tong2Location; // 辅助定位点2
+
+        /** 8字航线的最小半径(米)，控制航线大小 */
+        private double minRadius = 0.0; // 8字航线的最小半径，单位：米
+
+        /**
+         * 考试评估相关字段
+         * 用于跟踪和评估飞行表现
+         */
+        private int errorTime = 0; // 错误计时器，累计飞行器偏离航线的时间（毫秒）
+        private int noerrorTime = 5000; // 允许的最大错误时间（毫秒），超过此时间考试失败
+        private float groundHight; // 地面高度，用于计算飞行器相对高度
+        private int NowEntry = 0; // 当前航点序号，标识飞行器当前正在飞向的航点
+
+        /**
+         * 位置跟踪相关字段
+         * 用于记录和处理地图上的鼠标位置和规划点
+         */
+        private PointLatLng mousePoint = new PointLatLngAlt(); // 鼠标在地图上的位置点
+        private PointLatLng planPoint = new PointLatLngAlt(); // 规划点，用于航线规划
+
+        /** 航点规划相关参数 */
+        private int firstPointEntry = 50; // 第一个航点的序号
+        private double closeDist = 2.0; // 接近航点的距离阈值（米），小于此距离视为到达航点
+
+        /**
+         * 8字航线和其他航线规划集合
+         * 存储不同类型和难度的航线点
+         */
+        private List<FlightPoint> bazipointlist = new List<FlightPoint>(); // 完整的8字航线点列表，包含所有航点信息
+        private List<FlightPoint> pointlistA = new List<FlightPoint>(); // A组航线点列表，可能用于不同难度级别
+        private List<FlightPoint> pointlistB = new List<FlightPoint>(); // B组航线点列表，可能用于不同难度级别
+        private List<FlightPoint> pointlistC = new List<FlightPoint>(); // C组航线点列表，可能用于不同难度级别
+        private List<FlightPoint> pointlistD = new List<FlightPoint>(); // D组航线点列表，可能用于不同难度级别
+
+        private int nowMoShi; // 当前考试模式
+
+        /** 自选航线相关参数 */
+        private int zixuanFangXiang; // 自选航线方向
+        private PointLatLng zixuanStartPoint = new PointLatLngAlt(); // 自选航线起点
+        private float zixuanHight; // 自选航线高度
+        private float yawSave; // 保存的偏航角
+
+        /** 考试相关控制变量 */
+        private int gamelift; // 游戏启动标识
+        public List<int> _videoList = new List<int>(); // 视频列表索引
+
+        /** 飞行姿态相关参数 */
+        private float planeAng; // 飞机角度
+        private float baziHight; // 8字航线飞行高度
+        private double zxYawdiff; // 自选航线偏航角差
+        private double addAng; // 附加角度，用于航向调整
+
+        /** 轨迹跟踪相关标志 */
+        private bool guiji; // 轨迹显示控制标志
+        private bool fanxiang; // 方向反转标志
+
+        /** 考试启动相关参数 */
+        private int _GameDeleyStart; // 考试延迟启动计时
+        private int _GameStartID; // 考试启动ID
+
+        // 考试剩余时间
+        public int shengyutime { get; set; }
 
 
         public enum actions
@@ -424,6 +524,10 @@ namespace MissionPlanner.GCSViews
             routes = new GMapOverlay("routes");
             gMapControl1.Overlays.Add(routes);
 
+            routes2 = new GMapOverlay("routes2");
+            gMapControl1.Overlays.Add(routes2);
+            
+
             adsbais = new GMapOverlay("adsb/ais");
             gMapControl1.Overlays.Add(adsbais);
 
@@ -431,6 +535,8 @@ namespace MissionPlanner.GCSViews
             gMapControl1.Overlays.Add(rallypointoverlay);
 
             gMapControl1.Overlays.Add(poioverlay);
+            gMapControl1.Overlays.Add(poioverlay2);
+            gMapControl1.Overlays.Add(poioverlay3);
 
 
             MainV2.comPort.ParamListChanged += FlightData_ParentChanged;
@@ -448,6 +554,7 @@ namespace MissionPlanner.GCSViews
 
             // 初始化考试数据
             initExamConfig();
+            poioverlay3.IsVisibile = false;
 
         }
 
@@ -475,11 +582,6 @@ namespace MissionPlanner.GCSViews
                     hud1.Enabled = true;
 
                 hud1.Dock = DockStyle.Fill;
-            }
-
-            if (Settings.Instance.ContainsKey("quickViewRows"))
-            {
-                setQuickViewRowsCols(Settings.Instance["quickViewCols"], Settings.Instance["quickViewRows"]);
             }
 
             for (int f = 1; f < 30; f++)
@@ -574,6 +676,10 @@ namespace MissionPlanner.GCSViews
             updateDisplayView();
 
             hud1.doResize();
+            uptimer1.Interval = 100;
+            uptimer1.Start();
+            uptimer2.Interval = 1000;
+            uptimer2.Start();
         }
 
         public void BUT_playlog_Click(object sender, EventArgs e)
@@ -665,23 +771,17 @@ namespace MissionPlanner.GCSViews
         private void updateDisplayTabControlActions()
         {
             TabListDisplay.Clear();
-
-            TabListDisplay.Add(tabQuick.Name, MainV2.DisplayConfiguration.displayQuickTab);
-
-            TabListDisplay.Add(tabPagePreFlight.Name, MainV2.DisplayConfiguration.displayPreFlightTab);
             TabListDisplay.Add(tabPagemessages.Name, MainV2.DisplayConfiguration.displayMessagesTab);
         }
 
         private void loadTabControlActions()
         {
-            string tabs = "tabExamOperation;tabExamConfig;tabQuick;tabPagePreFlight;tabPagemessages;";
+            string tabs = "tabExamOperation;tabExamConfig;tabPagemessages;";
 
             if (String.IsNullOrEmpty(tabs) || TabListOriginal == null || TabListOriginal.Count == 0)
                 return;
 
             string[] tabarray = tabs.Split(';');
-            tabarray.Append(tabQuick.Name);
-
             if (tabarray.Length == 0)
                 return;
 
@@ -709,7 +809,6 @@ namespace MissionPlanner.GCSViews
             //we want to at least have one tabpage
             if (tabControlactions.TabPages.Count == 0)
             {
-                tabControlactions.TabPages.Add(tabQuick);
                 tabControlactions.SelectedIndex = 0;
             }
 
@@ -2157,6 +2256,121 @@ namespace MissionPlanner.GCSViews
             Settings.Instance["_config_10"] = _config_10[3].ToString("F1");
             Settings.Instance["_config_11"] = _config_11[3].ToString("F1");
             Settings.Instance["_config_12"] = _config_12[3].ToString("F1");
+        }
+
+        /**
+         * GetMidpoint - 计算8字航线的中心点和关键位置点
+         * 该方法用于生成8字航线的几何结构，包括：
+         * 1. 计算两个圆的圆心和中点
+         * 2. 生成不同半径的圆形轨迹
+         * 3. 设置地图视角和缩放
+         * 4. 生成完整的8字航线点列表
+         */
+        private void GetMidpoint()
+        {
+            // 清除现有的路径点数据
+            pointlistA.Clear(); // 清除A组航线点
+            pointlistB.Clear(); // 清除B组航线点
+            pointlistC.Clear(); // 清除C组航线点
+            pointlistD.Clear(); // 清除D组航线点
+            poioverlay.Polygons.Clear(); // 清除错误标记图层
+            poioverlay3.Polygons.Clear(); // 清除锥桶图层
+
+            // 获取左右圆心的坐标
+            double lat_a = zuotongLocation.Lat; // 左圆心纬度
+            double lon_a = zuotongLocation.Lng; // 左圆心经度
+            double lat_b = youtongLocation.Lat; // 右圆心纬度
+            double lon_b = youtongLocation.Lng; // 右圆心经度
+
+            // 计算中心点和关键位置点
+            double midLat = (lat_a + lat_b) / 2.0; // 中心点纬度
+            double midLon = (lon_a + lon_b) / 2.0; // 中心点经度
+            mintongLocation = new PointLatLng(midLat, midLon); // 中心点坐标
+
+            // 在中心点绘制黄色圆形，半径由配置决定
+            CreaCircleByRadius(_config_1[selectA], mintongLocation, Color.Yellow, 2); // 绘制中心点圆形轨迹
+
+            // 计算左圆心和中心点的中间点
+            double zuozhongLat = (lat_a + midLat) / 2.0; // 左圆心纬度
+            double zuozhongLon = (lon_a + midLon) / 2.0; // 左圆心经度
+            zuoquanLocation = new PointLatLng(zuozhongLat, zuozhongLon); // 左圆心坐标
+
+            // 计算并绘制左侧三个同心圆
+            double zRadius1 = gMapControl1.MapProvider.Projection.GetDistance(zuotongLocation, zuoquanLocation) * 1000.0 - _config_7[selectA];
+            CreaCircleByRadius(zRadius1, zuoquanLocation, Color.Yellow, 2); // 内圆
+            double zRadius2 = gMapControl1.MapProvider.Projection.GetDistance(zuotongLocation, zuoquanLocation) * 1000.0; // 中圆
+            CreaCircleByRadius(zRadius2, zuoquanLocation, Color.White, 4); // 中圆
+            double zRadius3 = gMapControl1.MapProvider.Projection.GetDistance(zuotongLocation, zuoquanLocation) * 1000.0 + _config_7[selectA]; // 外圆
+            CreaCircleByRadius(zRadius3, zuoquanLocation, Color.Yellow, 2); // 外圆
+            minRadius = zRadius2; // 最小半径
+
+            // 计算并绘制右侧三个同心圆
+            double youzhongLat = (lat_b + midLat) / 2.0; // 右圆心纬度
+            double youzhongLon = (lon_b + midLon) / 2.0; // 右圆心经度
+            youquanLocation = new PointLatLng(youzhongLat, youzhongLon); // 右圆心坐标
+
+            // 计算并绘制右侧三个同心圆
+            double yRadius1 = gMapControl1.MapProvider.Projection.GetDistance(youtongLocation, youquanLocation) * 1000.0 - _config_7[selectA];
+            CreaCircleByRadius(yRadius1, youquanLocation, Color.Yellow, 2); // 内圆
+            double yRadius2 = gMapControl1.MapProvider.Projection.GetDistance(youtongLocation, youquanLocation) * 1000.0;
+            CreaCircleByRadius(yRadius2, youquanLocation, Color.White, 4);
+            double yRadius3 = gMapControl1.MapProvider.Projection.GetDistance(youtongLocation, youquanLocation) * 1000.0 + _config_7[selectA]; // 外圆
+            CreaCircleByRadius(yRadius3, youquanLocation, Color.Yellow, 2); // 外圆
+
+            // 计算飞机朝向角度
+            planeAng = (float)gMapControl1.MapProvider.Projection.GetBearing(zuotongLocation, youtongLocation) - 90f; // 计算航向角
+            // 确保角度在0-359度范围内
+            if (planeAng < 0f) {
+                planeAng += 360f;
+            }
+            if (planeAng > 359f) {
+                planeAng -= 360f;
+            }
+            // 设置地图方向和缩放
+            gMapControl1.Bearing = (float)gMapControl1.MapProvider.Projection.GetBearing(new PointLatLng(lat_a, lon_a), new PointLatLng(lat_b, lon_b)) - 90f;
+            gMapControl1.Zoom = 22.1;
+
+            // 计算后视角度
+            double backAng = gMapControl1.MapProvider.Projection.GetBearing(zuotongLocation, youtongLocation) + 90.0;
+            if (backAng < 0.0)
+            {
+                backAng += 360.0;
+            }
+            if (backAng > 359.0)
+            {
+                backAng -= 360.0;
+            }
+
+            // 设置地图视角位置
+            double backlat = midLat;
+            double backlng = midLon;
+            AddWPToMapForBearingAndDis(ref backlat, ref backlng, backAng, 1.2);
+            gMapControl1.Position = new PointLatLng(backlat, backlng);
+
+            // 生成四种不同的8字航线路径点
+            int entry = 0;
+            // 生成A组航线点
+            GetBaZiList(new PointLatLng(lat_a, lon_a), new PointLatLng(midLat, midLon), -1, ref entry, 1);
+            GetBaZiList(new PointLatLng(lat_b, lon_b), new PointLatLng(midLat, midLon), 1, ref entry, 1);
+
+            // 生成B组航线点
+            entry = 0;
+            GetBaZiList(new PointLatLng(lat_a, lon_a), new PointLatLng(midLat, midLon), 1, ref entry, 2);
+            GetBaZiList(new PointLatLng(lat_b, lon_b), new PointLatLng(midLat, midLon), -1, ref entry, 2);
+
+            // 生成C组航线点
+            entry = 0;
+            GetBaZiList(new PointLatLng(lat_b, lon_b), new PointLatLng(midLat, midLon), 1, ref entry, 3);
+            GetBaZiList(new PointLatLng(lat_a, lon_a), new PointLatLng(midLat, midLon), -1, ref entry, 3);
+
+            // 生成D组航线点
+            entry = 0;
+            GetBaZiList(new PointLatLng(lat_b, lon_b), new PointLatLng(midLat, midLon), -1, ref entry, 4);
+            GetBaZiList(new PointLatLng(lat_a, lon_a), new PointLatLng(midLat, midLon), 1, ref entry, 4);
+
+            // 计算8字航线上的等距点
+            Calculate8EquidistantPoints(zuotongLocation, zuoquanLocation, right: false);
+            Calculate8EquidistantPoints(youtongLocation, youquanLocation, right: true);
         }
 
 
@@ -4239,154 +4453,6 @@ namespace MissionPlanner.GCSViews
             }
         }
 
-        private void setQuickViewRowsCols(string cols, string rows)
-        {
-            tableLayoutPanelQuick.PerformLayout();
-            tableLayoutPanelQuick.SuspendLayout();
-            tableLayoutPanelQuick.ColumnCount = Math.Max(1, int.Parse(cols));
-            tableLayoutPanelQuick.RowCount = Math.Max(1, int.Parse(rows));
-
-            Settings.Instance["quickViewRows"] = tableLayoutPanelQuick.RowCount.ToString();
-            Settings.Instance["quickViewCols"] = tableLayoutPanelQuick.ColumnCount.ToString();
-
-            int total = tableLayoutPanelQuick.ColumnCount * tableLayoutPanelQuick.RowCount;
-
-            // clean up extra
-            var ctls = tableLayoutPanelQuick.Controls.Select(a => (Control) a).ToList();
-            // remove those in row/cols outside our selection
-            ctls.Select(a =>
-            {
-                try
-                {
-                    if (a == null)
-                        return default(TableLayoutPanelCellPosition);
-                    var pos = tableLayoutPanelQuick.GetPositionFromControl((Control) a);
-                    if (pos.Column >= tableLayoutPanelQuick.ColumnCount)
-                    {
-                        tableLayoutPanelQuick.Controls.Remove((Control) a);
-                    }
-                    else if (pos.Row >= tableLayoutPanelQuick.RowCount)
-                    {
-                        tableLayoutPanelQuick.Controls.Remove((Control) a);
-                    }
-
-                    return pos;
-                }
-                catch (Exception ex)
-                {
-                    log.Error(ex);
-                    return default(TableLayoutPanelCellPosition);
-                }
-            }).ToList();
-            //randomiser for colors
-            Random random = new Random();
-            var controlCount = tableLayoutPanelQuick.Controls;
-            ////if the amount on the quickView Tab decreases, clear the colors List
-            if ((controlCount.Count <= total || controlCount.Count >= total) && listQuickView.Count() % 16 == 0)
-            {
-                listQuickView.Clear();
-            }
-            // add extra
-            while (total > tableLayoutPanelQuick.Controls.Count)
-            {
-                //Variable to Set the name of the quickView Control/s
-                var NameQuickView = "quickView" +  (controlCount.Count + 1);
-
-                //if the 9 colors are equal in each list, then reset the colors in listQV
-                if ((listQuickView.ToList().OrderBy(x => Name) == colorsForDefaultQuickView.ToList().OrderBy(x => Name)) || (listQuickView.Count == colorsForDefaultQuickView.Length))
-                {
-                    listQuickView.Clear();
-                }
-
-                //Generate a random color
-                var randomColorQuickView = colorsForDefaultQuickView[random.Next(colorsForDefaultQuickView.Length)];
-
-                //If the list contains the random color and the listQV list contains more than one item, exclude the color from the next color to be chosen
-                if (listQuickView.Contains(randomColorQuickView) && listQuickView.ToList().Count() > 1)
-                {
-                    //Change random color to be the next available color
-                    var differentColorQuickView = colorsForDefaultQuickView[random.Next(colorsForDefaultQuickView.Length)];
-                    //Variable to find the items that are in colorsForDefault array, but are not in ListQV list
-                    var colorsRemaining = colorsForDefaultQuickView.Except(listQuickView);
-
-                    //if differentColor is the same as randomColor, then select the next item in the list of colors which are still available to be chosen from.
-                    if (randomColorQuickView == differentColorQuickView)
-                    {
-                        //make differentColor the next availaible color in the list of colors which are not yet in the listQV list
-                        differentColorQuickView = colorsRemaining.FirstOrDefault();
-                    }
-                    //if randomColor is not equal to differentColor, and check if either color is contained in the list of colors(listQV)
-                    if (randomColorQuickView != differentColorQuickView && (listQuickView.Contains(differentColorQuickView) || listQuickView.Contains(randomColorQuickView)))
-                    {
-                        //if differentColor and randomColor are both in the listQV list, then get the next color of remaining colors which have not yet been used
-                        if ((listQuickView.Contains(differentColorQuickView) && listQuickView.Contains(randomColorQuickView)))
-                        {
-                            //assign the next color available to the differentColorVariable
-                            differentColorQuickView = colorsRemaining.FirstOrDefault();
-                        }
-                        else
-                        {
-                            differentColorQuickView = colorsRemaining.FirstOrDefault();
-                        }
-                    }
-                    //assign the differentColor to randomColor
-                    randomColorQuickView = differentColorQuickView;
-                    //add the new randomColor into the list of colors(listQV)
-                    listQuickView.Add(randomColorQuickView);
-                    //if the list does not yet contain the randomColor, then add the random color into the list(listQV)
-                    if (!listQuickView.Contains(randomColorQuickView))
-                    {
-                        listQuickView.Add(randomColorQuickView);
-                    }
-                }
-                //if the random color is not in the list of Colors, then add it to the list
-                else if (!listQuickView.Contains(randomColorQuickView))
-                {
-                    //add the color to a list
-                    listQuickView.Add(randomColorQuickView);
-                }
-                //assigning the Name and NumberColor accordingly.
-                var QV = new QuickView()
-                {
-                    Name = NameQuickView,
-                    numberColor = randomColorQuickView,
-                };
-                if (!MainV2.DisplayConfiguration.lockQuickView)
-                    QV.DoubleClick += quickView_DoubleClick;
-                QV.ContextMenuStrip = contextMenuStripQuickView;
-                QV.Dock = DockStyle.Fill;
-                QV.numberColorBackup = QV.numberColor;
-                QV.number = 0;
-
-                tableLayoutPanelQuick.Controls.Add(QV);
-                QV.Invalidate();
-            }
-            //clear the listQV when the count of the list is divisible by 16
-            if (listQuickView.ToList().Count % 16 == 0)
-            {
-                listQuickView.Clear();
-            }
-            for (int i = 0; i < tableLayoutPanelQuick.ColumnCount; i++)
-            {
-                if (tableLayoutPanelQuick.ColumnStyles.Count <= i)
-                    tableLayoutPanelQuick.ColumnStyles.Add(new ColumnStyle());
-                tableLayoutPanelQuick.ColumnStyles[i].SizeType = SizeType.Percent;
-                tableLayoutPanelQuick.ColumnStyles[i].Width = 100.0f / tableLayoutPanelQuick.ColumnCount;
-            }
-
-            for (int j = 0; j < tableLayoutPanelQuick.RowCount; j++)
-            {
-                if (tableLayoutPanelQuick.RowStyles.Count <= j)
-                    tableLayoutPanelQuick.RowStyles.Add(new RowStyle());
-                tableLayoutPanelQuick.RowStyles[j].SizeType = SizeType.Percent;
-                tableLayoutPanelQuick.RowStyles[j].Height = 100.0f / tableLayoutPanelQuick.RowCount;
-            }
-
-            tableLayoutPanelQuick.Controls.ForEach(a => ((Control) a).Invalidate());
-
-            tableLayoutPanelQuick.ResumeLayout(true);
-        }
-
         bool setupPropertyInfo(ref PropertyInfo input, string name, object source)
         {
             Type test = source.GetType();
@@ -4417,9 +4483,6 @@ namespace MissionPlanner.GCSViews
             {
                 if (InputBox.Show("Rows", "Enter number of rows to have.", ref rows) == DialogResult.OK)
                 {
-                    if (rows.IsNumber() && cols.IsNumber())
-                        setQuickViewRowsCols(cols, rows);
-
                     Activate();
                 }
             }
@@ -4528,22 +4591,9 @@ namespace MissionPlanner.GCSViews
                 //  tabStatus.Controls.Remove(temp);
                 // }
 
-                if (tabControlactions.SelectedTab == tabQuick)
-                {
-                }
             }
         }
 
-
-        private void tabQuick_Resize(object sender, EventArgs e)
-        {
-            tableLayoutPanelQuick.Width = tabQuick.Width;
-            tableLayoutPanelQuick.AutoScroll = false;
-        }
-
-        void tabStatus_Resize(object sender, EventArgs e)
-        {
-        }
 
         private void takeOffToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -4677,18 +4727,6 @@ namespace MissionPlanner.GCSViews
                     MainV2.comPort.MAV.cs.UpdateCurrentSettings(
                         bindingSourceHud.UpdateDataSource(MainV2.comPort.MAV.cs));
                     //Console.WriteLine("DONE ");
-
-                     if (tabControlactions.SelectedTab == tabQuick)
-                    {
-                        MainV2.comPort.MAV.cs.UpdateCurrentSettings(
-                            bindingSourceQuickTab.UpdateDataSource(MainV2.comPort.MAV.cs));
-                    }
-                    
-                    else if (tabControlactions.SelectedTab == tabPagePreFlight)
-                    {
-                        MainV2.comPort.MAV.cs.UpdateCurrentSettings(
-                            bindingSourceGaugesTab.UpdateDataSource(MainV2.comPort.MAV.cs));
-                    }
                 }
                 else
                 {
@@ -5271,9 +5309,6 @@ namespace MissionPlanner.GCSViews
             tab.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
 
             dropout.Text = "Flight DATA";
-            tabControlactions.Controls.Remove(tabQuick);
-            tab.Controls.Add(tabQuick);
-            tabQuick.BorderStyle = BorderStyle.Fixed3D;
             dropout.FormClosed += dropoutQuick_FormClosed;
             dropout.Controls.Add(tab);
             dropout.RestoreStartupLocation();
@@ -5285,8 +5320,6 @@ namespace MissionPlanner.GCSViews
         void dropoutQuick_FormClosed(object sender, FormClosedEventArgs e)
         {
             (sender as Form).SaveStartupLocation();
-            tabControlactions.Controls.Add(tabQuick);
-            tabControlactions.SelectedTab = tabQuick;
             tabQuickDetached = false;
             contextMenuStripQuickView.Items["undockToolStripMenuItem"].Visible = true;
         }
@@ -5591,6 +5624,11 @@ namespace MissionPlanner.GCSViews
             setConfigList();
         }
 
+        /// <summary>
+        /// 重置地面高度
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonSetHight_Click(object sender, EventArgs e)
         {
             if (!MainV2.comPort.BaseStream.IsOpen)
@@ -5761,5 +5799,444 @@ namespace MissionPlanner.GCSViews
             lng = targetLocation.Item2;
         }
 
+        private void CreaCircleZhuiTong(double radius, PointLatLng minpoint, Color color, int width)
+        {
+            List<PointLatLng> points = new List<PointLatLng>();
+            for (double a = 0.0; a <= 360.0 && a >= 0.0; a += 5.0)
+            {
+                double R = 6371000.0;
+                double lat2 = Math.Asin(Math.Sin(minpoint.Lat * (Math.PI / 180.0)) * Math.Cos(radius / R) + Math.Cos(minpoint.Lat * (Math.PI / 180.0)) * Math.Sin(radius / R) * Math.Cos(a * (Math.PI / 180.0)));
+                double lon2 = minpoint.Lng * (Math.PI / 180.0) + Math.Atan2(Math.Sin(a * (Math.PI / 180.0)) * Math.Sin(radius / R) * Math.Cos(minpoint.Lat * (Math.PI / 180.0)), Math.Cos(radius / R) - Math.Sin(minpoint.Lat * (Math.PI / 180.0)) * Math.Sin(lat2));
+                PointLatLng pll = new PointLatLng(lat2 * (180.0 / Math.PI), lon2 * (180.0 / Math.PI));
+                points.Add(pll);
+            }
+            GMapPolygon polygon = new GMapPolygon(points, "Circle");
+            polygon.Stroke = new Pen(color, width);
+            polygon.Fill = Brushes.Transparent;
+            poioverlay3.Polygons.Add(polygon);
+        }
+
+        private void CreaCircleByRadius(double radius, PointLatLng minpoint, Color color, int width)
+        {
+            List<PointLatLng> points = new List<PointLatLng>();
+            for (double a = 0.0; a <= 360.0 && a >= 0.0; a += 1.0)
+            {
+                double R = 6371000.0;
+                double lat2 = Math.Asin(Math.Sin(minpoint.Lat * (Math.PI / 180.0)) * Math.Cos(radius / R) + Math.Cos(minpoint.Lat * (Math.PI / 180.0)) * Math.Sin(radius / R) * Math.Cos(a * (Math.PI / 180.0)));
+                double lon2 = minpoint.Lng * (Math.PI / 180.0) + Math.Atan2(Math.Sin(a * (Math.PI / 180.0)) * Math.Sin(radius / R) * Math.Cos(minpoint.Lat * (Math.PI / 180.0)), Math.Cos(radius / R) - Math.Sin(minpoint.Lat * (Math.PI / 180.0)) * Math.Sin(lat2));
+                PointLatLng pll = new PointLatLng(lat2 * (180.0 / Math.PI), lon2 * (180.0 / Math.PI));
+                points.Add(pll);
+            }
+            GMapPolygon polygon = new GMapPolygon(points, "Circle");
+            polygon.Stroke = new Pen(color, width);
+            polygon.Fill = Brushes.Transparent;
+            poioverlay.Polygons.Add(polygon);
+        }
+
+        private void GetBaZiList(PointLatLng pointA, PointLatLng pointB, int Direction, ref int entry, int listEntry)
+        {
+            double midLat = (pointA.Lat + pointB.Lat) / 2.0;
+            double midLon = (pointA.Lng + pointB.Lng) / 2.0;
+            int Points = 360;
+            double Radius = gMapControl1.MapProvider.Projection.GetDistance(pointA, pointB) * 1000.0 / 2.0;
+            int startangle = Convert.ToInt32(gMapControl1.MapProvider.Projection.GetBearing(pointA, pointB));
+            if (listEntry == 1 && Direction == 1)
+            {
+                startangle++;
+            }
+            if (listEntry == 2 && Direction == -1)
+            {
+                startangle--;
+            }
+            if (listEntry == 3 && Direction == -1)
+            {
+                startangle--;
+            }
+            if (listEntry == 4 && Direction == 1)
+            {
+                startangle++;
+            }
+            Radius /= (double)CurrentState.multiplierdist;
+            double a = startangle;
+            double step = 360f / (float)Points;
+            if (Direction == -1)
+            {
+                a += 360.0;
+                step *= -1.0;
+            }
+            int count = 0;
+            for (; a <= (double)(startangle + 360) && a >= 0.0; a += step)
+            {
+                count++;
+                double d = Radius;
+                double R = 6371000.0;
+                double lat2 = Math.Asin(Math.Sin(midLat * (Math.PI / 180.0)) * Math.Cos(d / R) + Math.Cos(midLat * (Math.PI / 180.0)) * Math.Sin(d / R) * Math.Cos(a * (Math.PI / 180.0)));
+                double lon2 = midLon * (Math.PI / 180.0) + Math.Atan2(Math.Sin(a * (Math.PI / 180.0)) * Math.Sin(d / R) * Math.Cos(midLat * (Math.PI / 180.0)), Math.Cos(d / R) - Math.Sin(midLat * (Math.PI / 180.0)) * Math.Sin(lat2));
+                PointLatLng pll = new PointLatLng(lat2 * (180.0 / Math.PI), lon2 * (180.0 / Math.PI));
+                FlightPoint flightPoint = default(FlightPoint);
+                flightPoint.Entry = entry;
+                flightPoint.Lat = pll.Lat;
+                flightPoint.Lng = pll.Lng;
+                double ang = a;
+                if (listEntry == 2 || listEntry == 3)
+                {
+                    ang = ((entry > 360) ? (ang - 90.0) : (ang + 90.0));
+                }
+                if (listEntry == 1 || listEntry == 4)
+                {
+                    ang = ((entry > 360) ? (ang + 90.0) : (ang - 90.0));
+                }
+                if (ang < 0.0)
+                {
+                    ang += 360.0;
+                }
+                if (ang >= 360.0)
+                {
+                    ang -= 360.0;
+                }
+                flightPoint.Ang = ang;
+                entry++;
+                if (listEntry == 1)
+                {
+                    pointlistA.Add(flightPoint);
+                }
+                if (listEntry == 2)
+                {
+                    pointlistB.Add(flightPoint);
+                }
+                if (listEntry == 3)
+                {
+                    pointlistC.Add(flightPoint);
+                }
+                if (listEntry == 4)
+                {
+                    pointlistD.Add(flightPoint);
+                }
+                if (count > Points)
+                {
+                    break;
+                }
+            }
+        }
+
+        public void Calculate8EquidistantPoints(PointLatLng pointA, PointLatLng pointB, bool right)
+        {
+            double nextAng = gMapControl1.MapProvider.Projection.GetBearing(pointA, pointB);
+            int count = 8;
+            if (right)
+            {
+                count = 7;
+            }
+            for (int i = 0; i < count; i++)
+            {
+                nextAng += 45.0;
+                if (nextAng >= 360.0)
+                {
+                    nextAng -= 360.0;
+                }
+                Tuple<double, double> targetLocation = GetTargetLocation(pointB.Lat, pointB.Lng, nextAng, minRadius);
+                CreaCircleZhuiTong(0.3, new PointLatLng(targetLocation.Item1, targetLocation.Item2), Color.Black, 2);
+            }
+        }
+
+        /// <summary>
+        /// 设置左边桶
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonSetLeft_Click(object sender, EventArgs e)
+        {
+            if (!MainV2.comPort.BaseStream.IsOpen)
+            {
+                CustomMessageBox.Show("设备未连接。");
+                return;
+            }
+            double lat = MainV2.comPort.MAV.cs.lat;
+            double lng = MainV2.comPort.MAV.cs.lng;
+            zuotongLocation = new PointLatLng(lat, lng);
+            Settings.Instance["zuolat"] = lat.ToString();
+            Settings.Instance["zuolng"] = lng.ToString();
+            SendVideo(109);
+            if (youtongLocation != null)
+            {
+                GetMidpoint();
+            }
+        }
+
+        /// <summary>
+        /// 设置右边桶
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonSetRight_Click(object sender, EventArgs e)
+        {
+            if (!MainV2.comPort.BaseStream.IsOpen)
+            {
+                CustomMessageBox.Show("设备未连接。");
+                return;
+            }
+            double lat = MainV2.comPort.MAV.cs.lat;
+            double lng = MainV2.comPort.MAV.cs.lng;
+            youtongLocation = new PointLatLng(lat, lng);
+            Settings.Instance["youlat"] = lat.ToString();
+            Settings.Instance["youlng"] = lng.ToString();
+            SendVideo(110);
+            if (zuotongLocation != null)
+            {
+                GetMidpoint();
+            }
+        }
+
+        /**
+         * SendError - 发送错误信息
+         * 向用户界面发送错误信息，并更新错误状态
+         * 
+         * @param pos 错误发生的位置坐标
+         * @param index 错误类型索引
+         */
+        private void SendError(PointLatLng pos, int index, float var = 0f)
+        {
+            if (index == 1)
+            {
+                GMapMarker m = new GMarkerGoogle(pos, GMarkerGoogleType.red);
+                m.ToolTipMode = MarkerTooltipMode.OnMouseOver;
+                m.ToolTipText = "水平偏差(" + var.ToString("F1") + "m)";
+                poioverlay2.Markers.Add(m);
+            }
+            if (index == 2)
+            {
+                GMapMarker m2 = new GMarkerGoogle(pos, GMarkerGoogleType.pink);
+                m2.ToolTipMode = MarkerTooltipMode.OnMouseOver;
+                m2.ToolTipText = "高度偏差(" + var.ToString("F1") + "m)";
+                poioverlay2.Markers.Add(m2);
+            }
+            if (index == 3)
+            {
+                GMapMarker m3 = new GMarkerGoogle(pos, GMarkerGoogleType.orange);
+                m3.ToolTipMode = MarkerTooltipMode.OnMouseOver;
+                m3.ToolTipText = "角速度过小(" + var.ToString("F1") + ")";
+                poioverlay2.Markers.Add(m3);
+            }
+            if (index == 4)
+            {
+                GMapMarker m4 = new GMarkerGoogle(pos, GMarkerGoogleType.yellow);
+                m4.ToolTipMode = MarkerTooltipMode.OnMouseOver;
+                m4.ToolTipText = "角速度过大(" + var.ToString("F1") + ")";
+                poioverlay2.Markers.Add(m4);
+            }
+            if (index == 5) { }
+            if (index == 6) { }
+            if (index == 7)
+            {
+                GMapMarker m5 = new GMarkerGoogle(pos, GMarkerGoogleType.lightblue);
+                m5.ToolTipMode = MarkerTooltipMode.OnMouseOver;
+                m5.ToolTipText = "自旋方向错误";
+                poioverlay2.Markers.Add(m5);
+            }
+            if (index == 8) { }
+            if (index == 9)
+            {
+                GMapMarker m6 = new GMarkerGoogle(pos, GMarkerGoogleType.green);
+                m6.ToolTipMode = MarkerTooltipMode.OnMouseOver;
+                m6.ToolTipText = "角度偏差过大(" + var.ToString("F1") + "°)";
+                poioverlay2.Markers.Add(m6);
+            }
+            if (index == 10)
+            {
+                GMapMarker m7 = new GMarkerGoogle(pos, GMarkerGoogleType.purple);
+                m7.ToolTipMode = MarkerTooltipMode.OnMouseOver;
+                m7.ToolTipText = "水平速度过小(" + var.ToString("F1") + "m)";
+                poioverlay2.Markers.Add(m7);
+            }
+        }
+
+        /**
+         * GameStart - 开始考试
+         * @param moshi - 考试模式ID，不同值代表不同的考试类型
+         * 根据指定的模式启动相应的考试流程，初始化考试环境和状态
+         */
+        private void GameStart(int moshi)
+        {
+            //progressBar2.Text = "0.0%";
+            //progressBar2.Value = 0;
+            //myLabel3.Text = "0.0";
+            //myLabel15.Text = "0.0";
+            //myLabel17.Text = "0.0";
+            yawSave = -1f;
+            zxYawdiff = 0.0;
+            addAng = 0.0;
+            zixuanFangXiang = -1;
+            fanxiang = false;
+            _GameDeleyStart = -1; // 重置延迟启动计时器
+            _GameStartID = 0; // 重置考试模式ID
+            poioverlay2.Markers.Clear(); // 清除地图标记
+            route2.Points.Clear(); // 清除航线轨迹
+            bazipointlist.Clear(); // 清除航线点列表
+            _videoList.Clear(); // 清除视频列表
+            GetMidpoint(); // 获取中心点
+            nowMoShi = moshi;
+            shengyutime = 60;
+        }
+
+        /**
+         * GameEnd - 结束考试
+         * 清理考试状态，恢复默认设置，重置所有考试相关变量
+         */
+        private void GameEnd()
+        {
+            nowMoShi = 0; // 重置考试模式
+            shengyutime = 0; // 重置剩余时间
+            guiji = false; // 重置航线轨迹
+            myButton6.Text = "开始\n考试"; // 重置按钮文本
+            //myLabel5.Text = ""; // 重置进度文本
+        }
+
+        /**
+         * GameDeleyStart - 延迟启动考试
+         * @param deley - 延迟时间
+         * @param moshi - 考试模式ID
+         * 设置延迟启动计时器，并指定考试模式ID
+         */
+        private void GameDeleyStart(int deley, int moshi)
+        {
+            _GameDeleyStart = deley;
+            _GameStartID = moshi;
+        }
+
+        /**
+         * GameError - 考试错误处理
+         * @param errorID - 错误ID，对应不同类型的错误
+         * @param jixu - 是否继续考试
+         * @param backMoshi - 错误处理后返回的模式
+         * 处理考试过程中出现的各种错误情况，播放相应提示并决定是否继续考试
+         */
+        private void GameError(int errorID, bool jixu, int backMoshi, float var = 0f)
+        {
+            if (jixu && selectB != 2)
+            {
+                if (errorTime < uptimer2.Interval)
+                {
+                    SendError(planPoint, errorID, var);
+                    SendVideo(errorID);
+                    errorTime += noerrorTime;
+                }
+                return;
+            }
+            SendError(planPoint, errorID, var);
+            SendVideo(errorID);
+            guiji = false;
+            nowMoShi = 0;
+            shengyutime = 0;
+            if (selectB == 2)
+            {
+                gamelift--;
+                if (gamelift == 0)
+                {
+                    SendVideo(99);
+                    if (selectC == 1)
+                    {
+                        SendVideo(111);
+                        GameDeleyStart(6000, 1);
+                        gamelift = 3;
+                    }
+                    else
+                    {
+                        GameEnd();
+                    }
+                    return;
+                }
+            }
+            GameDeleyStart(5000, backMoshi);
+        }
+
+        /// <summary>
+        /// 考试按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void myButton6_Click(object sender, EventArgs e)
+        {
+            if (!MainV2.comPort.BaseStream.IsOpen)
+            {
+                CustomMessageBox.Show("设备未连接。");
+            }
+            else if (zuotongLocation == null || youtongLocation == null)
+            {
+                CustomMessageBox.Show("请先标定场地。");
+            }
+            else if (nowMoShi == 0)
+            {
+                if (selectB == 2)
+                {
+                    gamelift = 3;
+                }
+                else
+                {
+                    gamelift = -1;
+                }
+                if (selectB == 0 || selectB == 2)
+                {
+                    GameStart(1);
+                }
+                else
+                {
+                    GameStart(1001);
+                }
+                myButton6.Text = "停止\n考试";
+            }
+            else
+            {
+                GameEnd();
+            }
+        }
+
+        private void uptimer1_Tick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void uptimer2_Tick(object sender, EventArgs e)
+        {
+            if (errorTime >= uptimer2.Interval)
+            {
+                errorTime -= uptimer2.Interval;
+            }
+            if (shengyutime >= uptimer2.Interval / 1000)
+            {
+                shengyutime -= uptimer2.Interval / 1000;
+            }
+            if (_GameDeleyStart > -1 && _GameDeleyStart >= uptimer2.Interval)
+            {
+                _GameDeleyStart -= uptimer2.Interval;
+            }
+        }
+
+        /// <summary>
+        /// 显示隐藏锥桶
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonShow_Click(object sender, EventArgs e)
+        {
+            if (poioverlay3.IsVisibile)
+            {
+                poioverlay3.IsVisibile = false;
+            }
+            else
+            {
+                poioverlay3.IsVisibile = true;
+            }
+        }
+
+        /// <summary>
+        /// 考场居中显示
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonSetCenter_Click(object sender, EventArgs e)
+        {
+            gMapControl1.Position = mintongLocation;
+            gMapControl1.Zoom = 22.1;
+        }
     }
 }
