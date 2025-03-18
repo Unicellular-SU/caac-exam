@@ -2151,7 +2151,14 @@ namespace MissionPlanner.GCSViews
             {
                 groundHight = float.Parse(Settings.Instance["groundHight"]);
             }
-
+            nowMoShi = 0;
+            _GameDeleyStart = -1;
+            if (Settings.Instance["zuolat"] != null && Settings.Instance["zuolng"] != null && Settings.Instance["youlat"] != null && Settings.Instance["youlng"] != null)
+            {
+                zuotongLocation = new PointLatLng(float.Parse(Settings.Instance["zuolat"]), float.Parse(Settings.Instance["zuolng"]));
+                youtongLocation = new PointLatLng(float.Parse(Settings.Instance["youlat"]), float.Parse(Settings.Instance["youlng"]));
+                GetMidpoint();
+            }
 
             try
             {
@@ -2239,11 +2246,11 @@ namespace MissionPlanner.GCSViews
             _config_10[3] = double.Parse(textBox8MaxFeixing.Text);
             _config_11[3] = double.Parse(textBox8MaxGaodu.Text);
             _config_12[3] = double.Parse(textBox8MaxTime.Text);
-            // 修改功能
-            //if (needrest && zuotongLocation != null && youtongLocation != null)
-            //{
-            //    GetMidpoint();
-            //}
+
+            if (needrest && zuotongLocation != null && youtongLocation != null)
+            {
+                GetMidpoint();
+            }
             Settings.Instance["_config_1"] = _config_1[3].ToString("F1");
             Settings.Instance["_config_2"] = _config_2[3].ToString("F1");
             Settings.Instance["_config_3"] = _config_3[3].ToString("F1");
@@ -5622,6 +5629,7 @@ namespace MissionPlanner.GCSViews
         private void buttonCofirm_Click(object sender, EventArgs e)
         {
             setConfigList();
+            updateMessage("修改配置成功");
         }
 
         /// <summary>
@@ -6238,5 +6246,7 @@ namespace MissionPlanner.GCSViews
             gMapControl1.Position = mintongLocation;
             gMapControl1.Zoom = 22.1;
         }
+
+
     }
 }

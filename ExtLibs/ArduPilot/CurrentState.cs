@@ -283,6 +283,11 @@ namespace MissionPlanner
             }
         }
 
+        [GroupText("YAW")]
+        [DisplayFieldName("yawSpeed.Field")]
+        [DisplayText("yawSpeed")]
+        public float yawSpeed { get; set; }
+
         [GroupText("Attitude")]
         [DisplayFieldName("SSA.Field")]
         [DisplayText("SSA (deg)")]
@@ -3182,6 +3187,7 @@ namespace MissionPlanner
                             roll = (float)(att.roll * MathHelper.rad2deg);
                             pitch = (float)(att.pitch * MathHelper.rad2deg);
                             yaw = (float)(att.yaw * MathHelper.rad2deg);
+                            yawSpeed = att.yawspeed * 100f;
 
                             //Console.WriteLine(MAV.sysid + " " +roll + " " + pitch + " " + yaw);
 

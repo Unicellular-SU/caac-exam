@@ -157,12 +157,12 @@ namespace MissionPlanner.GCSViews
             this.bindingSourceGaugesTab = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSourcePayloadTab = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSourceStatusTab = new System.Windows.Forms.BindingSource(this.components);
+            this.uptimer1 = new System.Windows.Forms.Timer(this.components);
+            this.uptimer2 = new System.Windows.Forms.Timer(this.components);
             this.distanceBar1 = new MissionPlanner.Controls.DistanceBar();
             this.modifyandSetSpeed = new MissionPlanner.Controls.ModifyandSet();
             this.modifyandSetAlt = new MissionPlanner.Controls.ModifyandSet();
             this.modifyandSetLoiterRad = new MissionPlanner.Controls.ModifyandSet();
-            this.uptimer1 = new System.Windows.Forms.Timer(this.components);
-            this.uptimer2 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.MainH)).BeginInit();
             this.MainH.Panel1.SuspendLayout();
             this.MainH.Panel2.SuspendLayout();
@@ -1181,7 +1181,7 @@ namespace MissionPlanner.GCSViews
             this.windDir1.BackColor = System.Drawing.Color.Transparent;
             this.windDir1.DataBindings.Add(new System.Windows.Forms.Binding("Direction", this.bindingSource1, "wind_dir", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.windDir1.DataBindings.Add(new System.Windows.Forms.Binding("Speed", this.bindingSource1, "wind_vel", true, System.Windows.Forms.DataSourceUpdateMode.Never));
-            this.windDir1.Direction = 360D;
+            this.windDir1.Direction = 180D;
             resources.ApplyResources(this.windDir1, "windDir1");
             this.windDir1.Name = "windDir1";
             this.windDir1.Speed = 0D;
@@ -1529,6 +1529,14 @@ namespace MissionPlanner.GCSViews
             // 
             this.bindingSourceStatusTab.DataSource = typeof(MissionPlanner.CurrentState);
             // 
+            // uptimer1
+            // 
+            this.uptimer1.Tick += new System.EventHandler(this.uptimer1_Tick);
+            // 
+            // uptimer2
+            // 
+            this.uptimer2.Tick += new System.EventHandler(this.uptimer2_Tick);
+            // 
             // distanceBar1
             // 
             resources.ApplyResources(this.distanceBar1, "distanceBar1");
@@ -1621,14 +1629,6 @@ namespace MissionPlanner.GCSViews
             0,
             0});
             this.modifyandSetLoiterRad.Click += new System.EventHandler(this.modifyandSetLoiterRad_Click);
-            // 
-            // uptimer1
-            // 
-            this.uptimer1.Tick += new System.EventHandler(this.uptimer1_Tick);
-            // 
-            // uptimer2
-            // 
-            this.uptimer2.Tick += new System.EventHandler(this.uptimer2_Tick);
             // 
             // FlightData
             // 
