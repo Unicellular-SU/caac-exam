@@ -58,6 +58,7 @@ namespace MissionPlanner
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.imageRenderer1 = new BrightIdeasSoftware.ImageRenderer();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.myPanel2 = new MyPanel();
             this.status1 = new MissionPlanner.Controls.Status();
             this.CTX_mainmenu.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -67,6 +68,7 @@ namespace MissionPlanner
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.myPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // MainMenu
@@ -154,8 +156,8 @@ namespace MissionPlanner
             // 
             // myPanel1
             // 
-            this.myPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(214)))), ((int)(((byte)(234)))));
-            this.myPanel1.Controls.Add(this.cmb_Connection);
+            this.myPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(204)))), ((int)(((byte)(255)))));
+            this.myPanel1.Controls.Add(this.myPanel2);
             this.myPanel1.Controls.Add(this.pictureBoxConnect);
             this.myPanel1.Controls.Add(this.labelLocation);
             this.myPanel1.Controls.Add(this.pictureBox3);
@@ -224,6 +226,13 @@ namespace MissionPlanner
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // myPanel2
+            // 
+            this.myPanel2.Controls.Add(this.cmb_Connection);
+            resources.ApplyResources(this.myPanel2, "myPanel2");
+            this.myPanel2.Name = "myPanel2";
+            this.myPanel2.Opacity = 0;
+            // 
             // status1
             // 
             resources.ApplyResources(this.status1, "status1");
@@ -251,6 +260,7 @@ namespace MissionPlanner
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.myPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -278,5 +288,6 @@ namespace MissionPlanner
         private MyPanel panel2;
         private System.Windows.Forms.PictureBox pictureBoxConnect;
         private System.Windows.Forms.ComboBox cmb_Connection;
+        private MyPanel myPanel2;
     }
 }

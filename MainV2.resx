@@ -238,7 +238,7 @@
     <value>2</value>
   </data>
   <data name="cmb_Connection.Location" type="System.Drawing.Point, System.Drawing">
-    <value>864, 18</value>
+    <value>10, 14</value>
   </data>
   <data name="cmb_Connection.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 30, 3, 3</value>
@@ -256,9 +256,33 @@
     <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;cmb_Connection.Parent" xml:space="preserve">
-    <value>myPanel1</value>
+    <value>myPanel2</value>
   </data>
   <data name="&gt;&gt;cmb_Connection.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="myPanel2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="myPanel2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>854, 0</value>
+  </data>
+  <data name="myPanel2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>137, 50</value>
+  </data>
+  <data name="myPanel2.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;myPanel2.Name" xml:space="preserve">
+    <value>myPanel2</value>
+  </data>
+  <data name="&gt;&gt;myPanel2.Type" xml:space="preserve">
+    <value>MyPanel, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;myPanel2.Parent" xml:space="preserve">
+    <value>myPanel1</value>
+  </data>
+  <data name="&gt;&gt;myPanel2.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="pictureBoxConnect.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
@@ -630,7 +654,7 @@
     <value>status1</value>
   </data>
   <data name="&gt;&gt;status1.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.Status, MissionPlanner, Version=1.3.9209.26243, Culture=neutral, PublicKeyToken=null</value>
+    <value>MissionPlanner.Controls.Status, MissionPlanner, Version=1.3.9209.26395, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;status1.Parent" xml:space="preserve">
     <value>panel1</value>
@@ -2332,9 +2356,6 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAA=
 </value>
-  </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>

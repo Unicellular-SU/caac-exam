@@ -4599,6 +4599,7 @@ namespace MissionPlanner
 
         private void MainV2_Load(object sender, EventArgs e)
         {
+            
             if (Settings.Instance["cmdSelected"] != null)
             {
                 string[] portlist = SerialPort.GetPortNames();
