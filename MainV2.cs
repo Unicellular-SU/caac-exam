@@ -728,7 +728,7 @@ namespace MissionPlanner
             comPort.BaseStream.BaudRate = 57600;
             ((SerialPort)comPort.BaseStream).espFix = Settings.Instance.GetBoolean("CHK_rtsresetesp32", false);
 
-            _connectionControl = toolStripConnectionControl.ConnectionControl;
+            _connectionControl = toolStripConnectionControl;
             _connectionControl.CMB_baudrate.TextChanged += this.CMB_baudrate_TextChanged;
             _connectionControl.CMB_serialport.SelectedIndexChanged += this.CMB_serialport_SelectedIndexChanged;
             _connectionControl.CMB_serialport.Click += this.CMB_serialport_Click;
@@ -1084,6 +1084,7 @@ namespace MissionPlanner
 
             // save config to test we have write access
             SaveConfig();
+            //this.myPanel1.Visible = false;
         }
 
         void cmb_sysid_Click(object sender, EventArgs e)
@@ -1158,22 +1159,9 @@ namespace MissionPlanner
 
             //MainMenu.BackgroundImage = displayicons.bg;
 
-            MenuFlightData.Image = displayicons.fd;
-            MenuFlightPlanner.Image = displayicons.fp;
-            MenuInitConfig.Image = displayicons.initsetup;
-            MenuSimulation.Image = displayicons.sim;
-            MenuConfigTune.Image = displayicons.config_tuning;
-            MenuConnect.Image = displayicons.connect;
-            MenuHelp.Image = displayicons.help;
 
+            pictureBoxConnect.Image = displayicons.connect;
 
-            MenuFlightData.ForeColor = ThemeManager.TextColor;
-            MenuFlightPlanner.ForeColor = ThemeManager.TextColor;
-            MenuInitConfig.ForeColor = ThemeManager.TextColor;
-            MenuSimulation.ForeColor = ThemeManager.TextColor;
-            MenuConfigTune.ForeColor = ThemeManager.TextColor;
-            MenuConnect.ForeColor = ThemeManager.TextColor;
-            MenuHelp.ForeColor = ThemeManager.TextColor;
         }
 
         void adsb_UpdatePlanePosition(object sender, MissionPlanner.Utilities.adsb.PointLatLngAltHdg adsb)
@@ -1421,7 +1409,7 @@ namespace MissionPlanner
             {
             }
 
-            this.MenuConnect.Image = global::MissionPlanner.Properties.Resources.light_connect_icon;
+            this.pictureBoxConnect.Image = global::MissionPlanner.Properties.Resources.light_connect_icon;
         }
 
         public void doConnect(MAVLinkInterface comPort, string portname, string baud, bool getparams = true, bool showui = true)
@@ -1792,7 +1780,7 @@ namespace MissionPlanner
                     HUD.Custom.src = MainV2.comPort.MAV.cs;
 
                     // set connected icon
-                    this.MenuConnect.Image = displayicons.disconnect;
+                    this.pictureBoxConnect.Image = displayicons.disconnect;
                 });
             }
             catch (Exception ex)
@@ -1817,8 +1805,6 @@ namespace MissionPlanner
 
         private void MenuConnect_Click(object sender, EventArgs e)
         {
-
-            this.MenuConnect.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(214)))), ((int)(((byte)(234)))));
             Connect();
 
             // save config
@@ -1879,6 +1865,16 @@ namespace MissionPlanner
                 {
                     this.FlightData.SendVideo(114);
                 }
+                // 显示连接信息
+                //this.myPanel1.Visible = true;
+                // 开启定时器
+                timer1.Interval = 100;
+                timer1.Start();
+            }
+            else
+            {
+                //this.myPanel1.Visible = false;
+                timer1.Stop();
             }
         }
 
@@ -2449,26 +2445,24 @@ namespace MissionPlanner
                 //                        Console.WriteLine(DateTime.Now.Millisecond);
                 if (comPort.BaseStream.IsOpen)
                 {
-                    if (this.MenuConnect.Image == null || (string) this.MenuConnect.Image.Tag != "Disconnect")
+                    if (this.pictureBoxConnect.Image == null || (string) this.pictureBoxConnect.Image.Tag != "Disconnect")
                     {
                         this.BeginInvoke((MethodInvoker) delegate
                         {
-                            this.MenuConnect.Image = displayicons.disconnect;
-                            this.MenuConnect.Image.Tag = "Disconnect";
-                            this.MenuConnect.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(214)))), ((int)(((byte)(234)))));
+                            this.pictureBoxConnect.Image = displayicons.disconnect;
+                            this.pictureBoxConnect.Image.Tag = "Disconnect";
                             _connectionControl.IsConnected(true);
                         });
                     }
                 }
                 else
                 {
-                    if (this.MenuConnect.Image != null && (string) this.MenuConnect.Image.Tag != "Connect")
+                    if (this.pictureBoxConnect.Image != null && (string) this.pictureBoxConnect.Image.Tag != "Connect")
                     {
                         this.BeginInvoke((MethodInvoker) delegate
                         {
-                            this.MenuConnect.Image = displayicons.connect;
-                            this.MenuConnect.Image.Tag = "Connect";
-                            this.MenuConnect.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(214)))), ((int)(((byte)(234)))));
+                            this.pictureBoxConnect.Image = displayicons.connect;
+                            this.pictureBoxConnect.Image.Tag = "Connect";
                             _connectionControl.IsConnected(false);
                             if (_connectionStats != null)
                             {
@@ -3191,7 +3185,6 @@ namespace MissionPlanner
             {
                 this.PerformLayout();
                 MenuFlightPlanner_Click(this, e);
-                MainMenu_ItemClicked(this, new ToolStripItemClickedEventArgs(MenuFlightPlanner));
             }
             else
             {
@@ -3199,7 +3192,6 @@ namespace MissionPlanner
                 log.Info("show FlightData");
                 MenuFlightData_Click(this, e);
                 log.Info("show FlightData... Done");
-                MainMenu_ItemClicked(this, new ToolStripItemClickedEventArgs(MenuFlightData));
             }
 
             // for long running tasks using own threads.
@@ -4737,6 +4729,39 @@ namespace MissionPlanner
             // return if we still initialize
             if (FlightData == null) return;
 
+        }
+
+        /// <summary>
+        /// 更新飞机信息
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            // 定位模式
+            float rtk = MainV2.comPort.MAV.cs.gpsstatus;
+            if (rtk < 4f)
+            {
+                labelLocation.Text = "未定位";
+            }
+            else if (rtk == 4f)
+            {
+                labelLocation.Text = "单点解";
+            }
+            else if (rtk == 5f)
+            {
+                labelLocation.Text = "浮点解";
+            }
+            else if (rtk > 5f)
+            {
+                labelLocation.Text = "固定解";
+            }
+            // GPS卫星数量
+            float gpscount = MainV2.comPort.MAV.cs.satcount;
+            labelStar.Text = gpscount.ToString();
+            // 电池电压
+            double batteryVoltage = MainV2.comPort.MAV.cs.battery_voltage;
+            labelDian.Text = batteryVoltage.ToString("F1");
         }
     }
 }

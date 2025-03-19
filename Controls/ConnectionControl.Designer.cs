@@ -77,12 +77,14 @@
             // 
             // ConnectionControl
             // 
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(214)))), ((int)(((byte)(234)))));
             this.Controls.Add(this.cmb_Connection);
             this.Controls.Add(this.cmb_Baud);
             this.Controls.Add(this.cmb_sysid);
             this.Controls.Add(this.linkLabel1);
             resources.ApplyResources(this, "$this");
             this.Name = "ConnectionControl";
+            this.Tag = "custom";
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ConnectionControl_MouseClick);
             this.ResumeLayout(false);
             this.PerformLayout();

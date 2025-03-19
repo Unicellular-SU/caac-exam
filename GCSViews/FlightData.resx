@@ -2182,7 +2182,7 @@
     <value>NoControl</value>
   </data>
   <data name="labelTime.Location" type="System.Drawing.Point, System.Drawing">
-    <value>460, 136</value>
+    <value>459, 136</value>
   </data>
   <data name="labelTime.Size" type="System.Drawing.Size, System.Drawing">
     <value>67, 42</value>
@@ -2215,7 +2215,7 @@
     <value>NoControl</value>
   </data>
   <data name="label13.Location" type="System.Drawing.Point, System.Drawing">
-    <value>465, 188</value>
+    <value>464, 188</value>
   </data>
   <data name="label13.Size" type="System.Drawing.Size, System.Drawing">
     <value>56, 17</value>
@@ -2248,7 +2248,7 @@
     <value>NoControl</value>
   </data>
   <data name="labelGameLife.Location" type="System.Drawing.Point, System.Drawing">
-    <value>460, 48</value>
+    <value>458, 48</value>
   </data>
   <data name="labelGameLife.Size" type="System.Drawing.Size, System.Drawing">
     <value>67, 42</value>
@@ -2281,7 +2281,7 @@
     <value>NoControl</value>
   </data>
   <data name="label9.Location" type="System.Drawing.Point, System.Drawing">
-    <value>465, 99</value>
+    <value>463, 99</value>
   </data>
   <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
     <value>56, 17</value>
@@ -2347,7 +2347,7 @@
     <value>NoControl</value>
   </data>
   <data name="labelJiaoPC.Location" type="System.Drawing.Point, System.Drawing">
-    <value>339, 136</value>
+    <value>318, 136</value>
   </data>
   <data name="labelJiaoPC.Size" type="System.Drawing.Size, System.Drawing">
     <value>67, 42</value>
@@ -2413,7 +2413,7 @@
     <value>NoControl</value>
   </data>
   <data name="label18.Location" type="System.Drawing.Point, System.Drawing">
-    <value>343, 188</value>
+    <value>323, 188</value>
   </data>
   <data name="label18.Size" type="System.Drawing.Size, System.Drawing">
     <value>56, 17</value>
@@ -2512,7 +2512,7 @@
     <value>NoControl</value>
   </data>
   <data name="labelGaoPC.Location" type="System.Drawing.Point, System.Drawing">
-    <value>188, 136</value>
+    <value>177, 136</value>
   </data>
   <data name="labelGaoPC.Size" type="System.Drawing.Size, System.Drawing">
     <value>67, 42</value>
@@ -2545,7 +2545,7 @@
     <value>NoControl</value>
   </data>
   <data name="label16.Location" type="System.Drawing.Point, System.Drawing">
-    <value>193, 188</value>
+    <value>182, 188</value>
   </data>
   <data name="label16.Size" type="System.Drawing.Size, System.Drawing">
     <value>56, 17</value>
@@ -2578,7 +2578,7 @@
     <value>NoControl</value>
   </data>
   <data name="labelGroundspeed.Location" type="System.Drawing.Point, System.Drawing">
-    <value>188, 43</value>
+    <value>179, 43</value>
   </data>
   <data name="labelGroundspeed.Size" type="System.Drawing.Size, System.Drawing">
     <value>74, 46</value>
@@ -2611,7 +2611,7 @@
     <value>NoControl</value>
   </data>
   <data name="labelYawSpeed.Location" type="System.Drawing.Point, System.Drawing">
-    <value>340, 48</value>
+    <value>322, 48</value>
   </data>
   <data name="labelYawSpeed.Size" type="System.Drawing.Size, System.Drawing">
     <value>67, 42</value>
@@ -2644,7 +2644,7 @@
     <value>NoControl</value>
   </data>
   <data name="label10.Location" type="System.Drawing.Point, System.Drawing">
-    <value>197, 99</value>
+    <value>188, 99</value>
   </data>
   <data name="label10.Size" type="System.Drawing.Size, System.Drawing">
     <value>56, 17</value>
@@ -2677,7 +2677,7 @@
     <value>NoControl</value>
   </data>
   <data name="label12.Location" type="System.Drawing.Point, System.Drawing">
-    <value>351, 99</value>
+    <value>333, 99</value>
   </data>
   <data name="label12.Size" type="System.Drawing.Size, System.Drawing">
     <value>44, 17</value>
