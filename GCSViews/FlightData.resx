@@ -376,7 +376,7 @@
     <value>微软雅黑, 9pt</value>
   </data>
   <data name="groupBox3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 471</value>
+    <value>26, 568</value>
   </data>
   <data name="groupBox3.Size" type="System.Drawing.Size, System.Drawing">
     <value>241, 50</value>
@@ -493,7 +493,7 @@
     <value>微软雅黑, 9pt</value>
   </data>
   <data name="groupBox2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 404</value>
+    <value>26, 501</value>
   </data>
   <data name="groupBox2.Size" type="System.Drawing.Size, System.Drawing">
     <value>241, 50</value>
@@ -643,7 +643,7 @@
     <value>微软雅黑, 9pt</value>
   </data>
   <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 316</value>
+    <value>26, 413</value>
   </data>
   <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
     <value>241, 71</value>
@@ -709,7 +709,7 @@
     <value>NoControl</value>
   </data>
   <data name="buttonShow.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 243</value>
+    <value>26, 300</value>
   </data>
   <data name="buttonShow.Size" type="System.Drawing.Size, System.Drawing">
     <value>241, 56</value>
@@ -739,7 +739,7 @@
     <value>NoControl</value>
   </data>
   <data name="buttonSetCenter.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 170</value>
+    <value>26, 231</value>
   </data>
   <data name="buttonSetCenter.Size" type="System.Drawing.Size, System.Drawing">
     <value>241, 56</value>
@@ -799,10 +799,10 @@
     <value>NoControl</value>
   </data>
   <data name="buttonSetRight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>159, 97</value>
+    <value>26, 162</value>
   </data>
   <data name="buttonSetRight.Size" type="System.Drawing.Size, System.Drawing">
-    <value>108, 56</value>
+    <value>241, 56</value>
   </data>
   <data name="buttonSetRight.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -829,10 +829,10 @@
     <value>NoControl</value>
   </data>
   <data name="buttonSetLeft.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 97</value>
+    <value>26, 93</value>
   </data>
   <data name="buttonSetLeft.Size" type="System.Drawing.Size, System.Drawing">
-    <value>108, 56</value>
+    <value>241, 56</value>
   </data>
   <data name="buttonSetLeft.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -2193,6 +2193,9 @@
   <data name="labelTime.Text" xml:space="preserve">
     <value>0.0</value>
   </data>
+  <data name="labelTime.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
   <data name="&gt;&gt;labelTime.Name" xml:space="preserve">
     <value>labelTime</value>
   </data>
@@ -2258,6 +2261,9 @@
   </data>
   <data name="labelGameLife.Text" xml:space="preserve">
     <value>0.0</value>
+  </data>
+  <data name="labelGameLife.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
   </data>
   <data name="&gt;&gt;labelGameLife.Name" xml:space="preserve">
     <value>labelGameLife</value>
@@ -2325,6 +2331,9 @@
   <data name="labelGroundHight.Text" xml:space="preserve">
     <value>0.0</value>
   </data>
+  <data name="labelGroundHight.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
   <data name="&gt;&gt;labelGroundHight.Name" xml:space="preserve">
     <value>labelGroundHight</value>
   </data>
@@ -2357,6 +2366,9 @@
   </data>
   <data name="labelJiaoPC.Text" xml:space="preserve">
     <value>0.0</value>
+  </data>
+  <data name="labelJiaoPC.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
   </data>
   <data name="&gt;&gt;labelJiaoPC.Name" xml:space="preserve">
     <value>labelJiaoPC</value>
@@ -2490,6 +2502,9 @@
   <data name="labelShuiPC.Text" xml:space="preserve">
     <value>0.0</value>
   </data>
+  <data name="labelShuiPC.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
   <data name="&gt;&gt;labelShuiPC.Name" xml:space="preserve">
     <value>labelShuiPC</value>
   </data>
@@ -2522,6 +2537,9 @@
   </data>
   <data name="labelGaoPC.Text" xml:space="preserve">
     <value>0.0</value>
+  </data>
+  <data name="labelGaoPC.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
   </data>
   <data name="&gt;&gt;labelGaoPC.Name" xml:space="preserve">
     <value>labelGaoPC</value>
@@ -2589,6 +2607,9 @@
   <data name="labelGroundspeed.Text" xml:space="preserve">
     <value>0.0</value>
   </data>
+  <data name="labelGroundspeed.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
   <data name="&gt;&gt;labelGroundspeed.Name" xml:space="preserve">
     <value>labelGroundspeed</value>
   </data>
@@ -2621,6 +2642,9 @@
   </data>
   <data name="labelYawSpeed.Text" xml:space="preserve">
     <value>0.0</value>
+  </data>
+  <data name="labelYawSpeed.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
   </data>
   <data name="&gt;&gt;labelYawSpeed.Name" xml:space="preserve">
     <value>labelYawSpeed</value>
@@ -2845,7 +2869,7 @@
     <value>distanceBar1</value>
   </data>
   <data name="&gt;&gt;distanceBar1.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.DistanceBar, MissionPlanner, Version=1.3.9209.18495, Culture=neutral, PublicKeyToken=null</value>
+    <value>MissionPlanner.Controls.DistanceBar, MissionPlanner, Version=1.3.9209.27970, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;distanceBar1.Parent" xml:space="preserve">
     <value>splitContainer1.Panel2</value>
@@ -3877,7 +3901,7 @@
     <value>modifyandSetSpeed</value>
   </data>
   <data name="&gt;&gt;modifyandSetSpeed.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.ModifyandSet, MissionPlanner, Version=1.3.9209.18495, Culture=neutral, PublicKeyToken=null</value>
+    <value>MissionPlanner.Controls.ModifyandSet, MissionPlanner, Version=1.3.9209.27970, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="modifyandSetAlt.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -3907,7 +3931,7 @@
     <value>modifyandSetAlt</value>
   </data>
   <data name="&gt;&gt;modifyandSetAlt.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.ModifyandSet, MissionPlanner, Version=1.3.9209.18495, Culture=neutral, PublicKeyToken=null</value>
+    <value>MissionPlanner.Controls.ModifyandSet, MissionPlanner, Version=1.3.9209.27970, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="modifyandSetLoiterRad.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -3937,13 +3961,13 @@
     <value>modifyandSetLoiterRad</value>
   </data>
   <data name="&gt;&gt;modifyandSetLoiterRad.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.ModifyandSet, MissionPlanner, Version=1.3.9209.18495, Culture=neutral, PublicKeyToken=null</value>
+    <value>MissionPlanner.Controls.ModifyandSet, MissionPlanner, Version=1.3.9209.27970, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>150</value>
+    <value>86</value>
   </metadata>
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>

@@ -112,6 +112,10 @@ namespace MissionPlanner.GCSViews
             this.gimbalVideoMiniToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gimbalVideoPopOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.myPanel1 = new MyPanel();
+            this.labelTime = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.labelGameLife = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.labelGroundHight = new System.Windows.Forms.Label();
             this.labelJiaoPC = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -176,10 +180,6 @@ namespace MissionPlanner.GCSViews
             this.modifyandSetSpeed = new MissionPlanner.Controls.ModifyandSet();
             this.modifyandSetAlt = new MissionPlanner.Controls.ModifyandSet();
             this.modifyandSetLoiterRad = new MissionPlanner.Controls.ModifyandSet();
-            this.labelGameLife = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.labelTime = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.MainH)).BeginInit();
             this.MainH.Panel1.SuspendLayout();
             this.MainH.Panel2.SuspendLayout();
@@ -533,6 +533,7 @@ namespace MissionPlanner.GCSViews
             this.tabExamOperation.Controls.Add(this.buttonSetLeft);
             this.tabExamOperation.Name = "tabExamOperation";
             this.tabExamOperation.UseVisualStyleBackColor = true;
+            this.tabExamOperation.Resize += new System.EventHandler(this.tabExamOperation_Resize);
             // 
             // groupBox3
             // 
@@ -1137,6 +1138,38 @@ namespace MissionPlanner.GCSViews
             this.myPanel1.Name = "myPanel1";
             this.myPanel1.Opacity = 0;
             this.myPanel1.Tag = "custom";
+            // 
+            // labelTime
+            // 
+            resources.ApplyResources(this.labelTime, "labelTime");
+            this.labelTime.BackColor = System.Drawing.Color.Transparent;
+            this.labelTime.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.labelTime.Name = "labelTime";
+            this.labelTime.Tag = "custom";
+            // 
+            // label13
+            // 
+            resources.ApplyResources(this.label13, "label13");
+            this.label13.BackColor = System.Drawing.Color.Transparent;
+            this.label13.ForeColor = System.Drawing.Color.White;
+            this.label13.Name = "label13";
+            this.label13.Tag = "custom";
+            // 
+            // labelGameLife
+            // 
+            resources.ApplyResources(this.labelGameLife, "labelGameLife");
+            this.labelGameLife.BackColor = System.Drawing.Color.Transparent;
+            this.labelGameLife.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.labelGameLife.Name = "labelGameLife";
+            this.labelGameLife.Tag = "custom";
+            // 
+            // label9
+            // 
+            resources.ApplyResources(this.label9, "label9");
+            this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Name = "label9";
+            this.label9.Tag = "custom";
             // 
             // labelGroundHight
             // 
@@ -1768,38 +1801,6 @@ namespace MissionPlanner.GCSViews
             0,
             0});
             this.modifyandSetLoiterRad.Click += new System.EventHandler(this.modifyandSetLoiterRad_Click);
-            // 
-            // labelGameLife
-            // 
-            resources.ApplyResources(this.labelGameLife, "labelGameLife");
-            this.labelGameLife.BackColor = System.Drawing.Color.Transparent;
-            this.labelGameLife.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.labelGameLife.Name = "labelGameLife";
-            this.labelGameLife.Tag = "custom";
-            // 
-            // label9
-            // 
-            resources.ApplyResources(this.label9, "label9");
-            this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Name = "label9";
-            this.label9.Tag = "custom";
-            // 
-            // labelTime
-            // 
-            resources.ApplyResources(this.labelTime, "labelTime");
-            this.labelTime.BackColor = System.Drawing.Color.Transparent;
-            this.labelTime.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.labelTime.Name = "labelTime";
-            this.labelTime.Tag = "custom";
-            // 
-            // label13
-            // 
-            resources.ApplyResources(this.label13, "label13");
-            this.label13.BackColor = System.Drawing.Color.Transparent;
-            this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Name = "label13";
-            this.label13.Tag = "custom";
             // 
             // FlightData
             // 

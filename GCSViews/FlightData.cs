@@ -199,6 +199,8 @@ namespace MissionPlanner.GCSViews
         //      private DockStateSerializer _serializer = null;
 
         List<PointLatLng> trackPoints = new List<PointLatLng>();
+        List<PointLatLng> trackPoints2 = new List<PointLatLng>();
+
         volatile int updateBindingSourcecount;
 
         object updateBindingSourcelock = new object();
@@ -832,10 +834,15 @@ namespace MissionPlanner.GCSViews
 
             if (polygons != null)
                 polygons.Dispose();
+         
             if (routes != null)
                 routes.Dispose();
+            if(routes2 != null)
+                routes2.Dispose();
             if (route != null)
                 route.Dispose();
+            if(route2 != null)
+                route2.Dispose();
             if (marker != null)
                 marker.Dispose();
             if (aviwriter != null)
@@ -1090,6 +1097,10 @@ namespace MissionPlanner.GCSViews
         {
             if (route != null)
                 route.Points.Clear();
+            if (route2 != null)
+            {
+                route2.Points.Clear();
+            }
 
             if (MainV2.comPort.MAV.camerapoints != null)
                 MainV2.comPort.MAV.camerapoints.Clear();
@@ -3319,6 +3330,13 @@ namespace MissionPlanner.GCSViews
                             routes.Routes.Add(route);
                         }
 
+                        if (route2 == null)
+                        {
+                            route2 = new GMapRoute(trackPoints2, "track");
+                            route2.Stroke = new Pen(Color.Red, 6f);
+                            routes2.Routes.Add(route2);
+                        }
+
                         PointLatLng currentloc = new PointLatLng(MainV2.comPort.MAV.cs.lat, MainV2.comPort.MAV.cs.lng);
 
                         gMapControl1.HoldInvalidation = true;
@@ -3334,6 +3352,7 @@ namespace MissionPlanner.GCSViews
                         // add new route point
                         if (MainV2.comPort.MAV.cs.lat != 0 && MainV2.comPort.MAV.cs.lng != 0)
                         {
+                            route.Points.Clear();
                             route.Points.Add(currentloc);
                         }
 
@@ -6067,9 +6086,9 @@ namespace MissionPlanner.GCSViews
         {
             //progressBar2.Text = "0.0%";
             //progressBar2.Value = 0;
-            //myLabel3.Text = "0.0";
-            //myLabel15.Text = "0.0";
-            //myLabel17.Text = "0.0";
+            labelShuiPC.Text = "0.0";
+            labelGaoPC.Text = "0.0";
+            labelJiaoPC.Text = "0.0";
             yawSave = -1f;
             zxYawdiff = 0.0;
             addAng = 0.0;
@@ -6200,7 +6219,7 @@ namespace MissionPlanner.GCSViews
 
         private void uptimer1_Tick(object sender, EventArgs e)
         {
-
+            positionUpdate();
         }
 
         private void uptimer2_Tick(object sender, EventArgs e)
@@ -6245,6 +6264,510 @@ namespace MissionPlanner.GCSViews
         {
             gMapControl1.Position = mintongLocation;
             gMapControl1.Zoom = 22.1;
+        }
+
+        private void positionUpdate()
+        {
+            if (MainV2.comPort.BaseStream.IsOpen)
+            {
+               
+            }
+            else
+            {
+                
+            }
+      
+            planPoint = new PointLatLng(MainV2.comPort.MAV.cs.lat, MainV2.comPort.MAV.cs.lng);
+            if (guiji)
+            {
+                route2.Points.Add(planPoint);
+            }
+            float pointz = MainV2.comPort.MAV.cs.gpsaltasl - groundHight;
+            labelGroundHight.Text = pointz.ToString("F1");
+            float groundspeed = MainV2.comPort.MAV.cs.groundspeed;
+            labelGroundspeed.Text = groundspeed.ToString("F1");
+            float yaw = MainV2.comPort.MAV.cs.gpsyaw;
+            float yawSpeed = Math.Abs(MainV2.comPort.MAV.cs.yawSpeed);
+            labelYawSpeed.Text = yawSpeed.ToString("F1");
+
+            labelTime.Text = shengyutime.ToString();
+            if (gamelift >= 0)
+            {
+                labelGameLife.Text = gamelift.ToString();
+            }
+            else
+            {
+                labelGameLife.Text = "∞";
+            }
+            if (_GameDeleyStart > -1 && _GameDeleyStart < uptimer2.Interval)
+            {
+                GameStart(_GameStartID);
+            }
+            else
+            {
+                if (nowMoShi == 0)
+                {
+                    return;
+                }
+                if (nowMoShi == 1)
+                {
+                    if (shengyutime == 0)
+                    {
+                        GameError(5, jixu: false, 1);
+                        return;
+                    }
+                    double dist = gMapControl1.MapProvider.Projection.GetDistance(new PointLatLngAlt(mintongLocation.Lat, mintongLocation.Lng), planPoint) * 1000.0;
+                    if (dist > _config_1[selectA])
+                    {
+                        if (!_videoList.Contains(101))
+                        {
+                            SendVideo(101);
+                            _videoList.Add(101);
+                        }
+                    }
+                    else
+                    {
+                        nowMoShi++;
+                    }
+                }
+                else if (nowMoShi == 2)
+                {
+                    if (shengyutime == 0)
+                    {
+                        GameError(5, jixu: false, 1);
+                    }
+                    else if ((double)pointz < 1.5 || pointz > 5f)
+                    {
+                        if (!_videoList.Contains(102))
+                        {
+                            SendVideo(102);
+                            _videoList.Add(102);
+                        }
+                    }
+                    else
+                    {
+                        nowMoShi++;
+                    }
+                }
+                else if (nowMoShi == 3)
+                {
+                    if (shengyutime == 0)
+                    {
+                        GameError(5, jixu: false, 1);
+                    }
+                    else if (Math.Abs(yaw - planeAng) > 15f)
+                    {
+                        if (!_videoList.Contains(103))
+                        {
+                            SendVideo(103);
+                            _videoList.Add(103);
+                        }
+                    }
+                    else
+                    {
+                        nowMoShi++;
+                    }
+                }
+                else if (nowMoShi == 4)
+                {
+                    SendVideo(104);
+                    shengyutime = (int)_config_6[selectA];
+                    nowMoShi++;
+                }
+                else if (nowMoShi == 5)
+                {
+                    if (shengyutime == 0)
+                    {
+                        GameError(6, jixu: false, 1);
+                        return;
+                    }
+                    double yawdiff = GetRotationDirection(yaw, planeAng);
+                    if (Math.Abs(yawdiff) <= 40.0)
+                    {
+                        return;
+                    }
+                    if (zixuanFangXiang == -1)
+                    {
+                        guiji = true;
+                        if (yawdiff > 0.0)
+                        {
+                            zixuanFangXiang = 0;
+                        }
+                        else
+                        {
+                            zixuanFangXiang = 1;
+                        }
+                        zixuanStartPoint = planPoint;
+                        zixuanHight = pointz;
+                        CreaCircleByRadius(_config_1[selectA], zixuanStartPoint, Color.Blue, 2);
+                    }
+                    nowMoShi++;
+                }
+                else if (nowMoShi == 6)
+                {
+                    if (yawSave == -1f)
+                    {
+                        yawSave = planeAng;
+                    }
+                    zxYawdiff = GetRotationDirection(yaw, yawSave);
+                    yawSave = yaw;
+                    addAng += zxYawdiff;
+                    //double jindu = Math.Abs(addAng) / 350.0 * 100.0;
+                    //if (jindu > 100.0)
+                    //{
+                    //    jindu = 100.0;
+                    //}
+                    // 删除功能：进度条
+                    //progressBar2.Text = Math.Round(jindu) + "%";
+                    //progressBar2.Value = (int)Math.Round(jindu);
+                    float gaodupiancha = pointz - zixuanHight;
+                    labelGaoPC.Text = gaodupiancha.ToString("F1");
+                    double dist2 = gMapControl1.MapProvider.Projection.GetDistance(new PointLatLngAlt(zixuanStartPoint.Lat, zixuanStartPoint.Lng), planPoint) * 1000.0;
+                    labelShuiPC.Text = Math.Abs(dist2).ToString("F1");
+                    if (shengyutime == 0)
+                    {
+                        GameError(6, jixu: false, 1);
+                    }
+                    else if (dist2 > _config_1[selectA])
+                    {
+                        GameError(1, jixu: true, 1, (float)dist2);
+                    }
+                    else if ((double)Math.Abs(pointz - zixuanHight) > _config_2[selectA])
+                    {
+                        GameError(2, jixu: true, 1, Math.Abs(pointz - zixuanHight));
+                    }
+                    else if (zxYawdiff > 10.0 && zixuanFangXiang == 1)
+                    {
+                        GameError(7, jixu: true, 1);
+                    }
+                    else if (zxYawdiff < -10.0 && zixuanFangXiang == 0)
+                    {
+                        GameError(7, jixu: true, 1);
+                    }
+                    else if ((double)yawSpeed < _config_3[selectA])
+                    {
+                        GameError(3, jixu: true, 1, yawSpeed);
+                    }
+                    else if ((double)yawSpeed > _config_4[selectA])
+                    {
+                        GameError(4, jixu: true, 1, yawSpeed);
+                    }
+                    else
+                    {
+                        if (!(addAng > 350.0) && !(addAng < -350.0))
+                        {
+                            return;
+                        }
+                        if (!fanxiang && selectA == 2)
+                        {
+                            SendVideo(108);
+                            shengyutime = (int)_config_6[selectA];
+                            addAng = 0.0;
+                            if (zixuanFangXiang == 0)
+                            {
+                                zixuanFangXiang = 1;
+                            }
+                            else
+                            {
+                                zixuanFangXiang = 0;
+                            }
+                            nowMoShi = 5;
+                            fanxiang = true;
+                            return;
+                        }
+                        SendVideo(105);
+                        guiji = false;
+                        nowMoShi = 0;
+                        shengyutime = 0;
+                        if (selectB == 0)
+                        {
+                            if (selectC == 1)
+                            {
+                                SendVideo(111);
+                                GameDeleyStart(6000, 1);
+                            }
+                            else
+                            {
+                                GameEnd();
+                            }
+                        }
+                        else if (selectB == 2)
+                        {
+                            GameDeleyStart(3000, 1001);
+                        }
+                    }
+                }
+                else if (nowMoShi == 1001)
+                {
+                    if (shengyutime == 0)
+                    {
+                        GameError(5, jixu: false, 1001);
+                        return;
+                    }
+                    double dist3 = gMapControl1.MapProvider.Projection.GetDistance(new PointLatLngAlt(mintongLocation.Lat, mintongLocation.Lng), planPoint) * 1000.0;
+                    if (dist3 > _config_7[selectA])
+                    {
+                        if (!_videoList.Contains(101))
+                        {
+                            SendVideo(101);
+                            _videoList.Add(101);
+                        }
+                    }
+                    else
+                    {
+                        nowMoShi++;
+                    }
+                }
+                else if (nowMoShi == 1002)
+                {
+                    if (shengyutime == 0)
+                    {
+                        GameError(5, jixu: false, 1001);
+                    }
+                    else if ((double)pointz < 1.5 || pointz > 5f)
+                    {
+                        if (!_videoList.Contains(102))
+                        {
+                            SendVideo(102);
+                            _videoList.Add(102);
+                        }
+                    }
+                    else
+                    {
+                        nowMoShi++;
+                    }
+                }
+                else if (nowMoShi == 1003)
+                {
+                    if (shengyutime == 0)
+                    {
+                        GameError(5, jixu: false, 1001);
+                    }
+                    else if (Math.Abs(yaw - planeAng) > 15f)
+                    {
+                        if (!_videoList.Contains(103))
+                        {
+                            SendVideo(103);
+                            _videoList.Add(103);
+                        }
+                    }
+                    else
+                    {
+                        nowMoShi++;
+                    }
+                }
+                else if (nowMoShi == 1004)
+                {
+                    if (selectA == 2)
+                    {
+                        SendVideo(112);
+                    }
+                    else
+                    {
+                        SendVideo(106);
+                    }
+                    shengyutime = (int)_config_12[selectA];
+                    guiji = true;
+                    nowMoShi++;
+                }
+                else if (nowMoShi == 1005)
+                {
+                    if (shengyutime == 0)
+                    {
+                        GameError(8, jixu: false, 1001);
+                        return;
+                    }
+                    List<double> firstDist = new List<double> { -1.0, -1.0, -1.0, -1.0 };
+                    firstDist[0] = gMapControl1.MapProvider.Projection.GetDistance(new PointLatLngAlt(pointlistA[firstPointEntry].Lat, pointlistA[firstPointEntry].Lng), planPoint) * 1000.0;
+                    firstDist[1] = gMapControl1.MapProvider.Projection.GetDistance(new PointLatLngAlt(pointlistB[firstPointEntry].Lat, pointlistB[firstPointEntry].Lng), planPoint) * 1000.0;
+                    firstDist[2] = gMapControl1.MapProvider.Projection.GetDistance(new PointLatLngAlt(pointlistC[firstPointEntry].Lat, pointlistC[firstPointEntry].Lng), planPoint) * 1000.0;
+                    firstDist[3] = gMapControl1.MapProvider.Projection.GetDistance(new PointLatLngAlt(pointlistD[firstPointEntry].Lat, pointlistD[firstPointEntry].Lng), planPoint) * 1000.0;
+                    int minEntry = -1;
+                    for (int i = 0; i < firstDist.Count; i++)
+                    {
+                        if (!(firstDist[i] < 0.0) && firstDist[i] < closeDist)
+                        {
+                            minEntry = i;
+                        }
+                    }
+                    switch (minEntry)
+                    {
+                        case -1:
+                            return;
+                        case 0:
+                            bazipointlist = new List<FlightPoint>(pointlistA);
+                            tong1Location = zuoquanLocation;
+                            tong2Location = youquanLocation;
+                            break;
+                        case 1:
+                            bazipointlist = new List<FlightPoint>(pointlistB);
+                            tong1Location = zuoquanLocation;
+                            tong2Location = youquanLocation;
+                            break;
+                        case 2:
+                            bazipointlist = new List<FlightPoint>(pointlistC);
+                            tong1Location = youquanLocation;
+                            tong2Location = zuoquanLocation;
+                            break;
+                        case 3:
+                            bazipointlist = new List<FlightPoint>(pointlistD);
+                            tong1Location = youquanLocation;
+                            tong2Location = zuoquanLocation;
+                            break;
+                    }
+                    baziHight = pointz;
+                    double lastdist = 0.0;
+                    int lastEntry = 0;
+                    for (int j = 30; j < 70 && j < bazipointlist.Count; j++)
+                    {
+                        FlightPoint nextPoint = bazipointlist[j];
+                        double tempdist = gMapControl1.MapProvider.Projection.GetDistance(new PointLatLngAlt(nextPoint.Lat, nextPoint.Lng), planPoint) * 1000.0;
+                        if (lastdist == 0.0 || tempdist < lastdist)
+                        {
+                            lastdist = tempdist;
+                            lastEntry = nextPoint.Entry;
+                        }
+                    }
+                    NowEntry = lastEntry;
+                    nowMoShi++;
+                }
+                else
+                {
+                    if (nowMoShi != 1006)
+                    {
+                        return;
+                    }
+                    float gaodupiancha2 = pointz - baziHight;
+                    labelGaoPC.Text = gaodupiancha2.ToString("F1");
+                    double nowDis = 0.0;
+                    nowDis = ((NowEntry > 360) ? (gMapControl1.MapProvider.Projection.GetDistance(planPoint, tong2Location) * 1000.0 - minRadius) : (gMapControl1.MapProvider.Projection.GetDistance(planPoint, tong1Location) * 1000.0 - minRadius));
+                    labelShuiPC.Text = Math.Abs(nowDis).ToString("F1");
+                    FlightPoint currentPoint = bazipointlist[NowEntry];
+                    double yawdiff2 = Math.Abs((double)yaw - currentPoint.Ang);
+                    if (selectA == 2)
+                    {
+                        float bgpsyaw = yaw + 180f;
+                        if (bgpsyaw >= 360f)
+                        {
+                            bgpsyaw -= 360f;
+                        }
+                        if (bgpsyaw < 0f)
+                        {
+                            bgpsyaw += 360f;
+                        }
+                        yawdiff2 = Math.Abs((double)bgpsyaw - currentPoint.Ang);
+                    }
+                    if (yawdiff2 > 180.0)
+                    {
+                        yawdiff2 = 360.0 - yawdiff2;
+                    }
+                    labelJiaoPC.Text = yawdiff2.ToString("F1");
+                    if (NowEntry < bazipointlist.Count - 1)
+                    {
+                        double currentdist = gMapControl1.MapProvider.Projection.GetDistance(new PointLatLngAlt(currentPoint.Lat, currentPoint.Lng), planPoint) * 1000.0;
+                        double lastdist2 = 0.0;
+                        int lastEntry2 = 0;
+                        for (int k = 1; k < 25; k++)
+                        {
+                            int d = NowEntry + k;
+                            if (d >= bazipointlist.Count)
+                            {
+                                break;
+                            }
+                            FlightPoint nextPoint2 = bazipointlist[d];
+                            double tempdist2 = gMapControl1.MapProvider.Projection.GetDistance(new PointLatLngAlt(nextPoint2.Lat, nextPoint2.Lng), planPoint) * 1000.0;
+                            if (lastdist2 == 0.0 || tempdist2 < lastdist2)
+                            {
+                                lastdist2 = tempdist2;
+                                lastEntry2 = nextPoint2.Entry;
+                            }
+                        }
+                        if (currentdist > lastdist2 && NowEntry < lastEntry2)
+                        {
+                            NowEntry = lastEntry2;
+                        }
+                        if (shengyutime == 0)
+                        {
+                            GameError(8, jixu: false, 1001);
+                            return;
+                        }
+                        if ((double)Math.Abs(gaodupiancha2) > _config_11[selectA])
+                        {
+                            GameError(2, jixu: true, 1001, Math.Abs(gaodupiancha2));
+                            return;
+                        }
+                        if (Math.Abs(nowDis) > _config_7[selectA])
+                        {
+                            GameError(1, jixu: true, 1001, (float)Math.Abs(nowDis));
+                            return;
+                        }
+                        if (Math.Abs(yawdiff2) > _config_8[selectA])
+                        {
+                            GameError(9, jixu: true, 1001, (float)Math.Abs(yawdiff2));
+                            return;
+                        }
+                        if ((double)groundspeed < _config_9[selectA])
+                        {
+                            GameError(10, jixu: true, 1001, groundspeed);
+                            return;
+                        }
+                        if ((double)groundspeed > _config_10[selectA])
+                        {
+                            GameError(11, jixu: true, 1001, groundspeed);
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        SendVideo(107);
+                        guiji = false;
+                        nowMoShi = 0;
+                        shengyutime = 0;
+                        if (selectB == 1)
+                        {
+                            if (selectC == 1)
+                            {
+                                SendVideo(111);
+                                GameDeleyStart(6000, 1001);
+                            }
+                            else
+                            {
+                                GameEnd();
+                            }
+                        }
+                        else if (selectB == 2)
+                        {
+                            SendVideo(98);
+                            if (selectC == 1)
+                            {
+                                SendVideo(111);
+                                GameDeleyStart(6000, 1);
+                                gamelift = 3;
+                            }
+                            else
+                            {
+                                GameEnd();
+                            }
+                        }
+                    }
+                    // 删除功能：进度条
+                    //double jindu2 = (double)NowEntry / 721.0 * 100.0;
+                    //progressBar2.Text = Math.Round(jindu2) + "%";
+                    //progressBar2.Value = (int)Math.Round(jindu2);
+                }
+            }
+        }
+
+        private void tabExamOperation_Resize(object sender, EventArgs e)
+        {
+            this.buttonSetHight.Width = tabExamOperation.Width - 40;
+            this.buttonSetCenter.Width = tabExamOperation.Width - 40;
+            this.buttonShow.Width = tabExamOperation.Width - 40;
+            this.buttonSetLeft.Width = tabExamOperation.Width - 40;
+            this.buttonSetRight.Width = tabExamOperation.Width - 40;
+            this.groupBox1.Width = tabExamOperation.Width - 40;
+            this.groupBox2.Width = tabExamOperation.Width - 40;
+            this.groupBox3.Width = tabExamOperation.Width - 40;
         }
     }
 }
