@@ -83,10 +83,6 @@ namespace MissionPlanner.GCSViews
             this.textBox8MaxTime = new System.Windows.Forms.TextBox();
             this.buttonReset = new MissionPlanner.Controls.MyButton();
             this.buttonCofirm = new MissionPlanner.Controls.MyButton();
-            this.contextMenuStripQuickView = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.setViewCountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.undockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bindingSourceQuickTab = new System.Windows.Forms.BindingSource(this.components);
             this.tabPagemessages = new System.Windows.Forms.TabPage();
             this.txt_messagebox = new System.Windows.Forms.TextBox();
             this.panel_persistent = new System.Windows.Forms.Panel();
@@ -115,6 +111,19 @@ namespace MissionPlanner.GCSViews
             this.gimbalVideoFullSizedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gimbalVideoMiniToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gimbalVideoPopOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.myPanel1 = new MyPanel();
+            this.labelGroundHight = new System.Windows.Forms.Label();
+            this.labelJiaoPC = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.labelShuiPC = new System.Windows.Forms.Label();
+            this.labelGaoPC = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.labelGroundspeed = new System.Windows.Forms.Label();
+            this.labelYawSpeed = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.but_disablejoystick = new MissionPlanner.Controls.MyButton();
             this.Zoomlevel = new System.Windows.Forms.NumericUpDown();
@@ -129,6 +138,9 @@ namespace MissionPlanner.GCSViews
             this.lbl_sats = new MissionPlanner.Controls.MyLabel();
             this.gMapControl1 = new MissionPlanner.Controls.myGMAP();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.contextMenuStripQuickView = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.setViewCountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.undockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.BUT_setmode = new MissionPlanner.Controls.MyButton();
             this.BUT_quickauto = new MissionPlanner.Controls.MyButton();
@@ -154,11 +166,12 @@ namespace MissionPlanner.GCSViews
             this.BUT_resumemis = new MissionPlanner.Controls.MyButton();
             this.CMB_action = new System.Windows.Forms.ComboBox();
             this.contextMenu1 = new System.Windows.Forms.ContextMenu();
+            this.uptimer1 = new System.Windows.Forms.Timer(this.components);
+            this.uptimer2 = new System.Windows.Forms.Timer(this.components);
+            this.bindingSourceQuickTab = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSourceGaugesTab = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSourcePayloadTab = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSourceStatusTab = new System.Windows.Forms.BindingSource(this.components);
-            this.uptimer1 = new System.Windows.Forms.Timer(this.components);
-            this.uptimer2 = new System.Windows.Forms.Timer(this.components);
             this.distanceBar1 = new MissionPlanner.Controls.DistanceBar();
             this.modifyandSetSpeed = new MissionPlanner.Controls.ModifyandSet();
             this.modifyandSetAlt = new MissionPlanner.Controls.ModifyandSet();
@@ -181,17 +194,18 @@ namespace MissionPlanner.GCSViews
             this.groupBox1.SuspendLayout();
             this.tabExamConfig.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
-            this.contextMenuStripQuickView.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceQuickTab)).BeginInit();
             this.tabPagemessages.SuspendLayout();
             this.tableMap.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.contextMenuStripMap.SuspendLayout();
+            this.myPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Zoomlevel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonStart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
+            this.contextMenuStripQuickView.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceQuickTab)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceGaugesTab)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourcePayloadTab)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceStatusTab)).BeginInit();
@@ -885,30 +899,6 @@ namespace MissionPlanner.GCSViews
             this.buttonCofirm.UseVisualStyleBackColor = true;
             this.buttonCofirm.Click += new System.EventHandler(this.buttonCofirm_Click);
             // 
-            // contextMenuStripQuickView
-            // 
-            this.contextMenuStripQuickView.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.setViewCountToolStripMenuItem,
-            this.undockToolStripMenuItem});
-            this.contextMenuStripQuickView.Name = "contextMenuStripQuickView";
-            resources.ApplyResources(this.contextMenuStripQuickView, "contextMenuStripQuickView");
-            // 
-            // setViewCountToolStripMenuItem
-            // 
-            this.setViewCountToolStripMenuItem.Name = "setViewCountToolStripMenuItem";
-            resources.ApplyResources(this.setViewCountToolStripMenuItem, "setViewCountToolStripMenuItem");
-            this.setViewCountToolStripMenuItem.Click += new System.EventHandler(this.setViewCountToolStripMenuItem_Click);
-            // 
-            // undockToolStripMenuItem
-            // 
-            this.undockToolStripMenuItem.Name = "undockToolStripMenuItem";
-            resources.ApplyResources(this.undockToolStripMenuItem, "undockToolStripMenuItem");
-            this.undockToolStripMenuItem.Click += new System.EventHandler(this.undockDockToolStripMenuItem_Click);
-            // 
-            // bindingSourceQuickTab
-            // 
-            this.bindingSourceQuickTab.DataSource = typeof(MissionPlanner.CurrentState);
-            // 
             // tabPagemessages
             // 
             this.tabPagemessages.Controls.Add(this.txt_messagebox);
@@ -942,6 +932,7 @@ namespace MissionPlanner.GCSViews
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.ContextMenuStrip = this.contextMenuStripMap;
+            this.splitContainer1.Panel2.Controls.Add(this.myPanel1);
             this.splitContainer1.Panel2.Controls.Add(this.label1);
             this.splitContainer1.Panel2.Controls.Add(this.but_disablejoystick);
             this.splitContainer1.Panel2.Controls.Add(this.Zoomlevel);
@@ -1119,6 +1110,122 @@ namespace MissionPlanner.GCSViews
             resources.ApplyResources(this.gimbalVideoPopOutToolStripMenuItem, "gimbalVideoPopOutToolStripMenuItem");
             this.gimbalVideoPopOutToolStripMenuItem.Click += new System.EventHandler(this.gimbalVideoPopOutToolStripMenuItem_Click);
             // 
+            // myPanel1
+            // 
+            resources.ApplyResources(this.myPanel1, "myPanel1");
+            this.myPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.myPanel1.Controls.Add(this.labelGroundHight);
+            this.myPanel1.Controls.Add(this.labelJiaoPC);
+            this.myPanel1.Controls.Add(this.label14);
+            this.myPanel1.Controls.Add(this.label18);
+            this.myPanel1.Controls.Add(this.label2);
+            this.myPanel1.Controls.Add(this.labelShuiPC);
+            this.myPanel1.Controls.Add(this.labelGaoPC);
+            this.myPanel1.Controls.Add(this.label16);
+            this.myPanel1.Controls.Add(this.labelGroundspeed);
+            this.myPanel1.Controls.Add(this.labelYawSpeed);
+            this.myPanel1.Controls.Add(this.label10);
+            this.myPanel1.Controls.Add(this.label12);
+            this.myPanel1.Name = "myPanel1";
+            this.myPanel1.Opacity = 0;
+            this.myPanel1.Tag = "custom";
+            // 
+            // labelGroundHight
+            // 
+            resources.ApplyResources(this.labelGroundHight, "labelGroundHight");
+            this.labelGroundHight.BackColor = System.Drawing.Color.Transparent;
+            this.labelGroundHight.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.labelGroundHight.Name = "labelGroundHight";
+            this.labelGroundHight.Tag = "custom";
+            // 
+            // labelJiaoPC
+            // 
+            resources.ApplyResources(this.labelJiaoPC, "labelJiaoPC");
+            this.labelJiaoPC.BackColor = System.Drawing.Color.Transparent;
+            this.labelJiaoPC.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.labelJiaoPC.Name = "labelJiaoPC";
+            this.labelJiaoPC.Tag = "custom";
+            // 
+            // label14
+            // 
+            resources.ApplyResources(this.label14, "label14");
+            this.label14.BackColor = System.Drawing.Color.Transparent;
+            this.label14.ForeColor = System.Drawing.Color.White;
+            this.label14.Name = "label14";
+            this.label14.Tag = "custom";
+            // 
+            // label18
+            // 
+            resources.ApplyResources(this.label18, "label18");
+            this.label18.BackColor = System.Drawing.Color.Transparent;
+            this.label18.ForeColor = System.Drawing.Color.White;
+            this.label18.Name = "label18";
+            this.label18.Tag = "custom";
+            // 
+            // label2
+            // 
+            resources.ApplyResources(this.label2, "label2");
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Name = "label2";
+            this.label2.Tag = "custom";
+            // 
+            // labelShuiPC
+            // 
+            resources.ApplyResources(this.labelShuiPC, "labelShuiPC");
+            this.labelShuiPC.BackColor = System.Drawing.Color.Transparent;
+            this.labelShuiPC.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.labelShuiPC.Name = "labelShuiPC";
+            this.labelShuiPC.Tag = "custom";
+            // 
+            // labelGaoPC
+            // 
+            resources.ApplyResources(this.labelGaoPC, "labelGaoPC");
+            this.labelGaoPC.BackColor = System.Drawing.Color.Transparent;
+            this.labelGaoPC.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.labelGaoPC.Name = "labelGaoPC";
+            this.labelGaoPC.Tag = "custom";
+            // 
+            // label16
+            // 
+            resources.ApplyResources(this.label16, "label16");
+            this.label16.BackColor = System.Drawing.Color.Transparent;
+            this.label16.ForeColor = System.Drawing.Color.White;
+            this.label16.Name = "label16";
+            this.label16.Tag = "custom";
+            // 
+            // labelGroundspeed
+            // 
+            resources.ApplyResources(this.labelGroundspeed, "labelGroundspeed");
+            this.labelGroundspeed.BackColor = System.Drawing.Color.Transparent;
+            this.labelGroundspeed.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.labelGroundspeed.Name = "labelGroundspeed";
+            this.labelGroundspeed.Tag = "custom";
+            // 
+            // labelYawSpeed
+            // 
+            resources.ApplyResources(this.labelYawSpeed, "labelYawSpeed");
+            this.labelYawSpeed.BackColor = System.Drawing.Color.Transparent;
+            this.labelYawSpeed.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.labelYawSpeed.Name = "labelYawSpeed";
+            this.labelYawSpeed.Tag = "custom";
+            // 
+            // label10
+            // 
+            resources.ApplyResources(this.label10, "label10");
+            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.ForeColor = System.Drawing.Color.White;
+            this.label10.Name = "label10";
+            this.label10.Tag = "custom";
+            // 
+            // label12
+            // 
+            resources.ApplyResources(this.label12, "label12");
+            this.label12.BackColor = System.Drawing.Color.Transparent;
+            this.label12.ForeColor = System.Drawing.Color.White;
+            this.label12.Name = "label12";
+            this.label12.Tag = "custom";
+            // 
             // label1
             // 
             resources.ApplyResources(this.label1, "label1");
@@ -1181,7 +1288,7 @@ namespace MissionPlanner.GCSViews
             this.windDir1.BackColor = System.Drawing.Color.Transparent;
             this.windDir1.DataBindings.Add(new System.Windows.Forms.Binding("Direction", this.bindingSource1, "wind_dir", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.windDir1.DataBindings.Add(new System.Windows.Forms.Binding("Speed", this.bindingSource1, "wind_vel", true, System.Windows.Forms.DataSourceUpdateMode.Never));
-            this.windDir1.Direction = 180D;
+            this.windDir1.Direction = 360D;
             resources.ApplyResources(this.windDir1, "windDir1");
             this.windDir1.Name = "windDir1";
             this.windDir1.Speed = 0D;
@@ -1238,7 +1345,7 @@ namespace MissionPlanner.GCSViews
             // 
             // gMapControl1
             // 
-            this.gMapControl1.BackColor = System.Drawing.Color.Black;
+            this.gMapControl1.BackColor = System.Drawing.Color.Transparent;
             this.gMapControl1.Bearing = 0F;
             this.gMapControl1.CanDragMap = true;
             resources.ApplyResources(this.gMapControl1, "gMapControl1");
@@ -1271,6 +1378,26 @@ namespace MissionPlanner.GCSViews
             // 
             resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
+            // 
+            // contextMenuStripQuickView
+            // 
+            this.contextMenuStripQuickView.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.setViewCountToolStripMenuItem,
+            this.undockToolStripMenuItem});
+            this.contextMenuStripQuickView.Name = "contextMenuStripQuickView";
+            resources.ApplyResources(this.contextMenuStripQuickView, "contextMenuStripQuickView");
+            // 
+            // setViewCountToolStripMenuItem
+            // 
+            this.setViewCountToolStripMenuItem.Name = "setViewCountToolStripMenuItem";
+            resources.ApplyResources(this.setViewCountToolStripMenuItem, "setViewCountToolStripMenuItem");
+            this.setViewCountToolStripMenuItem.Click += new System.EventHandler(this.setViewCountToolStripMenuItem_Click);
+            // 
+            // undockToolStripMenuItem
+            // 
+            this.undockToolStripMenuItem.Name = "undockToolStripMenuItem";
+            resources.ApplyResources(this.undockToolStripMenuItem, "undockToolStripMenuItem");
+            this.undockToolStripMenuItem.Click += new System.EventHandler(this.undockDockToolStripMenuItem_Click);
             // 
             // toolTip1
             // 
@@ -1517,6 +1644,18 @@ namespace MissionPlanner.GCSViews
             this.CMB_action.FormattingEnabled = true;
             this.CMB_action.Name = "CMB_action";
             // 
+            // uptimer1
+            // 
+            this.uptimer1.Tick += new System.EventHandler(this.uptimer1_Tick);
+            // 
+            // uptimer2
+            // 
+            this.uptimer2.Tick += new System.EventHandler(this.uptimer2_Tick);
+            // 
+            // bindingSourceQuickTab
+            // 
+            this.bindingSourceQuickTab.DataSource = typeof(MissionPlanner.CurrentState);
+            // 
             // bindingSourceGaugesTab
             // 
             this.bindingSourceGaugesTab.DataSource = typeof(MissionPlanner.CurrentState);
@@ -1528,14 +1667,6 @@ namespace MissionPlanner.GCSViews
             // bindingSourceStatusTab
             // 
             this.bindingSourceStatusTab.DataSource = typeof(MissionPlanner.CurrentState);
-            // 
-            // uptimer1
-            // 
-            this.uptimer1.Tick += new System.EventHandler(this.uptimer1_Tick);
-            // 
-            // uptimer2
-            // 
-            this.uptimer2.Tick += new System.EventHandler(this.uptimer2_Tick);
             // 
             // distanceBar1
             // 
@@ -1662,8 +1793,6 @@ namespace MissionPlanner.GCSViews
             this.tabExamConfig.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
-            this.contextMenuStripQuickView.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceQuickTab)).EndInit();
             this.tabPagemessages.ResumeLayout(false);
             this.tabPagemessages.PerformLayout();
             this.tableMap.ResumeLayout(false);
@@ -1672,9 +1801,13 @@ namespace MissionPlanner.GCSViews
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.contextMenuStripMap.ResumeLayout(false);
+            this.myPanel1.ResumeLayout(false);
+            this.myPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Zoomlevel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonStart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
+            this.contextMenuStripQuickView.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceQuickTab)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceGaugesTab)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourcePayloadTab)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceStatusTab)).EndInit();
@@ -1837,5 +1970,18 @@ namespace MissionPlanner.GCSViews
         private Controls.MyButton buttonCofirm;
         private Timer uptimer1;
         private Timer uptimer2;
+        private Label label2;
+        private Label labelGroundHight;
+        private Label labelYawSpeed;
+        private Label label12;
+        private Label labelGroundspeed;
+        private Label label10;
+        private Label labelJiaoPC;
+        private Label label18;
+        private Label labelGaoPC;
+        private Label label16;
+        private Label labelShuiPC;
+        private Label label14;
+        private MyPanel myPanel1;
     }
 }

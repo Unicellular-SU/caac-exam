@@ -561,7 +561,7 @@ namespace MissionPlanner.GCSViews
         // 初始化考试相关组件
         private void InitComp()
         {
-            this.label4.Parent = this.gMapControl1;
+            this.myPanel1.Parent = this.gMapControl1;
         }
 
         public void Activate()
@@ -4310,23 +4310,23 @@ namespace MissionPlanner.GCSViews
 
         private void scriptChecker_Tick(object sender, EventArgs e)
         {
-            if (!scriptrunning)
-            {
+            //if (!scriptrunning)
+            //{
 
-                scriptChecker.Enabled = false;
+            //    scriptChecker.Enabled = false;
 
-            }
-            else if ((script != null)  && (!outputwindowstarted))
-            {
-                outputwindowstarted = true;
+            //}
+            //else if ((script != null)  && (!outputwindowstarted))
+            //{
+            //    outputwindowstarted = true;
 
-                ScriptConsole console = new ScriptConsole();
-                console.SetScript(script);
-                ThemeManager.ApplyThemeTo(console);
-                console.Show();
-                console.BringToFront();
-                components.Add(console);
-            }
+            //    ScriptConsole console = new ScriptConsole();
+            //    console.SetScript(script);
+            //    ThemeManager.ApplyThemeTo(console);
+            //    console.Show();
+            //    console.BringToFront();
+            //    components.Add(console);
+            //}
         }
 
         private void setAspectRatioToolStripMenuItem_Click(object sender, EventArgs e)
@@ -6246,7 +6246,5 @@ namespace MissionPlanner.GCSViews
             gMapControl1.Position = mintongLocation;
             gMapControl1.Zoom = 22.1;
         }
-
-
     }
 }
