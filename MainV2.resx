@@ -238,7 +238,10 @@
     <value>2</value>
   </data>
   <data name="cmb_Connection.Location" type="System.Drawing.Point, System.Drawing">
-    <value>362, 18</value>
+    <value>864, 18</value>
+  </data>
+  <data name="cmb_Connection.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 30, 3, 3</value>
   </data>
   <data name="cmb_Connection.Size" type="System.Drawing.Size, System.Drawing">
     <value>121, 20</value>
@@ -380,30 +383,6 @@
   <data name="&gt;&gt;pictureBox3.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="toolStripConnectionControl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>744, 0</value>
-  </data>
-  <data name="toolStripConnectionControl.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>200, 47</value>
-  </data>
-  <data name="toolStripConnectionControl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>238, 47</value>
-  </data>
-  <data name="toolStripConnectionControl.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;toolStripConnectionControl.Name" xml:space="preserve">
-    <value>toolStripConnectionControl</value>
-  </data>
-  <data name="&gt;&gt;toolStripConnectionControl.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.ConnectionControl, MissionPlanner, Version=1.3.9209.24765, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;toolStripConnectionControl.Parent" xml:space="preserve">
-    <value>myPanel1</value>
-  </data>
-  <data name="&gt;&gt;toolStripConnectionControl.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
   <data name="labelStar.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -432,7 +411,7 @@
     <value>myPanel1</value>
   </data>
   <data name="&gt;&gt;labelStar.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>4</value>
   </data>
   <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -481,7 +460,7 @@
     <value>myPanel1</value>
   </data>
   <data name="&gt;&gt;pictureBox2.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>5</value>
   </data>
   <data name="labelDian.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -511,7 +490,7 @@
     <value>myPanel1</value>
   </data>
   <data name="&gt;&gt;labelDian.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>6</value>
   </data>
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -582,7 +561,7 @@
     <value>myPanel1</value>
   </data>
   <data name="&gt;&gt;pictureBox1.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>7</value>
   </data>
   <data name="myPanel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -651,7 +630,7 @@
     <value>status1</value>
   </data>
   <data name="&gt;&gt;status1.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.Status, MissionPlanner, Version=1.3.9209.24765, Culture=neutral, PublicKeyToken=null</value>
+    <value>MissionPlanner.Controls.Status, MissionPlanner, Version=1.3.9209.26243, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;status1.Parent" xml:space="preserve">
     <value>panel1</value>
@@ -2353,6 +2332,9 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAA=
 </value>
+  </data>
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>

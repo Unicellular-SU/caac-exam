@@ -336,7 +336,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                 {
                     comPort = new SerialPort();
                     comPort.PortName = MainV2.comPortName;
-                    comPort.BaudRate = int.Parse(MainV2._connectionControl.CMB_baudrate.Text);
+                    comPort.BaudRate = 57600;
                     comPort.ReadBufferSize = 1024 * 1024 * 4;
                 }
                 catch
@@ -376,7 +376,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
                 // test moving baud rate line
 
-                comPort.BaudRate = int.Parse(MainV2._connectionControl.CMB_baudrate.Text);
+                comPort.BaudRate = 57600;
 
                 if (px4)
                 {

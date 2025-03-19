@@ -48,18 +48,17 @@ namespace MissionPlanner
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new MyPanel();
             this.myPanel1 = new MyPanel();
+            this.cmb_Connection = new System.Windows.Forms.ComboBox();
             this.pictureBoxConnect = new System.Windows.Forms.PictureBox();
             this.labelLocation = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.toolStripConnectionControl = new MissionPlanner.Controls.ConnectionControl();
             this.labelStar = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.labelDian = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.status1 = new MissionPlanner.Controls.Status();
             this.imageRenderer1 = new BrightIdeasSoftware.ImageRenderer();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.cmb_Connection = new System.Windows.Forms.ComboBox();
+            this.status1 = new MissionPlanner.Controls.Status();
             this.CTX_mainmenu.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -160,7 +159,6 @@ namespace MissionPlanner
             this.myPanel1.Controls.Add(this.pictureBoxConnect);
             this.myPanel1.Controls.Add(this.labelLocation);
             this.myPanel1.Controls.Add(this.pictureBox3);
-            this.myPanel1.Controls.Add(this.toolStripConnectionControl);
             this.myPanel1.Controls.Add(this.labelStar);
             this.myPanel1.Controls.Add(this.pictureBox2);
             this.myPanel1.Controls.Add(this.labelDian);
@@ -169,6 +167,14 @@ namespace MissionPlanner
             this.myPanel1.Name = "myPanel1";
             this.myPanel1.Opacity = 0;
             this.myPanel1.Tag = "custom";
+            // 
+            // cmb_Connection
+            // 
+            this.cmb_Connection.FormattingEnabled = true;
+            resources.ApplyResources(this.cmb_Connection, "cmb_Connection");
+            this.cmb_Connection.Name = "cmb_Connection";
+            this.cmb_Connection.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.cmb_Connection_DrawItem);
+            this.cmb_Connection.Click += new System.EventHandler(this.cmb_Connection_Click);
             // 
             // pictureBoxConnect
             // 
@@ -189,13 +195,6 @@ namespace MissionPlanner
             resources.ApplyResources(this.pictureBox3, "pictureBox3");
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.TabStop = false;
-            // 
-            // toolStripConnectionControl
-            // 
-            this.toolStripConnectionControl.BackColor = System.Drawing.Color.Transparent;
-            resources.ApplyResources(this.toolStripConnectionControl, "toolStripConnectionControl");
-            this.toolStripConnectionControl.Name = "toolStripConnectionControl";
-            this.toolStripConnectionControl.MouseLeave += new System.EventHandler(this.MainMenu_MouseLeave);
             // 
             // labelStar
             // 
@@ -221,21 +220,15 @@ namespace MissionPlanner
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.TabStop = false;
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // status1
             // 
             resources.ApplyResources(this.status1, "status1");
             this.status1.Name = "status1";
             this.status1.Percent = 0D;
-            // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // cmb_Connection
-            // 
-            this.cmb_Connection.FormattingEnabled = true;
-            resources.ApplyResources(this.cmb_Connection, "cmb_Connection");
-            this.cmb_Connection.Name = "cmb_Connection";
             // 
             // MainV2
             // 
@@ -246,6 +239,7 @@ namespace MissionPlanner
             this.KeyPreview = true;
             this.MainMenuStrip = this.MainMenu;
             this.Name = "MainV2";
+            this.Load += new System.EventHandler(this.MainV2_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainV2_KeyDown);
             this.Resize += new System.EventHandler(this.MainV2_Resize);
             this.CTX_mainmenu.ResumeLayout(false);
@@ -282,7 +276,6 @@ namespace MissionPlanner
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Timer timer1;
         private MyPanel panel2;
-        private Controls.ConnectionControl toolStripConnectionControl;
         private System.Windows.Forms.PictureBox pictureBoxConnect;
         private System.Windows.Forms.ComboBox cmb_Connection;
     }

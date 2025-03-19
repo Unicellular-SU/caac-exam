@@ -585,13 +585,6 @@ namespace MissionPlanner
         private Form connectionStatsForm;
         private ConnectionStats _connectionStats;
 
-        /// <summary>
-        /// This 'Control' is the toolstrip control that holds the comport combo, baudrate combo etc
-        /// Otiginally seperate controls, each hosted in a toolstip sqaure, combined into this custom
-        /// control for layout reasons.
-        /// </summary>
-        public static ConnectionControl _connectionControl;
-
         public static bool TerminalTheming = true;
 
         public void updateLayout(object sender, EventArgs e)
@@ -728,13 +721,7 @@ namespace MissionPlanner
             comPort.BaseStream.BaudRate = 57600;
             ((SerialPort)comPort.BaseStream).espFix = Settings.Instance.GetBoolean("CHK_rtsresetesp32", false);
 
-            _connectionControl = toolStripConnectionControl;
-            _connectionControl.CMB_baudrate.TextChanged += this.CMB_baudrate_TextChanged;
-            _connectionControl.CMB_serialport.SelectedIndexChanged += this.CMB_serialport_SelectedIndexChanged;
-            _connectionControl.CMB_serialport.Click += this.CMB_serialport_Click;
-            _connectionControl.cmb_sysid.Click += cmb_sysid_Click;
 
-            _connectionControl.ShowLinkStats += (sender, e) => ShowConnectionStatsForm();
             srtm.datadirectory = $"{Settings.GetDataDirectory()}srtm";
 
             var t = Type.GetType("Mono.Runtime");
@@ -755,11 +742,7 @@ namespace MissionPlanner
             new Transition(new TransitionType_EaseInEaseOut(2000));
 
             PopulateSerialportList();
-            if (_connectionControl.CMB_serialport.Items.Count > 0)
-            {
-                _connectionControl.CMB_baudrate.SelectedIndex = 0;
-                _connectionControl.CMB_serialport.SelectedIndex = 0;
-            }
+
             // ** Done
 
             splash?.Refresh();
@@ -769,12 +752,6 @@ namespace MissionPlanner
             string temp = Settings.Instance.ComPort;
             if (!string.IsNullOrEmpty(temp))
             {
-                _connectionControl.CMB_serialport.SelectedIndex = _connectionControl.CMB_serialport.FindString(temp);
-                if (_connectionControl.CMB_serialport.SelectedIndex == -1)
-                {
-                    _connectionControl.CMB_serialport.Text = temp; // allows ports that dont exist - yet
-                }
-
                 comPort.BaseStream.PortName = temp;
                 comPortName = temp;
             }
@@ -782,15 +759,6 @@ namespace MissionPlanner
             string temp2 = Settings.Instance.BaudRate;
             if (!string.IsNullOrEmpty(temp2))
             {
-                var idx = _connectionControl.CMB_baudrate.FindString(temp2);
-                if (idx == -1)
-                {
-                    _connectionControl.CMB_baudrate.Text = temp2;
-                }
-                else
-                {
-                    _connectionControl.CMB_baudrate.SelectedIndex = idx;
-                }
 
                 comPortBaud = int.Parse(temp2);
             }
@@ -1087,10 +1055,6 @@ namespace MissionPlanner
             //this.myPanel1.Visible = false;
         }
 
-        void cmb_sysid_Click(object sender, EventArgs e)
-        {
-            MainV2._connectionControl.UpdateSysIDS();
-        }
 
         void comPort_MavChanged(object sender, EventArgs e)
         {
@@ -1247,30 +1211,13 @@ namespace MissionPlanner
             ThemeManager.ApplyThemeTo(this.connectionStatsForm);
         }
 
-        private void CMB_serialport_Click(object sender, EventArgs e)
-        {
-            string oldport = _connectionControl.CMB_serialport.Text;
-            PopulateSerialportList();
-            if (_connectionControl.CMB_serialport.Items.Contains(oldport))
-                _connectionControl.CMB_serialport.Text = oldport;
-        }
 
         private void PopulateSerialportList()
         {
-            _connectionControl.CMB_serialport.Items.Clear();
-
-            _connectionControl.CMB_serialport.Items.Add("AUTO");
-            _connectionControl.CMB_serialport.Items.AddRange(SerialPort.GetPortNames());
-
-            _connectionControl.CMB_serialport.Items.Add("TCP");
-            _connectionControl.CMB_serialport.Items.Add("UDP");
-            _connectionControl.CMB_serialport.Items.Add("UDPCl");
-            _connectionControl.CMB_serialport.Items.Add("WS");
-
-            foreach (var item in ExtraConnectionList)
-            {
-                _connectionControl.CMB_serialport.Items.Add(item.Label);
-            }
+            cmb_Connection.Items.Clear();
+            ComboBox.ObjectCollection items = cmb_Connection.Items;
+            object[] portNames = SerialPort.GetPortNames();
+            items.AddRange(portNames);
         }
 
         private void MenuFlightData_Click(object sender, EventArgs e)
@@ -1416,99 +1363,32 @@ namespace MissionPlanner
         {
             bool skipconnectcheck = false;
             log.Info($"We are connecting to {portname} {baud}");
-            switch (portname)
+
+            // 只保留端口连接
+            var extraconfig = ExtraConnectionList.Any(a => a.Label == portname);
+            if (extraconfig)
             {
-                case "preset":
-                    skipconnectcheck = true;
-                    this.BeginInvokeIfRequired(() =>
-                    {
-                        if (comPort.BaseStream is TcpSerial)
-                            _connectionControl.CMB_serialport.Text = "TCP";
-                        if (comPort.BaseStream is UdpSerial)
-                            _connectionControl.CMB_serialport.Text = "UDP";
-                        if (comPort.BaseStream is UdpSerialConnect)
-                            _connectionControl.CMB_serialport.Text = "UDPCl";
-                        if (comPort.BaseStream is SerialPort)
-                        {
-                            _connectionControl.CMB_serialport.Text = comPort.BaseStream.PortName;
-                            _connectionControl.CMB_baudrate.Text = comPort.BaseStream.BaudRate.ToString();
-                            ((SerialPort)comPort.BaseStream).espFix = Settings.Instance.GetBoolean("CHK_rtsresetesp32", false);
+                var config = ExtraConnectionList.First(a => a.Label == portname);
+                config.Enabled = true;
+                AutoConnect.ProcessEntry(config);
+                return;
+            }
 
-                        }
-                    });
-                    break;
-                case "TCP":
-                    comPort.BaseStream = new TcpSerial();
-                    _connectionControl.CMB_serialport.Text = "TCP";
-                    break;
-                case "UDP":
-                    comPort.BaseStream = new UdpSerial();
-                    _connectionControl.CMB_serialport.Text = "UDP";
-                    break;
-                case "WS":
-                    comPort.BaseStream = new WebSocket();
-                    _connectionControl.CMB_serialport.Text = "WS";
-                    break;
-                case "UDPCl":
-                    comPort.BaseStream = new UdpSerialConnect();
-                    _connectionControl.CMB_serialport.Text = "UDPCl";
-                    break;
-                case "AUTO":
-                    // do autoscan
-                    Comms.CommsSerialScan.Scan(true);
-                    DateTime deadline = DateTime.Now.AddSeconds(50);
-                    ProgressReporterDialogue prd = new ProgressReporterDialogue();
-                    prd.UpdateProgressAndStatus(-1, "Waiting for ports");
-                    prd.DoWork += sender =>
-                    {
-                        while (Comms.CommsSerialScan.foundport == false || Comms.CommsSerialScan.run == 1)
-                        {
-                            System.Threading.Thread.Sleep(500);
-                            Console.WriteLine("wait for port " + CommsSerialScan.foundport + " or " +
-                                              CommsSerialScan.run);
-                            if (sender.doWorkArgs.CancelRequested)
-                            {
-                                sender.doWorkArgs.CancelAcknowledged = true;
-                                return;
-                            }
+            var customport = CustomPortList.Any(a => a.Key.IsMatch(portname));
+            if (customport)
+            {
+                comPort.BaseStream = CustomPortList.First(a => a.Key.IsMatch(portname)).Value(portname, baud);
+            }
+            else
+            {
+                comPort.BaseStream = new SerialPort();
+                ((SerialPort)comPort.BaseStream).espFix = Settings.Instance.GetBoolean("CHK_rtsresetesp32", false);
 
-                            if (DateTime.Now > deadline)
-                            {
-                                _connectionControl.IsConnected(false);
-                                throw new Exception(Strings.Timeout);
-                            }
-                        }
-                    };
-                    prd.RunBackgroundOperationAsync();
-                    return;
-                default:
-                    var extraconfig = ExtraConnectionList.Any(a => a.Label == portname);
-                    if (extraconfig)
-                    {
-                        var config = ExtraConnectionList.First(a => a.Label == portname);
-                        config.Enabled = true;
-                        AutoConnect.ProcessEntry(config);
-                        return;
-                    }
-
-                    var customport = CustomPortList.Any(a => a.Key.IsMatch(portname));
-                    if (customport)
-                    {
-                        comPort.BaseStream = CustomPortList.First(a => a.Key.IsMatch(portname)).Value(portname, baud);
-                    }
-                    else
-                    {
-                        comPort.BaseStream = new SerialPort();
-                        ((SerialPort)comPort.BaseStream).espFix = Settings.Instance.GetBoolean("CHK_rtsresetesp32", false);
-
-                    }
-                    break;
             }
 
             // Tell the connection UI that we are now connected.
             this.BeginInvokeIfRequired(() =>
             {
-                _connectionControl.IsConnected(true);
 
                 // Here we want to reset the connection stats counter etc.
                 this.ResetConnectionStats();
@@ -1609,7 +1489,6 @@ namespace MissionPlanner
                     log.Info("comport is closed. existing connect");
                     try
                     {
-                        _connectionControl.IsConnected(false);
                         UpdateConnectIcon();
                         comPort.Close();
                     }
@@ -1695,13 +1574,9 @@ namespace MissionPlanner
 
                 this.BeginInvokeIfRequired(() =>
                 {
-                    _connectionControl.UpdateSysIDS();
+   
 
                     FlightData.CheckBatteryShow();
-
-                    // save the baudrate for this port
-                    Settings.Instance[_connectionControl.CMB_serialport.Text.Replace(" ","_") + "_BAUD"] =
-                        _connectionControl.CMB_baudrate.Text;
 
                     // refresh config window if needed
                     if (MyView.current != null && showui)
@@ -1788,7 +1663,6 @@ namespace MissionPlanner
                 log.Warn(ex);
                 try
                 {
-                    _connectionControl.IsConnected(false);
                     UpdateConnectIcon();
                     comPort.Close();
                 }
@@ -1852,10 +1726,8 @@ namespace MissionPlanner
             }
             else
             {
-                doConnect(comPort, _connectionControl.CMB_serialport.Text, _connectionControl.CMB_baudrate.Text);
+                doConnect(comPort, cmb_Connection.Text, "57600");
             }
-
-            _connectionControl.UpdateSysIDS();
 
             if (comPort.BaseStream.IsOpen)
             {
@@ -1935,35 +1807,6 @@ namespace MissionPlanner
                     });
                 }
 
-            }
-            catch
-            {
-            }
-        }
-
-        private void CMB_serialport_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (_connectionControl.CMB_serialport.SelectedItem == _connectionControl.CMB_serialport.Text)
-                return;
-
-            comPortName = _connectionControl.CMB_serialport.Text;
-            if (comPortName == "UDP" || comPortName == "UDPCl" || comPortName == "TCP" || comPortName == "AUTO")
-            {
-                _connectionControl.CMB_baudrate.Enabled = false;
-            }
-            else
-            {
-                _connectionControl.CMB_baudrate.Enabled = true;
-            }
-
-            try
-            {
-                // check for saved baud rate and restore
-                if (Settings.Instance[_connectionControl.CMB_serialport.Text.Replace(" ", "_") + "_BAUD"] != null)
-                {
-                    _connectionControl.CMB_baudrate.Text =
-                        Settings.Instance[_connectionControl.CMB_serialport.Text.Replace(" ", "_") + "_BAUD"];
-                }
             }
             catch
             {
@@ -2204,9 +2047,6 @@ namespace MissionPlanner
             {
                 log.Info("Saving config");
                 Settings.Instance.ComPort = comPortName;
-
-                if (_connectionControl != null)
-                    Settings.Instance.BaudRate = _connectionControl.CMB_baudrate.Text;
 
                 Settings.Instance.APMFirmware = MainV2.comPort.MAV.cs.firmware.ToString();
 
@@ -2451,7 +2291,6 @@ namespace MissionPlanner
                         {
                             this.pictureBoxConnect.Image = displayicons.disconnect;
                             this.pictureBoxConnect.Image.Tag = "Disconnect";
-                            _connectionControl.IsConnected(true);
                         });
                     }
                 }
@@ -2463,7 +2302,7 @@ namespace MissionPlanner
                         {
                             this.pictureBoxConnect.Image = displayicons.connect;
                             this.pictureBoxConnect.Image.Tag = "Connect";
-                            _connectionControl.IsConnected(false);
+
                             if (_connectionStats != null)
                             {
                                 _connectionStats.StopUpdates();
@@ -2471,10 +2310,6 @@ namespace MissionPlanner
                         });
                     }
 
-                    if (comPort.logreadmode)
-                    {
-                        this.BeginInvoke((MethodInvoker) delegate { _connectionControl.IsConnected(true); });
-                    }
                 }
 
                 connectButtonUpdate = DateTime.UtcNow;
@@ -3523,8 +3358,6 @@ namespace MissionPlanner
                                         Comports = Comports.Distinct().ToList();
                                     }
                                     catch { }
-
-                                    MainV2._connectionControl.UpdateSysIDS();
                                 });
 
                             }
@@ -3795,12 +3628,12 @@ namespace MissionPlanner
                     }
                 }
 
-                if (cmds.ContainsKey("port") && cmds.ContainsKey("baud"))
+                if (cmds.ContainsKey("port"))
                 {
-                    _connectionControl.CMB_serialport.Text = cmds["port"];
-                    _connectionControl.CMB_baudrate.Text = cmds["baud"];
+                    cmb_Connection.Text = cmds["port"];
 
-                    doConnect(MainV2.comPort, cmds["port"], cmds["baud"]);
+
+                    doConnect(MainV2.comPort, cmds["port"], "57600");
                 }
             }
 
@@ -4282,42 +4115,11 @@ namespace MissionPlanner
             }
         }
 
-        private void CMB_baudrate_TextChanged(object sender, EventArgs e)
-        {
-            if (!int.TryParse(_connectionControl.CMB_baudrate.Text, out comPortBaud))
-            {
-                CustomMessageBox.Show(Strings.InvalidBaudRate, Strings.ERROR);
-                return;
-            }
 
-            var sb = new StringBuilder();
-            int baud = 0;
-            for (int i = 0; i < _connectionControl.CMB_baudrate.Text.Length; i++)
-                if (char.IsDigit(_connectionControl.CMB_baudrate.Text[i]))
-                {
-                    sb.Append(_connectionControl.CMB_baudrate.Text[i]);
-                    baud = baud * 10 + _connectionControl.CMB_baudrate.Text[i] - '0';
-                }
-
-            if (_connectionControl.CMB_baudrate.Text != sb.ToString())
-            {
-                _connectionControl.CMB_baudrate.Text = sb.ToString();
-            }
-
-            try
-            {
-                if (baud > 0 && comPort.BaseStream.BaudRate != baud)
-                    comPort.BaseStream.BaudRate = baud;
-            }
-            catch (Exception)
-            {
-            }
-        }
 
         private void MainMenu_MouseLeave(object sender, EventArgs e)
         {
-            if (_connectionControl.PointToClient(Control.MousePosition).Y < MainMenu.Height)
-                return;
+            
 
             this.SuspendLayout();
 
@@ -4356,7 +4158,6 @@ namespace MissionPlanner
                 menu.Visible = false;
                 MainMenu.MouseLeave -= MainMenu_MouseLeave;
                 panel1.MouseLeave -= MainMenu_MouseLeave;
-                toolStripConnectionControl.MouseLeave -= MainMenu_MouseLeave;
                 this.ResumeLayout();
             }
             else
@@ -4366,7 +4167,6 @@ namespace MissionPlanner
                 panel1.Visible = false;
                 MainMenu.MouseLeave += MainMenu_MouseLeave;
                 panel1.MouseLeave += MainMenu_MouseLeave;
-                toolStripConnectionControl.MouseLeave += MainMenu_MouseLeave;
                 menu.Visible = true;
                 menu.SendToBack();
                 this.ResumeLayout();
@@ -4762,6 +4562,56 @@ namespace MissionPlanner
             // 电池电压
             double batteryVoltage = MainV2.comPort.MAV.cs.battery_voltage;
             labelDian.Text = batteryVoltage.ToString("F1");
+        }
+
+        private void cmb_Connection_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            if (e.Index >= 0)
+            {
+                ComboBox combo = sender as ComboBox;
+                if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
+                {
+                    e.Graphics.FillRectangle(new SolidBrush(SystemColors.Highlight), e.Bounds);
+                }
+                else
+                {
+                    e.Graphics.FillRectangle(new SolidBrush(combo.BackColor), e.Bounds);
+                }
+                string text = combo.Items[e.Index].ToString();
+                if (!MainV2.MONO)
+                {
+                    text = text + " " + SerialPort.GetNiceName(text);
+                }
+                e.Graphics.DrawString(text, e.Font, new SolidBrush(combo.ForeColor), new Point(e.Bounds.X, e.Bounds.Y));
+                e.DrawFocusRectangle();
+            }
+        }
+
+        private void cmb_Connection_Click(object sender, EventArgs e)
+        {
+            string oldport = cmb_Connection.Text;
+            PopulateSerialportList();
+            if (cmb_Connection.Items.Contains(oldport))
+            {
+                cmb_Connection.Text = oldport;
+            }
+        }
+
+        private void MainV2_Load(object sender, EventArgs e)
+        {
+            if (Settings.Instance["cmdSelected"] != null)
+            {
+                string[] portlist = SerialPort.GetPortNames();
+                string[] array = portlist;
+                foreach (string portname in array)
+                {
+                    if (portname == Settings.Instance["cmdSelected"])
+                    {
+                        cmb_Connection.Text = Settings.Instance["cmdSelected"];
+                        break;
+                    }
+                }
+            }
         }
     }
 }

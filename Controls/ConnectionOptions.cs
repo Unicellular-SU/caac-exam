@@ -41,8 +41,6 @@ namespace MissionPlanner.Controls
 
                 // It is now safe to fetch params
                 mav.getParamList();
-
-                MainV2._connectionControl.UpdateSysIDS();
             }
             catch (Exception)
             {
