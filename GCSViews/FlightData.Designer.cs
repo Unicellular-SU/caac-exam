@@ -180,6 +180,7 @@ namespace MissionPlanner.GCSViews
             this.modifyandSetSpeed = new MissionPlanner.Controls.ModifyandSet();
             this.modifyandSetAlt = new MissionPlanner.Controls.ModifyandSet();
             this.modifyandSetLoiterRad = new MissionPlanner.Controls.ModifyandSet();
+            this.labelMessage = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.MainH)).BeginInit();
             this.MainH.Panel1.SuspendLayout();
             this.MainH.Panel2.SuspendLayout();
@@ -582,7 +583,9 @@ namespace MissionPlanner.GCSViews
             // radio360
             // 
             resources.ApplyResources(this.radio360, "radio360");
+            this.radio360.Checked = true;
             this.radio360.Name = "radio360";
+            this.radio360.TabStop = true;
             this.radio360.Tag = "×ÔÐý";
             this.radio360.UseVisualStyleBackColor = true;
             this.radio360.CheckedChanged += new System.EventHandler(this.radiSubject_CheckedChanged);
@@ -590,9 +593,7 @@ namespace MissionPlanner.GCSViews
             // radio8
             // 
             resources.ApplyResources(this.radio8, "radio8");
-            this.radio8.Checked = true;
             this.radio8.Name = "radio8";
-            this.radio8.TabStop = true;
             this.radio8.Tag = "°Ë×Ö";
             this.radio8.UseVisualStyleBackColor = true;
             this.radio8.CheckedChanged += new System.EventHandler(this.radiSubject_CheckedChanged);
@@ -938,6 +939,7 @@ namespace MissionPlanner.GCSViews
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.ContextMenuStrip = this.contextMenuStripMap;
+            this.splitContainer1.Panel2.Controls.Add(this.labelMessage);
             this.splitContainer1.Panel2.Controls.Add(this.myPanel1);
             this.splitContainer1.Panel2.Controls.Add(this.label1);
             this.splitContainer1.Panel2.Controls.Add(this.but_disablejoystick);
@@ -1136,7 +1138,7 @@ namespace MissionPlanner.GCSViews
             this.myPanel1.Controls.Add(this.label10);
             this.myPanel1.Controls.Add(this.label12);
             this.myPanel1.Name = "myPanel1";
-            this.myPanel1.Opacity = 0;
+            this.myPanel1.Opacity = 20;
             this.myPanel1.Tag = "custom";
             // 
             // labelTime
@@ -1329,7 +1331,7 @@ namespace MissionPlanner.GCSViews
             this.windDir1.BackColor = System.Drawing.Color.Transparent;
             this.windDir1.DataBindings.Add(new System.Windows.Forms.Binding("Direction", this.bindingSource1, "wind_dir", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.windDir1.DataBindings.Add(new System.Windows.Forms.Binding("Speed", this.bindingSource1, "wind_vel", true, System.Windows.Forms.DataSourceUpdateMode.Never));
-            this.windDir1.Direction = 360D;
+            this.windDir1.Direction = 0D;
             resources.ApplyResources(this.windDir1, "windDir1");
             this.windDir1.Name = "windDir1";
             this.windDir1.Speed = 0D;
@@ -1719,7 +1721,7 @@ namespace MissionPlanner.GCSViews
             this.progressBar2.Minimum = 0;
             this.progressBar2.Name = "progressBar2";
             this.progressBar2.Value = 0;
-            this.progressBar2.ValueColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
+            this.progressBar2.ValueColor = System.Drawing.Color.DeepSkyBlue;
             // 
             // modifyandSetSpeed
             // 
@@ -1805,6 +1807,13 @@ namespace MissionPlanner.GCSViews
             0,
             0});
             this.modifyandSetLoiterRad.Click += new System.EventHandler(this.modifyandSetLoiterRad_Click);
+            // 
+            // labelMessage
+            // 
+            resources.ApplyResources(this.labelMessage, "labelMessage");
+            this.labelMessage.BackColor = System.Drawing.Color.Transparent;
+            this.labelMessage.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.labelMessage.Name = "labelMessage";
             // 
             // FlightData
             // 
@@ -2033,5 +2042,6 @@ namespace MissionPlanner.GCSViews
         private Label labelGameLife;
         private Label label9;
         private BSE.Windows.Forms.ProgressBar progressBar2;
+        private Label labelMessage;
     }
 }

@@ -3255,13 +3255,19 @@ namespace MissionPlanner
                             if (groundspeed > 0.5 && gps.cog != ushort.MaxValue)
                                 groundcourse = gps.cog * 1.0e-2f;
 
+                            // 修改功能： 防止出现-1导致自旋失败
+                            if (gps.yaw != ushort.MaxValue)
+                            {
+                                gpsyaw = gps.yaw / 100.0f;
+                            }
+
                             if (mavLinkMessage.ismavlink2)
                             {
                                 gpsh_acc = gps.h_acc / 1000.0f;
                                 gpsv_acc = gps.v_acc / 1000.0f;
                                 gpsvel_acc = gps.vel_acc / 1000.0f;
                                 gpshdg_acc = gps.hdg_acc / 1e5f;
-                                gpsyaw = gps.yaw / 100.0f;
+                                //gpsyaw = gps.yaw / 100.0f;
                             }
                             else
                             {
@@ -3269,8 +3275,9 @@ namespace MissionPlanner
                                 gpsv_acc = -1;
                                 gpsvel_acc = -1;
                                 gpshdg_acc = -1;
-                                gpsyaw = -1;
+                                //gpsyaw = -1;
                             }
+                            
 
                             //MAVLink.packets[(byte)MAVLink.MSG_NAMES.GPS_RAW);
                         }

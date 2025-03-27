@@ -564,6 +564,7 @@ namespace MissionPlanner.GCSViews
         private void InitComp()
         {
             this.myPanel1.Parent = this.gMapControl1;
+            this.labelMessage.Parent = this.gMapControl1;
         }
 
         public void Activate()
@@ -3940,6 +3941,7 @@ namespace MissionPlanner.GCSViews
             {
                 txt_messagebox.Text += Environment.NewLine + formattedMessage;
             }
+            labelMessage.Text = formattedMessage;
         }
 
         private void modifyandSetAlt_Click(object sender, EventArgs e)
