@@ -3333,7 +3333,7 @@ namespace MissionPlanner.GCSViews
                         if (route2 == null)
                         {
                             route2 = new GMapRoute(trackPoints2, "track");
-                            route2.Stroke = new Pen(Color.Red, 6f);
+                            route2.Stroke = new Pen(Color.Aqua, 6f);
                             routes2.Routes.Add(route2);
                         }
 
@@ -3415,42 +3415,7 @@ namespace MissionPlanner.GCSViews
 
                                 wpOverlay.overlay.ForceUpdate();
 
-                                try
-                                {
-                                    distanceBar1.ClearWPDist();
-
-                                    var i = -1;
-                                    var travdist = 0.0;
-                                    if (wpOverlay.pointlist.Count > 0)
-                                    {
-                                        var lastplla = wpOverlay.pointlist.Where(a => a != null).FirstOrDefault();
-                                        foreach (var plla in wpOverlay.pointlist)
-                                        {
-                                            i++;
-                                            if (plla == null)
-                                                continue;
-
-                                            var dist = lastplla.GetDistance(plla);
-
-                                            distanceBar1.AddWPDist((float) dist);
-
-                                            if (i <= MainV2.comPort.MAV.cs.wpno)
-                                            {
-                                                travdist += dist;
-                                            }
-                                        }
-                                    }
-
-                                    travdist -= MainV2.comPort.MAV.cs.wp_dist;
-
-                                    if (MainV2.comPort.MAV.cs.mode.ToUpper() == "AUTO")
-                                        distanceBar1.traveleddist = (float) travdist;
-
-                                }
-                                catch (Exception ex)
-                                {
-                                    log.Error(ex);
-                                }
+                                
                             }
 
                             RegeneratePolygon();
@@ -4024,7 +3989,7 @@ namespace MissionPlanner.GCSViews
 
         void mymap_Paint(object sender, PaintEventArgs e)
         {
-            distanceBar1.DoPaintRemote(e);
+         
         }
 
         void NoFly_NoFlyEvent(object sender, NoFly.NoFly.NoFlyEventArgs e)
@@ -4886,7 +4851,10 @@ namespace MissionPlanner.GCSViews
         private void updateRoutePosition()
         {
             // not async
-            BeginInvoke((Action) delegate { gMapControl1.UpdateRouteLocalPosition(route); });
+            BeginInvoke((Action) delegate { 
+                gMapControl1.UpdateRouteLocalPosition(route);
+                gMapControl1.UpdateRouteLocalPosition(route2);
+            });
         }
 
         private void zg1_DoubleClick(object sender, EventArgs e)
@@ -5633,10 +5601,10 @@ namespace MissionPlanner.GCSViews
 
             switch (btn.Tag)
             {
-                case "八字":
+                case "自旋":
                     selectB = 0;
                     break;
-                case "自旋":
+                case "八字":
                     selectB = 1;
                     break;
                 case "模拟考试":
@@ -6084,8 +6052,8 @@ namespace MissionPlanner.GCSViews
          */
         private void GameStart(int moshi)
         {
-            //progressBar2.Text = "0.0%";
-            //progressBar2.Value = 0;
+            progressBar2.Text = "0.0%";
+            progressBar2.Value = 0;
             labelShuiPC.Text = "0.0";
             labelGaoPC.Text = "0.0";
             labelJiaoPC.Text = "0.0";
@@ -6412,14 +6380,14 @@ namespace MissionPlanner.GCSViews
                     zxYawdiff = GetRotationDirection(yaw, yawSave);
                     yawSave = yaw;
                     addAng += zxYawdiff;
-                    //double jindu = Math.Abs(addAng) / 350.0 * 100.0;
-                    //if (jindu > 100.0)
-                    //{
-                    //    jindu = 100.0;
-                    //}
-                    // 删除功能：进度条
-                    //progressBar2.Text = Math.Round(jindu) + "%";
-                    //progressBar2.Value = (int)Math.Round(jindu);
+                    double jindu = Math.Abs(addAng) / 350.0 * 100.0;
+                    if (jindu > 100.0)
+                    {
+                        jindu = 100.0;
+                    }
+                    
+                    progressBar2.Text = Math.Round(jindu) + "%";
+                    progressBar2.Value = (int)Math.Round(jindu);
                     float gaodupiancha = pointz - zixuanHight;
                     labelGaoPC.Text = gaodupiancha.ToString("F1");
                     double dist2 = gMapControl1.MapProvider.Projection.GetDistance(new PointLatLngAlt(zixuanStartPoint.Lat, zixuanStartPoint.Lng), planPoint) * 1000.0;
@@ -6750,10 +6718,10 @@ namespace MissionPlanner.GCSViews
                             }
                         }
                     }
-                    // 删除功能：进度条
-                    //double jindu2 = (double)NowEntry / 721.0 * 100.0;
-                    //progressBar2.Text = Math.Round(jindu2) + "%";
-                    //progressBar2.Value = (int)Math.Round(jindu2);
+                    
+                    double jindu2 = (double)NowEntry / 721.0 * 100.0;
+                    progressBar2.Text = Math.Round(jindu2) + "%";
+                    progressBar2.Value = (int)Math.Round(jindu2);
                 }
             }
         }

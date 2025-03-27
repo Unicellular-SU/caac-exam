@@ -48,6 +48,7 @@ namespace MissionPlanner
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new MyPanel();
             this.myPanel1 = new MyPanel();
+            this.myPanel2 = new MyPanel();
             this.cmb_Connection = new System.Windows.Forms.ComboBox();
             this.pictureBoxConnect = new System.Windows.Forms.PictureBox();
             this.labelLocation = new System.Windows.Forms.Label();
@@ -56,19 +57,18 @@ namespace MissionPlanner
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.labelDian = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.status1 = new MissionPlanner.Controls.Status();
             this.imageRenderer1 = new BrightIdeasSoftware.ImageRenderer();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.myPanel2 = new MyPanel();
-            this.status1 = new MissionPlanner.Controls.Status();
             this.CTX_mainmenu.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.myPanel1.SuspendLayout();
+            this.myPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxConnect)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.myPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // MainMenu
@@ -170,6 +170,13 @@ namespace MissionPlanner
             this.myPanel1.Opacity = 0;
             this.myPanel1.Tag = "custom";
             // 
+            // myPanel2
+            // 
+            this.myPanel2.Controls.Add(this.cmb_Connection);
+            resources.ApplyResources(this.myPanel2, "myPanel2");
+            this.myPanel2.Name = "myPanel2";
+            this.myPanel2.Opacity = 0;
+            // 
             // cmb_Connection
             // 
             this.cmb_Connection.FormattingEnabled = true;
@@ -189,6 +196,7 @@ namespace MissionPlanner
             // labelLocation
             // 
             resources.ApplyResources(this.labelLocation, "labelLocation");
+            this.labelLocation.ForeColor = System.Drawing.Color.White;
             this.labelLocation.Name = "labelLocation";
             this.labelLocation.Tag = "custom";
             // 
@@ -201,6 +209,7 @@ namespace MissionPlanner
             // labelStar
             // 
             resources.ApplyResources(this.labelStar, "labelStar");
+            this.labelStar.ForeColor = System.Drawing.Color.White;
             this.labelStar.Name = "labelStar";
             this.labelStar.Tag = "custom";
             // 
@@ -213,6 +222,7 @@ namespace MissionPlanner
             // labelDian
             // 
             resources.ApplyResources(this.labelDian, "labelDian");
+            this.labelDian.ForeColor = System.Drawing.Color.White;
             this.labelDian.Name = "labelDian";
             this.labelDian.Tag = "custom";
             // 
@@ -222,22 +232,15 @@ namespace MissionPlanner
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.TabStop = false;
             // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // myPanel2
-            // 
-            this.myPanel2.Controls.Add(this.cmb_Connection);
-            resources.ApplyResources(this.myPanel2, "myPanel2");
-            this.myPanel2.Name = "myPanel2";
-            this.myPanel2.Opacity = 0;
-            // 
             // status1
             // 
             resources.ApplyResources(this.status1, "status1");
             this.status1.Name = "status1";
             this.status1.Percent = 0D;
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // MainV2
             // 
@@ -256,11 +259,11 @@ namespace MissionPlanner
             this.panel2.ResumeLayout(false);
             this.myPanel1.ResumeLayout(false);
             this.myPanel1.PerformLayout();
+            this.myPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxConnect)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.myPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

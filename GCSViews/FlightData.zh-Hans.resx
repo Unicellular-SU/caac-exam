@@ -323,7 +323,7 @@
     <value>考试配置</value>
   </data>
   <data name="tabExamOperation.Text" xml:space="preserve">
-    <value>操作</value>
+    <value>考试操作</value>
   </data>
   <data name="Gspeed.ToolTip" xml:space="preserve">
     <value>双击我改变最大值</value>
